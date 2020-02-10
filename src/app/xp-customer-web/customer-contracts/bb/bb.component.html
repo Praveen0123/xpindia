@@ -1,0 +1,167 @@
+<div fxLayout="row wrap" #resizedDiv>
+    <div class="flex-p w-100">
+        <app-master></app-master>
+        <div class="flex-p w-100">
+            <div class="row" style="margin-bottom:14px;">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="w-100 flex-p">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="w-100 flex-p">
+                        <!-- <button mat-raised-button class="pull-right add-hover-help btn-success-help" style="margin-left: 10px;">
+                        <mat-icon>help_outline</mat-icon> Help
+                    </button> -->
+
+                        <button mat-raised-button class="pull-right add-hover mgn-right btn-success" (click)="openContractDialog(null)">
+                        <mat-icon>person_add</mat-icon> Book Order
+                    </button>
+                        <label class="btn pull-right" style="background:#336699;color: white;padding-top: 8px !important;padding-bottom: 10px !important;;margin-right: 10px;">
+                        Upload CSV<input type="file" style="display: none;"  name="image">
+                    </label>
+                        <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hover margin-right-10" (click)="filterToggle = !filterToggle">
+                        <mat-icon>filter_list</mat-icon> Filter
+                    </button>
+                    </div>
+                </div>
+            </div>
+
+            <div fxLayout="row wrap">
+                <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100" *ngIf="filterToggle">
+                    <mat-card class="filter">
+                        <mat-card-content>
+                            <div class="row col-sm-12">
+                                <div class="col-sm-4">
+                                    <div class="col-sm-4 newMarginClass">
+                                        Origin:
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" placeholder="--Enter Origin--">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="col-sm-4 newMarginClass">
+                                        Destination:
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" placeholder="--Enter Destination--">
+                                    </div>
+                                </div>
+                                <div class="col-lg-1">
+                                    <button type="button" class="add-hover btn btn-success pull-right">Search</button>
+                                </div>
+                                <div class="col-lg-1">
+                                    <button type="button" class="btn filter-hover" style="background-color:#37474f; color:#fff !important">Clear</button>
+                                </div>
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+
+            <!-- <div fxLayout="row wrap">
+            <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100" *ngIf="filterToggle">
+                <mat-card class="filter">
+                    <mat-card-content>
+                        
+                        <div class="row col-sm-12">
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" placeholder=" Search Keyword">
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="col-sm-4 newMarginClass">
+                                    From:
+                                </div>
+                                <div class="col-sm-8">
+                                    
+                                    <div class="input-icon right">
+                                        <i class="fa fa-calendar" [owlDateTimeTrigger]="dt1"></i>
+                                        <input class="form-control" placeholder="MM/DD/YYYY" class="form-control" id="db" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" name="dt1" required>
+                                        <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="col-sm-4 newMarginClass">
+                                    TO:
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="input-icon right">
+                                        <i class="fa fa-calendar" [owlDateTimeTrigger]="dt2"></i>
+                                        <input class="form-control" placeholder="MM/DD/YYYY" class="form-control" id="db" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" name="dt2" required>
+                                        <owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-lg-1">
+                                <button type="button" class="add-hover btn btn-success pull-right">Search</button>
+                            </div>
+                            <div class="col-lg-1">
+                                <button type="button" class="btn filter-hover" style="background-color:#37474f; color:#fff !important">Clear</button>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div> -->
+            <div fxLayout="row wrap">
+                <div class="table-responsive ">
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead class="tbl-head">
+                            <tr class="tr-grid-header">
+                                <th>Origin</th>
+                                <th>PDD</th>
+                                <th>EDD</th>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Vehicle Type</th>
+                                <th>Value</th>
+                                <th>Piuckup Date</th>
+                                <th>Pickup Time</th>
+                                <th>Packages</th>
+                                <th>TAT (days)</th>
+                                <th>Map</th>
+                                <th>Network</th>
+                                <th>Tracking</th>
+                                <th>Invoice</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngIf="showEmpty">
+                                <td colspan="12">No records found</td>
+                            </tr>
+                            <tr *ngFor="let item of tableLists">
+                                <td>{{item.origin}}</td>
+                                <td>{{item.PDD}}</td>
+                                <td>{{item.EDD}}</td>
+                                <td>{{item.orderId}}</td>
+                                <td>{{item.customer}}</td>
+                                <td>{{item.vehType}}</td>
+                                <td>{{item.value}}</td>
+                                <td>{{item.pickupDate}}</td>
+                                <td>{{item.pickupTime}}</td>
+                                <td><a target="_blank" [routerLink]="['/instanttransport/operations/orders/bbdetails']">{{item.packages}}</a></td>
+                                <td>{{item.tat}}</td>
+
+                                <td><a target="_blank" [routerLink]="['/instanttransport/operations/orders/maps']"><i class="fa fa-map-o" style="cursor: pointer;;font-size:16px!important;"></i></a></td>
+                                <td><a target="_blank" style="color:#007ad9!important;cursor: pointer!important;" [routerLink]="['/instanttransport/operations/orders/network']">{{item.network}}</a></td>
+                                <td><a target="_blank" style="color:#007ad9!important;cursor: pointer!important;" [routerLink]="['/instanttransport/operations/orders/tracking']">View</a></td>
+                                <td><a target="_blank" href="../../../../assets/img/vendor/leaflet/Invoice.pdf" style="color:#007ad9!important;cursor: pointer!important;"><i class="fa fa-file-pdf-o" style="cursor: pointer;;font-size:16px!important;"></i></a></td>
+                                <td>{{item.status}}</td>
+                                <td>
+                                    <a matTooltip="Stop Order" style="margin-right: 10px; cursor: pointer;font-size:16px!important;color:red">
+                                        <i class="fa fa-minus-circle"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,221 @@
+<div fxLayout="row wrap">
+  <div class="col-sm-12">
+    <table id="example2" class="table table-bordered table-hover">
+      <thead class="tbl-head">
+        <tr class="tr-grid-header">
+          <th colspan="2">Past Medical and Family history information can be captured here</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-sm-6 col-xs-6">
+            Past Medical History<br>
+            <mat-select placeholder="--Select--" multiple class="form-control">
+              <mat-option *ngFor="let option of medicalOptions" [value]="">{{option}}</mat-option>
+            </mat-select>
+          </td>
+          <td class="col-sm-6 col-xs-6">
+            Past Medical History Freewrite<br>
+            <textarea class="form-control txtarea" placeholder="Enter comments" rows="2"></textarea>
+          </td> 
+        </tr>
+        <tr>
+          <td class="col-sm-6 col-xs-6">
+            Past Surgical History<br>
+            <mat-select placeholder="--Select--" multiple class="form-control">
+              <mat-option *ngFor="let option of surgicalOptions" [value]="">{{option}}</mat-option>
+            </mat-select>
+          </td>
+          <td class="col-sm-6 col-xs-6">
+            Comments<br>
+            <textarea class="form-control txtarea" placeholder="Enter comments" rows="2"></textarea>
+          </td> 
+        </tr>
+        <tr>
+          <td class="col-sm-6 col-xs-6">
+            Childhood illnesses<br>
+            <mat-select placeholder="--Select--" multiple class="form-control">
+              <mat-option *ngFor="let option of childOptions" [value]="">{{option}}</mat-option>
+            </mat-select>
+          </td>
+          <td class="col-sm-6 col-xs-6">
+            Comments<br>
+            <textarea class="form-control txtarea" placeholder="Enter comments" rows="2"></textarea>
+          </td> 
+        </tr>
+        <tr>
+          <td class="col-sm-6 col-xs-6">
+            Childhood Immunizations<br>
+            <mat-select placeholder="--Select--" multiple class="form-control">
+              <mat-option *ngFor="let option of immuzinations" [value]="">{{option}}</mat-option>
+            </mat-select>
+          </td>
+          <td class="col-sm-6 col-xs-6">
+            Comments<br>
+            <textarea class="form-control txtarea" placeholder="Enter comments" rows="2"></textarea>
+          </td> 
+        </tr>
+        <tr>
+          <td class="col-sm-6 col-xs-6">
+            Date of Last PE<br>
+            <div >
+              <!-- <i class="fa fa-calendar" [owlDateTimeTrigger]="dt1"></i> -->
+              <input style="cursor:pointer!important" class="form-control" placeholder="MM/DD/YYYY" class="form-control" id="db" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" name="dt1">
+              <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+            </div>
+          </td>
+          <td class="col-sm-6 col-xs-6">
+          </td> 
+        </tr>
+        <tr>
+          <td class="col-sm-6 col-xs-6">
+            PCP<br>
+            <mat-select placeholder="--Select--" multiple class="form-control">
+              <mat-option *ngFor="let option of locationOptions" [value]="">{{option}}</mat-option>
+            </mat-select>
+          </td>
+          <td class="col-sm-6 col-xs-6">
+            PCP Contact Information<br>
+            <textarea class="form-control txtarea" placeholder="Enter comments" rows="2"></textarea>
+          </td> 
+        </tr>
+        <tr>
+          <td class="col-sm-6 col-xs-6">
+            Father's MH<br>
+            <mat-select placeholder="--Select--" multiple class="form-control">
+              <mat-option *ngFor="let option of father" [value]="">{{option}}</mat-option>
+            </mat-select>
+          </td>
+          <td class="col-sm-6 col-xs-6">
+            Comments<br>
+            <textarea class="form-control txtarea" placeholder="Enter comments" rows="2"></textarea>
+          </td> 
+        </tr>
+        <tr>
+          <td class="col-sm-6 col-xs-6">
+            Mother's MH<br>
+            <mat-select placeholder="--Select--" multiple class="form-control">
+              <mat-option *ngFor="let option of father" [value]="">{{option}}</mat-option>
+            </mat-select>
+          </td>
+          <td class="col-sm-6 col-xs-6">
+            Comments<br>
+            <textarea class="form-control txtarea" placeholder="Enter comments" rows="2"></textarea>
+          </td> 
+        </tr>
+        <tr>
+          <td class="col-sm-6 col-xs-6">
+            Grandparent's MH<br>
+            <mat-select placeholder="--Select--" multiple class="form-control">
+              <mat-option *ngFor="let option of father" [value]="">{{option}}</mat-option>
+            </mat-select>
+          </td>
+          <td class="col-sm-6 col-xs-6">
+            Comments<br>
+            <textarea class="form-control txtarea" placeholder="Enter comments" rows="2"></textarea>
+          </td> 
+        </tr>
+        <tr>
+          <td class="col-sm-6 col-xs-6">
+            Children(s)' MH<br>
+            <mat-select placeholder="--Select--" multiple class="form-control">
+              <mat-option *ngFor="let option of father" [value]="">{{option}}</mat-option>
+            </mat-select>
+          </td>
+          <td class="col-sm-6 col-xs-6">
+            Comments<br>
+            <textarea class="form-control txtarea" placeholder="Enter comments" rows="2"></textarea>
+          </td> 
+        </tr>
+        <tr>
+          <td class="col-sm-6 col-xs-6">
+            Marital Status<br>
+            <mat-select placeholder="--Select--" class="form-control">
+              <mat-option *ngFor="let option of marriage" [value]="option">{{option}}</mat-option>
+            </mat-select>
+          </td>
+          <td class="col-sm-6 col-xs-6">
+          </td> 
+        </tr>
+        <tr>
+          <td class="col-sm-6 col-xs-6">
+            Living Arrangements<br>
+            <mat-select placeholder="--Select--" class="form-control">
+              <mat-option *ngFor="let option of living" [value]="option">{{option}}</mat-option>
+            </mat-select>
+          </td>
+          <td class="col-sm-6 col-xs-6">
+            Potential Environmental Pathogen<br>
+            <textarea class="form-control txtarea" placeholder="Enter comments" rows="2"></textarea>
+          </td> 
+        </tr>
+        <tr>
+          <td class="col-sm-6 col-xs-6">
+            Sexual Hx<br>
+            <mat-select placeholder="--Select--" class="form-control">
+              <mat-option *ngFor="let option of sex" [value]="option">{{option}}</mat-option>
+            </mat-select>
+          </td>
+          <td class="col-sm-6 col-xs-6">
+            Comments<br>
+            <textarea class="form-control txtarea" placeholder="Enter comments" rows="2"></textarea>
+          </td> 
+        </tr>
+        <tr>
+          <td class="col-sm-6 col-xs-6">
+            Occupation<br>
+            <textarea class="form-control txtarea" placeholder="Enter comments" rows="2"></textarea>
+          </td>
+          <td class="col-sm-6 col-xs-6">
+          </td> 
+        </tr>
+        <tr>
+          <td class="col-sm-6 col-xs-6">
+            Caffeine<br>
+            <mat-select placeholder="--Select--" class="form-control">
+              <mat-option *ngFor="let option of caffeine" [value]="option">{{option}}</mat-option>
+            </mat-select>
+          </td>
+          <td class="col-sm-6 col-xs-6">
+            Comments<br>
+            <textarea class="form-control txtarea" placeholder="Enter comments" rows="2"></textarea>
+          </td> 
+        </tr>
+        <tr>
+          <td class="col-sm-6 col-xs-6">
+            Alcohol <br>
+            <mat-select placeholder="--Select--" class="form-control">
+              <mat-option *ngFor="let option of alcohol" [value]="option">{{option}}</mat-option>
+            </mat-select>
+          </td>
+          <td class="col-sm-6 col-xs-6">
+            Comments<br>
+            <textarea class="form-control txtarea" placeholder="Enter comments" rows="2"></textarea>
+          </td> 
+        </tr>
+        <tr>
+          <td class="col-sm-6 col-xs-6">
+            Other substances <br>
+            <textarea class="form-control txtarea" placeholder="Enter comments" rows="2"></textarea>
+          </td>
+          <td class="col-sm-6 col-xs-6">
+          </td> 
+        </tr>
+        <tr>
+          <td class="col-sm-6 col-xs-6">
+            Patient's diet <br>
+            <textarea class="form-control txtarea" placeholder="Enter comments" rows="2"></textarea>
+          </td>
+          <td class="col-sm-6 col-xs-6">
+          </td> 
+        </tr>
+        <tr>
+          <td colspan="2">
+            Notes<br>
+            <textarea class="form-control txtarea" placeholder="Enter comments" rows="5"></textarea>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

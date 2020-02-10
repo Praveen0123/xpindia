@@ -1,0 +1,56 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title> Vehicle Details</h1>
+</div>
+<div mat-dialog-content>
+
+    <form class="form-horizontal" novalidate [formGroup]="vehicleForm">
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Vehicle Type: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" formControlName="vehicleType" maxlength="8" placeholder="Enter vehicle type" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Vehicle Number: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" formControlName="vehicleNumber" maxlength="12" placeholder="Enter vehicle number" required>
+            </div>
+        </div>
+    </form>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button [disabled]="!vehicleForm.valid" style="cursor:pointer;" [ngClass]="!vehicleForm.valid ? '' : 'btn-primary'" (click)="saveVehicle()"><mat-icon>add</mat-icon>&nbsp;Add</button>
+    <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+</mat-dialog-actions>
+
+<div fxLayout="row wrap" #resizedDiv style="margin-top:20px!important;">
+    <div class="flex-p w-100">
+        <div class="table-responsive">
+            <table id="example2" class="table table-bordered table-hover">
+                <thead class="tbl-head">
+                    <tr class="tr-grid-header">
+                        <th>Vehicle Type</th>
+                        <th>Vehicle Number</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of tableList">
+                        <td>{{item.vehicleType}}</td>
+                        <td>{{item.vehicleNumber}}</td>
+                        <td>
+                            <a mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" placement="left" (confirm)="deleteVehicle()" (cancel)="cancelClicked = true" [appendToBody]="true">
+                                <i style="cursor: pointer;font-size:16px!important;" matTooltip="Delete Vehicle" class="fa fa-trash red"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button class="btn-primary" (click)="closeDialog()" [mat-dialog-close]="'test'"><mat-icon>save</mat-icon>&nbsp;Close</button>
+</mat-dialog-actions>

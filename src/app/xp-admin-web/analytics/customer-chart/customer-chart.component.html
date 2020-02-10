@@ -1,0 +1,24 @@
+<div fxLayout="column">
+
+    <mat-card>
+        <mat-card-header fxLayoutAlign="center center">
+            <mat-card-subtitle>
+                <h2>Customers</h2>
+            </mat-card-subtitle>
+        </mat-card-header>
+        <div class="w-100 h-300p">
+            <ngx-charts-pie-chart [scheme]="colorScheme" [results]="single" [legend]="showLegend" [explodeSlices]="explodeSlices" [labels]="showLabels" [doughnut]="doughnut" [gradient]="gradient" [maxLabelLength]="100" (select)="onSelect($event)">
+            </ngx-charts-pie-chart>
+        </div>
+    </mat-card>
+
+</div>
+
+
+<!-- <ngx-charts-advanced-pie-chart
+[view]="view"
+[scheme]="colorScheme"
+[results]="single"
+[gradient]="gradient"
+(select)="onSelect($event)">
+</ngx-charts-advanced-pie-chart> -->

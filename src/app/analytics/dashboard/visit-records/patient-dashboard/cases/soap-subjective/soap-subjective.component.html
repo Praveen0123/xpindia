@@ -1,0 +1,328 @@
+<div fxLayout="row wrap">
+  <div class="col-sm-12">
+    <form novalidate [formGroup]="soapSubjectiveForm">
+      <table id="example2" class="table table-bordered table-hover">
+        <thead class="tbl-head">
+          <tr class="tr-grid-header">
+            <th colspan="3">Each item should be toggled to render the information</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              HPI [-]<br>
+              <mat-slide-toggle formControlName="hpiToggle" (change)="triggerDisableEvent()"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              HPI<br>
+              <textarea class="form-control txtarea" formControlName="hpiComments" placeholder="Enter here" rows="2"></textarea>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              Social [-]<br>
+              <mat-slide-toggle formControlName="socialToggle" (change)="triggerDisableEvent()"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Social HX<br>
+              <textarea class="form-control txtarea" formControlName="socialHxComments" placeholder="Enter here" rows="2"></textarea>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              Family [-]<br>
+              <mat-slide-toggle formControlName="familyToggle" (change)="triggerDisableEvent()"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Family HX<br>
+              <textarea class="form-control txtarea" formControlName="familyHxComments" placeholder="Enter here" rows="2"></textarea>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              Medical [-]<br>
+              <mat-slide-toggle formControlName="medicalToggle" (change)="triggerDisableEvent()"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Past Medical HX<br>
+              <textarea class="form-control txtarea" formControlName="pastMedicalHxComments" placeholder="Enter here" rows="2"></textarea>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              General [-]<br>
+              <mat-slide-toggle formControlName="generalToggle" (change)="triggerDisableEvent()"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5 ps">
+              General<br>
+              <mat-select placeholder="--Select Options--" formControlName="general" multiple class="form-control">
+                <mat-option *ngFor="let option of generalOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              General Comments<br>
+              <textarea class="form-control txtarea" formControlName="generalComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              Skin [-]<br>
+              <mat-slide-toggle formControlName="skinToggle" (change)="triggerDisableEvent()"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Skin<br>
+              <mat-select placeholder="--Select Options--" formControlName="skin" multiple class="form-control">
+                <mat-option *ngFor="let option of skinOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Skin Comments<br>
+              <textarea class="form-control txtarea" formControlName="skinComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              HEENT [-]<br>
+              <mat-slide-toggle formControlName="heentToggle" (change)="triggerDisableEvent()"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              HEENT<br>
+              <mat-select placeholder="--Select Options--" formControlName="heent" multiple class="form-control">
+                <mat-option *ngFor="let option of heentOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              HEENT Comments<br>
+              <textarea class="form-control txtarea" formControlName="heentComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              Neck [-]<br>
+              <mat-slide-toggle formControlName="neckToggle" (change)="triggerDisableEvent()"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Neck<br>
+              <mat-select placeholder="--Select Options--" formControlName="neck" multiple class="form-control">
+                <mat-option *ngFor="let option of neckOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Neck Comments<br>
+              <textarea class="form-control txtarea" formControlName="neckComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              Breasts [-]<br>
+              <mat-slide-toggle formControlName="breastToggle" (change)="triggerDisableEvent()"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Breasts<br>
+              <mat-select placeholder="--Select Options--" formControlName="breast" multiple class="form-control">
+                <mat-option *ngFor="let option of breastOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Breasts Comments<br>
+              <textarea class="form-control txtarea" formControlName="breastComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              Cardiovascular [-]<br>
+              <mat-slide-toggle formControlName="cardiovascularToggle" (change)="triggerDisableEvent()"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Cardiovascular<br>
+              <mat-select placeholder="--Select Options--" formControlName="cardiovascular" multiple class="form-control">
+                <mat-option *ngFor="let option of cardiovascularOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Cardiovascular Comments<br>
+              <textarea class="form-control txtarea" formControlName="cardiovascularComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              Respiratory [-]<br>
+              <mat-slide-toggle formControlName="respiratoryToggle" (change)="triggerDisableEvent()"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Respiratory<br>
+              <mat-select placeholder="--Select Options--" formControlName="respiratory" multiple class="form-control">
+                <mat-option *ngFor="let option of respiratoryOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Respiratory Comments<br>
+              <textarea class="form-control txtarea" formControlName="respiratoryComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              GI [-]<br>
+              <mat-slide-toggle formControlName="giToggle" (change)="triggerDisableEvent()"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              GI<br>
+              <mat-select placeholder="--Select Options--" formControlName="gi" multiple class="form-control">
+                <mat-option *ngFor="let option of giOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              GI Comments<br>
+              <textarea class="form-control txtarea" formControlName="giComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              Urinary [-]<br>
+              <mat-slide-toggle formControlName="urinaryToggle" (change)="triggerDisableEvent()"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Urinary <br>
+              <mat-select placeholder="--Select Options--" formControlName="urinary" multiple class="form-control">
+                <mat-option *ngFor="let option of urinaryOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Urinary Comments<br>
+              <textarea class="form-control txtarea" formControlName="urinaryComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              Genital (Male) [-]<br>
+              <mat-slide-toggle formControlName="genitalToggle" (change)="triggerDisableEvent()"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Genital (Male) <br>
+              <mat-select placeholder="--Select Options--" formControlName="genital" multiple class="form-control">
+                <mat-option *ngFor="let option of genitalMaleOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Genital (Male) Comments<br>
+              <textarea class="form-control txtarea" formControlName="genitalComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              Genital (Female) [-]<br>
+              <mat-slide-toggle formControlName="genitalFemaleToggle" (change)="triggerDisableEvent()"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Genital (Female) <br>
+              <mat-select placeholder="--Select Options--" formControlName="genitalFemale" multiple class="form-control">
+                <mat-option *ngFor="let option of genitalFemaleOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Genital (Female) Comments<br>
+              <textarea class="form-control txtarea" formControlName="genitalFemaleComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              Periph. Vasc. [-]<br>
+              <mat-slide-toggle formControlName="periphToggle" (change)="triggerDisableEvent()"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Periph. Vasc. <br>
+              <mat-select placeholder="--Select Options--" formControlName="periph" multiple class="form-control">
+                <mat-option *ngFor="let option of periphOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Periph. Vasc. Comments<br>
+              <textarea class="form-control txtarea" formControlName="periphComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              MSK [-]<br>
+              <mat-slide-toggle formControlName="mskToggle" (change)="triggerDisableEvent()"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              MSK <br>
+              <mat-select placeholder="--Select Options--" formControlName="msk" multiple class="form-control">
+                <mat-option *ngFor="let option of mskOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              MSK Comments<br>
+              <textarea class="form-control txtarea" formControlName="mskComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              Neurological [-]<br>
+              <mat-slide-toggle formControlName="neurologicalToggle" (change)="triggerDisableEvent()"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Neurological <br>
+              <mat-select placeholder="--Select Options--" formControlName="neurological" multiple class="form-control">
+                <mat-option *ngFor="let option of neurologicalOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Neurological Comments<br>
+              <textarea class="form-control txtarea" formControlName="neurologicalComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              Endocrine [-]<br>
+              <mat-slide-toggle formControlName="endocrineToggle" (change)="triggerDisableEvent()"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Endocrine <br>
+              <mat-select placeholder="--Select Options--" formControlName="endocrine" multiple class="form-control">
+                <mat-option *ngFor="let option of endocrineOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Endocrine Comments<br>
+              <textarea class="form-control txtarea" formControlName="endocrineComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              Psychiatric [-]<br>
+              <mat-slide-toggle formControlName="psychiatricToggle" (change)="triggerDisableEvent()"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Psychiatric <br>
+              <mat-select placeholder="--Select Options--" formControlName="psychiatric" multiple class="form-control">
+                <mat-option *ngFor="let option of PsychiatricOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Psychiatric Comments<br>
+              <textarea class="form-control txtarea" formControlName="psychiatricComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td colspan="3">
+              Notes<br>
+              <textarea class="form-control txtarea" formControlName="notes" placeholder="Enter comments" rows="5"></textarea>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+    <mat-dialog-actions align="end">
+      <button mat-raised-button style="cursor:pointer;" class="btn-success" (click)="saveForm()"><mat-icon>save</mat-icon>&nbsp;Save</button>
+    </mat-dialog-actions>
+  </div>
+</div>

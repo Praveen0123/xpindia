@@ -1,0 +1,554 @@
+<div class="NewHeader">
+    <i class="fa fa-times" aria-hidden="true" style="float: right !important;margin: 0 10px 0px 0;font-size: 17px;    cursor: pointer;" (click)="close()"></i>
+    <h1 mat-dialog-title><span *ngIf="!user">Add</span><span *ngIf="user">Edit</span> FFV</h1>
+    <!-- <label style="background-color:white;color: white !important;" class="pull-right" (click)="close()"><mat-icon>cancel</mat-icon></label> -->
+</div>
+<mat-horizontal-stepper #stepper>
+    <mat-step>
+        <div mat-dialog-content>
+            <form class="form-horizontal" novalidate [formGroup]="addCustomerForm">
+                <ng-template matStepLabel>Basic Details</ng-template>
+                <div class="form-group">
+                    <label class="control-label col-sm-4 add-member-label">Vendor Name: </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                        <input type="email" class="form-control" maxlength="100" (keypress)="omit_special_char($event)" formControlName="customerName" placeholder="Enter Customer Name" required>
+                        <div *ngIf="!customerName.valid && (customerName.dirty || customerName.touched)" class="error-text">
+                            <div *ngIf="customerName.errors.required">
+                                Vendor name is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="form-group">
+                  <label class="control-label col-sm-4 add-member-label">Last Name: </label>
+                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                    <input type="email" class="form-control" maxlength="100" (keypress)="omit_special_char($event)" formControlName="customerlastName" placeholder="Enter Last Name" required>
+                    <div *ngIf="!customerlastName.valid && (customerlastName.dirty || customerlastName.touched)" class="error-text">
+                      <div *ngIf="customerlastName.errors.required">
+                        Customer last name is required
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+                <div class="form-group">
+                    <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Email ID: </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                        <input type="text" email maxlength="100" formControlName="email" onDrag="return false" onDrop="return false" class="form-control" id="email" placeholder="Enter Email ID" required>
+                        <div *ngIf="!email.valid && (email.dirty || email.touched)" class="error-text">
+                            <div *ngIf="email.errors.required">
+                                Customer email is required.
+                            </div>
+                            <div *ngIf="email.errors.email">
+                                Enter a valid email
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Contact Number: </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                        <input type="text" formControlName="phone" maxlength="15" (keypress)="omit_all_char($event)" minlength="10" onDrag="return false" onDrop="return false" class="form-control" placeholder="Enter Contact Number" required>
+                        <div *ngIf="!phone.valid && (phone.dirty || phone.touched)" class="error-text">
+                            <div *ngIf="phone.errors.required">
+                                Contact number is required
+                            </div>
+                            <div *ngIf="phone.errors.minlength">
+                                Contact number should contain at least 10 numbers.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Country: </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                        <mat-select color="primary" formControlName="country" required placeholder="--Select Country--" class="form-control">
+                            <mat-option [value]="0">India</mat-option>
+                            <mat-option [value]="1">Germany</mat-option>
+                            <mat-option [value]="2">United States of America</mat-option>
+                            <mat-option [value]="3">United Kingdom</mat-option>
+                            <mat-option [value]="4">France</mat-option>
+                            <mat-option [value]="5">Spain</mat-option>
+                            <mat-option [value]="6">Italy</mat-option>
+                            <mat-option [value]="7">China</mat-option>
+                            <mat-option [value]="8">Austin</mat-option>
+                            <mat-option [value]="9">Greece</mat-option>
+                            <mat-option [value]="10">Hong Kong</mat-option>
+                        </mat-select>
+                        <div *ngIf="!country.valid && (country.dirty || country.touched)" class="error-text">
+                            <div *ngIf="country.errors.required">
+                                Country is required
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">State: </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                        <mat-select color="primary" formControlName="state" required placeholder="--Select State--" class="form-control">
+                            <mat-option [value]="0">Telangana</mat-option>
+                            <mat-option [value]="1">Andhra Pradesh</mat-option>
+                            <mat-option [value]="2">Tamil Nadu</mat-option>
+                            <mat-option [value]="3">Maharashtra</mat-option>
+                            <mat-option [value]="4">Uttar Pradesh</mat-option>
+                            <mat-option [value]="5">Rajasthan</mat-option>
+                            <mat-option [value]="6">Jammu and Kashmir</mat-option>
+                            <mat-option [value]="7">Bihar</mat-option>
+                            <mat-option [value]="8">Gujarat</mat-option>
+                            <mat-option [value]="9">Karnataka</mat-option>
+                            <mat-option [value]="10">Punjab</mat-option>
+                        </mat-select>
+                        <div *ngIf="!state.valid && (state.dirty || state.touched)" class="error-text">
+                            <div *ngIf="state.errors.required">
+                                State is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">City: </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                        <input type="text" formControlName="city" maxlength="30" (keypress)="omit_special_char($event)" onDrag="return false" onDrop="return false" class="form-control" placeholder="Enter City" required>
+                        <div *ngIf="!city.valid && (city.dirty || city.touched)" class="error-text">
+                            <div *ngIf="city.errors.required">
+                                City is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Postal Code: </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                        <input type="text" formControlName="postalCode" maxlength="8" (keypress)="omit_all_char($event)" onDrag="return false" onDrop="return false" class="form-control" placeholder="Enter Postal Code" required>
+                        <div *ngIf="!postalCode.valid && (postalCode.dirty || postalCode.touched)" class="error-text">
+                            <div *ngIf="postalCode.errors.required">
+                                Postal Code is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4 add-member-label">Address: </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                        <textarea class="form-control txtarea" maxlength="500" rows="2" formControlName="address" placeholder="Enter Customer Address" required></textarea>
+                        <div *ngIf="!address.valid && (address.dirty || address.touched)" class="error-text">
+                            <div *ngIf="address.errors.required">
+                                Customer address is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="form-group">
+                  <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Status: </label>
+                  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                    <mat-select formControlName="status" placeholder="-- Select Status --" class="form-control" required>
+                      <mat-option [value]=1>Active</mat-option>
+                      <mat-option [value]=2>Inactive</mat-option>
+                    </mat-select>
+                    <div *ngIf="!status.valid && (status.dirty || status.touched)" class="error-text">
+                      <div *ngIf="status.errors.required">
+                        Status is required
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+
+            </form>
+        </div>
+        <mat-dialog-actions align="end">
+            <button mat-raised-button [disabled]="!addCustomerForm.valid" [ngClass]="!addCustomerForm.valid ? '' : 'btn-primary'" matStepperNext><mat-icon>arrow_forward</mat-icon>Proceed</button>
+            <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hove" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+        </mat-dialog-actions>
+    </mat-step>
+
+    <mat-step>
+        <div mat-dialog-content>
+            <form class="form-horizontal" novalidate [formGroup]="addBasicDetails">
+                <ng-template matStepLabel>Billings</ng-template>
+                <div class="form-group">
+                    <label class="control-label col-sm-4 add-member-label"> Billing Office: </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                        <input type="text" formControlName="cmpName" class="form-control" placeholder="Enter Billing Office" required>
+                        <div *ngIf="!cmpName.valid && (cmpName.dirty || cmpName.touched)" class="error-text">
+                            <div *ngIf="cmpName.errors.required">
+                                Billing Office is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4 add-member-label" for="pwd">Client Abbrevation: </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                        <input type="text" formControlName="cmptype" class="form-control" placeholder="Enter Client Abbrevation" required>
+                        <!-- <mat-select color="primary" formControlName="cmptype" placeholder="--Select Type  --" class="form-control" required>
+                                <mat-option [value]="0">Sms</mat-option>
+                                <mat-option [value]="1">Calling</mat-option>
+                                <mat-option [value]="2">Sms</mat-option>
+                                <mat-option [value]="3">others</mat-option>
+                            </mat-select> -->
+                        <div *ngIf="!cmptype.valid && (cmptype.dirty || cmptype.touched)" class="error-text">
+                            <div *ngIf="cmptype.errors.required">
+                                Client Abbrevation is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Vendor Code Auto: </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                        <input type="text" class="form-control" formControlName="Product" placeholder="Enter Vendor Code Auto" required>
+                        <!-- <mat-select color="primary" formControlName="Product" placeholder="--Select Product/Project--" class="form-control" required>
+                                <mat-option [value]="0">Lodha Group</mat-option>
+                                <mat-option [value]="1">Lion Heart Contractors</mat-option>
+                                <mat-option [value]="2">National Construction Group</mat-option>
+                                <mat-option [value]="3">Skyline Contractors</mat-option>
+                            </mat-select> -->
+                        <div *ngIf="!Product.valid && (Product.dirty || Product.touched)" class="error-text">
+                            <div *ngIf="Product.errors.required">
+                                Vendor Code Auto is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4 add-member-label" for="pwd">PAN Number: </label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" formControlName="Assigned" placeholder="Enter PAN Number" required>
+                        <!-- <mat-select color="primary" formControlName="Assigned" multiple placeholder="--Select Product/Project--" class="form-control" required>
+                                <mat-option [value]="0">Praveen</mat-option>
+                                <mat-option [value]="1">Sai</mat-option>
+                                <mat-option [value]="2">Prasanth</mat-option>
+                                <mat-option [value]="3">Pradeep</mat-option>
+                            </mat-select> -->
+                        <div *ngIf="!Assigned.valid && (Assigned.dirty || Assigned.touched)" class="error-text">
+                            <div *ngIf="Assigned.errors.required">
+                                PAN Number to is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="form-group">
+                        <label class="control-label col-sm-4 add-member-label" for="pwd">Start Date : </label>
+                        <div class="col-sm-8">
+                            <input type="email" email formControlName="addEmail" class="form-control" placeholder="Enter Email" required>
+                            <div *ngIf="!addEmail.valid && (addEmail.dirty || addEmail.touched)" class="error-text">
+                                <div *ngIf="addEmail.errors.required">
+                                    Email is required
+                                </div>
+                                <div *ngIf="addEmail.errors.email">
+                                    Enter a valid email
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                <div class="form-group">
+                    <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Aadhar: </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                        <input type="text" class="form-control" formControlName="startdate" placeholder="Enter Aadhar " required>
+                        <!-- <div class="input-icon right">
+                                <i class="fa fa-calendar" [owlDateTimeTrigger]="dt1"></i>
+                                <input class="form-control" formControlName="startdate" placeholder="MM/DD/YYYY" class="form-control" id="db" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" name="dt1" required>
+                                <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+                            </div> -->
+
+                        <div *ngIf="!startdate.valid && (startdate.dirty || startdate.touched)" class="error-text">
+                            <div *ngIf="startdate.errors.required">
+                                Aadhar is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="form-group">
+                      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Referring Physician : </label>
+                      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                         
+                          <mat-select color="primary" formControlName="addReferringPhysician" placeholder="--Select Referring Physician--" class="form-control" required>
+                              <mat-option [value]="0">Domenic Vinci</mat-option>
+                              <mat-option [value]="1">Brad Kewalramani</mat-option>
+                              <mat-option [value]="2">Kipling Morton</mat-option>
+                              <mat-option [value]="3">Michael Persaud</mat-option>
+                              <mat-option [value]="4">Dan McCarthy</mat-option>
+                          </mat-select>
+                          <div *ngIf="!addReferringPhysician.valid && (addReferringPhysician.dirty || addReferringPhysician.touched)" class="error-text">
+                              <div *ngIf="addReferringPhysician.errors.required">
+                                  Referring Physician is required
+                              </div>
+                          </div>
+                      </div>
+                  </div> -->
+                <!-- <div class="form-group">
+                      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Attorney : </label>
+                      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                         
+                          <mat-select color="primary" formControlName="addAttorney" placeholder="--Select Attorney--" class="form-control" required>
+                              <mat-option [value]="0">Fabrice Vanegas</mat-option>
+                              <mat-option [value]="1">Stephen McGill</mat-option>
+                              <mat-option [value]="2">Otto Rieder</mat-option>
+                              <mat-option [value]="3">Joe Deu-Ngoc</mat-option>
+                              <mat-option [value]="4">Chris Soles</mat-option>
+                          </mat-select>
+                          <div *ngIf="!addAttorney.valid && (addAttorney.dirty || addAttorney.touched)" class="error-text">
+                              <div *ngIf="addAttorney.errors.required">
+                                  Attorney is required
+                              </div>
+                          </div>
+                      </div>
+                  </div> -->
+                <div class="form-group">
+                    <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">GSTIN: </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                        <input type="text" class="form-control" formControlName="addEnd" placeholder="Enter GSTIN" required>
+                        <!-- <div class="input-icon right">
+                                <i class="fa fa-calendar" [owlDateTimeTrigger]="dt2"></i>
+                                <input class="form-control" formControlName="addEnd" placeholder="MM/DD/YYYY" class="form-control" id="db" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" name="dt2" required>
+                                <owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time>
+                            </div> -->
+                        <div *ngIf="!addEnd.valid && (addEnd.dirty || addEnd.touched)" class="error-text">
+                            <div *ngIf="addEnd.errors.required">
+                                GSTIN is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">TIN Number: </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                        <input type="text" class="form-control" formControlName="selectStatus" placeholder="Enter TIN Number" required>
+                        <!-- <mat-select name="" id="" formControlName="selectStatus" placeholder="-- Select Status --" class="form-control" required>
+                                <mat-option [value]=1>Active</mat-option>
+                                <mat-option [value]=2>Inactive</mat-option>
+                            </mat-select> -->
+                        <div *ngIf="!selectStatus.valid && (selectStatus.dirty || selectStatus.touched)" class="error-text">
+                            <div *ngIf="selectStatus.errors.required">
+                                TIN Number is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Credit Period: </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 margins">
+                        <input type="text" class="form-control" formControlName="lop" placeholder="Enter Credit Period" required>
+                        <!-- <input type="file" accept="application/pdf" placeholder="Upload file..." formControlName="lop" style="margin-top:-3px!important; cursor: pointer;" required> -->
+                        <div *ngIf="!lop.valid && (lop.dirty || lop.touched)" class="error-text">
+                            <div *ngIf="lop.errors.required">
+                                Credit Period is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4 add-member-label"> Contract Name: </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                        <input type="text" formControlName="contact" class="form-control" id="email" placeholder="Enter Contract Name" required>
+                        <div *ngIf="!contact.valid && (contact.dirty || contact.touched)" class="error-text">
+                            <div *ngIf="contact.errors.required">
+                                Contract Name is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4 add-member-label"> Bill Printing Name: </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                        <input type="text" formControlName="BillPrinting" class="form-control" placeholder="Enter Bill Printing Name" required>
+                        <div *ngIf="!BillPrinting.valid && (BillPrinting.dirty || BillPrinting.touched)" class="error-text">
+                            <div *ngIf="BillPrinting.errors.required">
+                                Bill Printing Name is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4 add-member-label"> GST Nature: </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                        <mat-select color="primary" formControlName="gstnature" placeholder="--Select GST Nature" class="form-control" required>
+                            <mat-option [value]="0">GST Billing </mat-option>
+                            <mat-option [value]="1">Not</mat-option>
+                            <!-- <mat-option [value]="2">Chicago</mat-option>
+                              <mat-option [value]="3">Boston</mat-option>
+                              <mat-option [value]="4">Austin</mat-option>
+                              <mat-option [value]="5">San Diego</mat-option>
+                              <mat-option [value]="6">Dallas</mat-option>
+                              <mat-option [value]="7">Miami</mat-option>
+                              <mat-option [value]="8">Detroit</mat-option>
+                              <mat-option [value]="9">Portland</mat-option>
+                              <mat-option [value]="10">Phoenix</mat-option> -->
+                        </mat-select>
+                        <!-- <input type="text" formControlName="gstnature" class="form-control" placeholder="" required> -->
+                        <div *ngIf="!gstnature.valid && (gstnature.dirty || gstnature.touched)" class="error-text">
+                            <div *ngIf="gstnature.errors.required">
+                                GST Nature is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <mat-dialog-actions align="end">
+            <button mat-raised-button class="add-dark-hover btn-default" matStepperPrevious><mat-icon>arrow_back</mat-icon>&nbsp;Back</button>
+            <button mat-raised-button [disabled]="!addBasicDetails.valid" [ngClass]="!addBasicDetails.valid ? '' : 'btn-primary'" matStepperNext><mat-icon>arrow_forward</mat-icon>Proceed</button>
+            <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hove" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+        </mat-dialog-actions>
+    </mat-step>
+    <mat-step>
+        <div mat-dialog-content>
+            <form class="form-horizontal" novalidate [formGroup]="addActualDetails">
+                <ng-template matStepLabel>Bank Details</ng-template>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4 add-member-label" for="pwd">Responsible Branch: </label>
+                    <div class="col-sm-8">
+                        <input type="text" formControlName="bgcost" class="form-control" placeholder="Enter Responsible Branch" required>
+                        <div *ngIf="!bgcost.valid && (bgcost.dirty || bgcost.touched)" class="error-text">
+                            <div *ngIf="bgcost.errors.required">
+                                Responsible Branch is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Account Type: </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                        <mat-select color="primary" formControlName="addCity" placeholder="--Select Account" class="form-control" required>
+                            <mat-option [value]="0">Broker</mat-option>
+                            <mat-option [value]="1">Company</mat-option>
+                            <!-- <mat-option [value]="2">Chicago</mat-option>
+                              <mat-option [value]="3">Boston</mat-option>
+                              <mat-option [value]="4">Austin</mat-option>
+                              <mat-option [value]="5">San Diego</mat-option>
+                              <mat-option [value]="6">Dallas</mat-option>
+                              <mat-option [value]="7">Miami</mat-option>
+                              <mat-option [value]="8">Detroit</mat-option>
+                              <mat-option [value]="9">Portland</mat-option>
+                              <mat-option [value]="10">Phoenix</mat-option> -->
+                        </mat-select>
+                        <div *ngIf="!addCity.valid && (addCity.dirty || addCity.touched)" class="error-text">
+                            <div *ngIf="addCity.errors.required">
+                                Account Type is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4 add-member-label" for="pwd">Bank Name: </label>
+                    <div class="col-sm-8">
+                        <input class="form-control " type="text" formControlName="actualcost" placeholder="Enter Bank Name" required>
+                        <div *ngIf="!actualcost.valid && (actualcost.dirty || actualcost.touched)" class="error-text">
+                            <div *ngIf="actualcost.errors.required">
+                                Bank Name is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Bank Account Name: </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                        <input class="form-control " type="text" formControlName="expresponse" placeholder="Enter Bank Account Name" required>
+                        <div *ngIf="!expresponse.valid && (expresponse.dirty || expresponse.touched)" class="error-text">
+                            <div *ngIf="expresponse.errors.required">
+                                Bank Account Name is required
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4 add-member-label" for="pwd">Bank Account No: </label>
+                    <div class="col-sm-8">
+                        <input type="text" formControlName="expRevenue" class="form-control" placeholder="Enter Bank Account No" required>
+                        <div *ngIf="!expRevenue.valid && (expRevenue.dirty || expRevenue.touched)" class="error-text">
+                            <div *ngIf="expRevenue.errors.required">
+                                Bank Account No is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4 add-member-label" for="pwd">Bank IFSC Code: </label>
+                    <div class="col-sm-8">
+                        <input type="text" formControlName="expSales" class="form-control" placeholder="Enter Bank IFSC Code" required>
+                        <div *ngIf="!expSales.valid && (expSales.dirty || expSales.touched)" class="error-text">
+                            <div *ngIf="expSales.errors.required">
+                                Bank IFSC Codeis required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4 add-member-label" for="pwd">Bank Address: </label>
+                    <div class="col-sm-8">
+                        <textarea class="form-control txtarea" maxlength="500" rows="2" formControlName="Enter Bank Address" placeholder="Enter Bank Address" required></textarea>
+                        <!-- <input type="text" formControlName="actualSales" maxlength="10" (keypress)='onlyNumber($event)' class="form-control" placeholder="Enter Actual  Sales Cost" required> -->
+                        <div *ngIf="!actualSales.valid && (actualSales.dirty || actualSales.touched)" class="error-text">
+                            <div *ngIf="actualSales.errors.required">
+                                Bank Address is required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="form-group">
+                        <label class="control-label col-sm-4 add-member-label" for="pwd">Expected ROI: </label>
+                        <div class="col-sm-8">
+                            <input type="text" formControlName="expROI" maxlength="10" (keypress)='onlyNumber($event)' class="form-control" placeholder="Enter " required>
+                            <div *ngIf="!expROI.valid && (expROI.dirty || expROI.touched)" class="error-text">
+                                <div *ngIf="expROI.errors.required">
+                                    Expected ROI is required
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                <!-- <div class="form-group">
+                        <label class="control-label col-sm-4 add-member-label" for="pwd">Actual ROI: </label>
+                        <div class="col-sm-8">
+                            <input type="text" formControlName="actualROI" maxlength="10" (keypress)='onlyNumber($event)' class="form-control" placeholder="Enter " required>
+                            <div *ngIf="!actualROI.valid && (actualROI.dirty || actualROI.touched)" class="error-text">
+                                <div *ngIf="actualROI.errors.required">
+                                    Actual ROI is required
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                <!-- <div class="form-group">
+                      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">City : </label>
+                      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                          <mat-select color="primary" formControlName="addCity" placeholder="--Select City--" class="form-control" required>
+                              <mat-option [value]="0">San Francisco</mat-option>
+                              <mat-option [value]="1">Los Angeles</mat-option>
+                              <mat-option [value]="2">Chicago</mat-option>
+                              <mat-option [value]="3">Boston</mat-option>
+                              <mat-option [value]="4">Austin</mat-option>
+                              <mat-option [value]="5">San Diego</mat-option>
+                              <mat-option [value]="6">Dallas</mat-option>
+                              <mat-option [value]="7">Miami</mat-option>
+                              <mat-option [value]="8">Detroit</mat-option>
+                              <mat-option [value]="9">Portland</mat-option>
+                              <mat-option [value]="10">Phoenix</mat-option>
+                          </mat-select>
+                          <div *ngIf="!addCity.valid && (addCity.dirty || addCity.touched)" class="error-text">
+                              <div *ngIf="addCity.errors.required">
+                                  City is required
+                              </div>
+                          </div>
+                      </div>
+                  </div> -->
+
+            </form>
+        </div>
+        <mat-dialog-actions align="end" style="right: 4px;">
+            <button mat-raised-button class="add-dark-hover btn-default" matStepperPrevious><mat-icon>arrow_back</mat-icon>&nbsp;Back</button>
+            <button mat-raised-button [disabled]="(addCustomerForm.invalid || addBasicDetails.invalid || addActualDetails.invalid )" [ngClass]="(addCustomerForm.invalid || addBasicDetails.invalid || addActualDetails.invalid ) ? '' : 'btn-primary'" (click)="saveCustomer()"><mat-icon *ngIf="user">update</mat-icon><mat-icon *ngIf="!user">save</mat-icon><span *ngIf="!user"> Save</span><span
+              *ngIf="user"> Update</span></button>
+            <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hove" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+        </mat-dialog-actions>
+
+        <!-- <mat-dialog-actions align="end" style="right: 4px;">
+                <button mat-raised-button [disabled]="!addCustomerForm.valid" style="cursor:pointer;background-color: #286ba5;
+                color: white;" [ngClass]="!addCustomerForm.valid ? '' : 'btn-primary'" (click)="saveCustomer()" [mat-dialog-close]="'test'"><mat-icon *ngIf="user">update</mat-icon><mat-icon *ngIf="!user">save</mat-icon><span *ngIf="!user"> Save</span><span
+                *ngIf="user"> Update</span></button>
+                <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hove" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+            </mat-dialog-actions> -->
+    </mat-step>
+</mat-horizontal-stepper>

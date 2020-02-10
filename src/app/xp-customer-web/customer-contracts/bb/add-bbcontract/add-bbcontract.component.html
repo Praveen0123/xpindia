@@ -1,0 +1,326 @@
+<div class="NewHeader">
+    <i class="fa fa-times" aria-hidden="true" style="float: right !important;margin: 0 10px 0px 0;font-size: 17px;    cursor: pointer;" (click)="close()"></i>
+    <h1 mat-dialog-title><span *ngIf="!contracts">Add</span><span *ngIf="contracts">Edit</span> Bespoke</h1>
+</div>
+<div mat-dialog-content>
+
+    <mat-horizontal-stepper #stepper>
+        <!-- Order Info -->
+        <mat-step [stepControl]="">
+            <form [formGroup]="orderInfoForm">
+                <ng-template matStepLabel>Date</ng-template>
+                <div mat-dialog-content class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4 add-member-label">Order Type: </label>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+
+                            <mat-select color="primary" formControlName="OrderType" required (selectionChange)="orderType($event.value)" placeholder="--Select Order Type--" class="form-control">
+                                <mat-option [value]="0" checked>Single - Multiple</mat-option>
+                                <mat-option [value]="1">Multiple - Single</mat-option>
+                            </mat-select>
+                            <!-- <div *ngIf="!TypeofVehicle.valid && (TypeofVehicle.dirty || TypeofVehicle.touched)" class="error-text">
+                                <div *ngIf="TypeofVehicle.errors.required">
+                                    Type of Vehicle is required
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4 add-member-label">No. of
+                            Order Date:
+                        </label>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <div class="input-icon right" mat-menu-item style="padding: 0% !important;">
+                                <i class="fa fa-calendar" [owlDateTimeTrigger]="dt1"></i>
+                                <input class="form-control" placeholder="Select Date" class="form-control" id="db" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" name="dt1" required>
+                                <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+                            </div>
+                            <!-- <div *ngIf="!NoofVehicles.valid && (NoofVehicles.dirty || NoofVehicles.touched)" class="error-text">
+                                <div *ngIf="NoofVehicles.errors.required">
+                                    No. of Vehicles is required.
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+
+                <mat-dialog-actions align="end">
+                    <button type="button" mat-raised-button color="primary" style="color: white !important;" class="filter-hove" (click)="close()">
+                        <mat-icon>cancel</mat-icon>&nbsp;Close
+                    </button>
+                    <button type="button" mat-raised-button matStepperNext class="pull-right nextButton"> Next<mat-icon>
+                            arrow_forward</mat-icon></button>
+                </mat-dialog-actions>
+            </form>
+        </mat-step>
+        <!-- Single and multiple Location info -->
+        <mat-step [stepControl]="">
+            <form [formGroup]="">
+                <ng-template matStepLabel>Location</ng-template>
+                <div *ngIf="orderInfoForm.value['OrderType'] == 1" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4 add-member-label">Origin: </label>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+
+                            <mat-select color="primary" required placeholder="--Select Destination--" class="form-control">
+                                <mat-option [value]="0">Lucknow</mat-option>
+                                <mat-option [value]="1">Udaipur </mat-option>
+                                <mat-option [value]="2">Udaipur </mat-option>
+                                <mat-option [value]="3">Jaisalmer</mat-option>
+                                <mat-option [value]="4">Chennai </mat-option>
+                            </mat-select>
+                            <!-- <div *ngIf="!Destination.valid && (Destination.dirty || Destination.touched)"
+                                class="error-text">
+                                <div *ngIf="Destination.errors.required">
+                                    Destination is required
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4 add-member-label">Destination: </label>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <mat-select color="primary" required placeholder="--Select Destination--" class="form-control">
+                                <mat-option [value]="0">Lucknow</mat-option>
+                                <mat-option [value]="1">Udaipur </mat-option>
+                                <mat-option [value]="2">Udaipur </mat-option>
+                                <mat-option [value]="3">Jaisalmer</mat-option>
+                                <mat-option [value]="4">Chennai </mat-option>
+                            </mat-select>
+                        </div>
+                        <!-- <div class="col-xs-1" style="margin-left: 20px !important;">
+                            <button *ngIf="index == 0" type="button" class="form-control" mat-raised-button color="primary" style="color: white !important;    height: 34px;" class="pull-right filter-hove" (click)="addDestination()">
+                                <mat-icon>add</mat-icon>
+                            </button>
+                        </div> -->
+                    </div>
+                </div>
+                <div *ngIf="orderInfoForm.value['OrderType'] == 0" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4 add-member-label">Origin: </label>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+
+                            <mat-select color="primary" required placeholder="--Select Destination--" class="form-control">
+                                <mat-option [value]="0">Lucknow</mat-option>
+                                <mat-option [value]="1">Udaipur </mat-option>
+                                <mat-option [value]="2">Udaipur </mat-option>
+                                <mat-option [value]="3">Jaisalmer</mat-option>
+                                <mat-option [value]="4">Chennai </mat-option>
+                            </mat-select>
+                            <!-- <div *ngIf="!Destination.valid && (Destination.dirty || Destination.touched)"
+                                class="error-text">
+                                <div *ngIf="Destination.errors.required">
+                                    Destination is required
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="form-group" *ngFor="let destion of destinationPlus; let index = index">
+                        <label class="control-label col-sm-4 add-member-label">Destination: </label>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-right: 20px;">
+                            <mat-select color="primary" required placeholder="--Select Destination--" class="form-control">
+                                <mat-option [value]="0">Lucknow</mat-option>
+                                <mat-option [value]="1">Udaipur </mat-option>
+                                <mat-option [value]="2">Udaipur </mat-option>
+                                <mat-option [value]="3">Jaisalmer</mat-option>
+                                <mat-option [value]="4">Chennai </mat-option>
+                            </mat-select>
+                        </div>
+                        <div class="col-xs-1" style="margin-left: 20px !important;">
+                            <button *ngIf="index == 0" type="button" class="form-control" mat-raised-button color="primary" style="color: white !important;    height: 34px;" class="pull-right filter-hove" (click)="addDestination()">
+                                <mat-icon>add</mat-icon>
+                            </button>
+                            <button *ngIf="index > 0" type="button" class="form-control" mat-raised-button color="primary" style="color: white !important;    height: 34px;" class="pull-right filter-hove" (click)="subDestination(index)">
+                                <mat-icon>remove</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <mat-dialog-actions align="end">
+                    <button type="button" mat-raised-button color="primary" style="color: white !important;" class="filter-hove" (click)="close()">
+                        <mat-icon>cancel</mat-icon>&nbsp;Close
+                    </button>
+                    <button type="button" mat-raised-button matStepperPrevious color="primary" class="pull-right nextButton filter-hove">
+                        <mat-icon>arrow_back</mat-icon>&nbsp;Back
+                    </button>
+                    <button type="button" mat-raised-button matStepperNext class="pull-right nextButton"> Next<mat-icon>
+                            arrow_forward</mat-icon></button>
+
+                </mat-dialog-actions>
+            </form>
+        </mat-step>
+        <!-- Single and multiple Order Info -->
+        <mat-step [stepControl]="">
+            <form [formGroup]="">
+                <ng-template matStepLabel>Package</ng-template>
+                <div mat-dialog-content class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">
+                            Packages:
+                        </label>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <input type="text" class="form-control" placeholder="Enter Packages" required>
+                            <!-- <div *ngIf="!NoofVehicles.valid && (NoofVehicles.dirty || NoofVehicles.touched)" class="error-text">
+                                <div *ngIf="NoofVehicles.errors.required">
+                                    No. of Vehicles is required.
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4 add-member-label">Payload: </label>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <input type="text" class="form-control" placeholder="Enter Payload" required>
+                            <!-- <mat-select color="primary" required placeholder="--Select Type of Vehicle--" class="form-control">
+                                <mat-option [value]="0">25 FT / 3500 KGS</mat-option>
+                                <mat-option [value]="1">28 FT / 3600 KGS </mat-option>
+                                <mat-option [value]="2">30 FT / 4000 KGS </mat-option>
+                                <mat-option [value]="3">32 FT / 4500 KGS</mat-option>
+                            </mat-select> -->
+                            <!-- <div *ngIf="!TypeofVehicle.valid && (TypeofVehicle.dirty || TypeofVehicle.touched)" class="error-text">
+                                <div *ngIf="TypeofVehicle.errors.required">
+                                    Type of Vehicle is required
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+
+                <mat-dialog-actions align="end">
+                    <button type="button" mat-raised-button color="primary" style="color: white !important;" class="filter-hove" (click)="close()">
+                        <mat-icon>cancel</mat-icon>&nbsp;Close
+                    </button>
+                    <button type="button" mat-raised-button matStepperPrevious color="primary" class="pull-right nextButton filter-hove">
+                        <mat-icon>arrow_back</mat-icon>&nbsp;Back
+                    </button>
+                    <button type="button" mat-raised-button matStepperNext class="pull-right nextButton"> Next<mat-icon>
+                            arrow_forward</mat-icon></button>
+                </mat-dialog-actions>
+            </form>
+        </mat-step>
+        <!-- Single and multiple Pickup Info -->
+        <mat-step>
+            <ng-template matStepLabel>Pickup</ng-template>
+            <div *ngIf="orderInfoForm.value['OrderType'] == 1" class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-sm-4 add-member-label">Type of Vehicle: </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+
+                        <mat-select color="primary" required placeholder="--Select Type of Vehicle--" class="form-control">
+                            <mat-option [value]="0">25 FT / 3500 KGS</mat-option>
+                            <mat-option [value]="1">28 FT / 3600 KGS </mat-option>
+                            <mat-option [value]="2">30 FT / 4000 KGS </mat-option>
+                            <mat-option [value]="3">32 FT / 4500 KGS</mat-option>
+                        </mat-select>
+                        <!-- <div *ngIf="!TypeofVehicle.valid && (TypeofVehicle.dirty || TypeofVehicle.touched)" class="error-text">
+                            <div *ngIf="TypeofVehicle.errors.required">
+                                Type of Vehicle is required
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4 add-member-label">Pickup Time: </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+
+                        <mat-select color="primary" required placeholder="--Select Pickup Location--" class="form-control">
+                            <mat-option [value]="0">Lucknow</mat-option>
+                            <mat-option [value]="1">Udaipur </mat-option>
+                            <mat-option [value]="2">Udaipur </mat-option>
+                            <mat-option [value]="3">Jaisalmer</mat-option>
+                            <mat-option [value]="4">Chennai </mat-option>
+
+                        </mat-select>
+                        <!-- <div *ngIf="!Destination.valid && (Destination.dirty || Destination.touched)"
+                            class="error-text">
+                            <div *ngIf="Destination.errors.required">
+                                Destination is required
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="form-group" *ngFor="let pickup of pickupPlus; let index = index">
+                    <label class="control-label col-sm-4 add-member-label">Pickup Location: </label>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" style="margin-right: 20px;">
+                        <mat-select color="primary" required placeholder="--Select Pickup Location--" class="form-control">
+                            <mat-option [value]="0">Lucknow</mat-option>
+                            <mat-option [value]="1">Udaipur </mat-option>
+                            <mat-option [value]="2">Udaipur </mat-option>
+                            <mat-option [value]="3">Jaisalmer</mat-option>
+                            <mat-option [value]="4">Chennai </mat-option>
+                        </mat-select>
+                    </div>
+                    <div class="col-xs-1" style="margin-left: 20px !important;">
+                        <button *ngIf="index == 0" type="button" class="form-control" mat-raised-button color="primary" style="color: white !important;height: 34px;" class="pull-right filter-hove" (click)="addpickupLocation()">
+                            <mat-icon>add</mat-icon>
+                        </button>
+                        <button *ngIf="index > 0" type="button" class="form-control" mat-raised-button color="primary" style="color: white !important;    height: 34px;" class="pull-right filter-hove" (click)="subpickupLocation(index)">
+                            <mat-icon>remove</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="orderInfoForm.value['OrderType'] == 0" class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-sm-4 add-member-label">Type of Vehicle: </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+
+                        <mat-select color="primary" required placeholder="--Select Type of Vehicle--" class="form-control">
+                            <mat-option [value]="0">25 FT / 3500 KGS</mat-option>
+                            <mat-option [value]="1">28 FT / 3600 KGS </mat-option>
+                            <mat-option [value]="2">30 FT / 4000 KGS </mat-option>
+                            <mat-option [value]="3">32 FT / 4500 KGS</mat-option>
+                        </mat-select>
+                        <!-- <div *ngIf="!TypeofVehicle.valid && (TypeofVehicle.dirty || TypeofVehicle.touched)" class="error-text">
+                            <div *ngIf="TypeofVehicle.errors.required">
+                                Type of Vehicle is required
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4 add-member-label">Pickup Time: </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+
+                        <mat-select color="primary" required placeholder="--Select Pickup Location--" class="form-control">
+                            <mat-option [value]="0">Lucknow</mat-option>
+                            <mat-option [value]="1">Udaipur </mat-option>
+                            <mat-option [value]="2">Udaipur </mat-option>
+                            <mat-option [value]="3">Jaisalmer</mat-option>
+                            <mat-option [value]="4">Chennai </mat-option>
+
+                        </mat-select>
+                        <!-- <div *ngIf="!Destination.valid && (Destination.dirty || Destination.touched)"
+                            class="error-text">
+                            <div *ngIf="Destination.errors.required">
+                                Destination is required
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-4 add-member-label">Pickup Location: </label>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                        <mat-select color="primary" required placeholder="--Select Pickup Location--" class="form-control">
+                            <mat-option [value]="0">Lucknow</mat-option>
+                            <mat-option [value]="1">Udaipur </mat-option>
+                            <mat-option [value]="2">Udaipur </mat-option>
+                            <mat-option [value]="3">Jaisalmer</mat-option>
+                            <mat-option [value]="4">Chennai </mat-option>
+                        </mat-select>
+                    </div>
+
+                </div>
+            </div>
+            <mat-dialog-actions align="end">
+                <button mat-raised-button [disabled]="!addUserForm.valid" style="cursor:pointer;" [ngClass]="!addUserForm.valid ? '' : 'btn-primary'" (click)="savecontract()" [mat-dialog-close]="'test'">
+                    <mat-icon>save</mat-icon><span *ngIf="!contracts"> Confirm Order</span><span *ngIf="contracts"> Confirm Order</span>
+                </button>
+                <button type="button" mat-raised-button matStepperPrevious color="primary" class="pull-right nextButton filter-hove">
+                    <mat-icon>arrow_back</mat-icon>&nbsp;Back
+                </button>
+            </mat-dialog-actions>
+        </mat-step>
+
+    </mat-horizontal-stepper>
+</div>

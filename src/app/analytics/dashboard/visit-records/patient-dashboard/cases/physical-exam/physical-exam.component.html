@@ -1,0 +1,201 @@
+<div fxLayout="row wrap">
+  <div class="col-sm-12">
+    <form novalidate [formGroup]="physicalExamForm">
+      <table id="example2" class="table table-bordered table-hover">
+        <thead class="tbl-head">
+          <tr class="tr-grid-header">
+            <th colspan="3">Each item should be toggled to render the information</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              General WNL<br>
+              <mat-slide-toggle formControlName="generalToggle"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              General Abnormal<br>
+              <mat-select placeholder="--Select Options--" formControlName="general" multiple class="form-control">
+                <mat-option *ngFor="let option of generalOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              General Comments<br>
+              <textarea class="form-control txtarea" placeholder="Enter comments" formControlName="generalComments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              Skin WNL<br>
+              <mat-slide-toggle formControlName="skinToggle"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Skin Lesion<br>
+              <mat-select placeholder="--Select Options--" formControlName="skin" multiple class="form-control">
+                <mat-option *ngFor="let option of skinOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Skin Comments<br>
+              <textarea class="form-control txtarea" formControlName="skinComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              HEENT WNL<br>
+              <mat-slide-toggle formControlName="heentToggle"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              HEENT Abnormal<br>
+              <mat-select placeholder="--Select Options--" formControlName="heent" multiple class="form-control">
+                <mat-option *ngFor="let option of heentOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              HEENT Comments<br>
+              <textarea class="form-control txtarea" formControlName="heentComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              Neck WNL<br>
+              <mat-slide-toggle formControlName="neckToggle"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Neck Abnormal<br>
+              <mat-select placeholder="--Select Options--" formControlName="neck" multiple class="form-control">
+                <mat-option *ngFor="let option of neckOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Neck Comments<br>
+              <textarea class="form-control txtarea" formControlName="neckComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              Breasts WNL<br>
+              <mat-slide-toggle formControlName="breastToggle"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Breasts Abnormal<br>
+              <mat-select placeholder="--Select Options--" formControlName="breast" multiple class="form-control">
+                <mat-option *ngFor="let option of breastOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Breasts Comments<br>
+              <textarea class="form-control txtarea" formControlName="breastComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              Cardiovascular WNL<br>
+              <mat-slide-toggle formControlName="cardiovascularToggle"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Cardiovascular Abnormal<br>
+              <mat-select placeholder="--Select Options--" formControlName="cardiovascular" multiple class="form-control">
+                <mat-option *ngFor="let option of cardiovascularOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Cardiovascular Comments<br>
+              <textarea class="form-control txtarea" formControlName="cardiovascularComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              Lungs WNL<br>
+              <mat-slide-toggle formControlName="lungsToggle"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Lungs Abnormal<br>
+              <mat-select placeholder="--Select Options--" formControlName="lungs" multiple class="form-control">
+                <mat-option *ngFor="let option of lungOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Lungs Comments<br>
+              <textarea class="form-control txtarea" formControlName="lungsComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              Abdomen WNL<br>
+              <mat-slide-toggle formControlName="abdomenToggle"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Abdomen Abnormal<br>
+              <mat-select placeholder="--Select Options--" formControlName="abdomen" multiple class="form-control">
+                <mat-option *ngFor="let option of abdomenOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Abdomen Comments<br>
+              <textarea class="form-control txtarea" formControlName="abdomenComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              MSK WNL<br>
+              <mat-slide-toggle formControlName="mskToggle"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              MSK Abnormal <br>
+              <mat-select placeholder="--Select Options--" formControlName="msk" multiple class="form-control">
+                <mat-option *ngFor="let option of mskOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              MSK Comments<br>
+              <textarea class="form-control txtarea" formControlName="mskComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              Neuro WNL<br>
+              <mat-slide-toggle formControlName="neurologicalToggle"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Neuro Abnormal <br>
+              <mat-select placeholder="--Select Options--" formControlName="neurological" multiple class="form-control">
+                <mat-option *ngFor="let option of neuroOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Neuro Comments<br>
+              <textarea class="form-control txtarea" formControlName="neurologicalComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-2 col-xs-2">
+              Extremities WNL<br>
+              <mat-slide-toggle formControlName="extremeToggle"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Extrem Abnormal<br>
+              <mat-select placeholder="--Select Options--" formControlName="extrem" multiple class="form-control">
+                <mat-option *ngFor="let option of exAbdomenOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-5 col-xs-5">
+              Extrem Comments<br>
+              <textarea class="form-control txtarea" formControlName="extremComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td colspan="3">
+              Notes<br>
+              <textarea class="form-control txtarea" formControlName="notes" placeholder="Enter comments" rows="5"></textarea>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </form>
+    <mat-dialog-actions align="end">
+      <button mat-raised-button style="cursor:pointer;" class="btn-success" (click)="saveForm()"><mat-icon>save</mat-icon>&nbsp;Save</button>
+    </mat-dialog-actions>
+  </div>
+</div>

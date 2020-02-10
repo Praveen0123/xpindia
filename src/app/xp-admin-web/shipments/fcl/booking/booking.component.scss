@@ -1,0 +1,190 @@
+.fw-400 {
+    font-weight: 400;
+}
+
+.newMarginClass {
+    margin-top: 7px!important;
+}
+
+.mat-card-color-custom {
+    background: #eaeaea !important;
+    border-left: 5px #37474f solid;
+}
+
+.row {
+    margin-top: 6px;
+}
+
+#big div,
+#big span {
+    background: #286ba5;
+}
+
+#circles div {
+    background: #444444;
+    border-radius: 50% !important;
+}
+
+#circles div:hover {
+    background: green;
+}
+
+.mmt {
+    // background: #f1efef none repeat scroll 0 0;
+    // border-right: 1px solid rgba(37, 11, 11, 0.2);
+    // min-height: 66px;
+    // text-align: center;
+    // cursor: pointer;
+    // display: -ms-flexbox;
+    // display: flex;
+    // -ms-flex-align: center;
+    // align-items: center;
+    // -ms-flex-pack: center;
+    // justify-content: center;
+    background: #f1efef none repeat scroll 0 0;
+    border-right: 1px solid rgba(37, 11, 11, 0.2);
+    min-height: 66px;
+    /* text-align: center; */
+    cursor: pointer;
+    /* display: -webkit-box; */
+    /* display: flex; */
+    -webkit-box-align: center;
+    padding-top: 0.5rem;
+    margin-right: 1px;
+}
+
+.mmt:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    background-color: #f1fff7;
+}
+
+.arrow {
+    // cursor: pointer;
+    // background: #f1efef none repeat scroll 0 0;
+    // border-right: 1px solid rgba(37, 11, 11, 0.2);
+    // min-height: 66px;
+    // -webkit-box-align: center;
+    // padding-top: 0.5rem;
+    cursor: pointer;
+    background: #efefef none repeat scroll 0 0;
+    border-right: 1px solid rgba(37, 11, 11, 0.2);
+    min-height: 66px;
+    -webkit-box-align: center;
+    /* padding-top: 0.5rem; */
+    /* text-align: center; */
+    padding-top: 2rem;
+    width: 4rem;
+    padding-left: 0.5rem;
+}
+
+.arrow:hover {
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.24), 0 7px 25px 0 rgba(0, 0, 0, 0.19);
+    background-color: #e6e6e6;
+}
+
+.tabs {
+    border-radius: 4px;
+    background: #bfbfbf !important;
+    // margin-right: 7px;
+    // font-size: 15px;
+    // min-width: 64px;
+    // line-height: 40px;
+    // padding: 0 16px;
+    // font-weight: 500;
+    // font-family: Roboto, "Helvetica Neue", sans-serif;
+    //padding: 8px 25px;
+    //border-color: #444d58;
+    //box-shadow: 7px 6px 25px #7b7b7bee;
+    // margin-right: 7px;
+    //border-bottom: 5px solid transparent;
+    //color: #ffffff;
+    font-size: 15px;
+    // min-width: 64px;
+    // line-height: 40px;
+    // padding: 0 16px;
+    // font-weight: 500;
+    // width: 157px;
+    cursor: pointer;
+    // padding-top: 0.5rem;
+}
+
+.tabs:hover {
+    color: #4d4444;
+    background: #cddee7 !important;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.24), 0 7px 25px 0 rgba(0, 0, 0, 0.19);
+}
+
+.Total {
+    background-color: #a6bcd0;
+    min-height: 66px;
+    cursor: pointer;
+    margin-right: 11px;
+    padding-top: 0.5rem;
+}
+
+.width {
+    width: 175px !important;
+}
+
+.width1 {
+    width: 140px !important;
+}
+
+.width2 {
+    width: 120px !important;
+}
+
+.input-icon.right>i {
+    right: 25px;
+    float: right;
+}
+
+.input-icon>i {
+    color: #ccc;
+    display: block;
+    position: absolute;
+    //margin: 11px 2px 4px 10px;
+    margin-top: 5px;
+    // margin-right: 2px;
+    margin-bottom: 4px;
+    margin-left: 10px;
+    z-index: 3;
+    width: 16px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.fa {
+    display: inline-block;
+    font: 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.modal .input-icon>i {
+    z-index: 10055;
+}
+
+.bookingArrow {
+    // background: #f1efef none repeat scroll 0 0;
+    // border-right: 1px solid rgba(37, 11, 11, 0.2);
+    min-height: 66px;
+    /* text-align: center; */
+    cursor: pointer;
+    /* display: -webkit-box; */
+    /* display: flex; */
+    -webkit-box-align: center;
+    padding-top: 0.5rem;
+}
+
+.bookingArrow:hover {
+    // box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    // background-color: #f1fff7;
+    opacity: 0.8;
+}
+
+.maginleft {
+    margin-left: -21px;
+}

@@ -1,0 +1,189 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title><span *ngIf="!symptom">Add</span><span *ngIf="symptom">Edit</span> Symptom</h1>
+</div>
+<div mat-dialog-content>
+    <form class="form-horizontal" novalidate [formGroup]="addSymptomForm">
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Pain Type : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <textarea formControlName="painType" class="form-control txtarea" placeholder="Enter Pain Type" rows="1" required></textarea>
+                <div *ngIf="!painType.valid && (painType.dirty || painType.touched)" class="error-text">
+                    <div *ngIf="painType.errors.required">
+                        Pain Type is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Location : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <!-- <input type="text" class="form-control" placeholder="Enter Industry"> -->
+                <mat-select color="primary" formControlName="location" multiple placeholder="--Select Location--" class="form-control" required>
+                    <mat-option [value]="0">Left</mat-option>
+                    <mat-option [value]="1">Right</mat-option>
+                    <mat-option [value]="2">Bilateral</mat-option>
+                </mat-select>
+                <div *ngIf="!location.valid && (location.dirty || location.touched)" class="error-text">
+                    <div *ngIf="location.errors.required">
+                        Location is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Quality : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <!-- <input type="text" class="form-control" placeholder="Enter Industry"> -->
+                <mat-select color="primary" formControlName="quality" multiple placeholder="--Select Quality--" class="form-control" required>
+                    <mat-option [value]="0">not known</mat-option>
+                    <mat-option [value]="1">aching</mat-option>
+                    <mat-option [value]="2">acute</mat-option>
+                    <mat-option [value]="3">burning</mat-option>
+                    <mat-option [value]="4">chronic</mat-option>
+                    <mat-option [value]="5">constant</mat-option>
+                    <mat-option [value]="6">cramping</mat-option>
+                    <mat-option [value]="7">crushing</mat-option>
+                    <mat-option [value]="8">dull electrical</mat-option>
+                    <mat-option [value]="9">radiating pain</mat-option>
+                    <mat-option [value]="10">sharp</mat-option>
+                    <mat-option [value]="11">stabbing</mat-option>
+                </mat-select>
+                <div *ngIf="!quality.valid && (quality.dirty || quality.touched)" class="error-text">
+                    <div *ngIf="quality.errors.required">
+                        Quality is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Severity : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <!-- <input type="text" class="form-control" placeholder="Enter Industry"> -->
+                <mat-select color="primary" formControlName="severity" placeholder="--Select Severity--" class="form-control" required>
+                    <mat-option [value]="0">1 out of 10</mat-option>
+                    <mat-option [value]="1">2 out of 10</mat-option>
+                    <mat-option [value]="2">3 out of 10</mat-option>
+                    <mat-option [value]="3">4 out of 10</mat-option>
+                    <mat-option [value]="4">5 out of 10</mat-option>
+                    <mat-option [value]="5">6 out of 10</mat-option>
+                    <mat-option [value]="6">7 out of 10</mat-option>
+                    <mat-option [value]="7">8 out of 10</mat-option>
+                    <mat-option [value]="8">9 out of 10</mat-option>
+                    <mat-option [value]="9">10 out of 10</mat-option>
+                    <mat-option [value]="10">acute distress</mat-option>
+                    <mat-option [value]="11">critical</mat-option>
+                    <mat-option [value]="12">LOC</mat-option>
+                    <mat-option [value]="13">mild</mat-option>
+                    <mat-option [value]="14">mild to moderate</mat-option>
+                    <mat-option [value]="15">moderate</mat-option>
+                </mat-select>
+                <div *ngIf="!severity.valid && (severity.dirty || severity.touched)" class="error-text">
+                    <div *ngIf="severity.errors.required">
+                        Severity is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4" for="pwd">Duration : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <!-- <input type="text" class="form-control" placeholder="Enter Industry"> -->
+                <mat-select color="primary" formControlName="duration" multiple placeholder="--Select Duration--" class="form-control">
+                    <mat-option [value]="0">Symptoms are--</mat-option>
+                    <mat-option [value]="1">getting  better</mat-option>
+                    <mat-option [value]="2">steady</mat-option>
+                    <mat-option [value]="3">have been increasing since onset</mat-option>
+                    <mat-option [value]="4">% of time Symptoms are experienced as in SOAP</mat-option>
+                    <mat-option [value]="5">has had same/similar condition in the past</mat-option>
+                    <mat-option [value]="6">most symptomatic in morning</mat-option>
+                    <mat-option [value]="7">most symptomatic in mid day</mat-option>
+                    <mat-option [value]="8">most symptomatic in evening</mat-option>
+                    <mat-option [value]="9">weakes up from sleep</mat-option>
+                </mat-select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4" for="pwd">Onset/Timing : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <!-- <input type="text" class="form-control" placeholder="Enter Industry"> -->
+                <mat-select color="primary" formControlName="onset" multiple placeholder="--Select Onset?Timing--" class="form-control">
+                    <mat-option [value]="0">abrupt</mat-option>
+                    <mat-option [value]="1">after Meal</mat-option>
+                    <mat-option [value]="2">at rest</mat-option>
+                    <mat-option [value]="3">awakened from sleep</mat-option>
+                    <mat-option [value]="4">continuous</mat-option>
+                    <mat-option [value]="5">date of occcurrence</mat-option>
+                    <mat-option [value]="6">episodes</mat-option>
+                    <mat-option [value]="7">gradual</mat-option>
+                    <mat-option [value]="8">intermittent</mat-option>
+                    <mat-option [value]="9">primarily nocturnal</mat-option>
+                    <mat-option [value]="10">time to know</mat-option>
+                    <mat-option [value]="11">1 day ago</mat-option>
+                    <mat-option [value]="12">days ago</mat-option>
+                    <mat-option [value]="13">1 week ago</mat-option>
+                    <mat-option [value]="14">weeks ago</mat-option>
+                </mat-select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4" for="pwd">Context : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <!-- <input type="text" class="form-control" placeholder="Enter Industry"> -->
+                <mat-select color="primary" formControlName="context" multiple placeholder="--Select Context--" class="form-control">
+                    <mat-option [value]="0">at rest</mat-option>
+                    <mat-option [value]="1">during physical exertion</mat-option>
+                    <mat-option [value]="2">during mental exertion</mat-option>
+                    <mat-option [value]="3">during a sporting activity</mat-option>
+                    <mat-option [value]="4">at work</mat-option>
+                    <mat-option [value]="5">with familial stress</mat-option>
+                    <mat-option [value]="6">mechanism issues</mat-option>
+                    <mat-option [value]="7">post-hospital issues</mat-option>
+                    <mat-option [value]="8">pre-hospital issues</mat-option>
+                    <mat-option [value]="9">began after discharge from hospital</mat-option>
+                    <mat-option [value]="10">and he/she was recently treated by doctor</mat-option>
+                </mat-select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4" for="pwd">Modifying Factors : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <!-- <input type="text" class="form-control" placeholder="Enter Industry"> -->
+                <mat-select color="primary" formControlName="modifyingFactors" multiple placeholder="--Select Modifying Factors--" class="form-control">
+                    <mat-option [value]="0">abated on their own</mat-option>
+                    <mat-option [value]="1">abated when on medication(s)</mat-option>
+                    <mat-option [value]="2">increased with inspiration</mat-option>
+                    <mat-option [value]="3">exacerbate with movement</mat-option>
+                    <mat-option [value]="4">decrease with movemnet</mat-option>
+                    <mat-option [value]="5">have partially resolved seemingly on their own</mat-option>
+                </mat-select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4" for="pwd">Associated Symptoms : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <!-- <input type="text" class="form-control" placeholder="Enter Industry"> -->
+                <mat-select color="primary" formControlName="associatedSymptoms" multiple placeholder="--Select Associated Symptoms--" class="form-control">
+                    <mat-option [value]="0">numbness</mat-option>
+                    <mat-option [value]="1">tingling</mat-option>
+                    <mat-option [value]="2">weakness</mat-option>
+                    <mat-option [value]="3">headache</mat-option>
+                    <mat-option [value]="4">change in vision</mat-option>
+                    <mat-option [value]="5">dizziness</mat-option>
+                    <mat-option [value]="6">loss of  bowel control</mat-option>
+                    <mat-option [value]="7">loss of bladder control</mat-option>
+                    <mat-option [value]="8">sexual dysfunction</mat-option>
+                </mat-select>
+                <div *ngIf="!associatedSymptoms.valid && (associatedSymptoms.dirty || associatedSymptoms.touched)" class="error-text">
+                    <div *ngIf="associatedSymptoms.errors.required">
+                        Associated Symptoms is required
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button style="cursor:pointer;" [disabled]="!addSymptomForm.valid" [ngClass]="!addSymptomForm.valid ? '' : 'btn-primary'" (click)="saveSymptom()" [mat-dialog-close]="'test'"><mat-icon *ngIf="!symptom">save</mat-icon><mat-icon *ngIf="symptom">update</mat-icon><span *ngIf="!symptom"> Save</span><span
+        *ngIf="symptom"> Update</span></button>
+    <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+</mat-dialog-actions> 

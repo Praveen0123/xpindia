@@ -1,0 +1,112 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title>FCl Rates</h1>
+</div>
+<div mat-dialog-content>
+
+    <form class="form-horizontal" novalidate [formGroup]="vehicleForm">
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Lane: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" formControlName="Transaction" placeholder="" required>
+                <div *ngIf="!Transaction.valid && (Transaction.dirty || Transaction.touched)" class="error-text">
+                    <div *ngIf="Transaction.errors.required">
+                        Lane is required
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Vehicle Type: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" formControlName="Amount" placeholder="" required>
+                <div *ngIf="!Amount.valid && (Amount.dirty || Amount.touched)" class="error-text">
+                    <div *ngIf="Amount.errors.required">
+                        Vehicle Type is required
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label " for="pwd">Trip Rate: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" formControlName="PaymentDate" placeholder="" required>
+                <div *ngIf="!PaymentDate.valid && (PaymentDate.dirty || PaymentDate.touched)" class="error-text">
+                    <div *ngIf="PaymentDate.errors.required">
+                        Trip Rate is required
+                    </div>
+                </div>
+                <!-- <div class="input-icon right">
+                <i class="fa fa-calendar" [owlDateTimeTrigger]="dt1"></i>
+                <input class="form-control" formControlName='PaymentDate' placeholder="MM/DD/YYYY" class="form-control" id="db" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" name="dt1" required>
+                <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+            </div> -->
+            </div>
+
+        </div>
+        <!-- <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Trip Rate: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" formControlName="paymentmode" maxlength="12" placeholder="" required>
+                <div *ngIf="!paymentmode.valid && (paymentmode.dirty || paymentmode.touched)" class="error-text">
+                    <div *ngIf="paymentmode.errors.required">
+                        Trip Rate is required
+                    </div>
+                </div>
+                <mat-select placeholder="--Search by Status--" formControlname='paymentmode' class="form-control">
+                    <mat-option *ngFor="let option of status" [value]="option.id">{{option.value}}</mat-option>
+                </mat-select>
+            </div>
+
+        </div> -->
+        <!-- <div class="form-group">
+  <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Description: </label>
+  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+
+      <textarea class="txtarea form-control" formControlName='description' placeholder=""></textarea>
+  </div>
+</div> -->
+    </form>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button [disabled]="!vehicleForm.valid" style="cursor:pointer;" [ngClass]="!vehicleForm.valid ? '' : 'btn-primary'" (click)="saveVehicle()"><mat-icon>add</mat-icon>&nbsp;Add</button>
+    <button mat-raised-button class="CancelColorGrey" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+</mat-dialog-actions>
+
+<div fxLayout="row wrap" #resizedDiv style="margin-top:20px!important;">
+    <div class="flex-p w-100">
+        <div class="table-responsive">
+            <table id="example2" class="table table-bordered table-hover">
+                <thead class="tbl-head">
+                    <tr class="tr-grid-header">
+                        <th>Lane</th>
+                        <th>Vehicle Type</th>
+
+                        <th>Trip Rate</th>
+                        <!-- <th>Status</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of tableList">
+                        <td>{{item.lane}}</td>
+                        <td>{{item.vehicleType}}</td>
+                        <td>{{item.paymentmode}}</td>
+                        <!-- <td>{{item.Transactionref}}</td> -->
+                        <!-- <td>{{item.status}}</td> -->
+                        <!-- <td>
+                  <a mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" placement="left" (confirm)="deleteVehicle()" (cancel)="cancelClicked = true" [appendToBody]="true">
+                      <i style="cursor: pointer;font-size:16px!important;" matTooltip="Delete Vehicle" class="fa fa-trash red"></i>
+                  </a>
+              </td> -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+</div>
+<!-- <mat-dialog-actions align="end">
+  <button mat-raised-button class="btn-primary" (click)="closeDialog()" [mat-dialog-close]="'test'"><mat-icon>save</mat-icon>&nbsp;Close</button>
+</mat-dialog-actions> -->

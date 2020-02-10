@@ -1,0 +1,21 @@
+<div class="NewHeader">
+  <h1 mat-dialog-title>Users</h1>
+</div>
+
+<div fxLayout="row wrap">
+  
+  <div style="margin-left:90px">
+    <mat-checkbox [checked]="myLabel">Pranab</mat-checkbox><br>
+    <mat-checkbox [checked]="myLabel">Navin</mat-checkbox><br>
+    <mat-checkbox [checked]="myLabel">Varun</mat-checkbox><br>
+    <mat-checkbox [checked]="myLabel">Siva</mat-checkbox><br>
+    <mat-checkbox [checked]="myLabel">Aman</mat-checkbox><br>
+    
+  </div>
+  
+  
+</div>
+<mat-dialog-actions align="center">
+  <button mat-raised-button class="btn-primary" (click)="saveUnits()">Update</button>
+  <button mat-raised-button class="add-dark-hover btn-default" (click)="close()">Cancel</button>
+</mat-dialog-actions> 

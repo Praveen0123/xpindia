@@ -1,0 +1,504 @@
+<div class="row" style="margin-bottom:7px;">
+
+    <div class="col-lg-12 my-2">
+        <div class="col-lg-6 ">
+            <app-master></app-master>
+        </div>
+        <div class="col-lg-6">
+            <div class="w-100 flex-p">
+                <!-- <button mat-raised-button class="pull-right add-hover-help btn-success-help" style="margin-left: 10px;">
+    <mat-icon>help_outline</mat-icon> Help
+    </button> -->
+                <!-- <button mat-raised-button class="pull-right add-hover btn-success" (click)="opentruckidDialog(null)">
+    <mat-icon>person_add</mat-icon> Add Truck
+    </button> -->
+                <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hover margin-right-10" (click)="filterToggle = !filterToggle">
+                  <mat-icon>filter_list</mat-icon> Filter
+              </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-lg-12" style="margin-left: 14px !important;margin-top: -21px !important;">
+        <div class="pills w-100 flex-p">
+            <ul class="nav nav-pills">
+                <li routerLinkActive="active">
+                    <a mat-raised-button class="navtabWidth" [routerLink]="['/instanttransport/ordersNew/express']">
+                        <mat-icon>person</mat-icon> By Consignor
+                    </a>
+                </li>
+                <li routerLinkActive="">
+                    <a mat-raised-button class="navtabWidth">
+                        <mat-icon>my_location</mat-icon> By Zone
+                    </a>
+                </li>
+
+
+                <br /><br /><br />
+                <!-- <li routerLinkActive=""><a style=" margin-top: 20px;width: 150px !important;height: 52px !important;padding-top: 5px !important;" mat-raised-button [routerLink]="['/instanttransport/ordersNew']"> By Status</a></li><br><br><br>
+              <li routerLinkActive=""><a style=" margin-top: 20px;;width: 150px !important;height: 52px !important;padding-top: 5px !important;" mat-raised-button [routerLink]="['/instanttransport/ordersNew']"> All </a></li> -->
+            </ul>
+        </div>
+    </div>
+</div>
+<div fxLayout="row wrap">
+    <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100" *ngIf="filterToggle">
+        <mat-card class="filter">
+            <mat-card-content>
+
+                <div class="row col-sm-12">
+
+
+                    <button type="button" mat-raised-button class="btn btn-secondary filterbuttons mgnfilterbesidebuttons">MTD </button>
+                    <button type="button" mat-raised-button class="btn btn-secondary filterbuttons mgnfilterbesidebuttons">YTD </button>
+                    <button type="button" mat-raised-button class="btn btn-secondary filterbuttons mgnfilterbesidebuttons">Today </button>
+                    <button type="button" mat-raised-button class="btn btn-secondary filterbuttons mgnfilterbesidebuttons">Next 7 days </button>
+                    <button type="button" mat-raised-button class="btn btn-secondary filterbuttons mgnfilterbesidebuttons" (click)="customDateFilter()">Custom History </button>
+                    <button type="button" mat-raised-button class="btn btn-secondary filterbuttons mgnfilterbesidebuttons" (click)="customDateFilter()">Custom Future </button>
+
+                    <!-- <div class="col-sm-2 newMarginClass">
+                        Custom History
+                    </div>
+                    <div class="col-sm-3">
+
+                        <div class="col-sm-2 newMarginClass">
+                            from:
+                        </div>
+                        <div class="col-sm-8">
+                          
+                            <div class="input-icon right" mat-menu-item>
+                                <i class="fa fa-calendar" [owlDateTimeTrigger]="dt1"></i>
+                                <input class="form-control" placeholder="Select Date" class="form-control" id="db" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" name="dt1" required>
+                                <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="col-sm-2 newMarginClass">
+                            To:
+                        </div>
+                        <div class="col-sm-8">
+                       
+                            <div class="input-icon right" mat-menu-item>
+                                <i class="fa fa-calendar" [owlDateTimeTrigger]="dt2"></i>
+                                <input class="form-control" placeholder="Select Date" class="form-control" id="db" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" name="dt2" required>
+                                <owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+                <div class=" row col-sm-12 my-5" style="margin-left: -25px !important;" *ngIf=CustomDate>
+                    <div class="col-sm-3">
+                        <div class="col-sm-2 newMarginClass">
+                            From:
+                        </div>
+                        <div class="col-sm-8">
+                            <!-- <input type="text" class="form-control" placeholder="--Enter Registration--"> -->
+                            <div class="input-icon right" mat-menu-item>
+                                <i class="fa fa-calendar" [owlDateTimeTrigger]="dt1"></i>
+                                <input class="form-control" placeholder="Select Date" class="form-control" id="db" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" name="dt1" required>
+                                <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" style="margin-left: -82px !important;">
+                        <div class="col-sm-2 newMarginClass">
+                            To:
+                        </div>
+                        <div class="col-sm-8">
+                            <!-- <input type="text" class="form-control" placeholder="--Enter Registration--"> -->
+                            <div class="input-icon right" mat-menu-item>
+                                <i class="fa fa-calendar" [owlDateTimeTrigger]="dt2"></i>
+                                <input class="form-control" placeholder="Select Date" class="form-control" id="db" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" name="dt2" required>
+                                <owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-sm-3" style="margin-left: -82px !important;">
+                        <div class="col-sm-2 newMarginClass">
+                            From:
+                        </div>
+                        <div class="col-sm-8">
+                            
+                            <div class="input-icon right" mat-menu-item>
+                                <i class="fa fa-calendar" [owlDateTimeTrigger]="dt3"></i>
+                                <input class="form-control" placeholder="Select Date" class="form-control" id="db" [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3" name="dt3" required>
+                                <owl-date-time [pickerType]="'calendar'" #dt3></owl-date-time>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3" style="margin-left: -82px !important;">
+                        <div class="col-sm-2 newMarginClass">
+                            To:
+                        </div>
+                        <div class="col-sm-8">
+                         
+                            <div class="input-icon right" mat-menu-item>
+                                <i class="fa fa-calendar" [owlDateTimeTrigger]="dt4"></i>
+                                <input class="form-control" placeholder="Select Date" class="form-control" id="db" [owlDateTimeTrigger]="dt4" [owlDateTime]="dt4" name="dt4" required>
+                                <owl-date-time [pickerType]="'calendar'" #dt4></owl-date-time>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="col-lg-1">
+                        <button type="button" class="add-hover btn btn-success pull-right">Search</button>
+                    </div>
+                    <div class="col-lg-1">
+                        <button type="button" class="btn filter-hover" style="background-color:#37474f; color:#fff !important">Clear</button>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+<div class="row" style="margin-bottom:7px;">
+
+
+    <div class="col-lg-4 ">
+        <!-- <h3 style="text-align: center; color: black; font-family: sans-serif !important;margin-left: 111px !important;">Volumetric Weight (10000 Kg)</h3>
+        <div class="">
+            <ngx-charts-pie-chart [scheme]="colorScheme" [results]="VolumetricPie" [legend]="showLegend" [explodeSlices]="explodeSlices" [labels]="showLabels" [doughnut]="doughnut" [gradient]="gradient" (select)="onSelect($event)">
+            </ngx-charts-pie-chart>
+        </div> -->
+        <mat-card>
+            <mat-card-header fxLayoutAlign="center center">
+                <mat-card-subtitle>
+                    <h2 style="font-size: x-large;">Volumetric Weight (10000 Kg)</h2>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <div class="w-100 h-300p">
+                <ngx-charts-pie-chart [scheme]="colorScheme" [maxLabelLength]="100" [results]="VolumetricPie" [legend]="showLegend" [explodeSlices]="explodeSlices" [labels]="showLabels" [doughnut]="doughnut" [gradient]="gradient" (select)="onSelect($event)">
+                </ngx-charts-pie-chart>
+            </div>
+        </mat-card>
+    </div>
+    <div class="col-lg-4">
+        <!-- <h3 style="text-align: center; color: black; font-family: sans-serif !important;margin-left: 57px !important;">Customer order (50)</h3>
+        <div class="">
+            <ngx-charts-pie-chart [scheme]="colorScheme" [results]="customerPie" [legend]="showLegend" [explodeSlices]="explodeSlices" [labels]="showLabels" [doughnut]="doughnut" [gradient]="gradient" (select)="onSelect($event)">
+            </ngx-charts-pie-chart>
+        </div> -->
+        <mat-card>
+            <mat-card-header fxLayoutAlign="center center">
+                <mat-card-subtitle>
+                    <h2 style="font-size: x-large;">Customer order (50)</h2>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <div class="w-100 h-300p">
+                <ngx-charts-pie-chart [scheme]="colorScheme" [maxLabelLength]="100" [results]="customerPie" [legend]="showLegend" [explodeSlices]="explodeSlices" [labels]="showLabels" [doughnut]="doughnut" [gradient]="gradient" (select)="onSelect($event)">
+                </ngx-charts-pie-chart>
+            </div>
+        </mat-card>
+
+    </div>
+    <div class="col-lg-4 ">
+        <div class="col-lg-4">
+            <h3 style="width: 129px; color: black;font-family: sans-serif !important;">In Process</h3>
+            <!-- <button type="button" mat-raised-button class="btn btn-secondary tabs" style="padding-left:30px!important;padding-right:30px!important; background-color: #6be96b !important ;color: black !important "> {{value}}</button>&nbsp;&nbsp;<br><br> -->
+            <a type="button" mat-raised-button class=" btn btn-secondary tabs inprocessButtons">
+              Confirmed (20/500kg)</a><br><br>
+            <a type="button" mat-raised-button class="btn btn-secondary tabs inprocessButtons">Allocated
+              (11/200Kg)</a><br><br>
+
+            <a type="button" mat-raised-button class="btn btn-secondary tabs inprocessButtons">Placed
+              (20/500Kg)</a><br><br>
+
+            <a type="button" mat-raised-button class="btn btn-secondary tabs inprocessButtons">Loaded
+              (20/500Kg)</a><br><br>
+
+            <a type="button" mat-raised-button class="btn btn-secondary tabs inprocessButtons">XPCN
+              Issued (20/500Kg)</a><br><br>
+
+            <a type="button" mat-raised-button class="btn btn-secondary tabs inprocessButtons">Total Packages (20/500Kg)
+              </a><br><br>
+
+            <a type="button" mat-raised-button class="btn btn-secondary tabs inprocessButtons">Trip
+                Started (20/500Kg)</a><br><br>
+        </div>
+        <div class="col-lg-4 " style="margin-left: 70px !important;">
+            <h3 style=" color: black; font-family: sans-serif !important; ">To Do</h3>
+            <a type="button" mat-raised-button class="btn btn-secondary tabs todoButtons">Provisional
+              (8)</a><br><br>
+            <a type="button" mat-raised-button class="btn btn-secondary tabs todoButtons"> Not
+              Allocated (20/500Kg)</a><br><br>
+            <a type="button" mat-raised-button class="btn btn-secondary tabs todoButtons"> Not
+              Placed (20/500Kg)</a><br><br>
+            <a type="button" mat-raised-button class="btn btn-secondary tabs todoButtons"> Not
+              Docked (20/500Kg)</a><br><br>
+            <a type="button" mat-raised-button class="btn btn-secondary tabs todoButtons"> Trip
+              Not Started (20/500Kg)</a><br><br>
+        </div>
+    </div>
+    <!-- <div class="col-lg-4 mgnForTopTable ">
+      <div class="table-responsive ">
+       
+
+          <table id="customers ">
+              <tr>
+                  <th>In Process</th>
+                  <th>To Do </th>
+
+              </tr>
+              <tr>
+                  <td>confirmed (20)</td>
+                  <td>Provisional (21)</td>
+
+              </tr>
+              <tr>
+                  <td>Allocated (11)</td>
+                  <td>Not Allocated (9)</td>
+
+              </tr>
+              <tr>
+                  <td>Placed (18)</td>
+                  <td>Not Placed (13)</td>
+
+              </tr>
+              <tr>
+                  <td>Loaded (5)</td>
+                  <td>Not Docked (8)</td>
+
+              </tr>
+              <tr>
+                  <td>XPCN Issued (11)</td>
+                  <td>Trip Not Started (7)</td>
+
+              </tr>
+              <tr>
+                  <td>Trip Started (11)</td>
+                  <td></td>
+
+              </tr>
+
+
+
+
+          </table>
+      </div>
+
+  </div> -->
+
+    <!-- <div class="col-lg-4 mgntop ">
+
+      <h3 style="font-family:sans-serif !important; ">Customer : Amazon (74)</h3>
+      <div class="my-5 " style="margin-bottom:7px; margin-top: 70px !important; ">
+          <div class="col-lg-4 ">
+              <div class="pills w-100 flex-p ">
+              <ul class="nav nav-pills ">
+
+              <i *ngIf="id !=1 " class="fa fa-arrow-left fa-7x " style="cursor: pointer !important; " aria-hidden="true " (click)="leftArrowClicked(id) "></i>&nbsp;&nbsp;<i *ngIf="id !=5 " class="fa fa-arrow-right fa-7x " style="cursor: pointer !important; "
+                  aria-hidden="true " (click)="rightArrowClicked(id) "></i><br><br>
+              <button type="button " mat-raised-button class="btn btn-secondary tabs " style="padding-left:30px!important;padding-right:30px!important; background-color: #6be96b !important ;color: black !important "> {{value}}</button>&nbsp;&nbsp;<br><br>
+              <button type="button " mat-raised-button class="btn btn-secondary tabs " style="color:white ;width: 165px !important;background-color: #50636d !important; height: 53px !important; "> Confirmed</button><br><br>
+              <button type="button " mat-raised-button class="btn btn-secondary tabs " style="color :black;width: 165px !important; margin-top: 15px !important; height: 53px !important ">Allocation</button><br><br>
+
+              <button type="button " mat-raised-button class="btn btn-secondary tabs " style="color :black;width: 165px !important; margin-top: 15px !important; height: 53px !important ">Placement</button><br><br>
+              <li routerLinkActive="active "><a mat-raised-button> {{value}}</a></li><br>
+          <li routerLinkActive="active "><a mat-raised-button> Provisional (14)</a></li>
+          <li routerLinkActive="active "><a mat-raised-button> CAN / REJ (4)</a></li>
+              </ul>
+              </div>
+          </div>
+          <div class="col-lg-4 ">
+              <button type="button " mat-raised-button class="btn btn-secondary tabs " style="padding-left:30px!important;padding-right:30px!important; background-color: #6be96b !important ;color: black !important "> {{value}}</button>&nbsp;&nbsp;<br><br>
+              <button type="button " mat-raised-button class="btn btn-secondary tabs " style="color:black;width: 165px !important; height: 53px !important ">Loading</button><br><br>
+              <button type="button " mat-raised-button class="btn btn-secondary tabs " style="color :black;width: 165px !important; margin-top: 15px !important; height: 53px !important "> CN / TS Issue </button><br><br>
+              <button type="button " mat-raised-button class="btn btn-secondary tabs " style="color :black;width: 165px !important; margin-top: 15px !important; height: 53px !important "> Trip Start</button><br><br>
+          </div>
+      </div>
+
+  </div> -->
+    <!-- <div class="col-lg-3 mgnsecondpie ">
+
+
+
+
+      <h3 style="text-align: center; color: black; margin-left: 177px !important;font-family: sans-serif !important; ">Confirmed</h3>
+
+
+      <div class=" ">
+          <ngx-charts-pie-chart [scheme]="colorScheme2 " [results]="secondpieinorder " [legend]="showLegend " [explodeSlices]="explodeSlices " [labels]="showLabels " [doughnut]="doughnut " [gradient]="gradient " (select)="onSelect($event) ">
+          </ngx-charts-pie-chart>
+      </div>
+
+  </div> -->
+
+</div>
+
+
+<div fxLayout="row wrap ">
+    <div class="w-100 flex-p ">
+        <div class="row wrap ">
+            <div class="col-lg-8 ">
+                <div class="w-100 flex-p ">
+
+                </div>
+            </div>
+
+            <div class=" col-lg-4">
+                <div class="w-100 flex-p ">
+                    <a class="btn btn-secondary  buttonsStyle " style="width: 105px !important;" mat-raised-button>
+                        <mat-icon>screen_share</mat-icon> Share</a>
+                    <!-- <button type="button " mat-raised-button class="btn btn-secondary buttonsStyle mgnfilterbesidebuttons"> <mat-icon>assignment_returned</mat-icon>Download PDF</button>
+                    <button type="button " style="background-color: #1B70C1 !important;" mat-raised-button class="btn btn-secondary buttonsStyle mgnfilterbesidebuttons"><mat-icon>assignment_returned</mat-icon>Download CSV</button> -->
+                    <a class="btn btn-secondary  buttonsStyle mgnfilterbesidebuttons" style="margin-left: 15px!important;" mat-raised-button (click)="openManageGridModal(null)">
+                        <mat-icon>list</mat-icon> Manage Grid</a>
+
+                    <button mat-raised-button color="primary" style="color: white !important; " class="pull-right filter-hover margin-right-10 " (click)="filterToggle2=! filterToggle2">
+                      <mat-icon>filter_list</mat-icon> Filter
+                  </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div fxFlex="100 " fxFlex.gt-sm fxFlex.sm class="flex-p w-100 " *ngIf="filterToggle2">
+        <mat-card class="filter ">
+            <mat-card-content>
+                <div class="row col-sm-12 ">
+                    <div class="col-sm-3 ">
+                        <div class="col-sm-4 newMarginClass ">
+                            Zone:
+                        </div>
+                        <div class="col-sm-8 ">
+                            <input type="text " class="form-control " placeholder="-Search by Zone-- ">
+                        </div>
+                    </div>
+                    <div class="col-sm-3 ">
+                        <div class="col-sm-4 newMarginClass ">
+                            Order ID:
+                        </div>
+                        <div class="col-sm-8 ">
+                            <input type="text " class="form-control " placeholder="-Search by Order Id-- ">
+                        </div>
+                    </div>
+                    <div class="col-sm-3 ">
+                        <div class="col-sm-4 newMarginClass ">
+                            Booking ID:
+                        </div>
+                        <div class="col-sm-8 ">
+                            <input type="text " class="form-control " placeholder="-Search by Booking Id-- ">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3 ">
+                        <div class="col-sm-4 newMarginClass ">
+                            Customer:
+                        </div>
+                        <div class="col-sm-8 ">
+                            <input type="text " class="form-control " placeholder="--Search by Customer-- ">
+                            <!-- <mat-select placeholder="--Search by Country-- " class="form-control ">
+              <mat-option *ngFor="let option of countries " [value]="option.id ">{{option.value}}</mat-option>
+            </mat-select> -->
+                        </div>
+                    </div>
+                    <div class="row col-sm-12 my-4 ">
+                        <div class="col-sm-3 ">
+                            <div class="col-sm-4 newMarginClass ">
+                                Status:
+                            </div>
+                            <div class="col-sm-8 ">
+                                <mat-select placeholder="--Search by Status-- " class="form-control ">
+                                    <mat-option *ngFor="let option of Status " [value]="option.id ">{{option.value}}
+                                    </mat-option>
+                                </mat-select>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 ">
+                            <div class="col-sm-4 newMarginClass ">
+                                Keyword:
+                            </div>
+                            <div class="col-sm-8 ">
+                                <input type="text " class="form-control " placeholder="--Search by Keyword-- ">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-1 ">
+                            <button type="button " class="add-hover btn btn-success pull-right ">Search</button>
+                        </div>
+                        <div class="col-lg-1 ">
+                            <button type="button " class="btn filter-hover " style="background-color:#37474f; color:#fff !important; margin-left: -18px; ">Clear</button>
+                        </div>
+                    </div>
+
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div class="table-responsive ">
+        <table id="example2 " class="table table-bordered table-hover ">
+            <thead class="tbl-head ">
+                <tr class="tr-grid-header ">
+
+                    <!-- <th>Booking ID</th> -->
+                    <th>Order ID</th>
+                    <th class="consignorName">Consignor Name</th>
+                    <th class="serviceType">Service Type</th>
+                    <th class="zoneWidth">Zone</th>
+
+
+                    <th class="bookingBranxchWidth">Booking Branch</th>
+                    <th>Origin</th>
+                    <!-- <th>Destination</th> -->
+                    <th>Pick Date</th>
+                    <th class="pickupTimeWidth">Pickup Time</th>
+                    <th class="departureTime">Departure Time</th>
+                    <th>FFV</th>
+                    <!-- <th class="mgnTypeOfVehicle ">Type of Vehicle</th> -->
+                    <th class="vehicleNumberWidth">Vehicle number</th>
+                    <th>Track</th>
+                    <th class="driverNameWidth">Driver Name</th>
+                    <th>ETA</th>
+
+                    <th class="driverContactDetailWidth">Driver Contact Details</th>
+
+                    <th>XPCN</th>
+                    <th>XPTS</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of tableLists ">
+                    <!-- <td>{{item.bookingid}}</td> -->
+                    <td>{{item.orderId}}</td>
+                    <td>{{item.customerName}}</td>
+                    <td>{{item.serviceType}}</td>
+                    <td>{{item.zone}}</td>
+
+
+                    <td>{{item.bookingBranch}}</td>
+                    <td>{{item.origin}}</td>
+                    <!-- <td>{{item.destination}}</td> -->
+                    <td>{{item.dateofPickup}}</td>
+                    <td>{{item.placementTime}}</td>
+                    <td>{{item.departureTime}}</td>
+                    <td>{{item.ffv}}</td>
+                    <!-- <td>{{item.typeOfVehicle}}</td> -->
+                    <td>{{item.vehicleNumber}}</td>
+                    <td><a [routerLink]="['/instanttransport/ordersNew/tracking']" target="_blank " style="color:#007ad9!important;cursor: pointer!important; ">View</a></td>
+                    <td>{{item.driverName}}</td>
+                    <td>{{item.etp}}</td>
+
+                    <td>{{item.driverNumber}}</td>
+                    <td><a (click)="openxpcnModal(item) " style="color:#007bff;cursor: pointer ">{{item.newxpcn}}</a></td>
+                    <!-- <td><a href="../../../assets/img/trips/XPCN.pdf " target="_blank " style="color:#007ad9!important;cursor: pointer!important; ">{{item.xpcn}}</a></td> -->
+                    <td><a href="../../../assets/img/trips/xpts.png " target="_blank " style="color:#007ad9!important;cursor: pointer!important; ">{{item.xpts}}</a></td>
+                    <!-- <td></td> -->
+                    <td>{{item.status}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator>
+
+    </div>
+</div>
+
+<div *ngIf="!tableList" fxLayout="column" fxLayoutAlign="center center" class="campaign-spinner">
+    <mat-spinner color="primary"></mat-spinner>
+</div>

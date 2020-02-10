@@ -1,0 +1,191 @@
+<div fxLayout="row wrap" #resizedDiv>
+    <div class="flex-p w-100">
+
+        <div class="row" style="margin-bottom:14px;">
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <div class="row col-lg-12 col-md-12">
+                    <div class=" maginlft1">
+                        <a class="tab2" mat-raised-button>Onboarded (65)</a>
+                    </div>
+                    <div class=" maginlft1">
+                        <a class="tab2" mat-raised-button>Sales (Rs. 1.2 Cr)</a>
+                    </div>
+                    <div class="maginlft1">
+                        <a class="tab2" mat-raised-button>Service Level (80%)</a>
+                    </div>
+                    <div class="maginlft1">
+                        <a class="tab2" mat-raised-button>Active (43)</a>
+                    </div>
+                    <div class=" maginlft1">
+                        <a class="tab2" mat-raised-button>Inactive (22)</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <div class="w-100 flex-p">
+                    <button mat-raised-button class="pull-right add-hover btn-success" (click)="openCustomerDialog(null)">
+                        <mat-icon>person_add</mat-icon> Add Customer
+                    </button>
+                    <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hover margin-right-10" (click)="filterToggle = !filterToggle">
+                        <mat-icon>filter_list</mat-icon> Filter
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div fxLayout="row wrap">
+            <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100" *ngIf="filterToggle">
+                <mat-card class="filter">
+                    <mat-card-content>
+                        <div class="row col-lg-12">
+                            <div class="col-sm-3 ">
+                                <div class="col-sm-4 newMarginClass ">
+                                    Customer:
+                                </div>
+                                <div class="col-sm-8 ">
+                                    <input type="text " class="form-control " placeholder="--Search by Customer-- ">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="col-sm-2 newMarginClass">
+                                    from:
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="input-icon right" mat-menu-item>
+                                        <i class="fa fa-calendar" [owlDateTimeTrigger]="dt1"></i>
+                                        <input class="form-control" placeholder="Select Date" class="form-control" id="db" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" name="dt1" required>
+                                        <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="col-sm-2 newMarginClass">
+                                    To:
+                                </div>
+                                <div class="col-sm-8">
+                                    <!-- <input type="text" class="form-control" placeholder="--Enter Registration--"> -->
+                                    <div class="input-icon right" mat-menu-item>
+                                        <i class="fa fa-calendar" [owlDateTimeTrigger]="dt2"></i>
+                                        <input class="form-control" placeholder="Select Date" class="form-control" id="db" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" name="dt2" required>
+                                        <owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-1">
+                                <button type="button" class="add-hover btn btn-success pull-right">Search</button>
+                            </div>
+                            <div class="col-lg-1">
+                                <button type="button" class="btn filter-hover" style="background-color:#37474f; color:#fff !important">Clear</button>
+                            </div>
+                        </div>
+
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+
+        <div class="row ">
+
+
+        </div>
+
+        <div fxLayout="row wrap">
+            <div fxFlex="100" fxFlex.gt-sm="33.33" class="flex-p w-100">
+                <app-service-type></app-service-type>
+            </div>
+            <div fxFlex="100" fxFlex.gt-sm="33.33" class="flex-p">
+                <app-zone-chart></app-zone-chart>
+            </div>
+            <div fxFlex="100" fxFlex.gt-sm="33.33" class="flex-p">
+                <app-gateways-chart></app-gateways-chart>
+            </div>
+        </div>
+
+
+
+        <div fxLayout="row wrap ">
+            <div class="table-responsive my-3">
+                <table id="example2" class="table table-bordered table-hover">
+                    <thead class="tbl-head">
+                        <tr class="tr-grid-header">
+                            <th rowspan="2">Customer Name</th>
+                            <th colspan="3" class="text-center">Service Type</th>
+                            <th rowspan="2">Origins / Pickup Location</th>
+                            <th rowspan="2">Trips</th>
+                            <th rowspan="2">Freight</th>
+                            <th rowspan="2">Service Level</th>
+                            <th rowspan="2">Destinations</th>
+                            <th colspan="3" class="text-center">Payments</th>
+                            <th rowspan="2">Contracts</th>
+                            <th rowspan="2">Rates</th>
+                            <th rowspan="2">Status</th>
+                            <th rowspan="2" class="text-center actionsMinWidth">Actions</th>
+                        </tr>
+                        <tr class="tr-grid-header">
+                            <th class="text-center" style="min-width: 75px;">FCL</th>
+                            <th>Express</th>
+                            <th>Bespoke</th>
+                            <th>Received</th>
+                            <th>Overdue</th>
+                            <th>Upcoming</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="showEmpty">
+                            <td colspan="6">No records found</td>
+                        </tr>
+                        <tr *ngFor="let item of tableLists">
+                            <td><a target="_blank" style="color:#007ad9!important;cursor: pointer!important;" [routerLink]="['/instanttransport/user/customerdashboard']">{{item.name}}</a></td>
+                            <td class="text-center">
+                                <mat-checkbox [(ngModel)]="item.FCL"></mat-checkbox>
+                            </td>
+                            <td class="text-center">
+                                <mat-checkbox [(ngModel)]="item.Express"></mat-checkbox>
+                            </td>
+                            <td class="text-center">
+                                <mat-checkbox [(ngModel)]="item.Bespoke"></mat-checkbox>
+                            </td>
+                            <td class="text-center"><a target="_blank" style="color:#007ad9!important;cursor: pointer!important;" [routerLink]="['/instanttransport/user/customerdashboard']">{{item.Origins}}</a>
+                            </td>
+                            <td class="text-center"><a target="_blank" style="color:#007ad9!important;cursor: pointer!important;" [routerLink]="['/instanttransport/user/customerdashboard']">{{item.Trips}}</a></td>
+                            <td class="text-center"><a target="_blank" style="color:#007ad9!important;cursor: pointer!important;" [routerLink]="['/instanttransport/user/customerdashboard']">{{item.Freight}}
+                                    &nbsp;Cr</a></td>
+                            <td class="text-center">{{item.ServiceLevel}} &nbsp;%</td>
+                            <td class="text-center"><a target="_blank" style="color:#007ad9!important;cursor: pointer!important;" [routerLink]="['/instanttransport/user/customerdashboard']">{{item.Destinations}}</a>
+                            </td>
+                            <td class="text-center"><a target="_blank" style="color:#007ad9!important;cursor: pointer!important;" [routerLink]="['/instanttransport/user/customerdashboard']">{{item.Received}}</a></td>
+                            <td class="text-center"><a target="_blank" style="color:#007ad9!important;cursor: pointer!important;" [routerLink]="['/instanttransport/user/customerdashboard']">{{item.Overdue}}</a></td>
+                            <td class="text-center"><a target="_blank" style="color:#007ad9!important;cursor: pointer!important;" [routerLink]="['/instanttransport/user/customerdashboard']">{{item.Upcoming}}</a></td>
+                            <td class="text-center"><a target="_blank" style="color:#007ad9!important;cursor: pointer!important;" [routerLink]="['/instanttransport/user/customerdashboard']">{{item.Contracts}}</a>
+                            </td>
+                            <td class="text-center"><a target="_blank" style="color:#007ad9!important;cursor: pointer!important;" [routerLink]="['/instanttransport/user/customerdashboard']">{{item.Rates}}</a></td>
+                            <td class="pad-left inner-screen text-center">
+                                <a mwlConfirmationPopover [popoverTitle]="popoverStatusTitle" [popoverMessage]="popoverStatusMessage" placement="left" (confirm)="item.status = ! item.status" (cancel)="cancelClicked = true" [appendToBody]="true">
+                                    <span *ngIf="!item.status" style="color:red">Inactive</span>
+                                    <span *ngIf="item.status">Active</span>
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <a matTooltip="Reset Password" style="margin-right: 10px; cursor: pointer;font-size:16px!important;color:#0987e8d1" (click)="reset(item)">
+                                    <i class="fa fa-undo"></i>
+                                </a>
+                                <a matTooltip="Edit Customer Details" style="margin-right: 10px; cursor: pointer;font-size:16px!important;color:#0987e8d1" (click)="openCustomerDialog(item)">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" placement="left" (confirm)="deleteCustomer()" (cancel)="cancelClicked = true" [appendToBody]="true">
+                                    <i style="cursor: pointer;font-size:16px!important;" matTooltip="Delete Customer" class="fa fa-trash red"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons>
+                </mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!tableList" fxLayout="column" fxLayoutAlign="center center" class="campaign-spinner">
+    <mat-spinner color="primary"></mat-spinner>
+</div>

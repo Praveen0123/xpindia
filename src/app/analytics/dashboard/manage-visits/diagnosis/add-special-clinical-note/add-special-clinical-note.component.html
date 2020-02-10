@@ -1,0 +1,73 @@
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+  <h3>HISTORY OF PRESENT ILLNESS</h3>
+    <div class="leftMargin topMargins col-lg-2">
+        <mat-radio-group aria-label="Select an option" name="sadas">
+          <mat-radio-button class="margin margins" [value]="1">Driver</mat-radio-button>
+          <mat-radio-button class="margins" [value]="2">Passenger</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div>
+      <label class="control-label col-sm-1">Restrained : </label>
+      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 topMargins leftMarginRestrained">
+          <mat-radio-group aria-label="Select an option" name="sadas">
+            <mat-radio-button class="margin margins" [value]="1">Yes</mat-radio-button>
+            <mat-radio-button class="margins" [value]="2">No</mat-radio-button>
+          </mat-radio-group>
+      </div>
+    </div>
+    <div>
+        <label class="control-label col-sm-1">LOC : </label>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 topMargins leftMarginLOC">
+            <mat-radio-group aria-label="Select an option" name="sadas">
+              <mat-radio-button class="margin margins" [value]="1">Yes</mat-radio-button>
+              <mat-radio-button class="margins" [value]="2">No</mat-radio-button>
+            </mat-radio-group>
+        </div>
+    </div>
+    <div>
+        <label class="control-label col-sm-2">Did patient hit their head ? </label>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 topMargins leftMarginDidThePatient">
+            <mat-radio-group aria-label="Select an option" name="sadas">
+              <mat-radio-button class="margin margins" [value]="1">Yes</mat-radio-button>
+              <mat-radio-button class="margins" [value]="2">No</mat-radio-button>
+            </mat-radio-group>
+        </div>
+    </div>
+    <div>
+        <label class="control-label col-sm-2">Patient was  </label>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 topMargins leftMarginPatientWas">
+            <mat-radio-group aria-label="Select an option" name="sadas">
+              <mat-radio-button class="margin margins" [value]="1">Front</mat-radio-button>
+              <mat-radio-button class="margins" [value]="2">Rear-Ended</mat-radio-button>
+            </mat-radio-group>
+        </div>
+    </div>
+    <div>
+        <label class="control-label col-sm-2 leftMarginEndedOn">on the </label>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 topMargins leftMarginSide">
+            <mat-radio-group aria-label="Select an option" name="sadas">
+              <mat-radio-button class="margin margins" [value]="1">Driver</mat-radio-button>
+              <mat-radio-button class="margins" [value]="2">Passenger side</mat-radio-button>
+            </mat-radio-group>
+        </div>
+    </div>
+    <div>
+        <label class="control-label col-sm-2 leftMarginDidQuestion">Did airbags deploy ? </label>
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 topMargins leftMarginDidairbagsdeploy">
+            <mat-radio-group aria-label="Select an option" name="sadas">
+              <mat-radio-button class="margin margins" [value]="1">Yes</mat-radio-button>
+              <mat-radio-button class="margins" [value]="2">No</mat-radio-button>
+            </mat-radio-group>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row form-group" style="width:100%!important;">
+        <label class="control-label col-lg-3">Describe how the pain started : </label>
+        <textarea class="form-control col-lg-9 txtarea" rows="2"></textarea>
+    </div>
+
+    
+  </div>
+</div>

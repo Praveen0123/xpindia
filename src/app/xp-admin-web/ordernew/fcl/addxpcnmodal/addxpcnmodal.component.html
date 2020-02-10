@@ -1,0 +1,56 @@
+<div class="NewHeader">
+    <i class="fa fa-times" aria-hidden="true" style="float: right !important;margin: 0 10px 0px 0;font-size: 17px;    cursor: pointer;" (click)="close()"></i>
+    <h1 mat-dialog-title>XPCN</h1>
+</div>
+<!-- <div mat-dialog-content>
+
+  
+</div> -->
+<!-- <mat-dialog-actions align="end">
+  <button mat-raised-button [disabled]="!vehicleForm.valid" style="cursor:pointer;" [ngClass]="!vehicleForm.valid ? '' : 'btn-primary'" (click)="saveVehicle()"><mat-icon>add</mat-icon>&nbsp;Add</button>
+  <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+</mat-dialog-actions> -->
+
+<div fxLayout="row wrap" #resizedDiv style="margin-top:20px!important;">
+    <div class="flex-p w-100">
+        <div class="table-responsive">
+            <table id="example2" class="table table-bordered table-hover">
+                <thead class="tbl-head">
+                    <tr class="tr-grid-header">
+                        <th>XPCN</th>
+                        <th>Pickup Location</th>
+                        <th>Delivery Location</th>
+                        <th>No. of Packages</th>
+                        <th>Actual Weight</th>
+                        <th>Charged Weight</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of tableList">
+                        <td><a href="../../../../../assets//img/trips/XPCN.pdf " target="_blank " style="color:#007ad9!important;cursor: pointer!important; ">{{item.Transactionref}}</a></td>
+                        <td>{{item.pickup}}</td>
+                        <td>{{item.deliverylocation}}</td>
+                        <td>{{item.packages}}</td>
+                        <td>{{item.actualWeight}}</td>
+                        <td>{{item.chargedWeight}}</td>
+
+                        <!-- <td>{{item.Transactionref}}</td>
+                      <td>{{item.status}}</td> -->
+                        <!-- <td>
+                      <a mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" placement="left" (confirm)="deleteVehicle()" (cancel)="cancelClicked = true" [appendToBody]="true">
+                          <i style="cursor: pointer;font-size:16px!important;" matTooltip="Delete Vehicle" class="fa fa-trash red"></i>
+                      </a>
+                  </td> -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hove" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Close</button>
+</mat-dialog-actions>

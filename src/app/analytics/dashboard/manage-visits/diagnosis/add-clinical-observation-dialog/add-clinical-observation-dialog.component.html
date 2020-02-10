@@ -1,0 +1,47 @@
+<h1 mat-dialog-title> Clinical Observations</h1><hr>
+<div mat-dialog-content>
+  <div class="col-lg-2">
+  <ul class="ul">
+      <li>
+          <div class="ui-inputgroup" *ngFor="let item of newGroups">
+              <span class="ui-inputgroup-addon" style="padding-right:25px;"><p-checkbox></p-checkbox></span>
+              <input type="text" style="cursor: pointer;padding-left: 5px;" [ngClass]="{'active': selectedListItem == item}" (click)="listNewClick($event, item)" value={{item.name}} readonly>
+          </div>
+      </li><br>
+      
+  </ul>
+</div>
+<form class="form-horizontal ">
+        <div class="row newMarginStyles">
+            <div class="col-lg-2"></div>
+                <label class="control-label col-lg-2 col-md-2 col-sm-2 col-xs-2">Template : </label>
+                <mat-select color="primary" placeholder="--Select Template--" class="form-control col-lg-6">
+                    <!-- <mat-option [value]="0">Scheduling</mat-option> -->
+                    <mat-option [value]="0">Front Desk</mat-option>
+                    <mat-option [value]="1">Prescreening</mat-option>
+                    <mat-option [value]="2">Diagnosis</mat-option>
+                    <mat-option [value]="3">Billing</mat-option>
+                </mat-select>
+        </div>
+          <div class="row">
+                  <div class="col-lg-2"></div>
+              <div class="col-lg-2">
+                  <label class="control-label">Notes : </label>
+                  <button mat-fab (click)="startButton($event)" style="margin-left: 0px;margin-right: 15px;margin-top:15px;">
+                      <mat-icon *ngIf="!recognizing" style="color:green">mic</mat-icon>
+                      <mat-icon *ngIf="recognizing" style="color:red">stop</mat-icon>
+                  </button>
+              </div>
+          <textarea class="form-control txtarea col-lg-6 col-md-10 col-sm-10 col-xs-10" matInput [value]="finalTranscript" placeholder="Speech Input Result(speech to text)" rows="8"></textarea>
+        
+      </div>
+     
+    </form>
+
+<mat-card *ngIf="notification" class="notification">{{notification}}</mat-card>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button style="background-color: #336699!important;color: white!important;">Generate Report</button>
+    <button mat-raised-button class="add-hover btn-success" (click)="saveObservation()" [mat-dialog-close]="'test'">Save</button>
+    <button mat-raised-button class="add-dark-hover btn-default" (click)="close()">Cancel</button>
+</mat-dialog-actions> 

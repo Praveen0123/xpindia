@@ -1,0 +1,119 @@
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+    <app-master></app-master> <br>
+    <app-master-in-fcl></app-master-in-fcl>
+    <div class="container-fluid mt-5 mx-3 text-light ">
+      <div class="row">
+        <div class="col-2 bg-dark text-light">
+          <a style="background:black !important;cursor: pointer !important;" [routerLink]="['/instanttransport/shipments/fcl']">
+            <div class="text-light text-center my-auto">
+              <div class="m-auto p-5" style="margin-top:74px!important;">FCL</div>
+            </div>
+          </a>
+        </div>
+        <div class="col-10">
+          <div class="row">
+            <div class="col-2">
+              <div class="col-12 p-0" style="clip-path: polygon(75% 1%, 100% 50%, 75% 100%, 0 100%, 0 0);" id="big">
+                <div class="py-5 px-5">Confirmed(50) </div>
+              </div>
+              <a style="background:white !important;color:white;cursor: pointer !important;" [routerLink]="['/instanttransport/shipments/fcl']">
+                <div class="p-0" id="circles">
+                  <div class="my-2 p-3 pl-0" style="text-align:center">Provisional (20)</div>
+                  <!-- <div class="my-2 p-3 pl-0 bg-secondary">CAN/REJ (2)</div> -->
+                </div>
+              </a>
+              <a style="background:white !important;color:white;cursor: pointer !important;" [routerLink]="['/instanttransport/shipments/fcl']">
+                <div class="p-0" id="circles">
+                  <!-- <div class="my-2 p-3 pl-0 bg-secondary">Provi (20)</div> -->
+                  <div class="my-2 p-3 pl-0" style="text-align:center">CAN/REJ (2)</div>
+                </div>
+              </a>
+            </div>
+            <div class="col-2">
+              <div class="col-12 p-0" style="clip-path: polygon(75% 1%, 100% 50%, 75% 100%, 0 100%, 0 0);" id="big">
+                <div class="py-5 px-5">Allocated (40) </div>
+              </div>
+              <div class="p-0" id="circles">
+                <a style="background:white !important;color:white;cursor: pointer !important;" [routerLink]="['/instanttransport/shipments/fcl']">
+                  <div class="my-2 p-3 pl-0">Not Alloc (6)</div>
+                </a>
+                <!-- <a style="background:white !important;color:white;cursor: pointer !important;" [routerLink]="['/instanttransport/shipments/fcl']">
+                  <div class="my-2 p-3 pl-0 bg-secondary">Not Placed (4)</div>
+                </a> -->
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="col-12 p-0" style="clip-path: polygon(75% 1%, 100% 50%, 75% 100%, 0 100%, 0 0);" id="big">
+                <div class="py-5 px-5">Placed (25) </div>
+              </div>
+              <div class="p-0" id="circles">
+                <a style="background:white !important;color:white;cursor: pointer !important;" [routerLink]="['/instanttransport/shipments/fcl']">
+                  <div class="my-2 p-3 pl-0">In Transit (13)</div>
+                </a>
+                <a style="background:white !important;color:white;cursor: pointer !important;" [routerLink]="['/instanttransport/shipments/fcl']">
+                  <div class="my-2 p-3 pl-0">Not Placed (2)</div>
+                </a>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="col-12 p-0" style="clip-path: polygon(75% 1%, 100% 50%, 75% 100%, 0 100%, 0 0);" id="big">
+                <div class="py-5 px-5">Loaded (21) </div>
+              </div>
+              <div class="p-0" id="circles">
+                <a style="background:white !important;color:white;cursor: pointer !important;" [routerLink]="['/instanttransport/shipments/fcl']">
+                  <div class="my-2 p-3 pl-0">Loading (3)</div>
+                </a>
+                <a style="background:white !important;color:white;cursor: pointer !important;" [routerLink]="['/instanttransport/shipments/fcl']">
+                  <div class="my-2 p-3 pl-0">Not Docked (0)</div>
+                </a>
+                <!-- <a style="background:white !important;color:white;cursor: pointer !important;" [routerLink]="['/instanttransport/shipments/fcl']">
+                  <div class="my-2 p-3 pl-0 bg-secondary">Not Issued (1)</div>
+                </a> -->
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="col-12 p-0" style="clip-path: polygon(75% 1%, 100% 50%, 75% 100%, 0 100%, 0 0);" id="big">
+                <div class="py-5 px-5">CN/TS Issued (20) </div>
+              </div>
+              <div class="p-0" id="circles">
+                <a style="background:white !important;color:white;cursor: pointer !important;" [routerLink]="['/instanttransport/shipments/fcl']">
+                  <div class="my-2 p-3 pl-0">CN Issued (1)</div>
+                </a>
+                <a style="background:white !important;color:white;cursor: pointer !important;" [routerLink]="['/instanttransport/shipments/fcl']">
+                  <div class="my-2 p-3 pl-0">TS Issued (1)</div>
+                </a>
+                <a style="background:white !important;color:white;cursor: pointer !important;" [routerLink]="['/instanttransport/shipments/fcl']">
+                  <div class="my-2 p-3 pl-0">Not Issued (1)</div>
+                </a>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="col-12 p-0" style="clip-path: polygon(75% 1%, 100% 50%, 75% 100%, 0 100%, 0 0);" id="big">
+                <div class="py-5 px-5">Trip Started (1) </div>
+              </div>
+              <div class="p-0" id="circles">
+                <a style="background:white !important;color:white;cursor: pointer !important;" [routerLink]="['/instanttransport/shipments/fcl']">
+                  <div class="my-2 p-3 pl-0">Not Started (3)</div>
+                </a>
+                <!-- <a style="background:white !important;color:white;cursor: pointer !important;" [routerLink]="['/instanttransport/shipments/fcl']">
+                  <div class="my-2 p-3 pl-0 bg-secondary">In transit (16)</div>
+                </a> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr>
+      
+      
+    </div>
+    
+    
+    
+    
+    
+    
+    
+  </div>
+</div>

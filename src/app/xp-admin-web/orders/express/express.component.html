@@ -1,0 +1,26 @@
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+    <app-shared-in-orders></app-shared-in-orders>
+    <div class="row wrap" style="margin-bottom:7px;">
+      <div class="col-lg-6">
+        <div class="pills w-100 flex-p">
+          <ul class="nav nav-pills">
+            <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/instanttransport/orders/express/customer']"><mat-icon>supervised_user_circle </mat-icon> Customer</a></li>
+            <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/instanttransport/orders/express/zone']"><mat-icon>location_searching </mat-icon> Zone</a></li>
+            <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/instanttransport/orders/express/status']"><mat-icon>beenhere </mat-icon> Status</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="w-100 flex-p">
+          <!-- <button mat-raised-button class="pull-right add-hover btn-success" (click)="openVisitDialog(null)">
+            <mat-icon>add</mat-icon> Add Visit
+          </button> -->
+          <!-- <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hover margin-right-10" (click)="filterToggle = !filterToggle">
+            <mat-icon>filter_list</mat-icon> Filter
+          </button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

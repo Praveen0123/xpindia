@@ -1,0 +1,66 @@
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+      <div class="row" style="margin-bottom:14px;">
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-0">
+              <div class="w-100 flex-p">    
+              </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+              <div class="w-100 flex-p">
+                  <button mat-raised-button class="pull-right add-hover btn-success" (click)="openSymptomsDialog(null)">
+                      <mat-icon>person_add</mat-icon> Add Symptoms
+                  </button>
+                  <!-- <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hover margin-right-10" (click)="filterToggle = !filterToggle">
+                      <mat-icon>filter_list</mat-icon> Filter
+                  </button> -->
+              </div>
+          </div>
+      </div>
+      <div fxLayout="row wrap">
+        <div class="table-responsive">
+            <table id="example2" class="table table-bordered table-hover">
+                <thead class="tbl-head">
+                    <tr class="tr-grid-header">
+                        <th class="AppointmentMinWidth">Pain Type</th>
+                        <th class="AppointmentMinWidth">Location</th>
+                        <th class="AppointmentMinWidth">Quality</th>
+                        <th class="AppointmentMinWidth">Severity</th>
+                        <th class="AppointmentMinWidth">Duration</th>
+                        <th class="AppointmentMinWidth">Onset/Timing</th>
+                        <th class="AppointmentMinWidth">Context</th>
+                        <th class="AppointmentMinWidth">Modifying Factors</th>
+                        <th class="AppointmentMinWidth">Associated Symptoms</th>
+                        <th class="CPTMinWidth">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of tableList">
+                        <td>{{item.painType}}</td>
+                        <td>{{item.location}}</td>
+                        <td>{{item.quality}}</td>
+                        <td>{{item.severity}}</td>
+                        <td>{{item.duration}}</td>
+                        <td>{{item.onset}}</td>
+                        <td>{{item.context}}</td>
+                        <td>{{item.modifyingFactors}}</td>
+                        <td>{{item.associatedSymptoms}}</td>
+                        <td>
+                            <a matTooltip="Edit Symptom" style="margin-right: 10px; cursor: pointer;font-size:16px!important;color:#0987e8d1" (click)="openSymptomsDialog(item)">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <a mwlConfirmationPopover
+                            [popoverTitle]="popoverTitle"
+                            [popoverMessage]="popoverMessage"
+                            placement="left"
+                            (confirm)="deleteSymptom()"
+                            (cancel)="cancelClicked = true" [appendToBody]="true">
+                            <i style="cursor: pointer;font-size:16px!important;" matTooltip="Delete Symptom" class="fa fa-trash red"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title> Schedule Notes </h1>
+</div>
+<div mat-dialog-content>
+    <form class="form-horizontal" novalidate [formGroup]="ScheduleForm">
+        <div class="form-group">
+            <textarea class="form-control txtarea" placeholder="Enter Notes Here" maxlength="250" rows="4" formControlName="notes">   </textarea>
+            <div *ngIf="!notes.valid && (notes.dirty || notes.touched)" class="error-text">
+                <div *ngIf="notes.errors.required">
+                    Notes is required
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button [disabled]="!ScheduleForm.valid" style="cursor:pointer;" [ngClass]="!ScheduleForm.valid ? '' : 'btn-primary' " (click)="saveNote()" [mat-dialog-close]="'test'"><mat-icon>save</mat-icon>&nbsp;Save
+    </button>
+    <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+</mat-dialog-actions>

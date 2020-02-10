@@ -1,0 +1,280 @@
+<div fxLayout="row wrap">
+    <div class="flex-p w-100">
+
+        <div class="row" style="margin-bottom:14px;">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="w-100 flex-p">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="w-100 flex-p">
+                    <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hover margin-right-10" (click)="filterToggle = !filterToggle">
+                        <mat-icon>filter_list</mat-icon> Filter
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row wrap">
+            <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100" *ngIf="filterToggle">
+                <mat-card class="filter">
+                    <mat-card-content>
+                        <div class="row col-lg-12">
+                            <div class="col-lg-4">
+                                <button type="button" mat-raised-button class="btn btn-secondary filterbuttons mgnfilterbesidebuttons">MTD </button>
+                                <button type="button" mat-raised-button class="btn btn-secondary filterbuttons mgnfilterbesidebuttons">YTD </button>
+                                <button type="button" mat-raised-button class="btn btn-secondary filterbuttons mgnfilterbesidebuttons">Today </button>
+                                <button type="button" mat-raised-button class="btn btn-secondary filterbuttons mgnfilterbesidebuttons">Next 7 days </button>
+                            </div>
+                            <div class="col-sm-3 mgndateRange">
+                                <div class="col-sm-2 newMarginClass">
+                                    From:
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="input-icon right" mat-menu-item>
+                                        <i class="fa fa-calendar" [owlDateTimeTrigger]="dt1"></i>
+                                        <input class="form-control" placeholder="Select Date" class="form-control" id="db" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" name="dt1" required>
+                                        <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mgndateRange" style="margin-left: -87px !important;">
+                                <div class="col-sm-2 newMarginClass">
+                                    To:
+                                </div>
+                                <div class="col-sm-8">
+                                    <!-- <input type="text" class="form-control" placeholder="--Enter Registration--"> -->
+                                    <div class="input-icon right" mat-menu-item>
+                                        <i class="fa fa-calendar" [owlDateTimeTrigger]="dt2"></i>
+                                        <input class="form-control" placeholder="Select Date" class="form-control" id="db" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" name="dt2" required>
+                                        <owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-1 mgndateRange">
+                                <button type="button" class="add-hover btn btn-success pull-right">Search</button>
+                            </div>
+                            <div class="col-lg-1 mgndateRange">
+                                <button type="button" class="btn filter-hover" style="background-color:#37474f; color:#fff !important">Clear</button>
+                            </div>
+
+                        </div>
+                        <!-- <div class=" row col-sm-12 my-5" style="margin-left: 2px;">
+
+                        </div> -->
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+
+        <div fxLayout="row wrap">
+            <div fxFlex="100" fxFlex.gt-sm="50" class="flex-p w-100">
+                <app-customer-chart></app-customer-chart>
+            </div>
+            <div fxFlex="100" fxFlex.gt-sm="50" class="flex-p">
+                <app-orders-chart></app-orders-chart>
+            </div>
+        </div>
+
+        <div fxLayout="row wrap">
+            <div fxFlex="100" fxFlex.gt-sm="50" class="flex-p w-100">
+                <app-ffvs-chart></app-ffvs-chart>
+            </div>
+            <div fxFlex="100" fxFlex.gt-sm="50" class="flex-p">
+                <app-service-level-chart></app-service-level-chart>
+            </div>
+        </div>
+
+        <div fxLayout="row wrap">
+            <div fxFlex="100" fxFlex.gt-sm="50" class="flex-p w-100 table-responsive">
+                <mat-card>
+                    <mat-card-header fxLayoutAlign="center center">
+                        <mat-card-subtitle>
+                            <h2>Exception Tickets (FFVs/Drivers)</h2>
+                        </mat-card-subtitle>
+                    </mat-card-header>
+                    <table id="example2 " class="table table-bordered table-hover ">
+                        <thead class="tbl-head ">
+                            <tr class="tr-grid-header ">
+                                <th class="text-center">Exceptions</th>
+                                <th class="text-center">Tickets raised</th>
+                                <th class="text-center">Resolved</th>
+                                <th class="text-center">Unresolved</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of Exception">
+                                <td>{{item.Name}}</td>
+                                <td class="text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">{{item.Tickets}}</a></td>
+                                <td class="text-center"><a style="color:#007ad9!important;cursor: pointer!important; "> {{item.Resovled}} &nbsp;% </a></td>
+                                <td class="text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">{{item.Unresovled}}</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </mat-card>
+            </div>
+            <div fxFlex="100" fxFlex.gt-sm="50" class="flex-p">
+                <mat-card>
+                    <mat-card-header fxLayoutAlign="center center">
+                        <mat-card-subtitle>
+                            <h2>Load Factor</h2>
+                        </mat-card-subtitle>
+                    </mat-card-header>
+                    <table id="example2 " class="table table-bordered table-hover ">
+                        <thead class="tbl-head ">
+                            <tr class="tr-grid-header ">
+                                <th class="text-center">Load Factor</th>
+                                <th class="text-center">FCL</th>
+                                <th class="text-center">Express</th>
+                                <th class="text-center">Bespoke</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of LoadFactor">
+                                <td>{{item.Name}}</td>
+                                <td class="text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">{{item.FCL}}</a></td>
+                                <td class="text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">{{item.Express}}</a></td>
+                                <td class="text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">{{item.Bespoke}}</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </mat-card>
+            </div>
+        </div>
+
+        <div fxLayout="row wrap">
+            <div fxFlex="100" fxFlex.gt-sm="50" class="flex-p w-100 table-responsive">
+                <mat-card>
+                    <mat-card-header fxLayoutAlign="center center">
+                        <mat-card-subtitle>
+                            <h2>Trips</h2>
+                        </mat-card-subtitle>
+                    </mat-card-header>
+                    <table id="example2 " class="table table-bordered table-hover ">
+                        <thead class="tbl-head ">
+                            <tr class="tr-grid-header ">
+                                <th class="text-center" colspan="2">Open trips</th>
+                                <th class="text-center" colspan="2">Completed trips</th>
+                            </tr>
+                            <tr class="tr-grid-header ">
+                                <th class="text-center">On Time</th>
+                                <th class="text-center">Delayed</th>
+                                <th class="text-center">On Time</th>
+                                <th class="text-center">Delayed</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of trips">
+                                <td class="text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">{{item.OnTime1}}</a></td>
+                                <td class="text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">{{item.Delayed1}}</a> </td>
+                                <td class="text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">{{item.OnTime2}}</a></td>
+                                <td class="text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">{{item.Delayed2}}</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </mat-card>
+            </div>
+            <div fxFlex="100" fxFlex.gt-sm="50" class="flex-p w-100 table-responsive">
+                <mat-card>
+                    <mat-card-header fxLayoutAlign="center center">
+                        <mat-card-subtitle>
+                            <h2>Finance</h2>
+                        </mat-card-subtitle>
+                    </mat-card-header>
+                    <table id="example2 " class="table table-bordered table-hover ">
+                        <thead class="tbl-head ">
+                            <tr class="tr-grid-header ">
+                                <th class="text-center" colspan="2">A/C payables </th>
+                                <th class="text-center" colspan="2">A/C receivables</th>
+                            </tr>
+                            <tr class="tr-grid-header ">
+                                <th class="text-center">Total</th>
+                                <th class="text-center">Overdue</th>
+                                <th class="text-center">Total</th>
+                                <th class="text-center">Overdue</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of finance">
+                                <td class="text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">{{item.Total1}}</a></td>
+                                <td class="text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">{{item.Overdue1}}</a></td>
+                                <td class="text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">{{item.Total2}}</a></td>
+                                <td class="text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">{{item.Overdue2}}</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </mat-card>
+            </div>
+        </div>
+
+        <div fxLayout="row wrap">
+            <div fxFlex="100" fxFlex.gt-sm="100" class="flex-p w-100 table-responsive">
+                <mat-card>
+                    <mat-card-header fxLayoutAlign="center center">
+                        <mat-card-subtitle>
+                            <h2>Sales / Revenue</h2>
+                        </mat-card-subtitle>
+                    </mat-card-header>
+                    <table id="example2 " class="table table-bordered table-hover ">
+                        <thead class="tbl-head ">
+                            <tr class="tr-grid-header ">
+                                <th class="text-center">FCL</th>
+                                <th class="text-center">Express</th>
+                                <th class="text-center">Bespoke</th>
+                                <th class="text-center">Total</th>
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of Sales">
+                                <td class="text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">{{item.FCL}}</a></td>
+                                <td class="text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">{{item.Express}}</a></td>
+                                <td class="text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">{{item.Bespoke}}</a></td>
+                                <td class="text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">{{item.Total}}</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </mat-card>
+            </div>
+        </div>
+
+        <div fxLayout="row wrap">
+            <div fxFlex="100" fxFlex.gt-sm="100" class="flex-p w-100 table-responsive">
+                <mat-card>
+                    <mat-card-header fxLayoutAlign="center center">
+                        <mat-card-subtitle>
+                            <h2>Capacity</h2>
+                        </mat-card-subtitle>
+                    </mat-card-header>
+                    <table id="example2 " class="table table-bordered table-hover ">
+                        <thead class="tbl-head ">
+                            <tr class="tr-grid-header ">
+                                <th class="text-center" rowspan="2"> Capacity</th>
+                                <th class="text-center" colspan="2">Line Haul</th>
+                                <th class="text-center" colspan="2">First Last Mile</th>
+                            </tr>
+                            <tr class="tr-grid-header ">
+                                <!-- <th class="text-center"></th> -->
+                                <th class="text-center">Total</th>
+                                <th class="text-center">Utilization %</th>
+                                <th class="text-center">Total</th>
+                                <th class="text-center">Utilization %</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of capacity">
+                                <td>{{item.Name}}</td>
+                                <td class="text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">{{item.Total1}}</a></td>
+                                <td class="text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">{{item.Utilization1}} &nbsp;%</a></td>
+                                <td class="text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">{{item.Total2}}</a></td>
+                                <td class="text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">{{item.Utilization2}} &nbsp;%</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </mat-card>
+            </div>
+        </div>
+
+    </div>
+</div>

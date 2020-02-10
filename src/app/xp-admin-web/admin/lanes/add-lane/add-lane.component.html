@@ -1,0 +1,174 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title><span *ngIf="!user">Add</span><span *ngIf="user">Edit</span> Lane</h1>
+</div>
+<div mat-dialog-content>
+    <form class="form-horizontal" novalidate [formGroup]="addCustomerForm">
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Country Name: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <mat-select color="primary" formControlName="countryname" required placeholder="--Select Country--" class="form-control">
+                    <mat-option [value]="0">India</mat-option>
+                    <mat-option [value]="1">USA</mat-option>
+                    <mat-option [value]="2">Sri Lanka</mat-option>
+                    <mat-option [value]="3">Germany</mat-option>
+                    <mat-option [value]="4">Canada</mat-option>
+                </mat-select>
+                <!-- <mat-option [value]="5">Rajasthan</mat-option>
+                  <mat-option [value]="6">Jammu and Kashmir</mat-option>
+                  <mat-option [value]="7">Bihar</mat-option>
+                  <mat-option [value]="8">Gujarat</mat-option>
+                  <mat-option [value]="9">Karnataka</mat-option>
+                  <mat-option [value]="10">Punjab</mat-option> -->
+
+                <!-- <input type="text" formControlName="countryname" maxlength="100" (keypress)="omit_special_char($event)" onDrag="return false" onDrop="return false" class="form-control" placeholder="Enter Country Name" required> -->
+                <div *ngIf="!countryname.valid && (countryname.dirty || countryname.touched)" class="error-text">
+                    <div *ngIf="countryname.errors.required">
+                        Country name is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Lane Name: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="laneName" maxlength="100" (keypress)="omit_special_char($event)" onDrag="return false" onDrop="return false" class="form-control" placeholder="Enter Lane Name" required>
+                <div *ngIf="!laneName.valid && (laneName.dirty || laneName.touched)" class="error-text">
+                    <div *ngIf="laneName.errors.required">
+                        Lane name is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="form-group">
+    <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Origin: </label>
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+      <mat-select color="primary" formControlName="origin" required placeholder="--Select Origin--" class="form-control">
+        <mat-option [value]="0">Telangana</mat-option>
+        <mat-option [value]="1">Andhra Pradesh</mat-option>
+        <mat-option [value]="2">Tamil Nadu</mat-option>
+        <mat-option [value]="3">Maharashtra</mat-option>
+        <mat-option [value]="4">Uttar Pradesh</mat-option>
+        <mat-option [value]="5">Rajasthan</mat-option>
+        <mat-option [value]="6">Jammu and Kashmir</mat-option>
+        <mat-option [value]="7">Bihar</mat-option>
+        <mat-option [value]="8">Gujarat</mat-option>
+        <mat-option [value]="9">Karnataka</mat-option>
+        <mat-option [value]="10">Punjab</mat-option>
+      </mat-select>
+      <div *ngIf="!origin.valid && (origin.dirty || origin.touched)" class="error-text">
+        <div *ngIf="origin.errors.required">
+          Origin is required
+        </div>
+      </div>
+    </div>
+  </div> -->
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Origin District: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <mat-select color="primary" formControlName="originDistrict" required placeholder="--Select Origin District--" class="form-control">
+                    <mat-option [value]="0">Telangana</mat-option>
+                    <mat-option [value]="1">Andhra Pradesh</mat-option>
+                    <mat-option [value]="2">Tamil Nadu</mat-option>
+                    <mat-option [value]="3">Maharashtra</mat-option>
+                    <mat-option [value]="4">Uttar Pradesh</mat-option>
+                    <mat-option [value]="5">Rajasthan</mat-option>
+                    <mat-option [value]="6">Jammu and Kashmir</mat-option>
+                    <mat-option [value]="7">Bihar</mat-option>
+                    <mat-option [value]="8">Gujarat</mat-option>
+                    <mat-option [value]="9">Karnataka</mat-option>
+                    <mat-option [value]="10">Punjab</mat-option>
+                </mat-select>
+                <div *ngIf="!originDistrict.valid && (originDistrict.dirty || originDistrict.touched)" class="error-text">
+                    <div *ngIf="originDistrict.errors.required">
+                        Origin District is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="form-group">
+    <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Destination: </label>
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+      <mat-select color="primary" formControlName="destination" required placeholder="--Select Destination--" class="form-control">
+        <mat-option [value]="0">Telangana</mat-option>
+        <mat-option [value]="1">Andhra Pradesh</mat-option>
+        <mat-option [value]="2">Tamil Nadu</mat-option>
+        <mat-option [value]="3">Maharashtra</mat-option>
+        <mat-option [value]="4">Uttar Pradesh</mat-option>
+        <mat-option [value]="5">Rajasthan</mat-option>
+        <mat-option [value]="6">Jammu and Kashmir</mat-option>
+        <mat-option [value]="7">Bihar</mat-option>
+        <mat-option [value]="8">Gujarat</mat-option>
+        <mat-option [value]="9">Karnataka</mat-option>
+        <mat-option [value]="10">Punjab</mat-option>
+      </mat-select>
+      <div *ngIf="!destination.valid && (destination.dirty || destination.touched)" class="error-text">
+        <div *ngIf="destination.errors.required">
+          Destination is required
+        </div>
+      </div>
+    </div>
+  </div> -->
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Destination District: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <mat-select color="primary" formControlName="destinationDistrict" required placeholder="--Select Destination District--" class="form-control">
+                    <mat-option [value]="0">Telangana</mat-option>
+                    <mat-option [value]="1">Andhra Pradesh</mat-option>
+                    <mat-option [value]="2">Tamil Nadu</mat-option>
+                    <mat-option [value]="3">Maharashtra</mat-option>
+                    <mat-option [value]="4">Uttar Pradesh</mat-option>
+                    <mat-option [value]="5">Rajasthan</mat-option>
+                    <mat-option [value]="6">Jammu and Kashmir</mat-option>
+                    <mat-option [value]="7">Bihar</mat-option>
+                    <mat-option [value]="8">Gujarat</mat-option>
+                    <mat-option [value]="9">Karnataka</mat-option>
+                    <mat-option [value]="10">Punjab</mat-option>
+                </mat-select>
+                <div *ngIf="!destinationDistrict.valid && (destinationDistrict.dirty || destinationDistrict.touched)" class="error-text">
+                    <div *ngIf="destinationDistrict.errors.required">
+                        Destination District is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="form-group">
+          <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Baseline Capacity: </label>
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+              <input type="text" formControlName="baseline" maxlength="10" (keypress)="omit_special_char($event)" onDrag="return false" onDrop="return false" class="form-control" placeholder="Enter Baseline Capacity" required>
+              <div *ngIf="!baseline.valid && (baseline.dirty || baseline.touched)" class="error-text">
+                  <div *ngIf="baseline.errors.required">
+                      Baseline Capacity is required
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="form-group">
+          <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">FCL TAT: </label>
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+              <input type="text" formControlName="tat" maxlength="10" (keypress)="omit_special_char($event)" onDrag="return false" onDrop="return false" class="form-control" placeholder="Enter FCL TAT" required>
+              <div *ngIf="!tat.valid && (tat.dirty || tat.touched)" class="error-text">
+                  <div *ngIf="tat.errors.required">
+                      FCL TAT is required
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="form-group">
+          <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">FCL Capacity: </label>
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+              <input type="text" formControlName="fclcapacity" maxlength="10" (keypress)="omit_special_char($event)" onDrag="return false" onDrop="return false" class="form-control" placeholder="Enter FCL Capacity" required>
+              <div *ngIf="!fclcapacity.valid && (fclcapacity.dirty || fclcapacity.touched)" class="error-text">
+                  <div *ngIf="fclcapacity.errors.required">
+                      FCL Capacity is required
+                  </div>
+              </div>
+          </div>
+      </div> -->
+
+    </form>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button [disabled]="!addCustomerForm.valid" style="cursor:pointer;" [ngClass]="!addCustomerForm.valid ? '' : 'btn-primary'" (click)="saveCustomer()" [mat-dialog-close]="'test'"><mat-icon *ngIf="user">update</mat-icon><mat-icon *ngIf="!user">save</mat-icon><span *ngIf="!user"> Save</span><span
+  *ngIf="user"> Update</span></button>
+    <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+</mat-dialog-actions>

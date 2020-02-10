@@ -1,0 +1,98 @@
+<div class="NewHeader">
+  <h1 mat-dialog-title><span *ngIf="!driver">Add</span><span *ngIf="driver">Edit</span> Driver </h1>
+</div>
+<div mat-dialog-content>
+
+  <form class="form-horizontal" novalidate [formGroup]="adddriverForm">
+
+
+      <div class="form-group">
+          <label class="control-label col-sm-4 add-member-label" for="pwd">Driver Name: </label>
+          <div class="col-sm-8">
+              <input type="text" formControlName="driverName" required class="form-control" placeholder="Enter Driver Name">
+              <div *ngIf="!driverName.valid && (driverName.dirty || driverName.touched)" class="error-text">
+                  <div *ngIf="driverName.errors.required">
+                      Driver Name is required
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="form-group">
+          <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Phone Number: </label>
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+              <!-- <input type="text" class="form-control" [textMask]="{mask: dlNumberNumberMask}" formControlName="state" placeholder="Enter Fax Number" required> -->
+              <input type="text" class="form-control" maxlength='10' (keypress)='onlyNumber($event)' formControlName="Phone" placeholder="Enter Phone Number" required>
+              <div *ngIf="!Phone.valid && (Phone.dirty || Phone.touched)" class="error-text">
+                  <div *ngIf="Phone.errors.required">
+                      Phone Number is required
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="form-group">
+          <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">D.L Number: </label>
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+              <input type="text" formControlName="dlNumber" required class="form-control" placeholder="Enter D.L Number">
+              <div *ngIf="!dlNumber.valid && (dlNumber.dirty || dlNumber.touched)" class="error-text">
+                  <div *ngIf="dlNumber.errors.required">
+                      D.L Number is required
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="form-group">
+          <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">D.L Class: </label>
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+              <input type="email" formControlName="dlClass" required class="form-control" id="email" placeholder="Enter D.L Class">
+              <div *ngIf="!dlClass.valid && (dlClass.dirty || dlClass.touched)" class="error-text">
+                  <div *ngIf="dlClass.errors.required">
+                      D.L Class is required
+                  </div>
+                  <!-- <div *ngIf="dlClass.errors.email">
+              Enter a valid email
+          </div> -->
+              </div>
+          </div>
+      </div>
+      <div class="form-group">
+          <label class="control-label col-sm-4 add-member-label" for="pwd">Address: </label>
+          <div class="col-sm-8">
+              <input formControlName="address" class="form-control " placeholder="Enter address" required>
+              <div *ngIf="!address.valid && (address.dirty || address.touched)" class="error-text">
+                  <div *ngIf="address.errors.required">
+                      Address is required
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="form-group">
+          <label class="control-label col-sm-4 add-member-label">City: </label>
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+              <input type="text" formControlName="city" class="form-control" placeholder="Enter city" required>
+              <div *ngIf="!city.valid && (city.dirty || city.touched)" class="error-text">
+                  <div *ngIf="city.errors.required">
+                      City is required
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="form-group">
+          <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">State: </label>
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+              <input type="text" formControlName="state" required class="form-control" placeholder="Enter State">
+              <div *ngIf="!state.valid && (state.dirty || state.touched)" class="error-text">
+                  <div *ngIf="state.errors.required">
+                      State is required
+                  </div>
+              </div>
+          </div>
+      </div>
+
+  </form>
+</div>
+<mat-dialog-actions align="end">
+  <button mat-raised-button style="cursor:pointer;" [disabled]="!adddriverForm.valid" [ngClass]="!adddriverForm.valid ? '' : 'btn-primary'" (click)="savedriver()"><mat-icon *ngIf="driver">update</mat-icon><mat-icon *ngIf="!driver">save</mat-icon><span *ngIf="!driver"> Save</span><span
+*ngIf="driver"> Update</span></button>
+  <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+</mat-dialog-actions>
+

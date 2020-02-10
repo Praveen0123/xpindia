@@ -1,0 +1,114 @@
+<div class="NewHeader">
+    <i class="fa fa-times" aria-hidden="true" style="float: right !important;margin: 0 10px 0px 0;font-size: 17px;    cursor: pointer;" (click)="close()"></i>
+    <h1 mat-dialog-title><span *ngIf="!user">Add</span><span *ngIf="user">Edit</span> Shippment Rates</h1>
+</div>
+<div mat-dialog-content>
+    <form class="form-horizontal" novalidate [formGroup]="addCustomerForm">
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Lane: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <mat-select color="primary" formControlName="vehicleType" required placeholder="--Select Lane--" class="form-control">
+                    <mat-option [value]="0">HYD-DEL</mat-option>
+                    <mat-option [value]="1">RAJ-JAI</mat-option>
+                    <mat-option [value]="2">ANC-DEN</mat-option>
+                    <mat-option [value]="3">BNG-DEN</mat-option>
+                    <mat-option [value]="4">HP-UP</mat-option>
+                </mat-select>
+                <div *ngIf="!vehicleType.valid && (vehicleType.dirty || vehicleType.touched)" class="error-text">
+                    <div *ngIf="vehicleType.errors.required">
+                        Lane is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd"> Per Kg
+                Rates(₹): </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="axle" class="form-control" placeholder="Enter Per Kg Rates" required>
+                <div *ngIf="!axle.valid && (axle.dirty || axle.touched)" class="error-text">
+                    <div *ngIf="axle.errors.required">
+                        Per Kg Rates is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Volume Conversion:
+            </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="VolumeConversion" class="form-control" placeholder="Enter Volume Conversion" required>
+                <div *ngIf="!VolumeConversion.valid && (VolumeConversion.dirty || VolumeConversion.touched)" class="error-text">
+                    <div *ngIf="VolumeConversion.errors.required">
+                        Volume Conversion is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Fov:
+            </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="Fov" class="form-control" placeholder="Enter Fov" required>
+                <div *ngIf="!Fov.valid && (Fov.dirty || Fov.touched)" class="error-text">
+                    <div *ngIf="Fov.errors.required">
+                        Fov is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">Fuel Surcharge: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" formControlName="FuelCharge" id="" placeholder="Enter Fuel Surcharge" required>
+                <div *ngIf="!FuelCharge.valid && (FuelCharge.dirty || FuelCharge.touched)" class="error-text">
+                    <div *ngIf="FuelCharge.errors.required">
+                        Fuel Surcharge is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">GNC Charge:</label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" formControlName="GNCCharge" placeholder="Enter GNC Charge" required>
+                <div *ngIf="!GNCCharge.valid && (GNCCharge.dirty || GNCCharge.touched)" class="error-text">
+                    <div *ngIf="GNCCharge.errors.required">
+                        GNC Charge is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">Handling Charges: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" formControlName="HandlingCharges" placeholder="Enter Handling Charges" required>
+                <div *ngIf="!HandlingCharges.valid && (HandlingCharges.dirty || HandlingCharges.touched)" class="error-text">
+                    <div *ngIf="HandlingCharges.errors.required">
+                        Handling Charges is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">Others Charges: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" formControlName="OthersCharges" placeholder="Enter Others Charges" required>
+                <div *ngIf="!OthersCharges.valid && (OthersCharges.dirty || OthersCharges.touched)" class="error-text">
+                    <div *ngIf="OthersCharges.errors.required">
+                        Others Charges is required
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button [disabled]="!addCustomerForm.valid" style="cursor:pointer;" [ngClass]="!addCustomerForm.valid ? '' : 'btn-primary'" (click)="saveCustomer()" [mat-dialog-close]="'test'">
+        <mat-icon *ngIf="user">update</mat-icon>
+        <mat-icon *ngIf="!user">save</mat-icon><span *ngIf="!user"> Save</span><span *ngIf="user"> Update</span>
+    </button>
+    <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hove" (click)="close()">
+        <mat-icon>cancel</mat-icon>&nbsp;Close
+    </button>
+</mat-dialog-actions>

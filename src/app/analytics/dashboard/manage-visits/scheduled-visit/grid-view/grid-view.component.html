@@ -1,0 +1,110 @@
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+    
+    <app-shared-in-manage-visits></app-shared-in-manage-visits>
+
+    <div class="row wrap" style="margin-bottom:7px;">
+      <div class="col-lg-6">
+          <div class="pills w-100 flex-p">
+              <ul class="nav nav-pills">
+                  <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/sapphire/patients/managevisits/scheduled/gridview']"><mat-icon>grid_on</mat-icon> Grid View</a></li>
+                  <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/sapphire/patients/managevisits/scheduled/calendarview']"><mat-icon>today</mat-icon> Calendar View</a></li>
+              </ul>
+          </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="w-100 flex-p">
+          <button mat-raised-button class="pull-right add-hover btn-success" (click)="openVisitDialog(null)">
+            <mat-icon>add</mat-icon> Add Visit
+          </button>
+          <!-- <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hover margin-right-10" (click)="filterToggle = !filterToggle">
+            <mat-icon>filter_list</mat-icon> Filter
+          </button> -->
+        </div>
+      </div>
+    </div>
+
+
+
+    <div fxLayout="row wrap">
+      <div class="table-responsive">
+          <table id="example2" class="table table-bordered table-hover">
+              <thead class="tbl-head">
+                  <tr class="tr-grid-header">
+                      <th class="patientMinWidth">Patient</th>
+                      <th class="caseNumberMinWidth">Case Number</th>
+                      <th class="appointmentCodeMinWidth">Appointment Code</th>
+                      <th class="appointmentDateMinWidth">Appointment Date</th>
+                      <th class="timeMinWidth">Time</th>
+                      <th class="physicianMinWidth">Internal Physician</th>
+                      <th>Docs</th>
+                      <th class="StatusMinWidthClass">Confirmation Status</th>
+                      <th class="ModeMinWidthClass">Confirnation Mode</th>
+                      <!-- <th class="confDateMinWidth">Confirnation Date</th> -->
+                      <th class="WorklistMinWidthClass">Worklist Status</th>
+                      <th class="remarksMinWidth">Notes</th>
+                      <th class="manageMinWidth">Manage</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let item of tableList">
+                      <td><a [routerLink]="['/sapphire/patients/patientdashboard/patientchart']" target="_blank" style="color:#007ad9!important;cursor: pointer!important;">{{item.patient}}</a></td>
+                      <td>{{item.caseNumber}}</td>
+                      <td>{{item.appointmentCode}}</td>
+                      <td>{{item.appointmentDate}}</td>
+                      <td>{{item.time}}</td>
+                      <td>{{item.internalPhysician}}</td>
+                      <td><a style="color:#007ad9!important;cursor: pointer!important;" (click)="openDocsDialog(item)">{{item.docs}}</a></td>
+                      <td>
+                          <mat-select color="primary" [(value)]="item.selected" placeholder="--Select Status--" class="form-control">
+                              <mat-option [value]="0">Scheduled</mat-option>
+                              <mat-option [value]="1">Confirmed</mat-option>
+                              <mat-option [value]="2">Not Reachable</mat-option>
+                              <mat-option [value]="3">No Response</mat-option>
+                              <mat-option [value]="4">On Hold</mat-option>
+                              <mat-option [value]="5">Cancelled</mat-option>
+                          </mat-select>
+                      </td>
+                      <td>
+                          <mat-select color="primary" [(value)]="item.select" placeholder="--Select Mode--" class="form-control">
+                              <mat-option [value]="0">Call</mat-option>
+                              <mat-option [value]="1">Text</mat-option>
+                              <mat-option [value]="2">Email</mat-option>
+                          </mat-select>
+                      </td>
+                      <!-- <td>{{item.confirmationDate}}</td> -->
+                      <td>
+                        <mat-select color="primary" [(value)]="item.selecte" placeholder="--Select Status--" class="form-control">
+                          <!-- <mat-option [value]="0">Scheduling</mat-option> -->
+                          <mat-option [value]="1">Front Desk</mat-option>
+                          <mat-option [value]="2">Prescreening</mat-option>
+                          <mat-option [value]="3">Diagnosis</mat-option>
+                          <mat-option [value]="4">Billing</mat-option>
+                        </mat-select>
+                      </td>
+                      <td *ngIf="item.notes === 'View'" style="background-color: #66c2ff;cursor: pointer" (click)="openRemarksModal(item)">{{item.notes}}</td>
+                      <td *ngIf="item.notes === 'Add'" style="background-color: black;color: white;cursor: pointer" (click)="openRemarksModal(null)">{{item.notes}}</td>
+                      <!-- <td>{{item.type}}</td> -->
+                      
+                      <td>
+                        <a matTooltip="Edit Visit" style="margin-right: 10px; cursor: pointer;font-size:16px!important;color:#0987e8d1" (click)="openVisitDialog(item)">
+                          <i class="fa fa-edit"></i>
+                        </a>
+                        <a mwlConfirmationPopover
+                        [popoverTitle]="popoverTitle"
+                        [popoverMessage]="popoverMessage"
+                        placement="left"
+                        (confirm)="deleteVisit()"
+                        (cancel)="cancelClicked = true" [appendToBody]="true">
+                            <i style="cursor: pointer;font-size:16px!important;" matTooltip="Delete Visit" class="fa fa-trash red"></i>
+                        </a>
+                        </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+
+
+  </div>
+</div>

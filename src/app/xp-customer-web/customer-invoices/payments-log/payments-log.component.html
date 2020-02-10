@@ -1,0 +1,112 @@
+<div fxLayout="row wrap" #resizedDiv>
+    <div class="flex-p w-100">
+        
+        <app-master></app-master>
+        
+        <!-- <div fxFlex="100" fxFlex.gt-sm="50" class="flex-p">
+            <app-line-graph></app-line-graph>
+        </div> -->
+        <!-- <div fxFlex="100" fxFlex.gt-sm="50" class="flex-p">
+            <app-pie></app-pie>
+        </div> -->
+        <div class="row" style="margin-bottom:14px;">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="w-100 flex-p">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="w-100 flex-p">
+                    <!-- <button mat-raised-button class="pull-right add-hover-help btn-success-help" style="margin-left: 10px;">
+                        <mat-icon>help_outline</mat-icon> Help
+                    </button> -->
+                    <!-- <button mat-raised-button  class="pull-right add-hover btn-success" (click)="openGatewayDialog(null)">
+                        <mat-icon>person_add</mat-icon> Add Gateway
+                    </button> -->
+                    <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hover margin-right-10" (click)="filterToggle = !filterToggle">
+                        <mat-icon>filter_list</mat-icon> Filter
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row wrap">
+            <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100" *ngIf="filterToggle">
+                <mat-card class="filter">
+                    <mat-card-content>
+                        
+                        <div class="row col-sm-12">
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" placeholder=" Search Keyword">
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="col-sm-4 newMarginClass">
+                                    From:
+                                </div>
+                                <div class="col-sm-8">
+                                    <!-- <input type="text" class="form-control" placeholder="--Enter Customer Name--"> -->
+                                    <div class="input-icon right">
+                                        <i class="fa fa-calendar" [owlDateTimeTrigger]="dt1"></i>
+                                        <input class="form-control" placeholder="MM/DD/YYYY" class="form-control" id="db" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" name="dt1" required>
+                                        <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="col-sm-4 newMarginClass">
+                                    TO:
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="input-icon right">
+                                        <i class="fa fa-calendar" [owlDateTimeTrigger]="dt2"></i>
+                                        <input class="form-control" placeholder="MM/DD/YYYY" class="form-control" id="db" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" name="dt2" required>
+                                        <owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time>
+                                    </div>
+                                    <!-- <mat-select placeholder="--Search by Status--" class="form-control">
+                                        <mat-option *ngFor="let option of status" [value]="option.id">{{option.value}}</mat-option>
+                                    </mat-select> -->
+                                </div>
+                            </div>
+                            <div class="col-lg-1">
+                                <button type="button" class="add-hover btn btn-success pull-right">Search</button>
+                            </div>
+                            <div class="col-lg-1">
+                                <button type="button" class="btn filter-hover" style="background-color:#37474f; color:#fff !important">Clear</button>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+        <div fxLayout="row wrap">
+            <div class="table-responsive">
+                <table id="example2" class="table table-bordered table-hover">
+                    <thead class="tbl-head">
+                        <tr class="tr-grid-header">
+                            <th>Customer Name</th>
+                            <th>Payment Date</th>
+                            <th>Paid Amount</th>
+                            <th>Payment Mode</th>
+                            <th>Invoice Number</th>
+                            <th>Transaction Reference</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="showEmpty">
+                            <td colspan="7">No records found</td>
+                        </tr>
+                        <tr *ngFor="let item of tableLists">
+                            <td>{{item.vendorName}}</td>
+                            <td>{{item.paymentDate}}</td>
+                            <td>{{item.paidAmount}}</td>
+                            <td>{{item.paymentMode}}</td>
+                            <td>{{item.invoiceNumber}}</td>
+                            <td>{{item.transactionRef}}</td>
+                            <td>{{item.Status}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>

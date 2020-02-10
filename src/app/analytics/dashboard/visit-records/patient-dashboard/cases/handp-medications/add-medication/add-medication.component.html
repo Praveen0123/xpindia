@@ -1,0 +1,159 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title><span *ngIf="!medication">Add</span><span *ngIf="medication">Edit</span> Medication</h1>
+</div>
+<div mat-dialog-content>
+    
+    <form class="form-horizontal" novalidate [formGroup]="addMedicationForm">
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Drug Name:</label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="drugName" class="form-control" id="email" placeholder="Enter Drug Name" required>
+                <div *ngIf="!drugName.valid && (drugName.dirty || drugName.touched)" class="error-text">
+                    <div *ngIf="drugName.errors.required">
+                        Drug name is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">PRN : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <mat-checkbox style="margin-top:5px;" formControlName="PRN">
+                </mat-checkbox>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Sig Note : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="sigNote" class="form-control" id="email" placeholder="Enter Sig Note" required>
+                <div *ngIf="!sigNote.valid && (sigNote.dirty || sigNote.touched)" class="error-text">
+                    <div *ngIf="sigNote.errors.required">
+                        Sig Note is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Sig : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="sig" class="form-control" id="email" placeholder="Enter Sig" required value="PRN">
+                <div *ngIf="!sig.valid && (sig.dirty || sig.touched)" class="error-text">
+                    <div *ngIf="sig.errors.required">
+                        Sig is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4">Indication : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="indication" class="form-control" id="email" placeholder="Enter Indication">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4">Prescribed Date : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <div class="input-icon right">
+                    <i class="fa fa-calendar" [owlDateTimeTrigger]="dt1"></i>
+                    <input class="form-control" formControlName="prescribedDate" placeholder="MM/DD/YYYY" class="form-control" id="db" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" name="dt1">
+                    <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+                </div>
+                <!-- <div *ngIf="!prescribedDate.valid && (prescribedDate.dirty || prescribedDate.touched)" class="error-text">
+                    <div *ngIf="prescribedDate.errors.required">
+                        Prescribed Date is required
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4">Date Started Taking: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <div class="input-icon right">
+                    <i class="fa fa-calendar" [owlDateTimeTrigger]="dt2"></i>
+                    <input class="form-control" formControlName="startedDate" placeholder="MM/DD/YYYY" class="form-control" id="db" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" name="dt2">
+                    <owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time>
+                </div>
+                <!-- <div *ngIf="!startedDate.valid && (startedDate.dirty || startedDate.touched)" class="error-text">
+                    <div *ngIf="startedDate.errors.required">
+                        Started Date is required
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4">Date Stopped Taking : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <div class="input-icon right">
+                    <i class="fa fa-calendar" [owlDateTimeTrigger]="dt3"></i>
+                    <input class="form-control" formControlName="stoppedDate" placeholder="MM/DD/YYYY" class="form-control" id="db" [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3" name="dt3">
+                    <owl-date-time [pickerType]="'calendar'" #dt3></owl-date-time>
+                </div>
+                <!-- <div *ngIf="!stoppedDate.valid && (stoppedDate.dirty || stoppedDate.touched)" class="error-text">
+                    <div *ngIf="stoppedDate.errors.required">
+                        Stopped Date is required
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4">Dispense Quantity : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="dispenseQuantity" class="form-control" id="email" placeholder="Enter Dispense quantity">
+                <!-- <div *ngIf="!dispenseQuantity.valid && (dispenseQuantity.dirty || dispenseQuantity.touched)" class="error-text">
+                    <div *ngIf="dispenseQuantity.errors.required">
+                        Dispense quantity is required
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4">Dispense Package : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="dispensePackage" class="form-control" id="email" placeholder="Enter dispense package">
+                <!-- <div *ngIf="!dispensePackage.valid && (dispensePackage.dirty || dispensePackage.touched)" class="error-text">
+                    <div *ngIf="dispensePackage.errors.required">
+                        Dispense package is required
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4">Refills : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="dispensePackage" class="form-control" id="email" placeholder="Enter refills">
+                <!-- <div *ngIf="!dispensePackage.valid && (dispensePackage.dirty || dispensePackage.touched)" class="error-text">
+                    <div *ngIf="dispensePackage.errors.required">
+                        Dispense package is required
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4">Pharmacy Note : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="pharmacyNote" class="form-control" id="email" placeholder="Enter pharmacy note">
+                <!-- <div *ngIf="!pharmacyNote.valid && (pharmacyNote.dirty || pharmacyNote.touched)" class="error-text">
+                    <div *ngIf="pharmacyNote.errors.required">
+                        Pharmacy note is required
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4">Notes : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <textarea class="form-control txtarea" formControlName="notes" rows="2" placeholder="Enter Notes"></textarea>
+                <!-- <div *ngIf="!notes.valid && (notes.dirty || notes.touched)" class="error-text">
+                    <div *ngIf="notes.errors.required">
+                        Notes is required
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </form>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button style="cursor:pointer;" [disabled]="!addMedicationForm.valid" [ngClass]="!addMedicationForm.valid ? '' : 'btn-primary'" (click)="saveMedication()" [mat-dialog-close]="'test'"><mat-icon *ngIf="!medication">save</mat-icon><mat-icon *ngIf="medication">update</mat-icon><span *ngIf="!medication"> Save</span><span
+        *ngIf="medication"> Update</span></button>
+        <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+    </mat-dialog-actions> 

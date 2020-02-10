@@ -1,0 +1,47 @@
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+    
+    <app-shared-in-manage-visits></app-shared-in-manage-visits>
+
+    <div class="row wrap" style="margin-bottom:7px;">
+      <div class="col-lg-6">
+        <div class="pills w-100 flex-p">
+          <ul class="nav nav-pills">
+            <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/sapphire/patients/managevisits/scheduled/gridview']"><mat-icon>grid_on</mat-icon> Grid View</a></li>
+            <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/sapphire/patients/managevisits/scheduled/calendarview']"><mat-icon>today</mat-icon> Calendar View</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="w-100 flex-p">
+          <!-- <button mat-raised-button class="pull-right add-hover btn-success" (click)="openVisitDialog(null)">
+            <mat-icon>add</mat-icon> Add Visit
+          </button> -->
+          <!-- <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hover margin-right-10" (click)="filterToggle = !filterToggle">
+            <mat-icon>filter_list</mat-icon> Filter
+          </button> -->
+        </div>
+      </div>
+    </div>
+
+
+
+    <div fxLayout="row wrap" #resizedDiv>
+        <div class="flex-p w-100">
+
+                
+            
+                <div class="row">
+                    <div class="col-sm-12" style="margin-top: 7px;">
+                        <div class="box box-info">
+                           
+                                <ng-fullcalendar #fullcalendar [options]="calendarOptions" [(eventsModel)]="events" (dayClick)="openMeetingDialog(null)" (dateClick)="openMeetingDialog(null)"></ng-fullcalendar>
+                            </div>
+                    </div>
+                </div>      
+        </div>
+    </div>
+
+
+  </div>
+</div>

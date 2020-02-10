@@ -1,0 +1,36 @@
+<div class="row flex-p">
+    <div class="col-sm-12">
+        <div class="table-responsive">
+            <table id="example2" class="table table-bordered table-hover">
+                <thead class="tbl-head">
+                    <tr class="tr-grid-header">
+                        <th>Vendor</th>
+                        <th>Invoice Number</th>
+                        <th>Date Submitted</th>
+                        <th>Due Date</th>
+                        <th>Total Amount</th>
+                        <th>Paid Amount</th>
+                        <th>Due Amount</th>
+                        <th>Payments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngIf="showEmpty">
+                        <td colspan="8">No records found</td>
+                    </tr>
+                    <tr *ngFor="let item of tableLists">
+                        <td>{{item.vendorName}}</td>
+                        <td>{{item.invoiceNumber}}</td>
+                        <td>{{item.paymentDate}}</td>
+                        <td>{{item.dueDate}}</td>
+                        <td>{{item.totalAmount}}</td>
+                        <td>{{item.paidAmount}}</td>
+                        <td>{{item.dueAmount}}</td>
+                        <td><a (click)="openpaymentModal(item)" style="color:#007bff;cursor: pointer">{{item.payments}}</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator>
+        </div>
+    </div>
+</div>

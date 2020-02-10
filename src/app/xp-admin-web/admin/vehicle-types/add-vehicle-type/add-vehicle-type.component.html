@@ -1,0 +1,56 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title><span *ngIf="!user">Add</span><span *ngIf="user">Edit</span> Vehicle Type</h1>
+</div>
+<div mat-dialog-content>
+    <form class="form-horizontal" novalidate [formGroup]="addCustomerForm">
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Vehicle Type: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="vehicleType" class="form-control" placeholder="Enter Vehicle Type" required>
+                <div *ngIf="!vehicleType.valid && (vehicleType.dirty || vehicleType.touched)" class="error-text">
+                    <div *ngIf="vehicleType.errors.required">
+                        Vehicle Type is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Axle: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="axle" class="form-control" placeholder="Enter Axle" required>
+                <div *ngIf="!axle.valid && (axle.dirty || axle.touched)" class="error-text">
+                    <div *ngIf="axle.errors.required">
+                        Axle is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Payload: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="payload" class="form-control" placeholder="Enter Payload" required>
+                <div *ngIf="!payload.valid && (payload.dirty || payload.touched)" class="error-text">
+                    <div *ngIf="payload.errors.required">
+                        Payload is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">CBM: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="cbm" class="form-control" placeholder="Enter CBM" required>
+                <div *ngIf="!cbm.valid && (cbm.dirty || cbm.touched)" class="error-text">
+                    <div *ngIf="cbm.errors.required">
+                        CBM is required
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button [disabled]="!addCustomerForm.valid" style="cursor:pointer;" [ngClass]="!addCustomerForm.valid ? '' : 'btn-primary'" (click)="saveCustomer()" [mat-dialog-close]="'test'"><mat-icon *ngIf="user">update</mat-icon><mat-icon *ngIf="!user">save</mat-icon><span *ngIf="!user"> Save</span><span
+    *ngIf="user"> Update</span></button>
+    <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+</mat-dialog-actions>

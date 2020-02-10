@@ -1,0 +1,309 @@
+<div fxLayout="row wrap" #resizedDiv>
+    <div class="flex-p w-100">
+        <div class="row" style="margin-bottom:14px;">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="w-100 flex-p">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="w-100 flex-p">
+                    <!-- <button mat-raised-button class="pull-right add-hover-help btn-success-help" style="margin-left: 10px;">
+                      <mat-icon>help_outline</mat-icon> Help
+                  </button> -->
+                    <button mat-raised-button class="pull-right add-hover btn-success" (click)="openContractDialog(null)">
+                      <mat-icon>person_add</mat-icon> Add Contract
+                  </button>
+                    <!-- <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hover margin-right-10" (click)="filterToggle = !filterToggle">
+                      <mat-icon>filter_list</mat-icon> Filter
+                  </button> -->
+                </div>
+            </div>
+        </div>
+        <!-- <div class="row my-5">
+          <div class="col-sm-12">
+              <div class="col-sm-3">
+
+                  <mat-checkbox class="marginClasImportant"></mat-checkbox>
+
+
+                  <span type="text" class="mgninput">Hyderabad</span>
+              </div>
+              <div class="col-sm-3">
+
+                  <mat-checkbox class="marginClasImportant"></mat-checkbox>
+
+
+                  <span type="text" class="mgninput" disabled>Pune</span>
+              </div>
+              <div class="col-sm-3">
+
+                  <mat-checkbox class="marginClasImportant"></mat-checkbox>
+
+                  <span type="text" class="mgninput" disabled>Ghaziabad</span>
+
+              </div>
+              <div class="col-sm-3">
+
+                  <mat-checkbox class="marginClasImportant"></mat-checkbox>
+
+                  <span type="text" class="mgninput" disabled>Bamberg</span>
+
+              </div>
+          </div>
+      </div>
+
+      <div class="row my-5">
+          <div class="col-sm-12">
+              <div class="col-sm-3">
+
+                  <mat-checkbox class="marginClasImportant"></mat-checkbox>
+
+                  <span type="text" class="mgninput" disabled>Ludhiana</span>
+
+              </div>
+              <div class="col-sm-3">
+
+                  <mat-checkbox class="marginClasImportant"></mat-checkbox>
+
+                  <span type="text" class="mgninput" disabled>Chandigarh</span>
+
+              </div>
+              <div class="col-sm-3">
+
+                  <mat-checkbox class="marginClasImportant"></mat-checkbox>
+                  <span type="text" class="mgninput" disabled>Jaipur</span>
+
+
+              </div>
+              <div class="col-sm-3">
+
+                  <mat-checkbox class="marginClasImportant"></mat-checkbox>
+
+                  <span type="text" class="mgninput" disabled>Kanpur</span>
+
+              </div>
+          </div>
+      </div>
+
+      <div class="row my-5">
+          <div class="col-sm-12">
+              <div class="col-sm-3">
+
+                  <mat-checkbox class="marginClasImportant"></mat-checkbox>
+
+
+                  <span type="text" class="mgninput">Indore</span>
+              </div>
+              <div class="col-sm-3">
+
+                  <mat-checkbox class="marginClasImportant"></mat-checkbox>
+
+
+                  <span type="text" class="mgninput" disabled>Lucknow</span>
+              </div>
+              <div class="col-sm-3">
+
+                  <mat-checkbox class="marginClasImportant"></mat-checkbox>
+
+                  <span type="text" class="mgninput" disabled>Bhopal</span>
+
+              </div>
+              <div class="col-sm-3">
+
+                  <mat-checkbox class="marginClasImportant"></mat-checkbox>
+
+                  <span type="text" class="mgninput" disabled>Patna</span>
+
+              </div>
+          </div>
+      </div>
+
+      <div class="row my-5">
+          <div class="col-sm-12">
+              <div class="col-sm-3">
+
+                  <mat-checkbox class="marginClasImportant"></mat-checkbox>
+
+                  <span type="text" class="mgninput" disabled>Delhi</span>
+
+              </div>
+              <div class="col-sm-3">
+
+                  <mat-checkbox class="marginClasImportant"></mat-checkbox>
+
+                  <span type="text" class="mgninput" disabled>Mumbai</span>
+
+              </div>
+              <div class="col-sm-3">
+
+                  <mat-checkbox class="marginClasImportant"></mat-checkbox>
+                  <span type="text" class="mgninput" disabled>Chennai</span>
+
+
+              </div>
+              <div class="col-sm-3">
+
+                  <mat-checkbox class="marginClasImportant"></mat-checkbox>
+
+                  <span type="text" class="mgninput" disabled>Surat</span>
+
+              </div>
+          </div>
+      </div>
+      <div class="row my-5">
+          <div class="col-sm-12">
+              <div class="col-sm-3">
+
+                  <mat-checkbox class="marginClasImportant"></mat-checkbox>
+
+                  <span type="text" class="mgninput" disabled>Howrah</span>
+
+              </div>
+              <div class="col-sm-3">
+
+                  <mat-checkbox class="marginClasImportant"></mat-checkbox>
+
+                  <span type="text" class="mgninput" disabled>Ranchi</span>
+
+              </div>
+              <div class="col-sm-3">
+
+                  <mat-checkbox class="marginClasImportant"></mat-checkbox>
+                  <span type="text" class="mgninput" disabled>Jabalpur</span>
+
+
+              </div>
+              <div class="col-sm-3">
+
+                  <mat-checkbox class="marginClasImportant"></mat-checkbox>
+
+                  <span type="text" class="mgninput" disabled>Jodhpur</span>
+
+              </div>
+          </div>
+      </div>
+      <div class="row my-5">
+          <div class="col-sm-12">
+              <div class="col-sm-3">
+
+                  <mat-checkbox class="marginClasImportant"></mat-checkbox>
+
+                  <span type="text" class="mgninput" disabled>Rajkot</span>
+
+              </div>
+              <div class="col-sm-3">
+
+                  <mat-checkbox class="marginClasImportant"></mat-checkbox>
+
+                  <span type="text" class="mgninput" disabled>Asansol</span>
+
+              </div>
+              <div class="col-sm-3">
+
+                  <mat-checkbox class="marginClasImportant"></mat-checkbox>
+                  <span type="text" class="mgninput" disabled>Jhansi</span>
+
+
+              </div>
+              <div class="col-sm-3">
+
+                  <mat-checkbox class="marginClasImportant"></mat-checkbox>
+
+                  <span type="text" class="mgninput" disabled>Siliguri</span>
+
+              </div>
+          </div>
+      </div>
+      <div class="row my-5">
+          <div class="col-sm-12">
+              <div class="col-sm-3">
+
+                  <mat-checkbox class="marginClasImportant"></mat-checkbox>
+
+                  <span type="text" class="mgninput" disabled>Agartala</span>
+
+              </div>
+              <div class="col-sm-3">
+
+                  <mat-checkbox class="marginClasImportant"></mat-checkbox>
+
+                  <span type="text" class="mgninput" disabled>Rohtak</span>
+
+              </div>
+              <div class="col-sm-3">
+
+                  <mat-checkbox class="marginClasImportant"></mat-checkbox>
+                  <span type="text" class="mgninput" disabled>Kota</span>
+
+
+              </div>
+              <div class="col-sm-3">
+
+                  <mat-checkbox class="marginClasImportant"></mat-checkbox>
+
+                  <span type="text" class="mgninput" disabled>Avadi</span>
+
+              </div>
+          </div>
+      </div> -->
+
+        <!-- <mat-dialog-actions align="end" class="mgnright">
+          <button mat-raised-button style="cursor:pointer;" class=" btn-primary" (click)="saveLane()"><mat-icon>save</mat-icon><span>Save</span></button>
+      </mat-dialog-actions> -->
+        <div fxLayout="row wrap ">
+            <div class="table-responsive my-3">
+                <table id="example2" class="table table-bordered table-hover">
+                    <thead class="tbl-head">
+                        <tr class="tr-grid-header">
+                            <th rowspan="2" class="customerName">Contract Title</th>
+                            <th rowspan="5">Description</th>
+                            <th rowspan="2">Start Date</th>
+                            <th rowspan="2">Expiry Date</th>
+                            <th rowspan="2"> Documents</th>
+                            <th rowspan="2" class="text-center">Status</th>
+                            <th rowspan="2" class="text-center actionsMinWidth">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="showEmpty">
+                            <td colspan="6">No records found</td>
+                        </tr>
+                        <tr *ngFor="let item of tableList">
+                            <td>{{item.contracttitle}}</td>
+                            <td>{{item.description}}</td>
+                            <td>{{item.startdate}}</td>
+                            <td>{{item.expirydate}}</td>
+                            <td style="text-align: center !important;">
+
+                                <!-- <label style="cursor: pointer;color:#0987e8d1">Add |<input type="file" style="display: none;"  name="image"></label> -->
+                                <a target="_blank" href="../../../../../assets//img/trips/contract.png" style="color:#007ad9!important;cursor: pointer!important;">View |</a>
+                                <!-- <a mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" placement="left" (confirm)="deleteContract()" (cancel)="cancelClicked = true" [appendToBody]="true">
+                                    <i style="cursor: pointer;font-size:16px!important;" matTooltip="Delete Customer" class="fa fa-trash red"></i>
+                                </a> -->
+                            </td>
+                            <td class="pad-left inner-screen text-center">
+                                <a mwlConfirmationPopover [popoverTitle]="popoverStatusTitle" [popoverMessage]="popoverStatusMessage" placement="left" (confirm)="item.status = ! item.status" (cancel)="cancelClicked = true" [appendToBody]="true">
+                                    <span *ngIf="!item.status" style="color:red">Inactive</span>
+                                    <span *ngIf="item.status">Active</span>
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <!-- <a matTooltip="Reset Password" style="margin-right: 10px; cursor: pointer;font-size:16px!important;color:#0987e8d1" (click)="reset(item)">
+                                  <i class="fa fa-undo"></i>
+                              </a> -->
+                                <a matTooltip="Edit Contract Details" style="margin-right: 10px; cursor: pointer;font-size:16px!important;color:#0987e8d1" (click)="openContractDialog(item)">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" placement="left" (confirm)="deleteCustomer()" (cancel)="cancelClicked = true" [appendToBody]="true">
+                                    <i style="cursor: pointer;font-size:16px!important;" matTooltip="Delete Customer" class="fa fa-trash red"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,126 @@
+<div class="NewHeader">
+  <h1 mat-dialog-title><span *ngIf="!lookupOption">Add</span><span *ngIf="lookupOption">Edit</span> Location</h1>
+</div>
+<div mat-dialog-content>
+  
+  <form class="form-horizontal" novalidate [formGroup]="addZoneForm">
+    <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Country: </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <mat-select color="primary" formControlName="country" required placeholder="--Select Country--" class="form-control">
+          <mat-option [value]="0">India</mat-option>
+          <mat-option [value]="1">China</mat-option>
+          <mat-option [value]="2">Japan</mat-option>
+          <mat-option [value]="3">Malaysia</mat-option>
+          <mat-option [value]="4">Singapore</mat-option>
+        </mat-select>
+        <div *ngIf="!country.valid && (country.dirty || country.touched)" class="error-text">
+          <div *ngIf="country.errors.required">
+            Country is required
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Zone: </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <mat-select color="primary" formControlName="zone" required placeholder="--Select Zone--" class="form-control">
+          <mat-option [value]="0">North</mat-option>
+          <mat-option [value]="1">South</mat-option>
+          <mat-option [value]="2">East</mat-option>
+          <mat-option [value]="3">West</mat-option>
+          <mat-option [value]="4">Central</mat-option>
+        </mat-select>
+        <div *ngIf="!zone.valid && (zone.dirty || zone.touched)" class="error-text">
+          <div *ngIf="zone.errors.required">
+            Zone is required
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">State: </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <mat-select color="primary" formControlName="state" required placeholder="--Select State--" class="form-control">
+          <mat-option [value]="0">Andhra Pradesh</mat-option>
+          <mat-option [value]="1">Telangana</mat-option>
+          <mat-option [value]="2">Assam</mat-option>
+          <mat-option [value]="3">Tamilnadu</mat-option>
+          <mat-option [value]="4">Kerala</mat-option>
+        </mat-select>
+        <div *ngIf="!state.valid && (state.dirty || state.touched)" class="error-text">
+          <div *ngIf="state.errors.required">
+            State is required
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">District: </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <mat-select color="primary" formControlName="district" required placeholder="--Select District--" class="form-control">
+          <mat-option [value]="0">Adilabad</mat-option>
+          <mat-option [value]="1">Karimnagar</mat-option>
+          <mat-option [value]="2">Malkajgiri</mat-option>
+          <mat-option [value]="3">Rangareddy</mat-option>
+          <mat-option [value]="4">Chittor</mat-option>
+        </mat-select>
+        <div *ngIf="!district.valid && (district.dirty || district.touched)" class="error-text">
+          <div *ngIf="district.errors.required">
+            District is required
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-4 add-member-label">Location: </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <mat-select color="primary" formControlName="location" required placeholder="--Select Location--" class="form-control">
+          <mat-option [value]="0">Adilabad</mat-option>
+          <mat-option [value]="1">Karimnagar</mat-option>
+          <mat-option [value]="2">Malkajgiri</mat-option>
+          <mat-option [value]="3">Rangareddy</mat-option>
+          <mat-option [value]="4">Chittor</mat-option>
+        </mat-select>
+        <div *ngIf="!location.valid && (location.dirty || location.touched)" class="error-text">
+          <div *ngIf="location.errors.required">
+            Location is required
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-4 add-member-label">Postal Code: </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <mat-select color="primary" formControlName="postalCode" required placeholder="--Select Postal Code--" class="form-control">
+          <mat-option [value]="0">Adilabad</mat-option>
+          <mat-option [value]="1">Karimnagar</mat-option>
+          <mat-option [value]="2">Malkajgiri</mat-option>
+          <mat-option [value]="3">Rangareddy</mat-option>
+          <mat-option [value]="4">Chittor</mat-option>
+        </mat-select>
+        <div *ngIf="!postalCode.valid && (postalCode.dirty || postalCode.touched)" class="error-text">
+          <div *ngIf="postalCode.errors.required">
+            Postal Code is required
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-4 add-member-label">Address: </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <textarea class="form-control txtarea" rows="2" formControlName="address" placeholder="Enter Address"></textarea>
+        <div *ngIf="!address.valid && (address.dirty || address.touched)" class="error-text">
+          <div *ngIf="address.errors.required">
+            Address is required
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<mat-dialog-actions align="end">
+  <button mat-raised-button style="cursor:pointer;" [disabled]="!addZoneForm.valid" [ngClass]="!addZoneForm.valid ? '' : 'btn-primary'" (click)="saveAttorney()" [mat-dialog-close]="'test'"><mat-icon *ngIf="lookupOption">update</mat-icon><mat-icon *ngIf="!lookupOption">save</mat-icon><span *ngIf="!lookupOption"> Save</span><span
+    *ngIf="lookupOption"> Update</span></button>
+    <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+  </mat-dialog-actions> 

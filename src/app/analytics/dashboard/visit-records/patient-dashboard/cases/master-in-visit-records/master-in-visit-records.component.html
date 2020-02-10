@@ -1,0 +1,31 @@
+<div class="row wrap" style="margin-bottom:7px;">
+    <div class="col-sm-10 col-xs-12">
+        <div class="pills w-100 flex-p">
+            <ul class="nav nav-pills">
+                <li routerLinkActive="active">
+                    <a mat-raised-button [routerLink]="['/sapphire/patients/patientdashboard/clinicalNote/handp']"><mat-icon>notes</mat-icon> H&P</a>
+                </li>
+                <li routerLinkActive="active">
+                    <a mat-raised-button [routerLink]="['/sapphire/patients/patientdashboard/clinicalNote/soap']"><mat-icon>add_circle </mat-icon> SOAP</a>
+                </li>
+                <li routerLinkActive="active">
+                    <a mat-raised-button [routerLink]="['/sapphire/patients/patientdashboard/clinicalNote/DrGoel']"><mat-icon>library_books</mat-icon> Dr Goel</a>
+                </li>
+                <li routerLinkActive="active">
+                    <a mat-raised-button [routerLink]="['/sapphire/patients/patientdashboard/clinicalNote/procedureNotes']"><mat-icon>import_contacts</mat-icon> Procedure Notes</a>
+                </li>
+                <button mat-raised-button class="pull-right add-hover btn-success" style="margin-left:10px!important;margin-right: 10px!important;background: #336699!important"><mat-icon>update</mat-icon>
+                    Generate Complete Report
+                </button>
+                <!-- <li routerLinkActive="active"><a mat-raised-button [routerLink]="['/sapphire/patients/patientdashboard/clinicalNote/additional']"><mat-icon>control_point</mat-icon> ADDITIONAL</a></li> -->
+            </ul>
+        </div>
+    </div>       
+    <div class="col-sm-2 col-xs-12" style="margin-top:10px!important">
+        <button mat-raised-button class="pull-right add-hover btn-success" style="margin-left:10px!important;margin-right: 10px!important;background: #336699!important"><mat-icon>update</mat-icon>
+            Generate Report
+        </button>
+        <div class="w-100 flex-p">
+        </div>
+    </div>
+</div>

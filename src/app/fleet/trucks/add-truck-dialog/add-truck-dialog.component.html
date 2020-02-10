@@ -1,0 +1,108 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title><span *ngIf="!truck">Add</span><span *ngIf="truck">Edit</span> truck </h1>
+</div>
+<div mat-dialog-content>
+
+    <form class="form-horizontal" novalidate [formGroup]="addtruckForm">
+
+
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label" for="pwd">Truck ID: </label>
+            <div class="col-sm-8">
+                <input type="text" formControlName="truckid" required class="form-control" placeholder="Enter Truck Id">
+                <div *ngIf="!truckid.valid && (truckid.dirty || truckid.touched)" class="error-text">
+                    <div *ngIf="truckid.errors.required">
+                        truck id is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Year: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <!-- <input type="text" class="form-control" [textMask]="{mask: dlNumberNumberMask}" formControlName="engine" placeholder="Enter Fax Number" required> -->
+                <input type="text" class="form-control" maxlength='10' (keypress)='onlyNumber($event)' formControlName="year" placeholder="Enter year " required>
+                <div *ngIf="!year.valid && (year.dirty || year.touched)" class="error-text">
+                    <div *ngIf="year.errors.required">
+                        year is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Make: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="make" class="form-control" placeholder="Enter Make" required>
+                <div *ngIf="!make.valid && (make.dirty || make.touched)" class="error-text">
+                    <div *ngIf="make.errors.required">
+                        Make is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Model: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input formControlName="model" class="form-control" placeholder="Enter Model" required>
+                <div *ngIf="!model.valid && (model.dirty || model.touched)" class="error-text">
+                    <div *ngIf="model.errors.required">
+                        Model is required
+                    </div>
+                    <!-- <div *ngIf="model.errors.email">
+              Enter a valid email
+          </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label" for="pwd">Registration: </label>
+            <div class="col-sm-8">
+                <input formControlName="registration" class="form-control " placeholder="Enter registration" required>
+                <div *ngIf="!registration.valid && (registration.dirty || registration.touched)" class="error-text">
+                    <div *ngIf="registration.errors.required">
+                        Registration is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">Chassis Number: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="chassis" class="form-control" placeholder="Enter chassis" required>
+                <div *ngIf="!chassis.valid && (chassis.dirty || chassis.touched)" class="error-text">
+                    <div *ngIf="chassis.errors.required">
+                        Chassis is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Engine: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="engine" required class="form-control" placeholder="Enter Engine">
+                <div *ngIf="!engine.valid && (engine.dirty || engine.touched)" class="error-text">
+                    <div *ngIf="engine.errors.required">
+                        Engine is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Size(LXBXH): </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="size" required class="form-control" placeholder="Enter Engine">
+                <div *ngIf="!size.valid && (size.dirty || size.touched)" class="error-text">
+                    <div *ngIf="size.errors.required">
+                        size is required
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button style="cursor:pointer;" [disabled]="!addtruckForm.valid" [ngClass]="!addtruckForm.valid ? '' : 'btn-primary'" (click)="savetruck()"><mat-icon *ngIf="truck">update</mat-icon><mat-icon *ngIf="!truck">save</mat-icon><span *ngIf="!truck"> Save</span><span
+*ngIf="truck"> Update</span></button>
+    <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+</mat-dialog-actions>

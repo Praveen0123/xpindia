@@ -1,0 +1,108 @@
+<div class="NewHeader">
+    <i class="fa fa-times" aria-hidden="true" style="float: right !important;margin: 0 10px 0px 0;font-size: 17px;    cursor: pointer;" (click)="close()"></i>
+    <h1 mat-dialog-title><span *ngIf="!user">Add</span><span *ngIf="user">Edit</span> Service Level</h1>
+    <!-- <label style="background-color:white;color: white !important;" class="pull-right" (click)="close()"><mat-icon>cancel</mat-icon></label> -->
+</div>
+<div mat-dialog-content>
+    <form class="form-horizontal" novalidate [formGroup]="addKPIForm">
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">KPI Name: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="email" class="form-control" maxlength="100" (keypress)="omit_special_char($event)" formControlName="KPIName" placeholder="Enter KPI Name" required>
+                <!-- <div *ngIf="!KPIName.valid && (KPIName.dirty || KPIName.touched)" class="error-text">
+          <div *ngIf="KPIName.errors.required">
+            KPI name required
+          </div>
+        </div> -->
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Group: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <mat-select color="primary" formControlName="group" required placeholder="--Select Group--" class="form-control">
+                    <mat-option [value]="0">Orders</mat-option>
+                    <mat-option [value]="1">Capacity</mat-option>
+                    <mat-option [value]="2">Customer</mat-option>
+                    <mat-option [value]="3">FFV</mat-option>
+                    <mat-option [value]="4">Operations</mat-option>
+                    <mat-option [value]="5">Biz Dev</mat-option>
+                    <mat-option [value]="6">Finance</mat-option>
+                    <mat-option [value]="7">Contracts</mat-option>
+                </mat-select>
+                <!-- <div *ngIf="!group.valid && (group.dirty || group.touched)" class="error-text">
+            <div *ngIf="group.errors.required">
+              Group is required
+            </div>
+          </div> -->
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Module: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <mat-select color="primary" formControlName="module" required placeholder="--Select Module--" class="form-control">
+                    <mat-option [value]="0">Management</mat-option>
+                    <mat-option [value]="1">Operations</mat-option>
+                    <mat-option [value]="2">Finance</mat-option>
+                    <mat-option [value]="3">Sales</mat-option>
+                    <mat-option [value]="4">Zone</mat-option>
+                    <mat-option [value]="5">Hub</mat-option>
+                    <mat-option [value]="6">Gateway</mat-option>
+                </mat-select>
+                <!-- <div *ngIf="!module.valid && (module.dirty || module.touched)" class="error-text">
+            <div *ngIf="module.errors.required">
+              Module is required
+            </div>
+          </div> -->
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Type: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <mat-select color="primary" formControlName="type" required placeholder="--Select Type--" class="form-control" [(ngModel)]="optionValue">
+                    <mat-option [value]="0">Higher is Better</mat-option>
+                    <mat-option [value]="1">Interval</mat-option>
+                    <mat-option [value]="2">Lower is Better</mat-option>
+                </mat-select>
+                <!-- <div *ngIf="!type.valid && (module.dirty || type.touched)" class="error-text">
+            <div *ngIf="type.errors.required">
+              Type is required
+            </div>
+          </div> -->
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Traget: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="target" maxlength="30" (keypress)="omit_all_char($event)" onDrag="return false" onDrop="return false" class="form-control" placeholder="Enter Traget" required>
+                <!-- <div *ngIf="!traget.valid && (traget.dirty || traget.touched)" class="error-text">
+            <div *ngIf="traget.errors.required">
+              Traget is required
+            </div>
+          </div> -->
+            </div>
+        </div>
+        <div class="form-group" *ngIf="optionValue == '1'">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Min Limit: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="minlimit" maxlength="30" (keypress)="omit_all_char($event)" onDrag="return false" onDrop="return false" class="form-control" placeholder="Enter Min Limit" required>
+            </div>
+        </div>
+        <div class="form-group" *ngIf="optionValue == '1'">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Max Limit: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="maxlimit" maxlength="30" (keypress)="omit_all_char($event)" onDrag="return false" onDrop="return false" class="form-control" placeholder="Enter Max Limit" required>
+            </div>
+        </div>
+    </form>
+</div>
+<mat-dialog-actions align="end" style="right: 4px;">
+    <button mat-raised-button style="cursor:pointer;background-color: #286ba5;
+  color: white;" (click)="saveCustomer()" [mat-dialog-close]="'test'">
+    <mat-icon *ngIf="user">update</mat-icon>
+    <mat-icon *ngIf="!user">save</mat-icon><span *ngIf="!user"> Save</span><span *ngIf="user"> Update</span>
+  </button>
+    <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hove" (click)="close()">
+    <mat-icon>cancel</mat-icon>&nbsp;Cancel
+  </button>
+</mat-dialog-actions>

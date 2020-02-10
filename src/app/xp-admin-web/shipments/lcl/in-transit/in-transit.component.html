@@ -1,0 +1,401 @@
+<div fxLayout="row wrap" #resizedDiv>
+    <div class="flex-p w-100">
+        <app-master></app-master> <br>
+        <app-master-in-lcl></app-master-in-lcl>
+        <div class="row" style="margin-bottom:14px;">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="w-100 flex-p">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="w-100 flex-p">
+                    <!-- <button mat-raised-button class="pull-right add-hover-help btn-success-help" style="margin-left: 10px;">
+            <mat-icon>help_outline</mat-icon> Help
+          </button> -->
+                    <!-- <button mat-raised-button  class="pull-right add-hover btn-success" (click)="openUserDialog(null)">
+            <mat-icon>person_add</mat-icon> Add User
+          </button> -->
+
+                    <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hover margin-right-10" (click)="filterToggle = !filterToggle">
+            <mat-icon>filter_list</mat-icon> Filter
+          </button>
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row wrap">
+            <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100" *ngIf="filterToggle">
+                <mat-card class="filter">
+                    <mat-card-content>
+
+                        <div class="row col-sm-12">
+                            <div class="col-sm-4">
+                                <div class="col-sm-4 newMarginClass">
+                                    Booking Date:
+                                </div>
+                                <div class="col-sm-8">
+                                    <!-- <input type="text" class="form-control" placeholder="--Enter Order ID--"> -->
+                                    <div class="input-icon right">
+                                        <i class="fa fa-calendar" [owlDateTimeTrigger]="dt1"></i>
+                                        <input class="form-control" placeholder="MM/DD/YYYY" class="form-control" id="db" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" name="dt1" [(ngModel)]="dates">
+                                        <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="col-sm-4 newMarginClass">
+                                    Delivery Date:
+                                </div>
+                                <div class="col-sm-8">
+                                    <!-- <mat-select placeholder="--Search by Status--" class="form-control">
+                    <mat-option *ngFor="let option of status" [value]="option.id">{{option.value}}</mat-option>
+                  </mat-select> -->
+
+                                    <div class="input-icon right">
+                                        <i class="fa fa-calendar" [owlDateTimeTrigger]="dt2"></i>
+                                        <input class="form-control" placeholder="MM/DD/YYYY" class="form-control" id="db" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" name="dt2" [(ngModel)]="dates">
+                                        <owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-1">
+                                <button type="button" class="add-hover btn btn-success pull-right">GO</button>
+                            </div>
+                            <!-- <div class="col-lg-1">
+                <button type="button" class="btn filter-hover" style="background-color:#37474f; color:#fff !important">Clear</button>
+              </div> -->
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+        <!-- <div fxLayout="row wrap">
+      <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100 row">
+        <div class="col-lg-1 col-md-1 border border-secondary bg-dark text-light" style="height:92px;top:13px;left:-18px">
+          <div class="text-center">
+            <div class="row ">
+              <div class="col-12 mt-4">Total</div>
+              <div class="col-12"><b>90</b></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-11 col-md-11">
+          <button (click)="scrollKanban('left');" class="btn border" id="prev"><a>&#10094;</a></button>
+          <div id="container" class="scrollmenu border px-1" style="margin-top:-80px;">
+            <a *ngFor="let item of dates" class="text-center border rounded">
+              <div style="cursor: pointer;padding: 10px;width: 220px;" [ngClass]="{'active': selectedListItem == item}" (click)="listNewClick($event, item)">
+                <div style="font-weight:500;">{{item.date}}</div>
+                <span>{{item.orders}}</span>
+              </div>
+            </a>
+          </div>
+          <button (click)="scrollKanban('right');" class="btn border" id="next"><a>&#10095;</a></button>
+        </div>
+      </div>
+    </div> -->
+
+        <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 flex-p" style="margin-top: -10px;">
+      <div class="row ">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+          <div class="w-100 flex-p">
+            <div class="dashboard-stat blue-madison">
+              <div class="visual">
+                <i class="fa fa-comments"></i>
+              </div>
+              <div class="details">
+                <div class="number">
+                  80
+                </div>
+                <div class="desc">
+                  Provisional
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+          <div class="w-100 flex-p">
+            <div class="dashboard-stat gray-madison">
+              <div class="visual">
+                <i class="fa fa-skyatlas"></i>
+              </div>
+              <div class="details">
+                <div class="number">
+                  57
+                </div>
+                <div class="desc">
+                  Confirmed
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+          <div class="w-100 flex-p">
+            <div class="dashboard-stat pyellow-madison">
+              <div class="visual">
+                <i class="fa fa-free-code-camp"></i>
+              </div>
+              <div class="details">
+                <div class="number">
+                  24
+                </div>
+                <div class="desc">
+                  Transit
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+          <div class="w-100 flex-p">
+            <div class="dashboard-stat red-intense">
+              <div class="visual">
+                <i class="fa fa-bar-chart-o"></i>
+              </div>
+              <div class="details">
+                <div class="number">
+                  40
+                </div>
+                <div class="desc">
+                  Trans-Ship
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+          <div class="w-100 flex-p">
+            <div class="dashboard-stat ppurple-madison">
+              <div class="visual">
+                <i class="fa fa-globe"></i>
+              </div>
+              <div class="details">
+                <div class="number">
+                  20
+                </div>
+                <div class="desc">
+                  Destination
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+          <div class="w-100 flex-p">
+            <div class="dashboard-stat green-haze">
+              <div class="visual">
+                <i class="fa fa-shopping-cart"></i>
+              </div>
+              <div class="details">
+                <div class="number">
+                  10
+                </div>
+                <div class="desc">
+                  Unloadoing
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+          <div class="w-100 flex-p">
+            <div class="dashboard-stat pblue-madison">
+              <div class="visual">
+                <i class="fa fa-codepen"></i>
+              </div>
+              <div class="details">
+                <div class="number">
+                  7
+                </div>
+                <div class="desc">
+                  POD
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+          <div class="w-100 flex-p">
+            <div class="dashboard-stat purple-plum">
+              <div class="visual">
+                <i class="fa fa-gitlab"></i>
+              </div>
+              <div class="details">
+                <div class="number">
+                  100%
+                </div>
+                <div class="desc">
+                  FTR
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div> -->
+
+
+        <div fxLayout="row wrap">
+            <div class="flex-p w-100">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-1 Total">
+                            <p>Total Orders</p>
+                            <label>236</label>
+                        </div>
+
+                        <div class="col-sm-1 arrow">
+                            <mat-icon>keyboard_arrow_left</mat-icon>
+                        </div>
+                        <div class="col-sm-1 mmt">
+                            <p>Mon,13 Jan</p>
+                            <label>17</label>
+                        </div>
+                        <div class="col-sm-1 mmt">
+                            <p>Tue,14 Jan</p>
+                            <label>19</label>
+                        </div>
+                        <div class="col-sm-1 mmt">
+                            <p>Wed,15 Jan</p>
+                            <label>20</label>
+                        </div>
+                        <div class="col-sm-1 mmt">
+                            <p>Thu,16 Jan</p>
+                            <label>20</label>
+                        </div>
+                        <div class="col-sm-1 mmt">
+                            <p>Fri,17 Jan</p>
+                            <label>25</label>
+                        </div>
+                        <div class="col-sm-1 mmt">
+                            <p>Sat,18 Jan</p>
+                            <label>28</label>
+
+                        </div>
+                        <div class="col-sm-1 mmt">
+                            <p>Sun,19 Jan</p>
+                            <label>22</label>
+                        </div>
+                        <div class="col-sm-1 mmt">
+                            <p>Mon,20 Jan</p>
+                            <label>20</label>
+                        </div>
+                        <div class="col-sm-1 mmt">
+                            <p>Tue,21 Jan</p>
+                            <label>30</label>
+                        </div>
+                        <div class="col-sm-1 mmt">
+                            <p>Wed,22 Jan</p>
+                            <label>35</label>
+                        </div>
+
+
+                        <div class="col-sm-1 arrow">
+                            <mat-icon>keyboard_arrow_right</mat-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div fxLayout="row wrap">
+            <div class="flex-p w-100 my-2">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-2 width">
+                            <a class="tabs" mat-raised-button>Provisional (80)</a>
+
+                        </div>
+                        <div class="col-sm-2 width">
+                            <a class="tabs" mat-raised-button>Confirmed (57)</a>
+
+                        </div>
+                        <div class="col-sm-2 width1">
+                            <a class="tabs" mat-raised-button>Transit (24)</a>
+
+                        </div>
+                        <div class="col-sm-2 width">
+                            <a class="tabs" mat-raised-button>Trans-Ship (40)</a>
+
+                        </div>
+                        <div class="col-sm-2 width">
+                            <a class="tabs" mat-raised-button>Destination (20)</a>
+
+                        </div>
+                        <div class="col-sm-2 width">
+                            <a class="tabs" mat-raised-button>Unloadoing (20)</a>
+
+                        </div>
+                        <div class="col-sm-2 width2">
+                            <a class="tabs" mat-raised-button>POD (7)</a>
+
+                        </div>
+                        <div class="col-sm-2 width">
+                            <a class="tabs" mat-raised-button>FTR (100%)</a>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-responsive my-5">
+            <table id="example2" class="table table-bordered table-hover">
+                <thead class="tbl-head">
+                    <tr class="tr-grid-header">
+                        <th>Customer Name</th>
+                        <th class="MinWidth110">Order By</th>
+                        <th>Origin Gateway</th>
+                        <th>Destination Gateway</th>
+                        <th>Order ID</th>
+                        <th class="width100">Pickup Date Time</th>
+                        <!-- <th class="MinWidth100">Pickup Time</th> -->
+                        <!-- <th>Value</th>
+              <th class="MinWidth100">TAT (days)</th> -->
+                        <th>Map</th>
+                        <th>Network</th>
+                        <th>Tracking</th>
+                        <th>POD</th>
+                        <th>Invoice</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngIf="showEmpty">
+                        <td colspan="15">No records found</td>
+                    </tr>
+                    <tr *ngFor="let item of tableLists">
+                        <td>{{item.customer}}</td>
+                        <td>{{item.orderby}}</td>
+                        <td>{{item.origin}}</td>
+                        <td>{{item.destination}}</td>
+                        <td>{{item.orderID}}</td>
+                        <!-- <td>{{item.packages}}</td> -->
+
+                        <td class="width">{{item.pickupDate}} {{item.pickupTime}}</td>
+
+                        <!-- <td>{{item.value}}</td>
+                <td>{{item.tat}}</td> -->
+
+                        <td><a target="_blank" [routerLink]="['/instanttransport/operations/orders/maps']"><i class="fa fa-map-o" style="cursor: pointer;;font-size:16px!important;"></i></a></td>
+                        <td><a target="_blank" style="color:#007ad9!important;cursor: pointer!important;" [routerLink]="['/instanttransport/operations/orders/network']">{{item.network}}</a></td>
+                        <td><a target="_blank" style="color:#007ad9!important;cursor: pointer!important;" [routerLink]="['/instanttransport/operations/orders/tracking']">View</a></td>
+                        <td><a target="_blank" href="../../../../assets/img/vendor/leaflet/proof-of-delivery-form-template.jpg" style="color:#007ad9!important;cursor: pointer!important;">View</a></td>
+                        <td><a target="_blank" href="../../../../assets/img/vendor/leaflet/Invoice.pdf" style="color:#007ad9!important;cursor: pointer!important;"><i class="fa fa-file-pdf-o" style="cursor: pointer;;font-size:16px!important;"></i></a></td>
+                        <td>{{item.status}}</td>
+                        <td>
+                            <a matTooltip="Stop Order" style="margin-right: 10px; cursor: pointer;font-size:16px!important;color:red">
+                                <i class="fa fa-minus-circle"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,176 @@
+<div fxLayout="row wrap" #resizedDiv>
+    <div class="flex-p w-100">
+        <app-master></app-master>
+        <div class="row" style="margin-bottom:14px;">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-6">
+                <div class="w-100 flex-p">
+                    <!-- <label class="btn btn-success  pull-right" style="color: white;padding-top: 8px !important;padding-bottom: 10px !important;;margin-right: 10px;">
+                        Upload CSV    <input type="file" style="display: none;"  name="image"> 
+                    </label>
+                    <label class="btn  pull-right" style="background:#424a52;color: white;padding-top: 8px !important;padding-bottom: 10px !important;;margin-right: 10px;">
+                        Download Sample
+                    </label> -->
+                    <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hover margin-right-10" (click)="filterToggle = !filterToggle">
+                        <mat-icon>filter_list</mat-icon> Filter
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div fxLayout="row wrap">
+            <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100" *ngIf="filterToggle">
+                <mat-card class="filter">
+                    <mat-card-content>
+                        <div class="row col-sm-12">
+                            <div class="col-sm-3">
+                                <div class="col-sm-4 newMarginClass">
+                                    Location:
+                                </div>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" placeholder="-Search by Location--">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="col-sm-4 newMarginClass">
+                                    Country:
+                                </div>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" placeholder="--Search by Country--">
+                                    <!-- <mat-select placeholder="--Search by Country--" class="form-control">
+                                        <mat-option *ngFor="let option of countries" [value]="option.id">{{option.value}}</mat-option>
+                                    </mat-select> -->
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="col-sm-4 newMarginClass">
+                                    State:
+                                </div>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" placeholder="--Search by State--">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="col-sm-4 newMarginClass">
+                                    District :
+                                </div>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" placeholder="--Search by District--">
+                                    <!-- <mat-select placeholder="--Search by Status--" class="form-control">
+                                        <mat-option *ngFor="let option of status" [value]="option.id">{{option.value}}</mat-option>
+                                    </mat-select> -->
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row col-sm-12 my-5">
+                            <div class="col-sm-3">
+                                <div class="col-sm-4 newMarginClass">
+                                    Hub:
+                                </div>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" placeholder="-Search by Hub--">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="col-sm-4 newMarginClass">
+                                    Zone:
+                                </div>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" placeholder="--Search by Zone--">
+                                    <!-- <mat-select placeholder="--Search by Country--" class="form-control">
+                                        <mat-option *ngFor="let option of countries" [value]="option.id">{{option.value}}</mat-option>
+                                    </mat-select> -->
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="col-sm-4 newMarginClass">
+                                    Gateway:
+                                </div>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" placeholder="-Search by Gateway--">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-1">
+                                <button type="button" class="add-hover btn btn-success  pull-right">Search</button>
+                            </div>
+                            <div class="col-lg-1">
+                                <button type="button" class="btn filter-hover" style="background-color:#37474f; color:#fff !important; margin-left: -18px;">Close</button>
+                            </div>
+
+                        </div>
+
+
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table id="example2" class="table table-bordered table-hover">
+                <thead class="tbl-head">
+                    <tr class="tr-grid-header">
+                        <th>District</th>
+                        <th>States</th>
+                        <th>Post Codes</th>
+                        <th>Location</th>
+
+                        <th>Hub</th>
+                        <th>Gateway</th>
+                        <th>Zone</th>
+                        <th>Country</th>
+
+
+                        <th class="text-center">Status</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of tableLists">
+                        <td class="">{{item.district}}</td>
+                        <td class="">{{item.state}}</td>
+                        <td class="hyperlink">{{item.pincode}}</td>
+                        <td class="hyperlink">{{item.location}}</td>
+
+                        <td class="">{{item.hub}}</td>
+                        <td class="hyperlink">{{item.gateway}}</td>
+
+
+                        <!-- <td><a target="_blank" [routerLink]="['/instanttransport/operations/orders/maps']">{{item.location}}</a></td> -->
+
+
+
+                        <td>{{item.zone}}</td>
+
+                        <td>{{item.country}}</td>
+
+
+
+                        <td class="pad-left inner-screen text-center">
+                            <a mwlConfirmationPopover [popoverTitle]="popoverStatusTitle" [popoverMessage]="popoverStatusMessage" placement="left" (confirm)="item.status = ! item.status" (cancel)="cancelClicked = true" [appendToBody]="true">
+                                <span *ngIf="!item.status" style="color:red">Inactive</span>
+                                <span *ngIf="item.status">Active</span>
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a matTooltip="Edit District" style="margin-right: 10px; cursor: pointer;font-size:16px!important;color:#0987e8d1" (click)="openLocationDialog(item)">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <a mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" placement="left" (confirm)="deleteAttorney()" (cancel)="cancelClicked = true" [appendToBody]="true">
+                                <i style="cursor: pointer;font-size:16px!important;" matTooltip="Delete District" class="fa fa-trash red"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!tableList" fxLayout="column" fxLayoutAlign="center center" class="campaign-spinner">
+    <mat-spinner color="primary"></mat-spinner>
+</div>

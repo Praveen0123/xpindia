@@ -1,0 +1,48 @@
+<div fxLayout="row wrap">
+    <div fxFlex="100" fxFlex.gt-sm="33" class="flex-p">
+
+    </div>
+    <div fxFlex="100" fxFlex.gt-sm="34" class="flex-p mgn">
+        <div fxLayout="column">
+            <!-- <div class="flex-p">  -->
+            <div class="col-lg-12 mgn">
+                <h2 style="text-align: center; color: gray; margin-left: 127px !important;">By Customer</h2>
+                <div class="my-5">
+                    <ngx-charts-pie-chart [scheme]="colorScheme" [results]="resultant" [legend]="showLegend" [explodeSlices]="explodeSlices" [labels]="showLabels" [doughnut]="doughnut" [gradient]="gradient">
+                    </ngx-charts-pie-chart>
+                </div>
+
+            </div>
+
+            <!-- </div>   -->
+        </div>
+    </div>
+    <div fxFlex="100" fxFlex.gt-sm="33" class="flex-p mgntop ">
+        <h3>Customer : FCL (74)</h3>
+        <div class="row wrap" style="margin-bottom:7px;">
+            <div class="col-lg-4">
+                <!-- <div class="pills w-100 flex-p"> -->
+                <!-- <ul class="nav nav-pills"> -->
+
+                <!-- <i *ngIf="id !=1" class="fa fa-arrow-left fa-7x" style="cursor: pointer !important;" aria-hidden="true" (click)="leftArrowClicked(id)"></i>&nbsp;&nbsp;<i *ngIf="id != 5" class="fa fa-arrow-right fa-7x" style="cursor: pointer !important;"
+                    aria-hidden="true" (click)="rightArrowClicked(id)"></i><br><br> -->
+                <!-- <button type="button" mat-raised-button class="btn btn-secondary tabs" style="padding-left:30px!important;padding-right:30px!important; background-color: #6be96b !important ;color: black !important "> {{value}}</button>&nbsp;&nbsp;<br><br> -->
+                <button type="button" mat-raised-button class="btn btn-secondary tabs" style="color:black ;width: 123px !important;"> Confirmation</button><br><br>
+                <button type="button" mat-raised-button class="btn btn-secondary tabs" style="color :black;width: 123px !important;">Allocation</button><br><br>
+
+                <button type="button" mat-raised-button class="btn btn-secondary tabs" style="color :black;width: 123px !important;">Placement</button><br><br>
+                <!-- <li routerLinkActive="active"><a mat-raised-button> {{value}}</a></li><br>
+            <li routerLinkActive="active"><a mat-raised-button> Provisional (14)</a></li>
+            <li routerLinkActive="active"><a mat-raised-button> CAN / REJ (4)</a></li> -->
+                <!-- </ul> -->
+                <!-- </div> -->
+            </div>
+            <div class="col-lg-4">
+                <!-- <button type="button" mat-raised-button class="btn btn-secondary tabs" style="padding-left:30px!important;padding-right:30px!important; background-color: #6be96b !important ;color: black !important "> {{value}}</button>&nbsp;&nbsp;<br><br> -->
+                <button type="button" mat-raised-button class="btn btn-secondary tabs" style="color:black;width: 123px !important;">Loading</button><br><br>
+                <button type="button" mat-raised-button class="btn btn-secondary tabs" style="color :black;width: 123px !important;"> CN / TS Issue </button><br><br>
+                <button type="button" mat-raised-button class="btn btn-secondary tabs" style="color :black;width: 123px !important;"> Trip Start</button><br><br>
+            </div>
+        </div>
+    </div>
+</div>

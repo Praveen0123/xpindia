@@ -1,0 +1,165 @@
+<div class="NewHeader">
+    <i class="fa fa-times" aria-hidden="true" style="float: right !important;margin: 0 10px 0px 0;font-size: 17px;    cursor: pointer;" (click)="close()"></i>
+    <h1 mat-dialog-title><span *ngIf="!user">Add</span><span *ngIf="user">Edit</span> Destination</h1>
+  </div>
+  <mat-horizontal-stepper #stepper>
+    <mat-step>
+      <ng-template matStepLabel>Basic Details</ng-template>
+      <div mat-dialog-content>
+        <form class="form-horizontal" novalidate [formGroup]="addCustomerForm">
+          <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Destination: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+              <input type="text" formControlName="destination" class="form-control" placeholder="Enter Destination" required>
+              <div *ngIf="!destination.valid && (destination.dirty || destination.touched)" class="error-text">
+                <div *ngIf="destination.errors.required">
+                  Destination is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">State: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+              <input type="text" formControlName="State" class="form-control" placeholder="Enter State" required>
+              <div *ngIf="!State.valid && (State.dirty || State.touched)" class="error-text">
+                <div *ngIf="State.errors.required">
+                  State is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">City: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+              <input type="text" formControlName="city" class="form-control" placeholder="Enter City" required>
+              <div *ngIf="!city.valid && (city.dirty || city.touched)" class="error-text">
+                <div *ngIf="city.errors.required">
+                  City is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Pin Code: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+              <input type="text" formControlName="pincode" class="form-control" placeholder="Enter Pin Code" required>
+              <div *ngIf="!pincode.valid && (pincode.dirty || pincode.touched)" class="error-text">
+                <div *ngIf="pincode.errors.required">
+                  Pin Code is required
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">Address-2: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+              <textarea class="form-control txtarea" maxlength="500" rows="2" formControlName="address2" placeholder="" required></textarea>
+              <div *ngIf="!address2.valid && (address2.dirty || address2.touched)" class="error-text">
+                <div *ngIf="address2.errors.required">
+                  address-2 is required
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </form>
+      </div>
+      <mat-dialog-actions align="end">
+        <button mat-raised-button [disabled]="!addCustomerForm.valid" style="cursor:pointer;" [ngClass]="!addCustomerForm.valid ? '' : 'btn-primary'" matStepperNext><mat-icon>arrow_forward</mat-icon> Proceed</button>
+          <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hove" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Close</button>
+      </mat-dialog-actions>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Locations</ng-template>
+        <div mat-dialog-content>
+          <form class="form-horizontal" novalidate [formGroup]="addLocationForm">
+            <!-- <div class="form-group">
+              <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Latitude: </label>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="latitude" class="form-control" placeholder="Enter Latitude" required>
+                <div *ngIf="!latitude.valid && (latitude.dirty || latitude.touched)" class="error-text">
+                  <div *ngIf="latitude.errors.required">
+                    Latitude is required
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-4 add-member-label">Longitude: </label>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" formControlName="longitude" id="" placeholder="Enter Longitude" required>
+                <div *ngIf="!longitude.valid && (longitude.dirty || longitude.touched)" class="error-text">
+                  <div *ngIf="longitude.errors.required">
+                    Longitude is required
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            <div class="form-group">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15224.17181108373!2d78.39558745!3d17.45765815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1579611367183!5m2!1sen!2sin" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+            </div>
+             <div class="form-group">
+              <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Latitude: </label>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="latitude" class="form-control" placeholder="Enter Latitude" readonly style="cursor:not-allowed!important">
+                <div *ngIf="!latitude.valid && (latitude.dirty || latitude.touched)" class="error-text">
+                  <div *ngIf="latitude.errors.required">
+                    Latitude is required
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-4 add-member-label">Longitude: </label>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" formControlName="longitude" id="" placeholder="Enter Longitude" readonly style="cursor:not-allowed!important">
+                <div *ngIf="!longitude.valid && (longitude.dirty || longitude.touched)" class="error-text">
+                  <div *ngIf="longitude.errors.required">
+                    Longitude is required
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Radius:</label>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" formControlName="radius" placeholder="Enter Radius" required>
+                <div *ngIf="!radius.valid && (radius.dirty || radius.touched)" class="error-text">
+                  <div *ngIf="radius.errors.required">
+                    Radius is required
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-4 add-member-label">Address: </label>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <textarea class="form-control txtarea" maxlength="500" rows="2" formControlName="address" placeholder="Enter Address" required></textarea>
+                <div *ngIf="!address.valid && (address.dirty || address.touched)" class="error-text">
+                  <div *ngIf="address.errors.required">
+                    Address is required
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="form-group">
+              <label class="control-label col-sm-4 add-member-label">Address-2: </label>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <textarea class="form-control txtarea" maxlength="500" rows="2" formControlName="address2" placeholder="" required></textarea>
+                <div *ngIf="!address2.valid && (address2.dirty || address2.touched)" class="error-text">
+                  <div *ngIf="address2.errors.required">
+                    address-2 is required
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </form>
+        </div>
+        <mat-dialog-actions align="end">
+            <button mat-raised-button [disabled]="(!addCustomerForm.valid || !addLocationForm.valid)" style="cursor:pointer;" [ngClass]="(!addCustomerForm.valid || !addLocationForm.valid) ? '' : 'btn-primary'" (click)="saveCustomer()" [mat-dialog-close]="'test'"><mat-icon *ngIf="user">update</mat-icon><mat-icon *ngIf="!user">save</mat-icon><span *ngIf="!user"> Save</span><span
+              *ngIf="user"> Update</span></button>
+            <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hove" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Close</button>
+        </mat-dialog-actions>
+      </mat-step>
+  </mat-horizontal-stepper>

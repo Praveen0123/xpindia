@@ -1,0 +1,20 @@
+<div fxLayout="column">
+    <!-- <div class="flex-p">  -->
+
+
+    <div class="col-lg-12 mgn">
+        <h2 style="text-align: center; color: gray;">By Customer</h2>
+
+        <div class="adjMargin">
+            <ngx-charts-pie-chart [scheme]="colorScheme" [results]="customerPie" [legend]="showLegend" [explodeSlices]="explodeSlices" [labels]="showLabels" [doughnut]="doughnut" [gradient]="gradient" (select)="onSelect($event)">
+            </ngx-charts-pie-chart>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- </div>   -->
+</div>

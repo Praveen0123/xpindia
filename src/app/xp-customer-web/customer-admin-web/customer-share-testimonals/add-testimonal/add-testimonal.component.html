@@ -1,0 +1,90 @@
+<div class="NewHeader">
+  <h1 mat-dialog-title><span *ngIf="!user">Add</span><span *ngIf="user">Edit</span> Testimonial</h1>
+</div>
+<div mat-dialog-content>
+  <form class="form-horizontal" novalidate [formGroup]="addCustomerForm">
+    <div class="form-group">
+      <label class="control-label col-sm-4 add-member-label">Customer: </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <mat-select formControlName="customerName" placeholder="-- Select Customer --" class="form-control" required>
+          <mat-option [value]=1>Warner</mat-option>
+          <mat-option [value]=2>Wagner</mat-option>
+          <mat-option [value]=3>Taylor</mat-option>
+          <mat-option [value]=4>Messy</mat-option>
+          <mat-option [value]=5>Fernando</mat-option>
+          <mat-option [value]=6>Dhoni</mat-option>
+        </mat-select>
+        <div *ngIf="!customerName.valid && (customerName.dirty || customerName.touched)" class="error-text">
+          <div *ngIf="customerName.errors.required">
+            Customer is required
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="form-group">
+      <label class="control-label col-sm-4 add-member-label">Last Name: </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <input type="email" class="form-control" maxlength="100" (keypress)="omit_special_char($event)" formControlName="customerlastName" placeholder="Enter Last Name" required>
+        <div *ngIf="!customerlastName.valid && (customerlastName.dirty || customerlastName.touched)" class="error-text">
+          <div *ngIf="customerlastName.errors.required">
+            Customer last name is required
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Testimonial: </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <textarea class="form-control txtarea" rows="2" placeholder="Enter Testimonial" required formControlName="testimonial"></textarea>
+        <div *ngIf="!testimonial.valid && (testimonial.dirty || testimonial.touched)" class="error-text">
+          <div *ngIf="testimonial.errors.required">
+            Testimonial is required.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Youtube URL: </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <input type="text" formControlName="phone" onDrag="return false" onDrop="return false" class="form-control" placeholder="Enter Youtube URL" required>
+        <div *ngIf="!phone.valid && (phone.dirty || phone.touched)" class="error-text">
+          <div *ngIf="phone.errors.required">
+            Youtube URL is required
+          </div>
+        </div>
+      </div>
+    </div> 
+    <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Select Image : </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8 margins">
+        <input type="file" accept="image/*" formControlName="image" placeholder="Upload file..." style="margin-top: 3px;" required>
+        <div *ngIf="!image.valid && (image.dirty || image.touched)" class="error-text">
+          <div *ngIf="image.errors.required">
+            Image is required
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Status: </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <mat-select formControlName="status" placeholder="-- Select Status --" class="form-control" required>
+          <mat-option [value]=1>Active</mat-option>
+          <mat-option [value]=2>Inactive</mat-option>
+        </mat-select>
+        <div *ngIf="!status.valid && (status.dirty || status.touched)" class="error-text">
+          <div *ngIf="status.errors.required">
+            Status is required
+          </div>
+        </div>
+      </div>
+    </div> -->
+    
+  </form>
+</div>
+<mat-dialog-actions align="end">
+  <button mat-raised-button [disabled]="!addCustomerForm.valid" style="cursor:pointer;" [ngClass]="!addCustomerForm.valid ? '' : 'btn-primary'" (click)="saveCustomer()" [mat-dialog-close]="'test'"><mat-icon *ngIf="user">update</mat-icon><mat-icon *ngIf="!user">save</mat-icon><span *ngIf="!user"> Save</span><span
+    *ngIf="user"> Update</span></button>
+    <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+  </mat-dialog-actions> 

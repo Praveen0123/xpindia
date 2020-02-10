@@ -1,0 +1,129 @@
+<div>
+  <div class="NewHeader">
+      <h1 mat-dialog-title> Confirm Load</h1>
+  </div>
+  <div mat-dialog-content>
+      <form class="form-horizontal" novalidate [formGroup]="addBasicDetails">
+
+          <div class="form-group">
+              <label class="control-label col-sm-4 add-member-label">Vehicle Type: </label>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                  <mat-select color="primary" formControlName="vehicletype" placeholder="--Select Vehicle Type--" class="form-control">
+                      <mat-option [value]="0">32 Feet Container</mat-option>
+                      <mat-option [value]="1">24 Feet Container </mat-option>
+                      <mat-option [value]="2">20 Feet Container</mat-option>
+                      <mat-option [value]="3">22 Feet Container</mat-option>
+                  </mat-select>
+                  <div *ngIf="!vehicletype.valid && (vehicletype.dirty || vehicletype.touched)" class="error-text">
+                      <div *ngIf="vehicletype.errors.required">
+                          vehicle type is required
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="control-label col-sm-4 add-member-label" for="pwd">Origin: </label>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                  <input type="text" formControlName="origin" maxlength="" class="form-control" placeholder="--Enter Origin--" required>
+                  <div *ngIf="!origin.valid && (origin.dirty || origin.touched)" class="error-text">
+                      <div *ngIf="origin.errors.required">
+                          origin is required
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="control-label col-sm-4 add-member-label" for="pwd">Destination: </label>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                  <input type="text" formControlName="destination" maxlength="" class="form-control" placeholder="--Enter Destination--" required>
+                  <div *ngIf="!destination.valid && (destination.dirty || destination.touched)" class="error-text">
+                      <div *ngIf="destination.errors.required">
+                          Destination is required
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="control-label col-sm-4 add-member-label" for="pwd">Vehicle Number: </label>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                  <mat-select color="primary" formControlName="vehicle" placeholder="--Select vehicle--" class="form-control" required>
+                      <mat-option [value]="0">DL 07 AG 3354</mat-option>
+                      <mat-option [value]="1">PB 12 DS 2565</mat-option>
+                      <mat-option [value]="2">KA 45 HG 4578</mat-option>
+                      <mat-option [value]="3">MH 45 GF 4578</mat-option>
+                  </mat-select>
+                  <div *ngIf="!vehicle.valid && (vehicle.dirty || vehicle.touched)" class="error-text">
+                      <div *ngIf="vehicle.errors.required">
+                          vehicle is required
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Driver: </label>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                  <!-- <input type="text" class="form-control" placeholder="Enter Industry"> -->
+                  <mat-select color="primary" formControlName="driver" placeholder="--Select Driver--" class="form-control" required>
+                      <mat-option [value]="0">Suresh</mat-option>
+                      <mat-option [value]="1">om</mat-option>
+                      <mat-option [value]="2">Anand</mat-option>
+                      <mat-option [value]="3">Mohan</mat-option>
+                  </mat-select>
+                  <div *ngIf="!driver.valid && (driver.dirty || driver.touched)" class="error-text">
+                      <div *ngIf="driver.errors.required">
+                          Driver is required
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 " for="pwd">Plan Date: </label>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                  <!-- <input type="text" class="form-control" placeholder="Enter Industry"> -->
+                  <label>12/25/2019</label>
+
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Actual Date: </label>
+              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                  <div class="input-icon right">
+                      <i class="fa fa-calendar" [owlDateTimeTrigger]="dt2"></i>
+                      <input class="form-control" formControlName="actualdate" placeholder="MM/DD/YYYY" class="form-control" id="db" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" name="dt2" required>
+                      <owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time>
+                  </div>
+                  <div *ngIf="!actualdate.valid && (actualdate.dirty || actualdate.touched)" class="error-text">
+                      <div *ngIf="actualdate.errors.required">
+                          Actual Date is required
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+
+          <!--           
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Time : </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <div class="input-icon right">
+                    <i class="fa fa-calendar-plus-o" [owlDateTimeTrigger]="dt3"></i>
+                    <input class="form-control" placeholder="HH:MM" class="form-control" id="db" [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3" name="dt3">
+                    <owl-date-time [pickerType]="'timer'" #dt3></owl-date-time>
+                </div>
+            </div>
+        </div> -->
+          <!-- <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label" for="pwd">Remarks : </label>
+            <div class="col-sm-8">
+                <textarea class="txtarea form-control" placeholder="Enter Remarks"></textarea>
+            </div>
+        </div> -->
+      </form>
+  </div>
+  <mat-dialog-actions align="end">
+      <button mat-raised-button style="cursor:pointer;" [disabled]='!addBasicDetails.valid' [ngClass]="!addBasicDetails.valid ? '' : 'btn-primary'" (click)="saveaccept()">Save</button>
+      <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+  </mat-dialog-actions>
+
+</div>

@@ -1,0 +1,119 @@
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+    <div class="row wrap" style="margin-bottom:7px;">
+      <div class="col-lg-4">
+      </div>
+      <div class="col-lg-8">
+        <div class="w-100 flex-p">
+          <button mat-raised-button class="pull-right add-hover btn-success" (click)="openfclrates(null)">
+            <mat-icon>add</mat-icon> Add Rate
+          </button>
+          <button mat-raised-button color="primary" class="pull-right  margin-right-10" (click)="filterToggle = !filterToggle">
+            <mat-icon>filter_list </mat-icon> Filter
+          </button>
+          <div class="file btn btn-lg btn-success pull-right upload"   style="margin-left: 10px;">
+            <mat-icon class="upload-icon">cloud_upload</mat-icon> Upload CSV  
+            <input title="select file" style="cursor: pointer !important" class="file" type="file" name="file"  accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+          </div>
+          <button mat-raised-button class="pull-right add-hover btn-success margin-right-10">
+            <mat-icon>cloud_download</mat-icon> Download Sample
+          </button>
+          <button mat-raised-button class="pull-right add-hover btn-success margin-right-10">
+            <mat-icon> cloud_download </mat-icon> Download CSV
+          </button>
+          
+          
+          <!-- <button mat-raised-button class="pull-right add-hover btn-success" (click)="openVisitDialog(null)">
+            <mat-icon>add</mat-icon> Add Visit
+          </button> -->
+          <!-- <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hover margin-right-10" (click)="filterToggle = !filterToggle">
+            <mat-icon>filter_list</mat-icon> Filter
+          </button> -->
+        </div>
+      </div>
+    </div>
+    
+    <div fxLayout="row wrap">
+      <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100" *ngIf="filterToggle">
+        <mat-card class="filter">
+          <mat-card-content>
+            
+            <div class="row col-sm-12">
+              <!-- <div class="col-sm-4">
+                <div class="col-sm-4 newMarginClass">
+                  Lane Name :
+                </div>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" placeholder="--Enter Vendor Name--">
+                </div>
+              </div> -->
+              <div class="col-sm-4">
+                <div class="col-sm-4 newMarginClass">
+                  Gateway:
+                </div>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" placeholder="--Enter Gateway--">
+                  <!-- <mat-select placeholder="--Search by Gateway--" class="form-control">
+                    <mat-option *ngFor="let option of gateways" [value]="option.id">{{option.value}}</mat-option>
+                  </mat-select> -->
+                </div>
+              </div>
+              
+              <div class="col-lg-1">
+                <button type="button" class="add-hover btn btn-success pull-right">Search</button>
+              </div>
+              <div class="col-lg-1">
+                <button type="button" class="btn filter-hover" style="background-color:#37474f; color:#fff !important">Clear</button>
+              </div>
+            </div>
+            
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    
+    <div fxLayout="row wrap">
+      <div class="table-responsive">
+        <table id="example2" class="table table-bordered table-hover">
+          <thead class="tbl-head">
+            <tr class="tr-grid-header">
+              <th>Gateway</th>
+              <th>Distance Limit (km)</th>
+              <th>Monthly Price</th>
+              <th>Rate (Rs. per km)</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of tableLists">
+              <td>{{item.gateway}}</td>
+              <td>{{item.distance}}</td>
+              <td>{{item.price}}</td>
+              <td>{{item.rate}}</td>
+              <td>
+                <a matTooltip="Edit Visit" style="margin-right: 10px; cursor: pointer;font-size:16px!important;color:#0987e8d1" (click)="openfclrates(item)">
+                  <i class="fa fa-edit"></i>
+                </a>
+                <a mwlConfirmationPopover
+                [popoverTitle]="popoverTitle"
+                [popoverMessage]="popoverMessage"
+                placement="left"
+                (confirm)="deleteVisit()"
+                (cancel)="cancelClicked = true" [appendToBody]="true">
+                <i style="cursor: pointer;font-size:16px!important;" matTooltip="Delete Rate" class="fa fa-trash red"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
+  
+  
+</div>
+</div>
+
+<div *ngIf="!tableList" fxLayout="column" fxLayoutAlign="center center" class="campaign-spinner">
+  <mat-spinner color="primary"></mat-spinner>
+</div>

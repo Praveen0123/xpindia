@@ -1,0 +1,178 @@
+<div fxLayout="row wrap" #resizedDiv>
+    <div class="flex-p w-100">
+        <div class="row" style="margin-bottom:14px;">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding: 0 8px 0px 9px;">
+                <div class="pills flex-p">
+                    <ul class="nav nav-pills pull-right">
+                        <li style="left: 5px;">
+                            <a mat-raised-button color="primary" class="filter-hover" (click)="filterToggle = !filterToggle" style="background-color: #50636d!important;">
+                                <mat-icon>filter_list</mat-icon> Filter
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div fxLayout="row wrap">
+    <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100" *ngIf="filterToggle">
+        <mat-card class="filter">
+            <mat-card-content>
+
+                <div class="row col-sm-12">
+                    <div class="col-sm-3">
+                        <div class="col-sm-4 newMarginClass">
+                            FFV Name:
+                        </div>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" placeholder="--Enter FFV Name--">
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="col-sm-4 newMarginClass">
+                            From:
+                        </div>
+                        <div class="col-sm-8">
+                            <!-- <input type="text" class="form-control" placeholder="--Enter Customer Name--"> -->
+                            <div class="input-icon right">
+                                <i class="fa fa-calendar" [owlDateTimeTrigger]="dt1"></i>
+                                <input class="form-control" placeholder="MM/DD/YYYY" class="form-control" id="db" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" name="dt1" required>
+                                <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="col-sm-4 newMarginClass">
+                            TO:
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="input-icon right">
+                                <i class="fa fa-calendar" [owlDateTimeTrigger]="dt2"></i>
+                                <input class="form-control" placeholder="MM/DD/YYYY" class="form-control" id="db" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" name="dt2" required>
+                                <owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time>
+                            </div>
+                            <!-- <mat-select placeholder="--Search by Status--" class="form-control">
+                              <mat-option *ngFor="let option of status" [value]="option.id">{{option.value}}</mat-option>
+                          </mat-select> -->
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <button type="button" class="add-hover btn btn-success pull-right">Search</button>
+                        <button type="button" class="btn filter-hover pull-right" style="background-color:#37474f; color:#fff !important;margin-right: 10px;">Clear</button>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+<div fxLayout="row wrap">
+    <div fxFlex="100" fxFlex.gt-sm="50" class="flex-p w-100">
+        <div fxLayout="column">
+            <mat-card>
+                <mat-card-header fxLayoutAlign="center center">
+                    <mat-card-subtitle>
+                        <h2>Upcoming Receivables</h2>
+                    </mat-card-subtitle>
+                </mat-card-header>
+                <div class="w-100 h-300p">
+                    <ngx-charts-pie-chart [scheme]="colorScheme" [results]="single" [legend]="showLegend" [explodeSlices]="explodeSlices" [labels]="showLabels" [doughnut]="doughnut" [gradient]="gradient" [maxLabelLength]="100">
+                    </ngx-charts-pie-chart>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+    <div fxFlex="100" fxFlex.gt-sm="50" class="flex-p">
+        <div fxLayout="column">
+            <mat-card>
+                <mat-card-header fxLayoutAlign="center center">
+                    <mat-card-subtitle>
+                        <h2>Overdue Receivables</h2>
+                    </mat-card-subtitle>
+                </mat-card-header>
+                <div class="w-100 h-300p">
+                    <ngx-charts-pie-chart [scheme]="colorScheme" [results]="Double" [legend]="showLegend" [explodeSlices]="explodeSlices" [labels]="showLabels" [doughnut]="doughnut" [gradient]="gradient" [maxLabelLength]="100">
+                    </ngx-charts-pie-chart>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</div>
+<div fxLayout="row wrap">
+    <div fxFlex="100" fxFlex.gt-sm="50" class="flex-p w-100">
+        <div fxLayout="column">
+            <mat-card>
+                <mat-card-header fxLayoutAlign="center center">
+                    <mat-card-subtitle>
+                        <h2>Payment Status</h2>
+                    </mat-card-subtitle>
+                </mat-card-header>
+                <div class="w-100 h-300p">
+                    <ngx-charts-pie-chart [scheme]="colorScheme" [results]="paymentStatus" [legend]="showLegend" [explodeSlices]="explodeSlices" [labels]="showLabels" [doughnut]="doughnut" [gradient]="gradient" [maxLabelLength]="100">
+                    </ngx-charts-pie-chart>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+    <div fxFlex="100" fxFlex.gt-sm="50" class="flex-p">
+        <div fxLayout="column">
+            <mat-card>
+                <mat-card-header fxLayoutAlign="center center">
+                    <mat-card-subtitle>
+                        <h2>Ageing Analysis</h2>
+                    </mat-card-subtitle>
+                </mat-card-header>
+                <div class="w-100 h-300p">
+                    <ngx-charts-pie-chart [scheme]="colorScheme" [results]="ageingAnalysis" [legend]="showLegend" [explodeSlices]="explodeSlices" [labels]="showLabels" [doughnut]="doughnut" [gradient]="gradient" [maxLabelLength]="100">
+                    </ngx-charts-pie-chart>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</div>
+<div class="row flex-p">
+    <div class="col-sm-12">
+        <div class="table-responsive">
+            <table id="example2" class="table table-bordered table-hover">
+                <thead class="tbl-head">
+                    <tr class="tr-grid-header">
+                        <th>FFV Name</th>
+                        <th class="Text-center">FFV Rates</th>
+                        <th class="Text-center">Contracts</th>
+                        <th class="Text-center">Trips</th>
+                        <th class="Text-center">Invoices</th>
+                        <th class="Text-center">Credit Terms</th>
+                        <th class="Text-center">Banking Detials</th>
+                        <th class="Text-center">TDS/GST</th>
+                        <th class="Text-center">ITC Calculation</th>
+                        <th class="Text-center">Paid Amount</th>
+                        <th class="Text-center">Outstanding A/P</th>
+                        <!-- <th>Due Amount</th> -->
+                        <th class="Text-center">Manage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of tableLists">
+                        <td>{{item.FFVName}}</td>
+                        <td class="Text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">{{item.FFVRates}}</a></td>
+                        <td class="Text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">{{item.Contracts}}</a></td>
+                        <td class="Text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">{{item.Trips}}</a></td>
+                        <td class="Text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">{{item.Invoices}}</a></td>
+                        <td class="Text-center">{{item.CreditTerms}}</td>
+                        <td class="Text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">View</a>
+                        </td>
+                        <td class="Text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">View/Download</a></td>
+                        <td class="Text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">View</a>
+                        </td>
+                        <td class="Text-center">{{item.PaidAmount}}&nbsp;Rs</td>
+                        <td class="Text-center">{{item.Outstanding}}&nbsp;Rs</td>
+                        <!-- <td>{{item.DueAmount}}&nbsp;Rs</td> -->
+                        <td class="Text-center"><a style="color:#007ad9!important;cursor: pointer!important; ">Update</a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons>
+            </mat-paginator>
+        </div>
+    </div>
+</div>

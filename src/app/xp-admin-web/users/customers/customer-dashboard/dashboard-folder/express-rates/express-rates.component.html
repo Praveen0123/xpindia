@@ -1,0 +1,78 @@
+<div fxLayout="row wrap" #resizedDiv>
+    <div class="flex-p w-100">
+        <div class="row" style="margin-bottom:14px;">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="w-100 flex-p">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="w-100 flex-p">
+                    <!-- <button mat-raised-button class="pull-right add-hover-help btn-success-help" style="margin-left: 10px;">
+                    <mat-icon>help_outline</mat-icon> Help
+                </button> -->
+                    <button mat-raised-button class="pull-right add-hover btn-success" (click)="openFCLRatesDialog(null)">
+                    <mat-icon>person_add</mat-icon> Add Express Rates
+                </button>
+                    <!-- <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hover margin-right-10" (click)="filterToggle = !filterToggle">
+                    <mat-icon>filter_list</mat-icon> Filter
+                </button> -->
+                </div>
+            </div>
+        </div>
+
+        <div fxLayout="row wrap ">
+            <div class="table-responsive my-3">
+                <table id="example2" class="table table-bordered table-hover">
+                    <thead class="tbl-head">
+                        <tr class="tr-grid-header">
+                            <th class="Text-center customerName">Lane Name</th>
+                            <th class="Text-center customerName">Rate/Kg</th>
+                            <th class="Text-center customerName">Volume Conversion</th>
+                            <th class="Text-center customerName">Fov</th>
+                            <th class="Text-center customerName">Fuel Surcharge</th>
+                            <th class="Text-center customerName">GNC Charge</th>
+                            <th class="Text-center customerName">Handling Charges</th>
+                            <th class="Text-center customerName">Others Charges</th>
+                            <th rowspan="2" class="text-center">Status</th>
+                            <th rowspan="2" class="text-center actionsMinWidth">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="showEmpty">
+                            <td colspan="6">No records found</td>
+                        </tr>
+                        <tr *ngFor="let item of tableList">
+                            <td>{{item.lane}}</td>
+                            <td class="Text-center">{{item.ratesperkg}} &nbsp;Kg</td>
+                            <td class="Text-center">{{item.VolumeConversion}}</td>
+                            <td class="Text-center">{{item.Fov}} &nbsp;Cr</td>
+                            <td class="Text-center">{{item.FuelCharge}} &nbsp;Rs</td>
+                            <td class="Text-center">{{item.GNCCharge}} &nbsp;Rs</td>
+                            <td class="Text-center">{{item.HandlingCharges}} &nbsp;Rs</td>
+                            <td class="Text-center">{{item.OthersCharges}} &nbsp;Rs</td>
+                            <td class="pad-left inner-screen text-center">
+                                <a mwlConfirmationPopover [popoverTitle]="popoverStatusTitle" [popoverMessage]="popoverStatusMessage" placement="left" (confirm)="item.status = ! item.status" (cancel)="cancelClicked = true" [appendToBody]="true">
+                                    <span *ngIf="!item.status" style="color:red">Inactive</span>
+                                    <span *ngIf="item.status">Active</span>
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <!-- <a matTooltip="Reset Password" style="margin-right: 10px; cursor: pointer;font-size:16px!important;color:#0987e8d1" (click)="reset(item)">
+                                  <i class="fa fa-undo"></i>
+                              </a> -->
+                                <a matTooltip="Edit Express Rates Details" style="margin-right: 10px; cursor: pointer;font-size:16px!important;color:#0987e8d1" (click)="openFCLRatesDialog(item)">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" placement="left" (confirm)="deleteCustomer()" (cancel)="cancelClicked = true" [appendToBody]="true">
+                                    <i style="cursor: pointer;font-size:16px!important;" matTooltip="Delete Express Rates" class="fa fa-trash red"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator>
+            </div>
+        </div>
+
+    </div>
+</div>

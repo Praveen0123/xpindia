@@ -1,0 +1,196 @@
+.mgn {
+    // margin-top: -210px !important;
+    // margin-left: -187px !important;
+    // width: 500px;
+    // height: 474px;
+    margin-left: -117px !important;
+}
+
+.mgntop {
+    margin-left: 180px !important;
+    margin-top: 5px !important;
+    font-family: sans-serif !important;
+}
+
+.tabs {
+    border-radius: 4px;
+    background: #bfbfbf !important;
+    // margin-right: 7px;
+    // font-size: 15px;
+    // min-width: 64px;
+    // line-height: 40px;
+    // padding: 0 16px;
+    // font-weight: 500;
+    // font-family: Roboto, "Helvetica Neue", sans-serif;
+    //padding: 8px 25px;
+    //border-color: #444d58;
+    //box-shadow: 7px 6px 25px #7b7b7bee;
+    // margin-right: 7px;
+    //border-bottom: 5px solid transparent;
+    //color: #ffffff;
+    font-size: 15px;
+    height: 47px;
+    // min-width: 64px;
+    // line-height: 40px;
+    // padding: 0 16px;
+    // font-weight: 500;
+    // width: 157px;
+    cursor: pointer;
+    // padding-top: 0.5rem;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.24), 0 7px 25px 0 rgba(0, 0, 0, 0.19);
+}
+
+.tabs:hover {
+    color: #4d4444;
+    background: #cddee7 !important;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.24), 0 7px 25px 0 rgba(0, 0, 0, 0.19);
+}
+
+.mgnsecondpie {
+    margin-left: -278px !important;
+}
+
+.magnTopButtons {
+    margin-top: 40px !important;
+}
+
+.buttonsStyle {
+    border-radius: 4px;
+    background-color: #1B70C1 !important;
+    color: white !important;
+    width: 127px !important;
+    height: 41px !important;
+    font-size: 15px;
+    cursor: pointer;
+    padding-top: 1px !important;
+    margin-left: 47px!important;
+}
+
+// .buttonsStyle:hover {
+//     color: rgb(0, 119, 230);
+//     background: #cddee7 !important;
+//     box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.24), 0 7px 25px 0 rgba(0, 0, 0, 0.19);
+// }
+.mgnfilterbesidebuttons {
+    margin-left: 20px !important;
+}
+
+.input-icon.right>i {
+    right: 25px;
+    float: right;
+}
+
+.input-icon>i {
+    color: #ccc;
+    display: block;
+    position: absolute;
+    //margin: 11px 2px 4px 10px;
+    margin-top: 5px;
+    // margin-right: 2px;
+    margin-bottom: 4px;
+    margin-left: 10px;
+    z-index: 3;
+    width: 16px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.fa {
+    display: inline-block;
+    font: 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.modal .input-icon>i {
+    z-index: 10055;
+}
+
+.mgnTypeOfVehicle {
+    min-width: 122px;
+}
+
+.filterbuttons {
+    border-radius: 4px;
+    background: #bfbfbf !important;
+    color: black !important;
+    width: 115px !important;
+    height: 41px !important;
+    font-size: 15px;
+    cursor: pointer;
+    padding-top: 1px !important;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.24), 0 7px 25px 0 rgba(0, 0, 0, 0.19);
+}
+
+.filterbuttons:hover {
+    color: #4d4444;
+    background: #cddee7 !important;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.24), 0 7px 25px 0 rgba(0, 0, 0, 0.19);
+}
+
+.vehicleNumberWidth {
+    min-width: 121px;
+}
+
+.driverNameWidth {
+    min-width: 100px;
+}
+
+.driverContactDetailWidth {
+    min-width: 164px;
+}
+
+.placementDatewidth {
+    min-width: 128px;
+}
+
+.placementTimeWidth {
+    min-width: 124px;
+}
+
+.departureTime {
+    min-width: 121px;
+}
+
+.serviceType {
+    min-width: 103px;
+}
+
+.consignorName {
+    min-width: 129px;
+}
+
+.bookingBranxchWidth {
+    min-width: 128px;
+}
+
+.zoneWidth {
+    min-width: 72px;
+}
+
+.pickupTimeWidth {
+    min-width: 100px;
+}
+
+.navtabWidth {
+    width: 153px !important;
+}
+
+.inprocessButtons {
+    color: black;
+    width: 187px;
+    // width: 230px !important;
+    // height: 53px !important;
+    // font-size: 17px !important;
+    // margin-left: 5px !important;
+}
+
+.todoButtons {
+    color: black;
+    width: 194px;
+    // width: 235px !important;
+    // height: 53px !important;
+    // font-size: 17px !important;
+}

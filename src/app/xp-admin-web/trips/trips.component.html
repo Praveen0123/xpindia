@@ -1,0 +1,235 @@
+<div class="row" style="margin-bottom:7px;">
+
+    <div class="col-lg-12 my-2">
+        <div class="col-lg-6 ">
+
+        </div>
+        <div class="col-lg-6">
+            <div class="w-100 flex-p">
+                <!-- <button mat-raised-button class="pull-right add-hover-help btn-success-help" style="margin-left: 10px;">
+  <mat-icon>help_outline</mat-icon> Help
+  </button> -->
+                <!-- <button mat-raised-button class="pull-right add-hover blink"><a  target="_blank" [routerLink]="['/instanttransport/trips/report']" ><mat-icon>add_alert</mat-icon> Report Case</a>
+  
+  </button> -->
+                <a mat-raised-button class="pull-right add-hover blink" target="_blank" [routerLink]="['/instanttransport/trips/report']">
+                    <mat-icon>add_alert</mat-icon> Report Case</a>
+
+
+                <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hover margin-right-10" (click)="filterToggle = !filterToggle">
+                <mat-icon>filter_list</mat-icon> Filter
+            </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div fxLayout="row wrap">
+    <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100" *ngIf="filterToggle">
+        <mat-card class="filter">
+            <mat-card-content>
+                <div class="row col-sm-12">
+                    <div class="col-sm-3">
+                        <div class="col-sm-4 newMarginClass ">
+                            CN:
+                        </div>
+                        <div class="col-sm-8">
+                            <input type="text " class="form-control " placeholder="-Search by  Consignor Number-- ">
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="col-sm-4 newMarginClass ">
+                            Order ID:
+                        </div>
+                        <div class="col-sm-8 ">
+                            <input type="text" class="form-control" placeholder="-Search by Order ID-- ">
+                        </div>
+                    </div>
+                    <div class="col-sm-3 ">
+                        <div class="col-sm-4 newMarginClass ">
+                            Booking ID:
+                        </div>
+                        <div class="col-sm-8 ">
+                            <input type="text" class="form-control " placeholder="-Search by  Booking ID-- ">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3 ">
+                        <div class="col-sm-4 newMarginClass ">
+                            Customer:
+                        </div>
+                        <div class="col-sm-8 ">
+                            <input type="text " class="form-control " placeholder="--Search by Customer-- ">
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row col-sm-12 my-4">
+
+                    <div class="col-sm-3 ">
+                        <div class="col-sm-4 newMarginClass ">
+                            Trip Sheet:
+                        </div>
+                        <div class="col-sm-8 ">
+                            <input type="text " class="form-control " placeholder="--Search by FFV-- ">
+                        </div>
+                    </div>
+                    <div class="col-sm-3 ">
+                        <div class="col-sm-4 newMarginClass ">
+                            Vehicle No:
+                        </div>
+                        <div class="col-sm-8 ">
+                            <input type="text " class="form-control " placeholder="--Search by Keyword-- ">
+                        </div>
+                    </div>
+
+                    <div class="col-lg-1 ">
+                        <button type="button " class="add-hover btn btn-success pull-right ">Search</button>
+                    </div>
+                    <div class="col-lg-1 ">
+                        <button type="button " class="btn filter-hover " style="background-color:#37474f; color:#fff !important; margin-left: -18px; ">Clear</button>
+                    </div>
+
+                </div>
+
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+
+
+
+<div fxLayout="row wrap ">
+    <div class="flex-p w-100">
+
+        <div class="table-responsive ">
+            <table id="example2 " class="table table-bordered table-hover ">
+                <thead class="tbl-head ">
+                    <tr class="tr-grid-header ">
+                        <th>CN</th>
+                        <th class="customerWidth">Customer</th>
+                        <th>Booking ID</th>
+                        <th>Order ID</th>
+                        <th>Origin</th>
+                        <th class="vehicleNumberWidth">Vehicle number</th>
+                        <th>FFV</th>
+                        <th class="driverNameWidth">Driver Name</th>
+                        <th class="driverContactDetailWidth">Driver Number</th>
+                        <th class="departureTime">Departure Time</th>
+                        <th>TAT</th>
+                        <th>PTA</th>
+                        <th>ETA</th>
+                        <th class="weightWidth">Weight (MT)</th>
+                        <th>Packages</th>
+                        <th class="tripsheetWidth">Trip Sheet</th>
+                        <th class="currentHoursWidth">Current Hours</th>
+                        <th class="remainingHoursWidth">Remaining Hours</th>
+                        <th class="currentLocatonWidth">Current Location</th>
+                        <th>Track</th>
+                        <th>Status</th>
+                        <th class="timelogWidth">Time Lag </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of tableLists ">
+                        <!-- <td>{{item.cn}}</td> -->
+                        <td><a href="../../../assets/img/trips/XPCN.pdf " target="_blank " style="color:#007ad9!important;cursor: pointer!important; ">{{item.cn}}</a></td>
+                        <td>{{item.customerName}}</td>
+                        <td>{{item.bookingid}}</td>
+                        <td>{{item.orderId}}</td>
+                        <td>{{item.origin}}</td>
+                        <td>{{item.vehicleNumber}}</td>
+                        <td>{{item.ffv}}</td>
+                        <td>{{item.driverName}}</td>
+                        <td>{{item.driverNumber}}</td>
+                        <td>{{item.departureTime}}</td>
+                        <td>{{item.tat}}</td>
+                        <td>{{item.pta}}</td>
+                        <td>{{item.eta}}</td>
+                        <td>{{item.weight}}</td>
+                        <td><a [routerLink]="['/instanttransport/trips/package']" target="_blank " style="color:#007ad9!important;cursor: pointer!important; ">{{item.package}}</a></td>
+                        <!-- <td>{{item.package}}</td> -->
+                        <!-- <td><a target="_blank" style="color:#007ad9!important;cursor: pointer!important; " [routerLink]="['/instanttransport/trips/package']">View</a></td> -->
+                        <td><a href="../../../assets/img/trips/xpts.png " target="_blank " style="color:#007ad9!important;cursor: pointer!important; ">View</a></td>
+                        <td>{{item.currenthours}}</td>
+
+                        <td>{{item.remainingHours}}</td>
+                        <td>{{item.currentLocation}}</td>
+                        <td><a [routerLink]="['/instanttransport/ordersNew/tracking']" target="_blank " style="color:#007ad9!important;cursor: pointer!important; ">View</a></td>
+                        <td>{{item.status}}</td>
+                        <td>{{item.timelog}}</td>
+
+                        <!-- <td><a [routerLink]="['/instanttransport/ordersNew/tracking']" target="_blank " style="color:#007ad9!important;cursor: pointer!important; ">View</a></td> -->
+
+
+                        <!-- <td><a (click)="openxpcnModal(item) " style="color:#007bff;cursor: pointer ">{{item.newxpcn}}</a></td> -->
+                        <!-- <td><a href="../../../assets/img/trips/XPCN.pdf " target="_blank " style="color:#007ad9!important;cursor: pointer!important; ">{{item.xpcn}}</a></td> -->
+                        <!-- <td><a href="../../../assets/img/trips/xpts.png " target="_blank " style="color:#007ad9!important;cursor: pointer!important; ">{{item.xpts}}</a></td> -->
+                        <!-- <td></td> -->
+                        <!-- <td>{{item.status}}</td> -->
+                    </tr>
+                </tbody>
+            </table>
+            <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator>
+        </div>
+
+    </div>
+</div>
+
+<div *ngIf="!tableList" fxLayout="column" fxLayoutAlign="center center" class="campaign-spinner">
+    <mat-spinner color="primary"></mat-spinner>
+</div>
+
+<div fxLayout="row wrap">
+    <div class="flex-p w-100">
+        <div class="row">
+            <div class="col-lg-12 my-4">
+                <div class="col-lg-4 ">
+                    <app-pie1></app-pie1>
+                </div>
+                <div class="col-lg-4  ">
+                    <app-pie2></app-pie2>
+                </div>
+                <div class="col-lg-4  ">
+                    <app-pie3></app-pie3>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <h2 style="margin-left: 20px !important;"> Performance</h2>
+            <div class="col-lg-12 my-4">
+                <div class="col-lg-4 ">
+                    <app-pie4></app-pie4>
+                </div>
+                <div class="col-lg-4  ">
+                    <app-pie5></app-pie5>
+                </div>
+                <div class="col-lg-4  ">
+                    <app-pie6></app-pie6>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 my-4">
+                <div class="col-lg-4 ">
+                    <app-pie7></app-pie7>
+                </div>
+                <div class="col-lg-4  ">
+                    <app-pie8></app-pie8>
+                </div>
+                <div class="col-lg-4  ">
+                    <app-pie9></app-pie9>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

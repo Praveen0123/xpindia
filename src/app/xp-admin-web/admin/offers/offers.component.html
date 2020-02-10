@@ -1,0 +1,119 @@
+<div fxLayout="row wrap" #resizedDiv>
+    <div class="flex-p w-100">
+
+        <div class="row" style="margin-bottom:14px;">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="w-100 flex-p">
+
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="w-100 flex-p">
+                    <button mat-raised-button class="pull-right add-hover btn-success" (click)="openOfferDialog(null)">
+            <mat-icon>add</mat-icon> Add Offer
+          </button>
+
+                    <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hover margin-right-10" (click)="filterToggle = !filterToggle">
+            <mat-icon>filter_list</mat-icon> Filter
+          </button>
+                </div>
+            </div>
+        </div>
+
+        <div fxLayout="row wrap">
+            <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100" *ngIf="filterToggle">
+                <mat-card class="filter">
+                    <mat-card-content>
+                        <div class="row col-sm-12">
+                            <div class="col-sm-3">
+                                <div class="col-sm-4 newMarginClass">
+                                    Country:
+                                </div>
+                                <div class="col-sm-8">
+                                    <mat-select placeholder="--Search by Country--" class="form-control">
+                                        <mat-option *ngFor="let option of countries" [value]="option.id">{{option.value}}</mat-option>
+                                    </mat-select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="col-sm-4 newMarginClass">
+                                    State:
+                                </div>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" placeholder="--Enter State name--">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="col-sm-4 newMarginClass">
+                                    Status :
+                                </div>
+                                <div class="col-sm-8">
+                                    <mat-select placeholder="--Search by Status--" class="form-control">
+                                        <mat-option *ngFor="let option of status" [value]="option.id">{{option.value}}</mat-option>
+                                    </mat-select>
+                                </div>
+                            </div>
+                            <div class="col-lg-1">
+                                <button type="button" class="add-hover btn btn-success  pull-right">Search</button>
+                            </div>
+                            <div class="col-lg-1">
+                                <button type="button" class="btn filter-hover" style="background-color:#37474f; color:#fff !important">Clear</button>
+                            </div>
+                        </div>
+
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table id="example2" class="table table-bordered table-hover">
+                <thead class="tbl-head">
+                    <tr class="tr-grid-header">
+                        <th>Origin</th>
+                        <th>Destination</th>
+                        <th>Offer Type</th>
+                        <th>Valid From</th>
+                        <th>Valid Thru</th>
+                        <th>Service Type</th>
+                        <th>Type of Vehicle</th>
+                        <th>Image</th>
+                        <th class="text-center">Status</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of tableLists">
+                        <td>{{item.origin}}</td>
+                        <td>{{item.destination}}</td>
+                        <td>{{item.offerType}}</td>
+                        <td>{{item.validFrom}}</td>
+                        <td>{{item.validThru}}</td>
+                        <td>{{item.serviceType}}</td>
+                        <td>{{item.vehicleType}}</td>
+                        <td><a target="_blank" href="../../../assets/img/vendor/leaflet/fcl.png" style="color:#007ad9!important;cursor: pointer!important;">View</a></td>
+                        <td class="pad-left inner-screen text-center">
+                            <a mwlConfirmationPopover [popoverTitle]="popoverStatusTitle" [popoverMessage]="popoverStatusMessage" placement="left" (confirm)="item.status = ! item.status" (cancel)="cancelClicked = true" [appendToBody]="true">
+                                <span *ngIf="!item.status" style="color:red">Inactive</span>
+                                <span *ngIf="item.status">Active</span>
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a matTooltip="Edit Offer" style="margin-right: 10px; cursor: pointer;font-size:16px!important;color:#0987e8d1" (click)="openOfferDialog(item)">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <a mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" placement="left" (confirm)="deleteAttorney()" (cancel)="cancelClicked = true" [appendToBody]="true">
+                                <i style="cursor: pointer;font-size:16px!important;" matTooltip="Delete Offer" class="fa fa-trash red"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!tableList" fxLayout="column" fxLayoutAlign="center center" class="campaign-spinner">
+    <mat-spinner color="primary"></mat-spinner>
+</div>

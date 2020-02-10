@@ -1,0 +1,40 @@
+<div class="NewHeader">
+    <i class="fa fa-times" aria-hidden="true" style="float: right !important;margin: 0 10px 0px 0;font-size: 17px;    cursor: pointer;" (click)="close()"></i>
+    <h1 mat-dialog-title>Payment</h1>
+</div>
+<div fxLayout="row wrap" #resizedDiv style="margin-top:20px!important;">
+    <div class="flex-p w-100">
+        <div class="table-responsive">
+            <table id="example2" class="table table-bordered table-hover">
+                <thead class="tbl-head">
+                    <tr class="tr-grid-header">
+                        <th>Paid Amount</th>
+                        <th>Paid Date</th>
+                        <th>Payment Mode</th>
+                        <th>Transaction Reference</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of tableList">
+                        <td>{{item.paidamount}}</td>
+                        <td>{{item.paidDate}}</td>
+                        <td>{{item.paymentmode}}</td>
+                        <td>{{item.Transactionref}}</td>
+                        <td>{{item.status}}</td>
+                        <!-- <td>
+                          <a mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" placement="left" (confirm)="deleteVehicle()" (cancel)="cancelClicked = true" [appendToBody]="true">
+                              <i style="cursor: pointer;font-size:16px!important;" matTooltip="Delete Vehicle" class="fa fa-trash red"></i>
+                          </a>
+                      </td> -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hove" (click)="close()" [mat-dialog-close]="'test'"><mat-icon>cancel</mat-icon>&nbsp;Close</button>
+</mat-dialog-actions>

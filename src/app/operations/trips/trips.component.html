@@ -1,0 +1,169 @@
+<div fxLayout="row wrap" #resizedDiv>
+    <div class="flex-p w-100">
+        <div class="row" style="margin-bottom:14px;">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="w-100 flex-p">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="w-100 flex-p">
+                    <!-- <button mat-raised-button class="pull-right add-hover-help btn-success-help" style="margin-left: 10px;">
+            <mat-icon>help_outline</mat-icon> Help
+          </button> -->
+                    <!-- <button mat-raised-button class="pull-right add-hover btn-success" (click)="openloadDialog(null)">
+            <mat-icon>person_add</mat-icon> Add Trip
+          </button> -->
+                    <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hover margin-right-10" (click)="filterToggle = !filterToggle">
+            <mat-icon>filter_list</mat-icon> Filter
+          </button>
+                </div>
+            </div>
+        </div>
+
+        <div fxLayout="row wrap">
+            <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100" *ngIf="filterToggle">
+                <mat-card class="filter">
+                    <mat-card-content>
+
+                        <div class="row col-sm-12">
+                            <div class="col-sm-4">
+                                <div class="col-sm-4 newMarginClass">
+                                    Lane:
+                                </div>
+                                <div class="col-sm-8">
+                                    <mat-select placeholder="--Search by Lane--" class="form-control">
+                                        <mat-option [value]="1">DEL - LUH</mat-option>
+                                        <mat-option [value]="0">LUH - VNS</mat-option>
+                                        <mat-option [value]="1">HBX - BOM</mat-option>
+                                        <mat-option [value]="0">BOM - JAI</mat-option>
+                                    </mat-select>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="col-sm-4 newMarginClass">
+                                    Status:
+                                </div>
+                                <div class="col-sm-8">
+                                    <mat-select placeholder="--Search by Status--" class="form-control">
+                                        <mat-option [value]="1">Active</mat-option>
+                                        <mat-option [value]="0">Inactive</mat-option>
+                                        <mat-option [value]="1">Proceed</mat-option>
+                                        <mat-option [value]="0">Delivered</mat-option>
+                                    </mat-select>
+                                </div>
+                            </div>
+                            <div class="col-lg-1">
+                                <button type="button" class="add-hover btn btn-success pull-right">Search</button>
+                            </div>
+                            <div class="col-lg-1">
+                                <button type="button" class="btn filter-hover" style="background-color:#37474f; color:#fff !important">Clear</button>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+
+
+        <div fxLayout="row wrap">
+            <div class="row col-sm-12">
+                <a class="alphabet">All</a>
+                <a class="alphabet">A</a>
+                <a class="alphabet">B</a>
+                <a class="alphabet">C</a>
+                <a class="alphabet">D</a>
+                <a class="alphabet">E</a>
+                <a class="alphabet">F</a>
+                <a class="alphabet">G</a>
+                <a class="alphabet">H</a>
+                <a class="alphabet">I</a>
+                <a class="alphabet">J</a>
+                <a class="alphabet">K</a>
+                <a class="alphabet">L</a>
+                <a class="alphabet">M</a>
+                <a class="alphabet">N</a>
+                <a class="alphabet">O</a>
+                <a class="alphabet">P</a>
+                <a class="alphabet">Q</a>
+                <a class="alphabet">R</a>
+                <a class="alphabet">S</a>
+                <a class="alphabet">T</a>
+                <a class="alphabet">U</a>
+                <a class="alphabet">V</a>
+                <a class="alphabet">W</a>
+                <a class="alphabet">X</a>
+                <a class="alphabet">Y</a>
+                <a class="alphabet">Z</a>
+            </div><br><br>
+            <div class="row"></div>
+            <div class="table-responsive">
+                <table id="example2" class="table table-bordered table-hover">
+                    <thead class="tbl-head">
+                        <tr class="tr-grid-header">
+                            <th>Lane</th>
+                            <th>Origin</th>
+                            <th>Destination</th>
+                            <th>Type</th>
+                            <th>Packages</th>
+                            <th>Pickup Location</th>
+                            <th>Pickup Time</th>
+                            <th>TAT (Days)</th>
+                            <th>Payload</th>
+                            <th>CBM</th>
+                            <th>Vendors</th>
+                            <th>Drivers</th>
+                            <th>D.L Number</th>
+                            <th>Vehicle Registration Number</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of tableList">
+                            <!-- <td> <i class="fa fa-circle dot " style="color:rgb(0, 255, 0);"></i> </td> -->
+                            <td>{{item.lane}}</td>
+                            <td>{{item.orign}}</td>
+                            <td>{{item.destination}}</td>
+                            <td>{{item.type}}</td>
+                            <!-- <td>{{item.packages}}</td> -->
+                            <td><a target="_blank" [routerLink]="['/instanttransport/operations/orders/packages']">{{item.packages}}</a></td>
+                            <td>{{item.pickuplocation}}</td>
+                            <td>{{item.pickuptime}} </td>
+                            <td>{{item.tat}}</td>
+                            <td>{{item.payload}}</td>
+                            <td>{{item.cbm}}</td>
+                            <td>{{item.vendors}}</td>
+                            <td>{{item.driver}}</td>
+                            <td>{{item.dlnumber}}</td>
+                            <td>{{item.vehicleRegistrationNo}}</td>
+
+
+                            <!-- <td *ngIf="item.notes === 'View'" style="background-color: #66c2ff;cursor: pointer" (click)="openRemarksModal(item)">{{item.notes}}</td>
+                <td *ngIf="item.notes === 'Add'" style="background-color: black;color: white;cursor: pointer" (click)="openRemarksModal(null)">{{item.notes}}</td> -->
+
+                            <td class="pad-left inner-screen" style="cursor:pointer">
+                                <a (click)="item.status = ! item.status">
+                                    <span *ngIf="!item.status" style="color:red">Inactive</span>
+                                    <span *ngIf="item.status" style="color:#1c4f86;">Active</span>
+                                </a>
+                            </td>
+
+                            <td>
+                                <!-- <a mwlConfirmationPopover [popoverTitle]='popoverleadTitle' [popoverMessage]='popoverleadMessage' placement='left' (confirm)='convertlead()' (cancel)='cancelClicked = true' [appendToBody]='true' title="Convert lead to prospect" style="margin-right: 10px; cursor: pointer;"
+                    (click)="openConfirmDialog('convert', lead, 'lead')">
+                    <i class="fa fa-arrow-right"></i>
+                  </a> -->
+                                <!-- <a matTooltip="Accept" style="margin-right: 10px; cursor: pointer;font-size:16px!important;color:#0987e8d1" (click)="openacceptDialog(item)">
+                    <i class="fa fa-check"></i>
+                  </a> -->
+                                <a mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" placement="left" (confirm)="deleteleadCenter()" (cancel)="cancelClicked = true" [appendToBody]="true">
+                                    <i style="cursor: pointer;font-size:16px!important;" matTooltip="Decline" class="fa fa-stop-circle red"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,110 @@
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+    
+    <div class="row" style="margin-bottom:14px;">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <div class="w-100 flex-p">
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <div class="w-100 flex-p">
+          <button mat-raised-button class="pull-right add-hover btn-success" (click)="openUserDialog(null)">
+            <mat-icon>person_add</mat-icon> Add
+            User
+          </button>
+          <button mat-raised-button color="primary" class="pull-right filter-hover margin-right-10" (click)="filterToggle = !filterToggle">
+            <mat-icon>filter_list</mat-icon> Filter
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div fxLayout="row wrap" *ngIf="filterToggle">
+      <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p">
+        <mat-card class="filter">
+          <mat-card-header>
+            <mat-card-subtitle></mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="row col-sm-12">
+              <div class="col-sm-4">
+                <div class="col-sm-4 newMarginClass">
+                  Customer Name :
+                </div>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" placeholder="--Enter Customer Name--">
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="col-sm-4 newMarginClass">
+                  Status :
+                </div>
+                <div class="col-sm-8">
+                  <mat-select placeholder="--Search by Status--" class="form-control">
+                    <mat-option *ngFor="let option of status" [value]="option.id">{{option.value}}</mat-option>
+                  </mat-select>
+                </div>
+              </div>
+              
+              <div class="col-lg-1">
+                <button type="button" class="add-hover btn btn-success pull-right">Search</button>
+              </div>
+              <div class="col-lg-1">
+                <button type="button" class="btn filter-hover" style="background-color:#37474f; color:#fff !important">Clear</button>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    
+    <div fxLayout="row wrap">
+      <div class="table-responsive">
+        <table id="example2" class="table table-bordered table-hover">
+          <thead class="tbl-head">
+            <tr class="tr-grid-header">
+              <th>User Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Permissions</th>
+              <!-- <th>User Type</th> -->
+              <th class="text-center">Status</th>
+              <th class="text-center">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let applicant of tableLists">
+              <td>{{applicant.name}}</td>
+              <td>{{applicant.email}}
+                <i *ngIf="applicant.is_verified" title="User verified" class="fa fa-check Green" aria-hidden="true"></i>
+                <i *ngIf="!applicant.is_verified" title="User not verified" class="fa fa-times Red" aria-hidden="true"></i>
+              </td>
+              <td>{{applicant.phone}}</td>
+              <td><a routerLink="permissions">{{applicant.Permissions}}</a></td>
+              <!-- <td>{{applicant.type}}</td> -->
+              <td class="pad-left inner-screen text-center">
+                <a mwlConfirmationPopover [popoverTitle]="popoverStatusTitle" [popoverMessage]="popoverStatusMessage" placement="left" (confirm)="applicant.status = ! applicant.status" (cancel)="cancelClicked = true" [appendToBody]="true">
+                  <span *ngIf="!applicant.status" style="color:red">Inactive</span>
+                  <span *ngIf="applicant.status">Active</span>
+                </a>
+              </td>
+              <td class="text-center">
+                <a matTooltip="Edit User Details" style="margin-right: 10px; cursor: pointer;font-size:16px!important;color:#0987e8d1" (click)="openUserDialog(applicant)">
+                  <i class="fa fa-edit"></i>
+                </a>
+                <a mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" placement="left" (confirm)="deleteCustomer()" (cancel)="cancelClicked = true" [appendToBody]="true">
+                  <i style="cursor: pointer;font-size:16px!important;" matTooltip="Delete User" class="fa fa-trash red"></i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!tableList" fxLayout="column" fxLayoutAlign="center center" class="campaign-spinner">
+  <mat-spinner color="primary"></mat-spinner>
+</div>

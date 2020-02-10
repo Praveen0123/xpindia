@@ -1,0 +1,104 @@
+<div class="NewHeader">
+  <i class="fa fa-times" aria-hidden="true" style="float: right !important;margin: 0 10px 0px 0;font-size: 17px;    cursor: pointer;" (click)="close()"></i>
+  <h1 mat-dialog-title><span *ngIf="!user">Add</span><span *ngIf="user">Edit</span> Express Rates</h1>
+</div>
+<div mat-dialog-content>
+  <form class="form-horizontal" novalidate [formGroup]="addCustomerForm">
+    <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Lane: </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <!-- <input type="text" formControlName="vehicleType" class="form-control" placeholder="" required> -->
+        <mat-select color="primary" formControlName="vehicleType" required placeholder="--Select Lane--" class="form-control">
+          <mat-option [value]="0">HYD-DEL</mat-option>
+          <mat-option [value]="1">RAJ-JAI</mat-option>
+          <mat-option [value]="2">ANC-DEN</mat-option>
+          <mat-option [value]="3">BNG-DEN</mat-option>
+          <mat-option [value]="4">HP-UP</mat-option>
+          <!-- <mat-option [value]="5">Spain</mat-option>
+            <mat-option [value]="6">Italy</mat-option>
+            <mat-option [value]="7">China</mat-option>
+            <mat-option [value]="8">Austin</mat-option>
+            <mat-option [value]="9">Greece</mat-option>
+            <mat-option [value]="10">Hong Kong</mat-option> -->
+          </mat-select>
+          <div *ngIf="!vehicleType.valid && (vehicleType.dirty || vehicleType.touched)" class="error-text">
+            <div *ngIf="vehicleType.errors.required">
+              Lane is required
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Rate: </label>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+          <input type="text" formControlName="payload" class="form-control" placeholder="Enter Rate" required>
+          <div *ngIf="!payload.valid && (payload.dirty || payload.touched)" class="error-text">
+            <div *ngIf="payload.errors.required">
+              FCL Rates is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="form-group">
+        <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Latitude: </label>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+          <input type="text" formControlName="cbm" class="form-control" placeholder="" required>
+          <div *ngIf="!cbm.valid && (cbm.dirty || cbm.touched)" class="error-text">
+            <div *ngIf="cbm.errors.required">
+              Latitude is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4 add-member-label">longitude: </label>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+          <input type="text" class="form-control" formControlName="userName" id="" placeholder="" required>
+          <div *ngIf="!userName.valid && (userName.dirty || userName.touched)" class="error-text">
+            <div *ngIf="userName.errors.required">
+              longitude is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Radius:</label>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+          <input type="text" class="form-control" formControlName="uniqueId" placeholder="" required>
+          <div *ngIf="!uniqueId.valid && (uniqueId.dirty || uniqueId.touched)" class="error-text">
+            <div *ngIf="uniqueId.errors.required">
+              Radius is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4 add-member-label">Address-1: </label>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+          <textarea class="form-control txtarea" maxlength="500" rows="2" formControlName="address" placeholder="" required></textarea>
+          <div *ngIf="!address.valid && (address.dirty || address.touched)" class="error-text">
+            <div *ngIf="address.errors.required">
+              address-1 is required
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-4 add-member-label">Address-2: </label>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+          <textarea class="form-control txtarea" maxlength="500" rows="2" formControlName="address2" placeholder="" required></textarea>
+          <div *ngIf="!address2.valid && (address2.dirty || address2.touched)" class="error-text">
+            <div *ngIf="address2.errors.required">
+              address-2 is required
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </form>
+  </div>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button [disabled]="!addCustomerForm.valid" style="cursor:pointer;" [ngClass]="!addCustomerForm.valid ? '' : 'btn-primary'" (click)="saveCustomer()" [mat-dialog-close]="'test'"><mat-icon *ngIf="user">update</mat-icon><mat-icon *ngIf="!user">save</mat-icon><span *ngIf="!user"> Save</span><span
+      *ngIf="user"> Update</span></button>
+      <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hove" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Close</button>
+    </mat-dialog-actions>

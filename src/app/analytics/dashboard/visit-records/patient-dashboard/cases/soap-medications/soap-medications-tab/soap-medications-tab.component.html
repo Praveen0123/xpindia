@@ -1,0 +1,43 @@
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+    
+    <div fxLayout="row wrap">
+      <div class="table-responsive">
+        <table id="example2" class="table table-bordered table-hover">
+          <thead class="tbl-head">
+            <tr class="tr-grid-header">
+              <th>Medication</th>
+              <th>SIG</th>
+              <th>Dispense</th>
+              <th>Refills</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of tableList">
+              <td>{{item.medication}}</td>
+              <td>{{item.sig}}</td>
+              <td>{{item.dispense}}</td>
+              <td>{{item.refills}}</td>
+              <td>{{item.date}}</td>
+              <td>
+                <a matTooltip="Edit Medication" style="margin-right: 10px; cursor: pointer;font-size:16px!important;color:#0987e8d1" (click)="openMedicationDialog(item)">
+                  <i class="fa fa-edit"></i>
+                </a>
+                <a mwlConfirmationPopover
+                [popoverTitle]="popoverTitle"
+                [popoverMessage]="popoverMessage"
+                placement="left"
+                (confirm)="deleteMedication()"
+                (cancel)="cancelClicked = true" [appendToBody]="true">
+                <i style="cursor: pointer;font-size:16px!important;" matTooltip="Delete Medication" class="fa fa-trash red"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>

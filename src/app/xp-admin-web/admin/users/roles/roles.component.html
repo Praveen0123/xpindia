@@ -1,0 +1,146 @@
+<div fxLayout="row wrap" #resizedDiv>
+    <div class="flex-p w-100">
+        <app-master></app-master>
+    </div>
+</div>
+<!-- <div fxLayout="row wrap" #resizedDiv> -->
+<div class="w-100" style="padding: 0 10px 10px 10px;">
+    <div class="row" style="margin-bottom:14px;">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-6">
+            <div class="w-100 flex-p">
+                <button mat-raised-button class="pull-right add-hover btn-success">
+              <mat-icon>add</mat-icon> Add Role
+            </button>
+                <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hover margin-right-10" (click)="filterToggle = !filterToggle">
+              <mat-icon>filter_list</mat-icon> Filter
+            </button>
+                <!-- <label class="btn btn-success  pull-right"
+              style="color: white;padding-top: 8px !important;font-weight: 600;padding-bottom: 10px !important;;margin-right: 10px;">
+              Upload CSV <input type="file" style="display: none;" name="image">
+            </label>
+            <label class="btn btn-success pull-right"
+              style="color: white;padding-top: 8px !important;font-weight: 600;padding-bottom: 10px !important;;margin-right: 10px;">
+              Download Sample
+            </label>
+            <label class="btn btn-success  pull-right"
+              style="color: white;padding-top: 8px !important;font-weight: 600;padding-bottom: 10px !important;;margin-right: 10px;">
+              Download CSV
+            </label> -->
+            </div>
+        </div>
+    </div>
+
+    <div fxLayout="row wrap">
+        <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="w-100" *ngIf="filterToggle" style="padding: 0 2px 12px 2px;">
+            <mat-card class="filter">
+                <mat-card-content>
+                    <div class="row col-sm-12">
+                        <div class="col-sm-4">
+                            <div class="col-sm-4 newMarginClass">
+                                Keyword Search:
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" placeholder="-Keyword Search--">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="col-sm-4 newMarginClass">
+                                Role:
+                            </div>
+                            <div class="col-sm-8">
+                                <mat-select color="primary" required placeholder="--Select Role--" class="form-control">
+                                    <mat-option [value]="0">Manager</mat-option>
+                                    <mat-option [value]="1">Admin</mat-option>
+                                    <mat-option [value]="2">Staff</mat-option>
+                                    <mat-option [value]="3">Super Admin</mat-option>
+                                    <mat-option [value]="4">Inspector</mat-option>
+                                </mat-select>
+                            </div>
+                        </div>
+                        <div class="col-lg-2" style="left:26px">
+                            <button type="button" class="add-hover btn btn-success  pull-right">Search</button>
+                        </div>
+                        <div class="col-lg-2" style="left:24px">
+                            <button type="button" class="btn filter-hover" style="background-color:#37474f; color:#fff !important; margin-left: -18px;">Clear</button>
+                        </div>
+                    </div>
+                    <!-- <div class="row col-sm-12 my-5" style="margin-bottom:0px !important">
+                <div class="col-lg-4">
+                  <div class="col-sm-4 newMarginClass">
+                    Type:
+                  </div>
+                  <div class="col-sm-8">
+                    <mat-select color="primary" formControlName="module" required placeholder="--Select Type--"
+                      class="form-control">
+                      <mat-option [value]="0">Higher is Better</mat-option>
+                      <mat-option [value]="1">Interval</mat-option>
+                      <mat-option [value]="2">Lower is Better</mat-option>
+                    </mat-select>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="col-sm-4 newMarginClass">
+                    
+                  </div>
+                  <div class="col-sm-8">
+                   
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="col-sm-4 newMarginClass">
+                      Module :
+                    </div>
+                    <div class="col-sm-8">
+                      <mat-select color="primary" formControlName="module" required placeholder="--Select Module--"
+                        class="form-control">
+                        <mat-option [value]="0">Management</mat-option>
+                        <mat-option [value]="1">Operations</mat-option>
+                        <mat-option [value]="2">Finance</mat-option>
+                        <mat-option [value]="3">Sales</mat-option>
+                        <mat-option [value]="4">Zone</mat-option>
+                        <mat-option [value]="5">Hub</mat-option>
+                        <mat-option [value]="6">Gateway</mat-option>
+                      </mat-select>
+                    </div>
+                  </div>
+              </div> -->
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table id="example2" class="table table-bordered table-hover">
+            <thead class="tbl-head">
+                <tr class="tr-grid-header">
+                    <th>Role</th>
+                    <th class="text-center">Users</th>
+                    <th class="text-center">Permissions</th>
+                    <!-- <th class="text-center">Status</th> -->
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of tableLists">
+                    <td>{{item.role}}</td>
+                    <td class="text-center"><a target="_blank" [routerLink]="['/instanttransport/admin/users/user']">{{item.users}}</a></td>
+                    <td class="text-center inner-screen"><a routerLink="/instanttransport/admin/users/permissions">{{item.permissions}}</a></td>
+                    <td class="text-center">
+                        <a matTooltip="Edit user" style="margin-right: 10px; cursor: pointer;font-size:16px!important;color:#0987e8d1">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <a mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" placement="left" (confirm)="deleteAttorney()" (cancel)="cancelClicked = true" [appendToBody]="true">
+                            <i style="cursor: pointer;font-size:16px!important;" matTooltip="Delete role" class="fa fa-trash red"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator>
+    </div>
+</div>
+<!-- </div> -->
+
+<div *ngIf="!tableList" fxLayout="column" fxLayoutAlign="center center" class="campaign-spinner">
+    <mat-spinner color="primary"></mat-spinner>
+</div>

@@ -1,0 +1,128 @@
+<div fxLayout="row wrap">
+  <div class="col-sm-12">
+    <form novalidate [formGroup]="historyForm">
+      <table id="example2" class="table table-bordered table-hover">
+        <thead class="tbl-head">
+          <tr class="tr-grid-header">  
+            <th colspan="2">Patient Illness information and notes are commented here</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-sm-6 col-xs-6">
+              Location<br>
+              <mat-select formControlName="location" placeholder="--Select Location--" multiple class="form-control">
+                <mat-option *ngFor="let option of locationOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Location Comments<br>
+              <textarea class="form-control txtarea" formControlName="loctaionComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-6 col-xs-6">
+              Quality<br>
+              <mat-select placeholder="--Select Quality--" multiple formControlName="quality" class="form-control">
+                <mat-option *ngFor="let option of qualityOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Quality Comments<br>
+              <textarea class="form-control txtarea" placeholder="Enter comments" formControlName="qualityCommnets" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-6 col-xs-6">
+              Severity<br>
+              <mat-select placeholder="--Select Severity--" class="form-control" formControlName="severity">
+                <mat-option *ngFor="let option of severityOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Severity Comments<br>
+              <textarea class="form-control txtarea" placeholder="Enter comments" rows="2" formControlName="severityCommnets"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-6 col-xs-6">
+              Duration<br>
+              <mat-select placeholder="--Select Duration--" multiple class="form-control" formControlName="duration">
+                <mat-option *ngFor="let option of durationOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Duration Comments<br>
+              <textarea class="form-control txtarea" placeholder="Enter comments" rows="2" formControlName="durationCommnets"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-6 col-xs-6">
+              Onset / Timing<br>
+              <mat-select placeholder="--Select Timing--" multiple class="form-control" formControlName="timing">
+                <mat-option *ngFor="let option of onsetOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Onset Comments<br>
+              <textarea class="form-control txtarea" placeholder="Enter comments" rows="2" formControlName="timingCommnets"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-6 col-xs-6">
+              Context<br>
+              <mat-select placeholder="--Select Context--" multiple class="form-control" formControlName="context">
+                <mat-option *ngFor="let option of contextOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Context Comments<br>
+              <textarea class="form-control txtarea" placeholder="Enter comments" rows="2" formControlName="contextComments"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-6 col-xs-6">
+              Modifying Factors<br>
+              <mat-select placeholder="--Select Modifying Factors--" multiple class="form-control" formControlName="modifying">
+                <mat-option *ngFor="let option of modifyOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Modifying Factors Comments<br>
+              <textarea class="form-control txtarea" placeholder="Enter comments" rows="2" formControlName="modifyingComments"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-6 col-xs-6">
+              Associated Symptoms<br>
+              <mat-select placeholder="--Select Associated Symptoms--" multiple class="form-control" formControlName="associated">
+                <mat-option *ngFor="let option of associationOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Associated Symptoms Comments<br>
+              <textarea class="form-control txtarea" placeholder="Enter comments" rows="2" formControlName="associatedComments"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-6 col-xs-6">
+              Previous Treatment<br>
+              <textarea class="form-control txtarea" placeholder="Enter comments" rows="2" formControlName="previous"></textarea>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+            </td> 
+          </tr>
+          <tr>
+            <td colspan="2">
+              Notes<br>
+              <textarea class="form-control txtarea" placeholder="Enter comments" rows="5" formControlName="notes"></textarea>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+    <mat-dialog-actions align="end">
+      <button mat-raised-button style="cursor:pointer;" class="btn-success" (click)="saveForm()"><mat-icon>save</mat-icon>&nbsp;Save</button>
+    </mat-dialog-actions> 
+  </div>
+</div>

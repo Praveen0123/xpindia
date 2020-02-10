@@ -1,0 +1,230 @@
+<div>
+    <div class="NewHeader">
+        <!-- <h1 mat-dialog-title><span *ngIf="!routes">Add</span><span *ngIf="routes">Edit</span> Lead</h1> -->
+        <h1 mat-dialog-title><span *ngIf='!routes'>Add</span><span *ngIf='routes'>Edit</span> Routes</h1>
+    </div>
+    <mat-horizontal-stepper #stepper>
+        <mat-step>
+            <div mat-dialog-content>
+                <form class="form-horizontal" novalidate [formGroup]="addBasicDetails">
+                    <ng-template matStepLabel>Details</ng-template>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4 add-member-label">Origin Gateway: </label>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <input type="text" formControlName="Origin" class="form-control" placeholder="Enter Origin" required>
+                            <div *ngIf="!Origin.valid && (Origin.dirty || Origin.touched)" class="error-text">
+                                <div *ngIf="Origin.errors.required">
+                                    Origin is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4 add-member-label">Destination Gateway: </label>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <input type="text" formControlName="Destination" class="form-control" placeholder="Enter Destination" required>
+                            <div *ngIf="!Destination.valid && (Destination.dirty || Destination.touched)" class="error-text">
+                                <div *ngIf="Destination.errors.required">
+                                    Destination is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4 add-member-label">District: </label>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <input type="text" formControlName="District" class="form-control" placeholder="Enter District" required>
+                            <div *ngIf="!District.valid && (District.dirty || District.touched)" class="error-text">
+                                <div *ngIf="District.errors.required">
+                                    District is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4 add-member-label" for="pwd">Vendor Name: </label>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <input type="text" formControlName="Vendor" class="form-control" placeholder="Enter Vendor" required>
+                            <div *ngIf="!Vendor.valid && (Vendor.dirty || Vendor.touched)" class="error-text">
+                                <div *ngIf="Vendor.errors.required">
+                                    Vendor Name is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-sm-4 add-member-label" for="pwd">Vehicle Type: </label>
+                        <div class="col-sm-8">
+                            <input type="text" formControlName="vehicleType" class="form-control" placeholder="Enter Vehicle Type" required>
+                            <!-- <textarea type="text" formControlName="vehicleType" class="form-control txtarea" rows="2" placeholder="Enter vehicleType" required></textarea> -->
+                            <div *ngIf="!vehicleType.valid && (vehicleType.dirty || vehicleType.touched)" class="error-text">
+                                <div *ngIf="vehicleType.errors.required">
+                                    vehicle type is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-4 add-member-label" for="pwd">Payload (MT): </label>
+                        <div class="col-sm-8">
+                            <input class="form-control " type="text" formControlName="payload" placeholder="Enter Payload" required>
+                            <div *ngIf="!payload.valid && (payload.dirty || payload.touched)" class="error-text">
+                                <div *ngIf="payload.errors.required">
+                                    Payload is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">CBM: </label>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <input class="form-control " type="text" formControlName="cbm" placeholder="Enter CBM" required>
+                            <div *ngIf="!cbm.valid && (cbm.dirty || cbm.touched)" class="error-text">
+                                <div *ngIf="cbm.errors.required">
+                                    CBM is required
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Assets: </label>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <input class="form-control " type="text" formControlName="assets" placeholder="Enter Assets" required>
+                            <div *ngIf="!assets.valid && (assets.dirty || assets.touched)" class="error-text">
+                                <div *ngIf="assets.errors.required">
+                                    Assets is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+            <mat-dialog-actions align="end">
+                <button mat-raised-button [disabled]="!addBasicDetails.valid" [ngClass]="!addBasicDetails.valid ? '' : 'btn-primary'" matStepperNext><mat-icon>arrow_forward</mat-icon>Proceed</button>
+                <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+            </mat-dialog-actions>
+        </mat-step>
+        <mat-step>
+            <div mat-dialog-content>
+                <form class="form-horizontal" novalidate [formGroup]="addDemographicDetails">
+                    <ng-template matStepLabel>Schedules</ng-template>
+
+                    <div class="form-group">
+                        <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">STD: </label>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <input class="form-control " type="text" formControlName="STD" placeholder="Enter STD" required>
+                            <div *ngIf="!STD.valid && (STD.dirty || STD.touched)" class="error-text">
+                                <div *ngIf="STD.errors.required">
+                                    STD is required
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">ETA: </label>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <input class="form-control " type="text" formControlName="ETA" placeholder="Enter ETA" required>
+                            <div *ngIf="!ETA.valid && (ETA.dirty || ETA.touched)" class="error-text">
+                                <div *ngIf="ETA.errors.required">
+                                    ETA is required
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">VIA Station: </label>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <input class="form-control " type="text" formControlName="station" placeholder="Enter VIA Station" required>
+                            <div *ngIf="!station.valid && (station.dirty || station.touched)" class="error-text">
+                                <div *ngIf="station.errors.required">
+                                    VIA Station is required
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">VIA ETA: </label>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <input class="form-control " type="text" formControlName="VIAETA" placeholder="Enter VIA ETA" required>
+                            <div *ngIf="!VIAETA.valid && (VIAETA.dirty || VIAETA.touched)" class="error-text">
+                                <div *ngIf="VIAETA.errors.required">
+                                    VIA ETA is required
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">VIA STD: </label>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <input class="form-control " type="text" formControlName="VIASTD" placeholder="Enter VIA STD" required>
+                            <div *ngIf="!VIASTD.valid && (VIASTD.dirty || VIASTD.touched)" class="error-text">
+                                <div *ngIf="VIASTD.errors.required">
+                                    VIA STD is required
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">ATD: </label>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <input class="form-control " type="text" formControlName="ATD" placeholder="Enter ATD" required>
+                            <div *ngIf="!ATD.valid && (ATD.dirty || ATD.touched)" class="error-text">
+                                <div *ngIf="ATD.errors.required">
+                                    ATD is required
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">ATA: </label>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <input class="form-control " type="text" formControlName="ATA" placeholder="Enter ATA" required>
+                            <div *ngIf="!ATA.valid && (ATA.dirty || ATA.touched)" class="error-text">
+                                <div *ngIf="ATA.errors.required">
+                                    ATA is required
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Status: </label>
+                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                            <!-- <input type="text" class="form-control" placeholder="Enter Industry"> -->
+                            <mat-select color="primary" formControlName="Status" placeholder="--Select Status--" class="form-control" required>
+                                <mat-option [value]="0">Delivered</mat-option>
+                                <mat-option [value]="1">In Transit</mat-option>
+                                <!-- <mat-option [value]="2">Japan</mat-option>
+                                <mat-option [value]="3">Canada</mat-option> -->
+                            </mat-select>
+                            <div *ngIf="!Status.valid && (Status.dirty || Status.touched)" class="error-text">
+                                <div *ngIf="Status.errors.required">
+                                    Status is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <mat-dialog-actions align="end">
+                <button mat-raised-button class="add-dark-hover btn-default" matStepperPrevious><mat-icon>arrow_back</mat-icon>&nbsp;Back</button>
+                <button mat-raised-button [disabled]="(addBasicDetails.invalid || addDemographicDetails.invalid )" [ngClass]="(addBasicDetails.invalid || addDemographicDetails.invalid ) ? '' : 'btn-primary'" (click)="savelead()"><mat-icon *ngIf="routes">update</mat-icon><mat-icon *ngIf="!routes">save</mat-icon><span *ngIf="!routes"> Save</span><span
+        *ngIf="routes"> Update</span></button>
+                <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+            </mat-dialog-actions>
+        </mat-step>
+    </mat-horizontal-stepper>
+</div>

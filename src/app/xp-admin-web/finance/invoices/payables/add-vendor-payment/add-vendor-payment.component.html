@@ -1,0 +1,125 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title><span *ngIf="!user">Add</span><span *ngIf="user">Edit</span>Vendor Payment</h1>
+</div>
+<div mat-dialog-content>
+
+    <form class="form-horizontal" novalidate [formGroup]="addUserForm">
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Vendor: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" formControlName="Vendor" placeholder="Enter Vendor" required>
+                <!-- <mat-select name="" id="" formControlName="businessCenter" placeholder="-- Select Business Center --" class="form-control" required>
+              <mat-option [value]=1>Core Health</mat-option>
+              <mat-option [value]=2>Sapphire MD</mat-option>
+              <mat-option [value]=3>Pain Allieviation</mat-option>
+              <mat-option [value]=4>Centre for Pain Relief</mat-option>
+              <mat-option [value]=5>Prime Orthopedics</mat-option>
+          </mat-select> -->
+                <div *ngIf="!Vendor.valid && (Vendor.dirty || Vendor.touched)" class="error-text">
+                    <div *ngIf="Vendor.errors.required">
+                        Vendor is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">Amount: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" formControlName="amount" id="" placeholder="Enter Amount" required>
+                <div *ngIf="!amount.valid && (amount.dirty || amount.touched)" class="error-text">
+                    <div *ngIf="amount.errors.required">
+                        Amount is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Due Date:</label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <div class="input-icon right">
+                    <i class="fa fa-calendar" [owlDateTimeTrigger]="dt1"></i>
+                    <input class="form-control" formControlName='duetDate' placeholder="MM/DD/YYYY" class="form-control" id="db" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" name="dt1" required>
+                    <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+                </div>
+                <div *ngIf="!duetDate.valid && (duetDate.dirty || duetDate.touched)" class="error-text">
+                    <div *ngIf="duetDate.errors.required">
+                        Due Date is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="form-group">
+      <label class="control-label col-sm-4 add-member-label" for="pwd">Email: </label>
+      <div class="col-sm-8">
+          <input type="email" email formControlName="addEmail" class="form-control" placeholder="Enter Email" required>
+          <div *ngIf="!addEmail.valid && (addEmail.dirty || addEmail.touched)" class="error-text">
+              <div *ngIf="addEmail.errors.required">
+                  Email is required
+              </div>
+              <div *ngIf="addEmail.errors.email">
+                  Enter a valid email
+              </div>
+          </div>
+      </div>
+  </div> -->
+
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label" for="pwd">Invoice Number: </label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" maxlength="10" formControlName="invoicenumber" placeholder="Enter Invoice Number" required>
+                <div *ngIf="!invoicenumber.valid && (invoicenumber.dirty || invoicenumber.touched)" class="error-text">
+                    <div *ngIf="invoicenumber.errors.required">
+                        Invoice Number is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">Invoice: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="file" class="" formControlName="invoice" placeholder="" required>
+                <div *ngIf="!invoice.valid && (invoice.dirty || invoice.touched)" class="error-text">
+                    <div *ngIf="invoice.errors.required">
+                        Invoice is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Remarks:</label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" formControlName="remarks" placeholder="Enter Remarks" required>
+                <div *ngIf="!remarks.valid && (remarks.dirty || remarks.touched)" class="error-text">
+                    <div *ngIf="remarks.errors.required">
+                        Remarks is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="form-group">
+    <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Role: </label>
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <mat-select name="" id="" formControlName="attorney" placeholder="-- Select Role --" class="form-control" required>
+            <mat-option [value]=1>Broker</mat-option>
+            <mat-option [value]=2>Builder </mat-option>
+            <mat-option [value]=3>Realtor Agent</mat-option>
+            <mat-option [value]=4>Customer</mat-option>
+            <mat-option [value]=5>Relationship Manager</mat-option>
+        </mat-select>
+        <div *ngIf="!attorney.valid && (attorney.dirty || attorney.touched)" class="error-text">
+            <div *ngIf="attorney.errors.required">
+                Role is required
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+
+    </form>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button [disabled]="!addUserForm.valid" style="cursor:pointer;" [ngClass]="!addUserForm.valid ? '' : 'btn-primary'" (click)="saveUser()" [mat-dialog-close]="'test'"><mat-icon>save</mat-icon><span *ngIf="!user">Save</span><span
+          *ngIf="user">Update</span></button>
+    <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+</mat-dialog-actions>

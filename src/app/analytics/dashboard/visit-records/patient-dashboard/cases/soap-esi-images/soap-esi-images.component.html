@@ -1,0 +1,54 @@
+<div fxLayout="row wrap">
+  <div class="col-sm-12">
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label class="control-label col-lg-3 col-md-4 col-sm-4 col-xs-4" for="pwd">Upload Picture : </label>
+        <div class="col-lg-9 col-md-8 col-sm-8 col-xs-8">
+          <input type="file" style="margin-top:3px!important; cursor: pointer;">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-lg-3 col-md-4 col-sm-4 col-xs-4" for="pwd">Notes : </label>
+        <div class="col-lg-9 col-md-8 col-sm-8 col-xs-8">
+          <textarea class="form-control txtarea" rows="4" placeholder="Enter Notes"></textarea>
+        </div>
+      </div>
+    </form>
+    <mat-dialog-actions align="end">
+      <button mat-raised-button style="cursor:pointer;" class="btn-success" (click)="saveForm()"><mat-icon>save</mat-icon>&nbsp;Save</button>
+    </mat-dialog-actions><br>
+    <div fxLayout="row wrap" #resizedDiv style="margin-top:20px!important;">
+        <div class="flex-p w-100">
+                <div class="table-responsive">
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead class="tbl-head">
+                        <tr class="tr-grid-header">
+                            <th>Document Name</th>
+                            <th>Notes</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let item of tableList">
+                            <td><a href="../../../../assets/img/vendor/leaflet/fax.pdf" style="cursor:pointer!important;color: #007ad9!important;" target="_blank">{{item.docuName}}</a></td>
+                            <td>{{item.notes}}</td>
+                            <td>
+                                <a mwlConfirmationPopover
+                                [popoverTitle]="popoverTitle"
+                                [popoverMessage]="popoverMessage"
+                                placement="left"
+                                (confirm)="deleteVisit()"
+                                (cancel)="cancelClicked = true" [appendToBody]="true">
+                                    <i style="cursor: pointer;font-size:16px!important;" matTooltip="Delete Document" class="fa fa-trash red"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+        
+        
+        </div>
+    </div>
+  </div>
+</div>

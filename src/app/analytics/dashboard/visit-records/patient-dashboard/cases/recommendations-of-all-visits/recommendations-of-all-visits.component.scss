@@ -1,0 +1,159 @@
+.ul {
+    list-style: none;
+  }
+  
+  //   .btn-default {
+  //     border-left-width: 0px!important;
+  //       margin-left: 0px!important;
+  //       padding-left: 70px!important;
+  //       padding-right: 70px!important;
+  //       padding-top: 10px!important;
+  //       padding-bottom: 10px!important;
+  //       border-right-width: 0px!important;
+  //       border-bottom-width: 0px!important;
+  //       border-top-width: 0px!important;
+  //   }
+  
+  .ui-inputgroup {
+    margin-bottom: 10px;
+  
+  }
+  .no-padding {
+    padding: 0px !important;
+  }
+  
+  .row {
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+  
+  
+  .ul li .btn {
+    width:100%;
+  }
+  .ul li .btn.active {
+    background-color: #5BB75B !important;
+    color: #fff !important;
+    border: 1px solid #51A451;
+    width: 100%;
+  }
+  
+  .ul li input.active {
+    background-color: #5BB75B !important;
+    color: #fff !important;
+    border: 1px solid #51A451;
+    
+  }
+  
+  .btn {
+    color: #333;
+      background-color: #fff;
+      border-color: #ccc;
+  }
+  .list-group-item {
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .mat-drawer {
+    border-right: solid 0px rgba(0, 0, 0, 0.12) !important;
+  }
+
+  .margins {
+    margin-top: 8px;
+}
+.margin {
+    margin-right: 8px;
+}
+.marginTopClass {
+    margin-top: 20px;
+}
+
+.fa-dot-circle-o {
+    color:orange;
+}
+
+.fa-arrow-right {
+    color: #007ad9;
+}
+.StatusMinWidthClass {
+    min-width: 155px;;
+}
+
+.ModeMinWidthClass {
+    min-width: 150px;;
+}
+.WorklistMinWidthClass {
+    min-width: 160px;;
+}
+.fa-sticky-note-o {
+    color: red;
+}
+
+.fa-file-pdf-o {
+    color: red;
+}
+
+.appointmentCodeMinWidth {
+    min-width:150px;
+}
+
+.patientMinWidth {
+    min-width:150px;
+}
+
+.caseNumberMinWidth {
+    min-width:110px;
+}
+
+.appointmentDateMinWidth {
+    min-width:150px;
+}
+
+.timeMinWidth {
+    min-width:80px;
+}
+
+.physicianMinWidth {
+    min-width:150px;
+}
+
+.questionnaireMinWidthClass {
+    min-width:150px;
+}
+
+.remarksMinWidth {
+    min-width:150px;
+}
+
+.manageMinWidth {
+    min-width:150px;
+}
+
+.NotesMinWidthClass {
+    min-width:150px;
+}
+
+.DocsMinWidthClass {
+    min-width:150px;
+}
+
+.clinicalMinWidth {
+    min-width:120px;
+}
+.businessCenterMinWidth {
+    min-width: 150px;
+}
+.pharmacyMinWidth {
+    min-width: 250px;
+}
+.statusMinWidth {
+    min-width: 200px;
+}
+.recommendationTypeMinWidth {
+    min-width: 270px;
+}
+.actualRecommendationType {
+    min-width: 230px;
+}

@@ -1,0 +1,214 @@
+<div class="NewHeader">
+    <i class="fa fa-times" aria-hidden="true" style="float: right !important;margin: 0 10px 0px 0;font-size: 17px;    cursor: pointer;" (click)="close()"></i>
+    <h1 mat-dialog-title><span *ngIf="!origin">Add</span><span *ngIf="origin">Edit</span> Origin</h1>
+</div>
+<div mat-dialog-content>
+    <form class="form-horizontal" novalidate [formGroup]="addCustomerForm">
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Country: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <mat-select color="primary" formControlName="Country" placeholder="--Select Country" class="form-control" required>
+                    <mat-option [value]="0">India</mat-option>
+                    <mat-option [value]="1">US</mat-option>
+                    <mat-option [value]="2">Chicago</mat-option>
+                    <mat-option [value]="3">Boston</mat-option>
+                    <mat-option [value]="4">Austin</mat-option>
+                    <mat-option [value]="5">San Diego</mat-option>
+                    <mat-option [value]="6">Dallas</mat-option>
+                    <mat-option [value]="7">Miami</mat-option>
+                    <mat-option [value]="8">Detroit</mat-option>
+                    <mat-option [value]="9">Portland</mat-option>
+                    <mat-option [value]="10">Phoenix</mat-option>
+                </mat-select>
+                <!-- <input type="text" formControlName="vehicleType" class="form-control" placeholder="Enter Origin Name" required> -->
+                <div *ngIf="!Country.valid && (Country.dirty || Country.touched)" class="error-text">
+                    <div *ngIf="Country.errors.required">
+                        Country is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Zone: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <!-- <input type="text" formControlName="Zone" class="form-control" placeholder="Enter Zone " required> -->
+                <mat-select color="primary" formControlName="Zone" placeholder="--Select Zone" class="form-control" required>
+                    <mat-option [value]="0">North 1</mat-option>
+                    <mat-option [value]="1">East 1</mat-option>
+                    <mat-option [value]="2">West 1</mat-option>
+                    <mat-option [value]="3">South-1</mat-option>
+                    <!-- <mat-option [value]="4">Austin</mat-option>
+                  <mat-option [value]="5">San Diego</mat-option>
+                  <mat-option [value]="6">Dallas</mat-option>
+                  <mat-option [value]="7">Miami</mat-option>
+                  <mat-option [value]="8">Detroit</mat-option>
+                  <mat-option [value]="9">Portland</mat-option>
+                  <mat-option [value]="10">Phoenix</mat-option> -->
+                </mat-select>
+                <div *ngIf="!Zone.valid && (Zone.dirty || Zone.touched)" class="error-text">
+                    <div *ngIf="Zone.errors.required">
+                        Zone is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">	State: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <!-- <input type="text" formControlName="axle" class="form-control" placeholder="Enter City " required> -->
+                <mat-select color="primary" formControlName="state" placeholder="--Select state" class="form-control" required>
+                    <mat-option [value]="0">Andhra Pradesh</mat-option>
+                    <mat-option [value]="1"> Maharashtra</mat-option>
+                    <mat-option [value]="2">Kerala</mat-option>
+                    <mat-option [value]="3">Karnataka</mat-option>
+                    <!-- <mat-option [value]="4">Austin</mat-option>
+                  <mat-option [value]="5">San Diego</mat-option>
+                  <mat-option [value]="6">Dallas</mat-option>
+                  <mat-option [value]="7">Miami</mat-option>
+                  <mat-option [value]="8">Detroit</mat-option>
+                  <mat-option [value]="9">Portland</mat-option>
+                  <mat-option [value]="10">Phoenix</mat-option> -->
+                </mat-select>
+                <div *ngIf="!state.valid && (state.dirty || state.touched)" class="error-text">
+                    <div *ngIf="state.errors.required">
+                        State is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">District: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <!-- <input type="text" formControlName="payload" class="form-control" placeholder="Enter District" required> -->
+                <mat-select color="primary" formControlName="District" placeholder="--Select District" class="form-control" required>
+                    <mat-option [value]="0">Adilabad</mat-option>
+                    <mat-option [value]="1">Mumbai</mat-option>
+                    <mat-option [value]="2">Coimbatore</mat-option>
+                    <mat-option [value]="3">Thiruvunanthapuram</mat-option>
+                    <!-- <mat-option [value]="4">Austin</mat-option>
+                  <mat-option [value]="5">San Diego</mat-option>
+                  <mat-option [value]="6">Dallas</mat-option>
+                  <mat-option [value]="7">Miami</mat-option>
+                  <mat-option [value]="8">Detroit</mat-option>
+                  <mat-option [value]="9">Portland</mat-option>
+                  <mat-option [value]="10">Phoenix</mat-option> -->
+                </mat-select>
+                <div *ngIf="!District.valid && (District.dirty || District.touched)" class="error-text">
+                    <div *ngIf="District.errors.required">
+                        District is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Location: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <!-- <input type="text" formControlName="Location" class="form-control" placeholder="Enter Location" required> -->
+                <mat-select color="primary" formControlName="locations" placeholder="--Select Location" class="form-control" required>
+                    <mat-option [value]="0">Madhapur</mat-option>
+                    <mat-option [value]="1">Ameerpet</mat-option>
+                    <mat-option [value]="2">Begumpet</mat-option>
+                    <mat-option [value]="3">Ranjarput</mat-option>
+                    <!-- <mat-option [value]="4">Austin</mat-option>
+                  <mat-option [value]="5">San Diego</mat-option>
+                  <mat-option [value]="6">Dallas</mat-option>
+                  <mat-option [value]="7">Miami</mat-option>
+                  <mat-option [value]="8">Detroit</mat-option>
+                  <mat-option [value]="9">Portland</mat-option>
+                  <mat-option [value]="10">Phoenix</mat-option> -->
+                </mat-select>
+
+                <div *ngIf="!locations.valid && (locations.dirty || locations.touched)" class="error-text">
+                    <div *ngIf="locations.errors.required">
+                        Location is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Pin Code: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <!-- <input type="text" formControlName="Location" class="form-control" placeholder="Enter Location" required> -->
+                <mat-select color="primary" formControlName="pincode" placeholder="--Select pincode" class="form-control" required>
+                    <mat-option [value]="0">500062</mat-option>
+                    <mat-option [value]="1"> 500081</mat-option>
+                    <mat-option [value]="2">500057</mat-option>
+                    <mat-option [value]="3">600124</mat-option>
+                    <!-- <mat-option [value]="4">Austin</mat-option>
+                <mat-option [value]="5">San Diego</mat-option>
+                <mat-option [value]="6">Dallas</mat-option>
+                <mat-option [value]="7">Miami</mat-option>
+                <mat-option [value]="8">Detroit</mat-option>
+                <mat-option [value]="9">Portland</mat-option>
+                <mat-option [value]="10">Phoenix</mat-option> -->
+                </mat-select>
+                <div *ngIf="!pincode.valid && (pincode.dirty || pincode.touched)" class="error-text">
+                    <div *ngIf="pincode.errors.required">
+                        pin code is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">Address: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <textarea class="form-control txtarea" maxlength="500" rows="2" formControlName="address" placeholder="Enter Address" required></textarea>
+                <div *ngIf="!address.valid && (address.dirty || address.touched)" class="error-text">
+                    <div *ngIf="address.errors.required">
+                        address is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">Latitude: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" formControlName="Latitude" id="" placeholder="Enter Latitude" required>
+                <div *ngIf="!Latitude.valid && (Latitude.dirty || Latitude.touched)" class="error-text">
+                    <div *ngIf="Latitude.errors.required">
+                        Latitude is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">Longitude: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" formControlName="longitude" id="" placeholder="Enter Longitude" required>
+                <div *ngIf="!longitude.valid && (longitude.dirty || longitude.touched)" class="error-text">
+                    <div *ngIf="longitude.errors.required">
+                        Longitude is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Radius:</label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" formControlName="radius" placeholder="Enter Radius" required>
+                <div *ngIf="!radius.valid && (radius.dirty || radius.touched)" class="error-text">
+                    <div *ngIf="radius.errors.required">
+                        Radius is required
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="form-group">
+          <label class="control-label col-sm-4 add-member-label">Address-2: </label>
+          <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+              <textarea class="form-control txtarea" maxlength="500" rows="2" formControlName="address2" placeholder="" required></textarea>
+              <div *ngIf="!address2.valid && (address2.dirty || address2.touched)" class="error-text">
+                  <div *ngIf="address2.errors.required">
+                      address-2 is required
+                  </div>
+              </div>
+          </div>
+      </div> -->
+    </form>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button [disabled]="!addCustomerForm.valid" style="cursor:pointer;" [ngClass]="!addCustomerForm.valid ? '' : 'btn-primary'" (click)="saveCustomer()" [mat-dialog-close]="'test'"><mat-icon *ngIf="origin">update</mat-icon><mat-icon *ngIf="!origin">save</mat-icon><span *ngIf="!origin"> Save</span><span
+*ngIf="origin"> Update</span></button>
+    <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hove" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Close</button>
+</mat-dialog-actions>

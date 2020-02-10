@@ -1,0 +1,21 @@
+<div fxLayout="row wrap" #resizedDiv>
+    <div class="flex-p w-100">
+        <app-shared-in-orders></app-shared-in-orders>
+        <div class="row wrap" style="margin-bottom:7px; ">
+            <div class="col-lg-2" style=" margin-top: 70px;">
+                <div class="pills w-100 flex-p">
+                    <ul class="nav nav-pills">
+                        <li routerLinkActive="active"><a style=" width: 150px !important;height: 52px !important; " mat-raised-button [routerLink]="['/instanttransport/orders/fcl/customer']"> By Customer</a></li><br><br><br>
+                        <li routerLinkActive=""><a style=" width: 150px !important;height: 52px !important; " mat-raised-button [routerLink]="['/instanttransport/orders/fcl/customer']"> By Zone</a></li><br><br><br>
+                        <li routerLinkActive=""><a style=" width: 150px !important;height: 52px !important;" mat-raised-button [routerLink]="['/instanttransport/orders/fcl/customer']"> By Status</a></li><br><br><br>
+                        <li routerLinkActive=""><a style=" width: 150px !important;height: 52px !important;" mat-raised-button [routerLink]="['/instanttransport/orders/fcl/customer']"> All </a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div>
+    <router-outlet></router-outlet>
+</div>

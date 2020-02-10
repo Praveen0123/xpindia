@@ -1,0 +1,231 @@
+<!-- <div class="col-sm-12 my-2">
+    <img src="../../../../../assets/img/Construction.png">
+</div> -->
+<div class="NewHeader">
+    <i class="fa fa-times" aria-hidden="true" style="float: right !important;margin: 0 10px 0px 0;font-size: 17px;    cursor: pointer;" (click)="close()"></i>
+    <h1 mat-dialog-title>Select Column</h1>
+</div>
+
+<div fxLayout="row wrap" #resizedDiv>
+    <div class="flex-p w-100 magn">
+
+
+        <div class="row my-5">
+            <!-- <label class="control-label col-sm-12 ">North-1 : </label> -->
+            <div class="col-sm-12 my-2">
+
+                <!-- <div class="col-sm-3">
+
+
+                  <mat-checkbox class="marginClasImportant" [checked]="checkbox"></mat-checkbox>
+
+                  <span type="text" class="mgninput" disabled> Booking ID </span>
+              </div> -->
+                <div class="col-sm-3">
+
+                    <!-- <mat-checkbox class="marginClasImportant"></mat-checkbox> -->
+                    <mat-checkbox class="marginClasImportant" [checked]="checkbox"></mat-checkbox>
+
+                    <span type="text" class="mgninput" disabled> Order ID </span>
+                </div>
+                <div class="col-sm-3">
+
+                    <!-- <mat-checkbox class="marginClasImportant"></mat-checkbox> -->
+                    <mat-checkbox class="marginClasImportant" [checked]="checkboxfalse"></mat-checkbox>
+
+                    <span type="text" class="mgninput" disabled> Zone </span>
+
+                </div>
+                <div class="col-sm-3">
+
+                    <!-- <mat-checkbox class="marginClasImportant"></mat-checkbox> -->
+                    <mat-checkbox class="marginClasImportant" [checked]="checkbox"></mat-checkbox>
+
+                    <span type="text" class="mgninput" disabled> Service Type</span>
+
+                </div>
+                <div class="col-sm-3">
+
+                    <!-- <mat-checkbox class="marginClasImportant"></mat-checkbox> -->
+
+                    <mat-checkbox class="marginClasImportant" [checked]="checkbox"></mat-checkbox>
+
+                    <!-- <span type="text" class="mgninput" disabled> Izzatnagar</span> -->
+                    <span type="text" class="mgninput" disabled> Consignor Name</span>
+                </div>
+            </div>
+
+
+
+
+        </div>
+        <div class="row my-5">
+            <!-- <label class="control-label col-sm-12 ">North-3 : </label> -->
+            <div class="col-sm-12 my-2">
+
+
+
+                <div class="col-sm-3">
+
+                    <!-- <mat-checkbox class="marginClasImportant"></mat-checkbox> -->
+                    <mat-checkbox class="marginClasImportant" [checked]="checkboxfalse"></mat-checkbox>
+
+                    <!-- <span type="text" class="mgninput" disabled>  Tinsukia</span> -->
+                    <span type="text" class="mgninput" disabled> Booking Branch</span>
+
+                </div>
+                <div class="col-sm-3">
+
+                    <!-- <mat-checkbox class="marginClasImportant"></mat-checkbox> -->
+                    <mat-checkbox class="marginClasImportant" [checked]="checkbox"></mat-checkbox>
+
+                    <!-- <span type="text" class="mgninput" disabled> Rangiya</span> -->
+                    <span type="text" class="mgninput" disabled>  Origin </span>
+
+                </div>
+                <div class="col-sm-3">
+
+                    <!-- <mat-checkbox class="marginClasImportant"></mat-checkbox> -->
+                    <mat-checkbox class="marginClasImportant" [checked]="checkboxfalse"></mat-checkbox>
+
+                    <!-- <span type="text" class="mgninput" disabled> Sealdah</span> -->
+                    <span type="text" class="mgninput" disabled>  Pickup Date </span>
+                </div>
+                <div class="col-sm-3">
+
+                    <!-- <mat-checkbox class="marginClasImportant"></mat-checkbox> -->
+                    <mat-checkbox class="marginClasImportant" [checked]="checkboxfalse"></mat-checkbox>
+
+                    <!-- <span type="text" class="mgninput" disabled> Asansol</span> -->
+                    <span type="text" class="mgninput" disabled>  Pickup Time </span>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="row my-5">
+            <!-- <label class="control-label col-sm-12 ">North-3 : </label> -->
+            <div class="col-sm-12 my-2">
+
+
+
+                <div class="col-sm-3">
+
+                    <!-- <mat-checkbox class="marginClasImportant"></mat-checkbox> -->
+                    <mat-checkbox class="marginClasImportant" [checked]="checkboxfalse"></mat-checkbox>
+
+                    <!-- <span type="text" class="mgninput" disabled>  Tinsukia</span> -->
+                    <span type="text" class="mgninput" disabled>  Departure Time </span>
+
+                </div>
+                <div class="col-sm-3">
+
+                    <!-- <mat-checkbox class="marginClasImportant"></mat-checkbox> -->
+                    <mat-checkbox class="marginClasImportant" [checked]="checkbox"></mat-checkbox>
+
+                    <!-- <span type="text" class="mgninput" disabled> Rangiya</span> -->
+                    <span type="text" class="mgninput" disabled>  FFV </span>
+
+                </div>
+                <div class="col-sm-3">
+
+                    <!-- <mat-checkbox class="marginClasImportant"></mat-checkbox> -->
+                    <mat-checkbox class="marginClasImportant" [checked]="checkboxfalse"></mat-checkbox>
+
+                    <!-- <span type="text" class="mgninput" disabled> Sealdah</span> -->
+                    <span type="text" class="mgninput" disabled> Vehicle number </span>
+                </div>
+                <div class="col-sm-3">
+
+                    <!-- <mat-checkbox class="marginClasImportant"></mat-checkbox> -->
+                    <mat-checkbox class="marginClasImportant" [checked]="checkboxfalse"></mat-checkbox>
+
+                    <!-- <span type="text" class="mgninput" disabled> Asansol</span> -->
+                    <span type="text" class="mgninput" disabled>  Track </span>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="row my-5">
+            <!-- <label class="control-label col-sm-12 ">East-1 : </label> -->
+            <div class="col-sm-12 my-2">
+                <div class="col-sm-3">
+
+                    <!-- <mat-checkbox class="marginClasImportant"></mat-checkbox> -->
+
+                    <mat-checkbox class="marginClasImportant" [checked]="checkbox"></mat-checkbox>
+
+                    <!-- <span type="text" class="mgninput" disabled>  Adra</span> -->
+                    <span type="text" class="mgninput" disabled> Driver Name</span>
+                </div>
+
+
+                <div class="col-sm-3">
+
+                    <!-- <mat-checkbox class="marginClasImportant"></mat-checkbox> -->
+                    <mat-checkbox class="marginClasImportant" [checked]="checkbox"></mat-checkbox>
+
+                    <!-- <span type="text" class="mgninput" disabled> Malda</span> -->
+                    <span type="text" class="mgninput" disabled>  ETA </span>
+
+                </div>
+                <div class="col-sm-3">
+
+                    <!-- <mat-checkbox class="marginClasImportant"></mat-checkbox> -->
+                    <mat-checkbox class="marginClasImportant" [checked]="checkboxfalse"></mat-checkbox>
+
+                    <!-- <span type="text" class="mgninput" disabled>  Chakradharpur</span> -->
+                    <span type="text" class="mgninput" disabled>  Driver Contact Details </span>
+                </div>
+
+                <div class="col-sm-3">
+
+                    <!-- <mat-checkbox class="marginClasImportant"></mat-checkbox> -->
+                    <mat-checkbox class="marginClasImportant" [checked]="checkboxfalse"></mat-checkbox>
+
+                    <!-- <span type="text" class="mgninput" disabled> Kharagpur</span> -->
+                    <span type="text" class="mgninput" disabled> XPCN </span>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="row my-5">
+            <!-- <label class="control-label col-sm-12 ">South-1 : </label> -->
+            <div class="col-sm-12 my-2">
+
+
+
+                <div class="col-sm-3">
+
+                    <!-- <mat-checkbox class="marginClasImportant"></mat-checkbox> -->
+                    <mat-checkbox class="marginClasImportant" [checked]="checkboxfalse"></mat-checkbox>
+
+                    <!-- <span type="text" class="mgninput" disabled> Kharagpur</span> -->
+                    <span type="text" class="mgninput" disabled> XPTS </span>
+
+                </div>
+                <div class="col-sm-3">
+
+                    <!-- <mat-checkbox class="marginClasImportant"></mat-checkbox> -->
+                    <mat-checkbox class="marginClasImportant" [checked]="checkboxfalse"></mat-checkbox>
+
+                    <!-- <span type="text" class="mgninput" disabled> Kharagpur</span> -->
+                    <span type="text" class="mgninput" disabled> Status </span>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button class="pull-right add-hover btn-success" style="width: 93px !important;" (click)="save()">
+Apply
+</button>
+    <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hove" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Close</button>
+</mat-dialog-actions>

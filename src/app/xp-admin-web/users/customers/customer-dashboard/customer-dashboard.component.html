@@ -1,0 +1,28 @@
+<div fxLayout="row wrap" #resizedDiv>
+    <div class="flex-p w-100">
+        <p style="margin-bottom: 13px;">
+        </p>
+        <p>
+            <span class="mr-8" style="font-size: 18px;font-weight: bold;">Customer:</span>
+            <span class="mr-8" style="font-size: 16px;">Exports and Imports Pvt,Ltd</span>
+            <span class="mr-8" style="font-size: 18px;font-weight: bold;">Email:</span>
+            <span class="mr-8" style="font-size: 16px;">exports@gmail.com</span>
+            <span class="mr-8" style="font-size: 18px;font-weight: bold;">Phone Number:</span>
+            <span class="mr-8" style="font-size: 16px;">9956457410</span>
+            <!-- <span class="mr-8" style="font-size: 16px;">-  {{ prospectData ? prospectData.sg_tbl_campaign.campaign_name : '' }}</span>
+        <span class="mr-8" style="font-size: 12px;">( {{ prospectData ? prospectData.sg_tbl_country.country_name : '' }} | {{ prospectData ? prospectData.sg_tbl_user.name : '' }} )</span>
+        <span class="mr-8 dot Green" style="height: 14px;width: 14px;vertical-align: text-bottom;float: none;"></span> -->
+        </p>
+        <div class="jumbotron">
+            <div class="row super-row">
+                <a class="col-sm completedClassColors" [ngClass]="checkUrl('class')" routerLinkActive="active-prosp-link" routerLink="origins">Origins</a>
+                <a class="col-sm completedClassColors" routerLinkActive="active-prosp-link" routerLink="destinations">Destinations</a>
+                <a class="col-sm completedClassColors" routerLinkActive="active-prosp-link" routerLink="lanes">Lanes</a>
+                <a class="col-sm completedClassColors" routerLinkActive="active-prosp-link" routerLink="fclrates">FCL Rates</a>
+                <a class="col-sm completedClassColors" routerLinkActive="active-prosp-link" routerLink="expressrates">Shipment Rates</a>
+                <a class="col-sm completedClassColors" routerLinkActive="active-prosp-link" routerLink="contracts">Contracts</a>
+            </div>
+        </div>
+        <router-outlet></router-outlet>
+    </div>
+</div>

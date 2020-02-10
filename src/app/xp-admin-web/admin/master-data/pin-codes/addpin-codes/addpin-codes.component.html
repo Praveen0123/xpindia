@@ -1,0 +1,34 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title>Edit Post Code</h1>
+</div>
+<div mat-dialog-content>
+
+    <form class="form-horizontal" novalidate>
+
+
+        <div class="form-group">
+            <label class="control-label col-lg-3 col-md-4 col-sm-4 col-xs-4 ">Post Code:</label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" id="" placeholder="Enter Post Codes" required>
+                <!-- <div class="input-icon right">
+                <i class="fa fa-calendar" [owlDateTimeTrigger]="dt1"></i>
+                <input class="form-control" formControlName='duetDate' placeholder="MM/DD/YYYY" class="form-control" id="db" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" name="dt1" required>
+                <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+            </div> -->
+                <!-- <div *ngIf="!Axles.valid && (Axles.dirty || Axles.touched)" class="error-text">
+                  <div *ngIf="Axles.errors.required">
+                      Axles is required
+                  </div>
+              </div> -->
+            </div>
+        </div>
+
+    </form>
+</div>
+<mat-dialog-actions align="end">
+    <!-- <button mat-raised-button style="cursor:pointer;" class="btn btn-primary">Update</button> -->
+    <button mat-raised-button style="cursor:pointer;" class="btn-primary" (click)="savecontract()" [mat-dialog-close]="'test'">Update
+    </button>
+
+    <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+</mat-dialog-actions>

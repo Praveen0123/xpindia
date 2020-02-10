@@ -1,0 +1,77 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title><span *ngIf="!report">Add</span><span *ngIf="report">Edit</span> Report Cases</h1>
+</div>
+<div mat-dialog-content>
+    <form class="form-horizontal" novalidate [formGroup]="addReportForm">
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 " for="pwd">Vehicle Number: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" class="form-control" placeholder="Search by Vehicle Number" required>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Exception: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <!-- <input type="text" formControlName="exception" class="form-control" placeholder="Enter Vehicle Type" required> -->
+                <mat-select placeholder="--Search by Exception--" formControlName="exception" class="form-control">
+                    <mat-option *ngFor="let option of Exception" [value]="option.id">{{option.value}}</mat-option>
+                </mat-select>
+                <div *ngIf="!exception.valid && (exception.dirty || exception.touched)" class="error-text">
+                    <div *ngIf="exception.errors.required">
+                        Exception is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Time: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="time" class="form-control" placeholder="Enter Time" required>
+                <div *ngIf="!time.valid && (time.dirty || time.touched)" class="error-text">
+                    <div *ngIf="time.errors.required">
+                        Time is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Expected Time to be on Road: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="ExpectedTime" class="form-control" placeholder="Enter Expected Time to be on Road" required>
+                <div *ngIf="!ExpectedTime.valid && (ExpectedTime.dirty || ExpectedTime.touched)" class="error-text">
+                    <div *ngIf="ExpectedTime.errors.required">
+                        Expected Time to be on Road is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Remark: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="remark" class="form-control" placeholder="Enter Remark" required>
+                <div *ngIf="!remark.valid && (remark.dirty || remark.touched)" class="error-text">
+                    <div *ngIf="remark.errors.required">
+                        Remark is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Revised ETA: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="ReviseETA" class="form-control" placeholder="Enter Revise ETA" required>
+                <div *ngIf="!ReviseETA.valid && (ReviseETA.dirty || ReviseETA.touched)" class="error-text">
+                    <div *ngIf="ReviseETA.errors.required">
+                        Revise ETA is required
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button [disabled]="!addReportForm.valid" style="cursor:pointer;" [ngClass]="!addReportForm.valid ? '' : 'btn-primary'" (click)="saveCustomer()" [mat-dialog-close]="'test'"><mat-icon *ngIf="report">update</mat-icon><mat-icon *ngIf="!report">save</mat-icon><span *ngIf="!report"> Save</span><span
+  *ngIf="report"> Update</span></button>
+    <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hove" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Close</button>
+</mat-dialog-actions>

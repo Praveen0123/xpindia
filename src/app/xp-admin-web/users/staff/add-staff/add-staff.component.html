@@ -1,0 +1,172 @@
+<div class="NewHeader">
+    <h1 mat-dialog-title><span *ngIf="!user">Add</span><span *ngIf="user">Edit</span> Staff</h1>
+</div>
+<div mat-dialog-content>
+    <form class="form-horizontal" novalidate [formGroup]="addStaffForm">
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">Staff Name: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="email" class="form-control" maxlength="100" (keypress)="omit_special_char($event)" formControlName="customerName" placeholder="Enter Staff Name" required>
+                <div *ngIf="!customerName.valid && (customerName.dirty || customerName.touched)" class="error-text">
+                    <div *ngIf="customerName.errors.required">
+                        Staff name is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="form-group">
+      <label class="control-label col-sm-4 add-member-label">Last Name: </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <input type="email" class="form-control" maxlength="100" (keypress)="omit_special_char($event)" formControlName="customerlastName" placeholder="Enter Last Name" required>
+        <div *ngIf="!customerlastName.valid && (customerlastName.dirty || customerlastName.touched)" class="error-text">
+          <div *ngIf="customerlastName.errors.required">
+            Customer last name is required
+          </div>
+        </div>
+      </div>
+    </div> -->
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Email ID: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" email maxlength="100" formControlName="email" onDrag="return false" onDrop="return false" class="form-control" id="email" placeholder="Enter Email ID" required>
+                <div *ngIf="!email.valid && (email.dirty || email.touched)" class="error-text">
+                    <div *ngIf="email.errors.required">
+                        Staff email is required.
+                    </div>
+                    <div *ngIf="email.errors.email">
+                        Enter a valid email
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Contact Number: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="phone" maxlength="15" (keypress)="omit_all_char($event)" minlength="10" onDrag="return false" onDrop="return false" class="form-control" placeholder="Enter Contact Number" required>
+                <div *ngIf="!phone.valid && (phone.dirty || phone.touched)" class="error-text">
+                    <div *ngIf="phone.errors.required">
+                        Contact number is required
+                    </div>
+                    <div *ngIf="phone.errors.minlength">
+                        Contact number should contain at least 10 numbers.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Staff Type: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <mat-select formControlName="staffType" placeholder="-- Select Staff Type --" class="form-control" required>
+                    <mat-option [value]=1>Ground</mat-option>
+                    <mat-option [value]=2>Inhouse</mat-option>
+                </mat-select>
+                <div *ngIf="!staffType.valid && (staffType.dirty || staffType.touched)" class="error-text">
+                    <div *ngIf="staffType.errors.required">
+                        Staff Type is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Country: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <mat-select color="primary" formControlName="country" required placeholder="--Select Country--" class="form-control">
+                    <mat-option [value]="0">India</mat-option>
+                    <mat-option [value]="1">Germany</mat-option>
+                    <mat-option [value]="2">United States of America</mat-option>
+                    <mat-option [value]="3">United Kingdom</mat-option>
+                    <mat-option [value]="4">France</mat-option>
+                    <mat-option [value]="5">Spain</mat-option>
+                    <mat-option [value]="6">Italy</mat-option>
+                    <mat-option [value]="7">China</mat-option>
+                    <mat-option [value]="8">Austin</mat-option>
+                    <mat-option [value]="9">Greece</mat-option>
+                    <mat-option [value]="10">Hong Kong</mat-option>
+                </mat-select>
+                <div *ngIf="!country.valid && (country.dirty || country.touched)" class="error-text">
+                    <div *ngIf="country.errors.required">
+                        Country is required
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">State: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <mat-select color="primary" formControlName="state" required placeholder="--Select State--" class="form-control">
+                    <mat-option [value]="0">Telangana</mat-option>
+                    <mat-option [value]="1">Andhra Pradesh</mat-option>
+                    <mat-option [value]="2">Tamil Nadu</mat-option>
+                    <mat-option [value]="3">Maharashtra</mat-option>
+                    <mat-option [value]="4">Uttar Pradesh</mat-option>
+                    <mat-option [value]="5">Rajasthan</mat-option>
+                    <mat-option [value]="6">Jammu and Kashmir</mat-option>
+                    <mat-option [value]="7">Bihar</mat-option>
+                    <mat-option [value]="8">Gujarat</mat-option>
+                    <mat-option [value]="9">Karnataka</mat-option>
+                    <mat-option [value]="10">Punjab</mat-option>
+                </mat-select>
+                <div *ngIf="!state.valid && (state.dirty || state.touched)" class="error-text">
+                    <div *ngIf="state.errors.required">
+                        State is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">City: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="city" maxlength="30" (keypress)="omit_special_char($event)" onDrag="return false" onDrop="return false" class="form-control" placeholder="Enter City" required>
+                <div *ngIf="!city.valid && (city.dirty || city.touched)" class="error-text">
+                    <div *ngIf="city.errors.required">
+                        City is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Postal Code: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <input type="text" formControlName="postalCode" maxlength="8" (keypress)="omit_all_char($event)" onDrag="return false" onDrop="return false" class="form-control" placeholder="Enter Postal Code" required>
+                <div *ngIf="!postalCode.valid && (postalCode.dirty || postalCode.touched)" class="error-text">
+                    <div *ngIf="postalCode.errors.required">
+                        Postal Code is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-4 add-member-label">Address: </label>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                <textarea class="form-control txtarea" maxlength="500" rows="2" formControlName="address" placeholder="Enter Customer Address" required></textarea>
+                <div *ngIf="!address.valid && (address.dirty || address.touched)" class="error-text">
+                    <div *ngIf="address.errors.required">
+                        Staff address is required
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Status: </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <mat-select formControlName="status" placeholder="-- Select Status --" class="form-control" required>
+          <mat-option [value]=1>Active</mat-option>
+          <mat-option [value]=2>Inactive</mat-option>
+        </mat-select>
+        <div *ngIf="!status.valid && (status.dirty || status.touched)" class="error-text">
+          <div *ngIf="status.errors.required">
+            Status is required
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    </form>
+</div>
+<mat-dialog-actions align="end">
+    <button mat-raised-button [disabled]="!addStaffForm.valid" style="cursor:pointer;" [ngClass]="!addStaffForm.valid ? '' : 'btn-primary'" (click)="saveCustomer()" [mat-dialog-close]="'test'"><mat-icon *ngIf="user">update</mat-icon><mat-icon *ngIf="!user">save</mat-icon><span *ngIf="!user"> Save</span><span
+    *ngIf="user"> Update</span></button>
+    <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+</mat-dialog-actions>

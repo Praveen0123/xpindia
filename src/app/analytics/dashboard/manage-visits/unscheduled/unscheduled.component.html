@@ -1,0 +1,87 @@
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+    
+    <app-shared-in-manage-visits></app-shared-in-manage-visits>
+
+    <div class="row wrap" style="margin-bottom:7px;">
+      <div class="col-sm-6">
+      </div>
+      <div class="col-sm-6">
+        <div class="w-100 flex-p">
+          <button mat-raised-button class="pull-right add-hover btn-success" (click)="openVisitDialog(null)">
+            <mat-icon>add</mat-icon> Add Visit
+          </button>
+          <!-- <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hover margin-right-10" (click)="filterToggle = !filterToggle">
+            <mat-icon>filter_list</mat-icon> Filter
+          </button> -->
+        </div>
+      </div>
+    </div>
+
+
+
+    <div fxLayout="row wrap">
+      <div class="table-responsive">
+          <table id="example2" class="table table-bordered table-hover">
+              <thead class="tbl-head">
+                  <tr class="tr-grid-header">
+                      <th>Patient</th>
+                      <th>Case Number</th>
+                      <th>Referring Physician</th>
+                      <th>Attorney</th>
+                      <th>Phone</th>
+                      <th>Email</th>
+                      <th>Appointment Code</th>
+                      <th>Docs</th>
+                      <th>Notes</th>
+                      <th>Status</th>
+                      <th>Manage</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let item of tableList">
+                      <td><a [routerLink]="['/sapphire/patients/patientdashboard/patientchart']" target="_blank" style="color:#007ad9!important;cursor: pointer!important;">{{item.patient}}</a></td>
+                      <td>{{item.caseNumber}}</td>
+                      <td>{{item.referringPhysician}}</td>
+                      <td>{{item.attorney}}</td>
+                      <td>{{item.phone}}</td>
+                      <td>{{item.email}}</td>
+                      <td>{{item.appointmentCode}}</td>
+                      <td><a style="color:#007ad9!important;cursor: pointer!important;" (click)="openDocsDialog(item)">{{item.docs}}</a></td>
+                      <td *ngIf="item.notes === 'View'" style="background-color: #66c2ff;cursor: pointer" (click)="openRemarksModal(item)">{{item.notes}}</td>
+                      <td *ngIf="item.notes === 'Add'" style="background-color: black;color: white;cursor: pointer" (click)="openRemarksModal(null)">{{item.notes}}</td>
+                      <!-- <td>{{item.type}}</td> -->
+                      <td class="pad-left inner-screen" style="cursor:pointer">
+                          <a (click)="item.status = ! item.status" >
+                              <span *ngIf="!item.status" style="color:red">Inactive</span>
+                              <span *ngIf="item.status" style="color:#1c4f86;">Active</span>
+                          </a>
+                      </td>
+                      <td>
+                        <a *ngIf="item.normal == 5" matTooltip="Schedule Visit" style="margin-right: 10px; cursor: pointer;font-size:16px!important" (click)="openSchedulaAVisitDialog(item)">
+                            <i class="fa fa-arrow-right"></i>
+                        </a>
+                        <a *ngIf="item.normal == 6" matTooltip="Patient schedule under process" style="margin-right: 10px; cursor: pointer;color: green;font-size:16px!important">
+                            <i class="fa fa-dot-circle-o"></i>
+                        </a>
+                        <a matTooltip="Edit Visit" style="margin-right: 10px; cursor: pointer;font-size:16px!important;color:#0987e8d1" (click)="openVisitDialog(item)">
+                          <i class="fa fa-edit"></i>
+                        </a>
+                        <a mwlConfirmationPopover
+                        [popoverTitle]="popoverTitle"
+                        [popoverMessage]="popoverMessage"
+                        placement="left"
+                        (confirm)="deleteVisit()"
+                        (cancel)="cancelClicked = true" [appendToBody]="true">
+                            <i style="cursor: pointer;font-size:16px!important;" matTooltip="Delete Visit" class="fa fa-trash red"></i>
+                        </a>
+                        </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+
+
+  </div>
+</div>

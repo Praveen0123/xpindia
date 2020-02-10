@@ -1,0 +1,148 @@
+import { Menu } from './menu.model';
+ 
+export const verticalMenuItems = [
+    new Menu(1, 'Dashboard', '/instanttransport/dashboard', null, 'dashboard', null, false, 0, "white"),
+    new Menu(2, 'Manage Users', '/instanttransport/manageusers', null, 'accessible', null, true, 0, "white"),
+    new Menu(3, 'Lanes', '/instanttransport/lanes', null, 'accessible', null, true, 0, "white"),
+    new Menu(4, 'Transactions', '/instanttransport/transactions', null, 'dvr', null, true, 0, "white"),
+    new Menu(5, 'Capacity', '/instanttransport/lanes/capacity', null, 'accessible', null, true, 3, "white"),
+    new Menu(6, 'Orders', '/instanttransport/lanes/orders', null, 'accessible', null, true, 3, "white"),
+    new Menu(7, 'Trips', '/instanttransport/lanes/trips', null, 'accessible', null, true, 3, "white"),
+    new Menu(8, 'Customers', '/instanttransport/manageusers/customers', null, 'accessible', null, true, 2, "white"),
+    new Menu(9, 'Fleet Vendors', '/instanttransport/manageusers/fleetvendors', null, 'accessible', null, true, 2, "white"),
+    new Menu(10, 'Invoice', '/instanttransport/transactions/invoice', null, 'accessible', null, true, 4, "white"),
+    new Menu(11, 'Payments', '/instanttransport/transactions/payments', null, 'accessible', null, true, 4, "white"),
+    new Menu(12, 'Scheduling', '/instanttransport/scheduling', null, 'accessible', null, true, 0, "white"),,
+    new Menu(13, 'Admin', '/instanttransport/admin', null, 'accessible', null, true, 0, "white"),
+    new Menu(14, 'Profile', '/instanttransport/admin/profile', null, 'accessible', null, true, 13, "white"),
+    new Menu(15, 'Preference', '/instanttransport/admin/preference', null, 'accessible', null, true, 13, "white"),
+    new Menu(16, 'Fleet', '/instanttransport/fleet', null, 'accessible', null, true, 0, "white"),
+    new Menu(17, 'Driver', '/instanttransport/fleet/driver', null, 'accessible', null, true, 16, "white"),
+    new Menu(18, 'Lanes', '/instanttransport/fleet/lanes', null, 'accessible', null, true, 16, "white"),
+    new Menu(19, 'Trucks', '/instanttransport/fleet/trucks', null, 'accessible', null, true, 16, "white"),
+    new Menu(20, 'Loads', '/instanttransport/loads', null, 'accessible', null, true, 0, "white"),
+    new Menu(21, 'Trips', '/instanttransport/trips', null, 'accessible', null, true, 0, "white"),
+    new Menu(22, 'Payments', '/instanttransport/payments', null, 'accessible', null, true, 0, "white"),
+
+]
+
+export const horizontalMenuItems = [
+    new Menu(1, 'Dashboard', '/instanttransport/dashboard', null, 'dashboard', null, false, 0, "white"),
+    new Menu(2, 'Manage Users', '/instanttransport/manageusers', null, 'accessible', null, true, 0, "white"),
+    new Menu(3, 'Lanes', '/instanttransport/lanes', null, 'accessible', null, true, 0, "white"),
+    new Menu(4, 'Transactions', '/instanttransport/transactions', null, 'dvr', null, true, 0, "white"),
+    new Menu(5, 'Capacity', '/instanttransport/lanes/capacity', null, 'accessible', null, true, 3, "white"),
+    new Menu(6, 'Orders', '/instanttransport/lanes/orders', null, 'accessible', null, true, 3, "white"),
+    new Menu(7, 'Trips', '/instanttransport/lanes/trips', null, 'accessible', null, true, 3, "white"),
+    new Menu(8, 'Customers', '/instanttransport/manageusers/customers', null, 'accessible', null, true, 2, "white"),
+    new Menu(9, 'Fleet Vendors', '/instanttransport/manageusers/fleetvendors', null, 'accessible', null, true, 2, "white"),
+    new Menu(10, 'Invoice', '/instanttransport/transactions/invoice', null, 'accessible', null, true, 4, "white"),
+    new Menu(11, 'Payments', '/instanttransport/transactions/payments', null, 'accessible', null, true, 4, "white"),
+    new Menu(12, 'Scheduling', '/instanttransport/scheduling', null, 'accessible', null, true, 0, "white"),
+    new Menu(13, 'Admin', '/instanttransport/admin', null, 'accessible', null, true, 0, "white"),
+    new Menu(14, 'Profile', '/instanttransport/admin/profile', null, 'accessible', null, true, 13, "white"),
+    new Menu(15, 'Preference', '/instanttransport/admin/preference', null, 'accessible', null, true, 13, "white"),
+    new Menu(16, 'Fleet', '/instanttransport/fleet', null, 'accessible', null, true, 0, "white"),
+    new Menu(17, 'Driver', '/instanttransport/fleet/driver', null, 'accessible', null, true, 16, "white"),
+    new Menu(18, 'Lanes', '/instanttransport/fleet/lanes', null, 'accessible', null, true, 16, "white"),
+    new Menu(19, 'Trucks', '/instanttransport/fleet/trucks', null, 'accessible', null, true, 16, "white"),
+    new Menu(20, 'Loads', '/instanttransport/loads', null, 'accessible', null, true, 0, "white"),
+    new Menu(21, 'Trips', '/instanttransport/tripsinvendor', null, 'accessible', null, true, 0, "white"),
+    new Menu(22, 'Payments', '/instanttransport/payments', null, 'accessible', null, true, 0, "white"),
+
+]
+
+export const adminMenuItems = [
+    
+    // new Menu(1, 'Analytics', '/instanttransport/Analytics', null, 'dashboard', null, true, 0, "white"),
+    new Menu(2, 'Orders', '/instanttransport/ordersNew', null, 'add_shopping_cart', null, true, 0, "white"),
+    new Menu(22, 'Capacity', '/instanttransport/capacity', null, 'settings_applications', null, true, 0, "white"),
+    new Menu(3, 'Customers', '/instanttransport/user/customers', null, 'people', null, false, 0, "white"),
+    new Menu(4, 'FFV', '/instanttransport/user/ffv2', null, 'directions_car', null, false, 0, "white"),
+    new Menu(5, 'Operations', '/instanttransport/operation', null, 'record_voice_over', null, true, 0, "white"),
+    new Menu(6, 'Finance', '/instanttransport/finance', null, 'attach_money', null, true, 0, "white"),
+    new Menu(24, 'Trips', '/instanttransport/trips', null, 'accessible', null, true, 0, "white"),
+    new Menu(7, 'Admin', '/instanttransport/admin', null, 'person', null, true, 0, "white"),
+    new Menu(10, 'Master Data', '/instanttransport/admin/masterdata', null, 'bookmarks', null, true, 7, "white"),
+    new Menu(8, 'Roles & Users', '/instanttransport/admin/users', null, 'supervisor_account', null, true, 7, "white"),
+    // new Menu(9, 'Users', '/instanttransport/admin/masterdata', null, 'account_circle', null, true, 7, "white"),
+    // new Menu(12, 'KPI', '/instanttransport/admin/servicelevels', null, 'dvr', null, true, 7, "white"),
+    new Menu(13, 'Contracts', '/instanttransport/admin/contracts', null, 'book', null, true, 7, "white"),
+    // new Menu(14, 'Lane & Rates', '/instanttransport/admin/lanes', null, 'import_export', null, true, 7, "white"),
+    // new Menu(14, 'Lanes & Rates', '/instanttransport/admin/lanes-rates', null, 'import_export', null, true, 7, "white"),
+    // new Menu(15, 'FCL Capacity', '/instanttransport/admin/fclCapacity', null, 'local_shipping', null, true, 7, "white"),
+    // new Menu(16, 'FFV Freight Master', '/instanttransport/admin/masterdata', null, 'dvr', null, true, 7, "white"),
+    // new Menu(17, 'Customer Rate Master', '/instanttransport/admin/masterdata', null, 'assignment_ind', null, true, 7, "white"),
+    // new Menu(18, 'LCL Rate Master', '/instanttransport/admin/masterdata', null, 'subdirectory_arrow_left', null, true, 7, "white"),
+    // new Menu(16, 'Rate Master', '/instanttransport/admin/routes', null, 'sync_alt', null, true, 7, "white"),
+    new Menu(17, 'Network Schedule', '/instanttransport/admin/networkschedule', null, 'wifi', null, true, 7, "white"),
+    new Menu(18, 'Vehicle Types', '/instanttransport/admin/vehicletype', null, 'airport_shuttle', null, true, 7, "white"),
+    new Menu(19, 'Testimonials', '/instanttransport/admin/testimonials', null, 'feedback', null, true, 7, "white"),
+    new Menu(20, 'Offers', '/instanttransport/admin/offers', null, 'local_offer', null, true, 7, "white"),
+    new Menu(21, 'Settings', '/instanttransport/admin/settings', null, 'settings_applications', null, true, 7, "white"),
+    new Menu(23, 'Associates', '/instanttransport/admin/associates', null, 'people', null, true, 7, "white"),
+    
+    
+    // new Menu(10, 'Master Data', '/instanttransport/admin/masterdata', null, 'dvr', null, true, 9, "white"),
+    // new Menu(11, 'Lanes', '/instanttransport/admin/lanes', null, 'import_export', null, false, 9, "white"),
+    // new Menu(12, 'LCL Routes', '/instanttransport/admin/routes', null, 'subdirectory_arrow_left', null, false, 9, "white"),
+    // new Menu(13, 'Vehicle Types', '/instanttransport/admin/vehicletype', null, 'local_shipping', null, false, 9, "white"),
+    // new Menu(14, 'Testimonials', '/instanttransport/admin/testimonials', null, 'feedback', null, false, 9, "white"),
+    // new Menu(15, 'Offers', '/instanttransport/admin/offers', null, 'local_offer', null, false, 9, "white"),
+    // new Menu(16, 'Settings', '/instanttransport/admin/settings', null, 'settings_applications', null, false, 9, "white"),
+
+    // new Menu(19, 'FCL', '/instanttransport/fcl', null, 'local_shipping', null, false, 0, "white"),
+    // new Menu(5, 'Users', '/instanttransport/user', null, 'supervisor_account', null, true, 0, "white"),
+    
+    // new Menu(14, 'Customers', '/instanttransport/user/customers', null, 'people', null, false, 5, "white"),
+    // new Menu(15, 'Staff', '/instanttransport/user/staff', null, 'supervised_user_circle', null, false, 5, "white"),
+    // new Menu(16, 'Vendors', '/instanttransport/user/vendors', null, 'directions_car', null, false, 5, "white"),
+    // new Menu(17, 'Invoices', '/instanttransport/finance/invoices', null, 'accessible', null, true, 4, "white"),
+    // new Menu(18, 'Bills', '/instanttransport/finance/bills', null, 'payment', null, true, 4, "white"),
+]
+
+export const customerAdminMenuItems = [
+    new Menu(1, 'Dashboard', '/instanttransport/customerdashboard', null, 'dashboard', null, false, 0, "white"),
+    new Menu(2, 'Manage Users', '/instanttransport/customerAdmin/manageUsers', null, 'people', null, false, 9, "white"),
+    new Menu(3, 'Location Master', '/instanttransport/locations', null, 'location_searching', null, false, 0, "white"),
+    new Menu(4, 'Testimonials', '/instanttransport/customerAdmin/testimonials', null, 'record_voice_over', null, false, 9, "white"),
+    new Menu(5, 'Preferences', '/instanttransport/customerAdmin/preferences', null, 'settings_applications', null, false, 9, "white"),
+    new Menu(6, 'Invoices', '/instanttransport/customerinvoice', null, 'accessible', null, true, 0, "white"),
+    new Menu(7, 'Rates', '/instanttransport/rates', null, 'attach_money', null, true, 0, "white"),
+    new Menu(8, 'Orders', '/instanttransport/contracts', null, 'rate_review', null, true, 0, "white"),
+    new Menu(9, 'Admin', '/instanttransport/customerAdmin', null, 'person', null, true, 0, "white"),
+    new Menu(10, 'Messages', '/instanttransport/customerAdmin/messages', null, 'message', null, false, 9, "white"),
+    new Menu(11, 'Offers', '/instanttransport/customerAdmin/offers', null, 'local_offer', null, false, 9, "white"),
+    // new Menu(11, 'Feedback', '/instanttransport/customerAdmin/offers', null, 'local_offer', null, false, 9, "white"),
+    // new Menu(11, 'My Points', '/instanttransport/customerAdmin/offers', null, 'local_offer', null, false, 9, "white"),
+]
+
+export const vendorMenuItems = [
+    new Menu(1, 'Fleet Dashboard', '/instanttransport/fleetDashboard', null, 'dashboard', null, false, 0, "white"),
+    new Menu(14, 'Profile', '/instanttransport/admin/profile', null, 'emoji_people', null, true, 13, "white"),
+    new Menu(15, 'Preference', '/instanttransport/admin/preference', null, 'near_me', null, true, 13, "white"),
+    new Menu(16, 'Fleet', '/instanttransport/fleet', null, 'directions_car', null, true, 0, "white"),
+    new Menu(17, 'Drivers', '/instanttransport/fleet/driver', null, 'contacts', null, true, 16, "white"),
+    new Menu(18, 'Lanes', '/instanttransport/fleet/lanes', null, 'import_export', null, true, 16, "white"),
+    new Menu(19, 'Trucks', '/instanttransport/fleet/trucks', null, 'local_shipping', null, true, 16, "white"),
+    new Menu(20, 'Loads', '/instanttransport/loads', null, 'king_bed', null, true, 0, "white"),
+    new Menu(21, 'Trips', '/instanttransport/tripsinvendor', null, 'local_taxi', null, true, 0, "white"),
+    new Menu(22, 'Payments', '/instanttransport/payments', null, 'attach_money', null, true, 0, "white"),
+    new Menu(13, 'Admin', '/instanttransport/admin', null, 'person', null, true, 0, "white"),
+
+]
+
+// export const horizontalMenuItems = [
+//     new Menu(1, 'Dashboard', '/instanttransport/dashboard', null, 'dashboard', null, false, 0, "white"),
+//     new Menu(2, 'Fleet', '/instanttransport/fleet', null, 'accessible', null, true, 0, "white"),
+//     new Menu(3, 'Loads', '/instanttransport/loads', null, 'accessible', null, true, 0, "white"),
+//     new Menu(4, 'Trips', '/instanttransport/trips', null, 'dvr', null, true, 0, "white"),
+//     new Menu(5, 'Payments', '/instanttransport/payments', null, 'accessible', null, true, 0, "white"),
+//     new Menu(6, 'Admin', '/instanttransport/admin', null, 'accessible', null, true, 0, "white"),
+//     new Menu(7, 'Driver', '/instanttransport/fleet/driver', null, 'accessible', null, true, 2, "white"),
+//     new Menu(8, 'Lanes', '/instanttransport/fleet/lanes', null, 'accessible', null, true, 2, "white"),
+//     new Menu(9, 'Trucks', '/instanttransport/fleet/trucks', null, 'accessible', null, true, 2, "white"),
+//     new Menu(10, 'Profile', '/instanttransport/admin/profile', null, 'accessible', null, true, 6, "white"),
+//     new Menu(11, 'Preference', '/instanttransport/admin/prefence', null, 'accessible', null, true, 6, "white"),
+//     // new Menu(12, 'Scheduling', '/instanttransport/scheduling', null, 'accessible', null, true, 0, "white")
+// ]

@@ -1,0 +1,369 @@
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+    <form novalidate [formGroup]="questionnaireForm">
+      <button type="button" class="btn btn-success" style="margin-bottom: 5px;margin-left: 5px;float: right" (click)="savePermissions()"><i class="fa fa-floppy-o"></i>Save</button>
+      <button type="button" class="btn btn-default" style="margin-bottom: 5px;float:right" (click)="goBack()"><i class="fa fa-arrow-left"></i>Back</button>
+      
+      <div class="table-responsive">
+        <table id="example2" class="table table-bordered table-hover">
+          <thead class="tbl-head">
+            <tr class="tr-grid-header">
+              <th>S.No</th>
+              <th>Questionnaire</th>
+              <th>Answers</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Are you currently taking aspirin (or any medicines that contain aspirin) or any blood thinners?</td>
+              <td>
+                <mat-radio-group formControlName="aspirin">
+                  <mat-radio-button class="new-scaled-margin" [value]="1">Yes</mat-radio-button>
+                  <mat-radio-button class="new-scaled-margin" [value]="2">No</mat-radio-button>
+                </mat-radio-group>
+              </td>
+            </tr>
+            <tr *ngIf="questionnaireForm.value.aspirin === 1">
+              <td></td>
+              <td> For how long? </td>
+              <td>
+                <textarea class="form-control txtarea" formControlName="aspirinTime" maxlength="150" placeholder="" rows="3"></textarea>
+                
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Are you pregnant or possibly pregnant?</td>
+              <td>
+                <mat-radio-group formControlName="pregnant">
+                  <mat-radio-button class="new-scaled-margin" [value]="1">Yes</mat-radio-button>
+                  <mat-radio-button class="new-scaled-margin" [value]="2">No</mat-radio-button>
+                </mat-radio-group>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Where is your pain?</td>
+              <td>
+                <mat-select color="primary" placeholder="--Select Pain Type--" formControlName="painLocation" multiple class="form-control">
+                  <mat-option [value]="0">Knee</mat-option>
+                  <mat-option [value]="1">Hip </mat-option>
+                  <mat-option [value]="2">Elbow</mat-option>
+                  <mat-option [value]="3"> Neck</mat-option>
+                  <mat-option [value]="4">Wrist</mat-option>
+                  <mat-option [value]="5">Other</mat-option>
+                  <mat-option [value]="6">Lower Back</mat-option>
+                  <mat-option [value]="7">Shoulder</mat-option>
+                </mat-select>
+                
+              </td>
+            </tr>
+            
+            
+            <tr>
+              <td></td>
+              <td>Which side?</td>
+              <td>
+                <mat-radio-group formControlName="side">
+                  <mat-radio-button class="new-scaled-margin" [value]="1">Left</mat-radio-button>
+                  <mat-radio-button class=" new-scaled-margin" [value]="2">Right</mat-radio-button>
+                  <mat-radio-button class=" new-scaled-margin" [value]="3">Both</mat-radio-button>
+                </mat-radio-group>
+              </td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Briefly describe your injury/accident: </td>
+              <td>
+                <textarea class="form-control txtarea " maxlength="150" formControlName="describeInjury" placeholder="" rows="3"></textarea>
+                
+              </td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>How long have you had your symptoms? </td>
+              <td>
+                <textarea class="form-control txtarea " maxlength="150" placeholder="" formControlName="symptomsTime" rows="3"></textarea>
+                
+              </td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Problems</td>
+              <td>
+                <mat-select color="" placeholder="--Select Pain Type--" multiple formControlName="problems" ultiple class="form-control">
+                  <mat-option [value]="0"> Pain</mat-option>
+                  <mat-option [value]="1">Weakness</mat-option>
+                  <mat-option [value]="2">Swelling</mat-option>
+                  <mat-option [value]="3">Stiffness</mat-option>
+                  <mat-option [value]="4">Instability</mat-option>
+                  <mat-option [value]="5">Burning</mat-option>
+                  <mat-option [value]="6"> Paresthesia(Tingling)</mat-option>
+                  <mat-option [value]="7">Tightness</mat-option>
+                  <mat-option [value]="8">Soreness</mat-option>
+                  <mat-option [value]="9">Fever</mat-option>
+                  <mat-option [value]="10">Chills</mat-option>
+                  <mat-option [value]="11">Other</mat-option>
+                </mat-select>
+              </td>
+            </tr>
+            <tr *ngIf="questionnaireForm.value.problems == 11">
+              <td></td>
+              <td></td>
+              <td>
+                <textarea class="form-control txtarea" formControlName="aspirinTime" maxlength="150" placeholder="" rows="3"></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>Does your pain radiate/travel?</td>
+              <td>
+                <mat-radio-group formControlName="radiatePain">
+                  <mat-radio-button class="new-scaled-margin" [value]="1">Yes</mat-radio-button>
+                  <mat-radio-button class="new-scaled-margin" [value]="2">No</mat-radio-button>
+                </mat-radio-group>
+              </td>
+            </tr>
+            
+            <tr *ngIf="questionnaireForm.value.radiatePain === 1">
+              <td></td>
+              <td>Back Pain </td>
+              <td>
+                <mat-radio-group formControlName="backPain">
+                  <mat-radio-button class="new-scaled-margin" [value]="1">Left Leg</mat-radio-button>
+                  <mat-radio-button class="new-scaled-margin" [value]="2">Right Leg</mat-radio-button>
+                </mat-radio-group>
+              </td>
+            </tr>
+            <tr *ngIf="questionnaireForm.value.radiatePain === 1">
+              <td></td>
+              <td>Neck Pain </td>
+              <td>
+                <mat-radio-group formControlName="neckPain">
+                  <mat-radio-button class="new-scaled-margin" [value]="1">Left Arm</mat-radio-button>
+                  <mat-radio-button class="mgn12" [value]="2">Right Arm</mat-radio-button>
+                </mat-radio-group>
+              </td>
+            </tr>
+            
+            <tr>
+              <td>8</td>
+              <td>Do you have Headache</td>
+              <td>
+                <mat-radio-group formControlName="Headache">
+                  <mat-radio-button class="new-scaled-margin" [value]="1">Yes</mat-radio-button>
+                  <mat-radio-button class="new-scaled-margin" [value]="2">No</mat-radio-button>
+                </mat-radio-group>
+              </td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>Do you have Numbness</td>
+              <td>
+                <mat-radio-group formControlName="Numbness">
+                  <mat-radio-button class="new-scaled-margin" [value]="1">Yes</mat-radio-button>
+                  <mat-radio-button class="new-scaled-margin" [value]="2">No</mat-radio-button>
+                </mat-radio-group>
+              </td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>Do you have Weakness</td>
+              <td>
+                <mat-radio-group formControlName="Weakness">
+                  <mat-radio-button class="new-scaled-margin" [value]="1">Yes</mat-radio-button>
+                  <mat-radio-button class="new-scaled-margin" [value]="2">No</mat-radio-button>
+                </mat-radio-group>
+              </td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td>Do you have Tinnitus(Ringing of the ears)</td>
+              <td>
+                <mat-radio-group formControlName="Tinnitus">
+                  <mat-radio-button class="new-scaled-margin" [value]="1">Yes</mat-radio-button>
+                  <mat-radio-button class="new-scaled-margin" [value]="2">No</mat-radio-button>
+                </mat-radio-group>
+              </td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>Others </td>
+              <td>
+                <textarea class="form-control txtarea " formControlName="Others" maxlenght="150" placeholder="" rows="3"></textarea>
+                
+              </td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td>What makes your pain better? </td>
+              <td>
+                <textarea class="form-control txtarea " formControlName="painBetter" maxlength="150" placeholder="" rows="3"></textarea>
+                
+              </td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td>What makes your pain worse? </td>
+              <td>
+                <textarea class="form-control txtarea " maxlength="150" formControlName="painWorse" placeholder="" rows="3"></textarea>
+                
+              </td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td>List all previous surgeries related to THIS pain (date and type)</td>
+              <td>
+                <textarea class="form-control txtarea " maxlength="150" formControlName="previousSurgeries" placeholder="" rows="3"></textarea>
+                
+              </td>
+            </tr>
+            <tr>
+              <td>16</td>
+              <td>List all medications you are taking CURRENTLY. </td>
+              <td>
+                <textarea class="form-control txtarea " maxlength="150" formControlName="allMedications" placeholder="" rows="3"></textarea>
+                
+              </td>
+            </tr>
+            <tr>
+              <td>17</td>
+              <td>List all previous surgeries you have EVER HAD before (Date and Type)
+              </td>
+              <td>
+                <textarea class="form-control txtarea " maxlength="150" formControlName="anyprevious" placeholder="" rows="3"></textarea>
+                
+              </td>
+            </tr>
+            <tr>
+              <td>18</td>
+              <td>What treatments have you gotten for THIS pain (ex. medications, physical therapy, injections, bracing, etc).
+                
+                
+              </td>
+              <td>
+                <textarea class="form-control txtarea " maxlength="150" formControlName="treatmentsForPain" placeholder="" rows="3"></textarea>
+                
+              </td>
+            </tr>
+            <tr>
+              <td>19</td>
+              <td>List all allergies to any medications, solutions, or items(i.e. latex, iodine, etc)
+              </td>
+              <td>
+                <textarea class="form-control txtarea " maxlength="150" formControlName="allergies" placeholder="" rows="3"></textarea>
+                
+              </td>
+            </tr>
+            <tr>
+              <td>20</td>
+              <td>Do you have high blood pressure?</td>
+              <td>
+                <mat-radio-group formControlName="bloodPressure">
+                  <mat-radio-button class="new-scaled-margin" [value]="1">Yes</mat-radio-button>
+                  <mat-radio-button class="new-scaled-margin" [value]="2">No</mat-radio-button>
+                </mat-radio-group>
+              </td>
+            </tr>
+            <tr>
+              <td>21</td>
+              <td>Do you have any heart problems?</td>
+              <td>
+                <mat-radio-group formControlName="heartProblems">
+                  <mat-radio-button class="new-scaled-margin" [value]="1">Yes</mat-radio-button>
+                  <mat-radio-button class="new-scaled-margin" [value]="2">No</mat-radio-button>
+                </mat-radio-group>
+              </td>
+            </tr>
+            <tr>
+              <td>22</td>
+              <td>Do you have ulcers or gastritis?</td>
+              <td>
+                <mat-radio-group formControlName="ulcers">
+                  <mat-radio-button class="new-scaled-margin" [value]="1">Yes</mat-radio-button>
+                  <mat-radio-button class="new-scaled-margin" [value]="2">No</mat-radio-button>
+                </mat-radio-group>
+              </td>
+            </tr>
+            <tr>
+              <td>23</td>
+              <td>Do you have diabetes?</td>
+              <td>
+                <mat-radio-group formControlName="diabetes">
+                  <mat-radio-button class="new-scaled-margin" [value]="1">Yes</mat-radio-button>
+                  <mat-radio-button class="new-scaled-margin" [value]="2">No</mat-radio-button>
+                </mat-radio-group>
+              </td>
+            </tr>
+            <tr>
+              <td>24</td>
+              <td>
+                Do you have any liver problems/Hepatitis?
+              </td>
+              <td>
+                <mat-radio-group formControlName="liverProblems">
+                  <mat-radio-button class="new-scaled-margin" [value]="1">Yes</mat-radio-button>
+                  <mat-radio-button class="new-scaled-margin" [value]="2">No</mat-radio-button>
+                </mat-radio-group>
+              </td>
+            </tr>
+            <tr>
+              <td>25</td>
+              <td>Do you have any kidney diseases?</td>
+              <td>
+                <mat-radio-group formControlName="kidney">
+                  <mat-radio-button class="new-scaled-margin" [value]="1">Yes</mat-radio-button>
+                  <mat-radio-button class="new-scaled-margin" [value]="2">No</mat-radio-button>
+                </mat-radio-group>
+              </td>
+            </tr>
+            <tr>
+              <td>26</td>
+              <td>Do you have cancer?</td>
+              <td>
+                <mat-radio-group formControlName="cancer">
+                  <mat-radio-button class="new-scaled-margin" [value]="1">Yes</mat-radio-button>
+                  <mat-radio-button class="new-scaled-margin" [value]="2">No</mat-radio-button>
+                </mat-radio-group>
+              </td>
+            </tr>
+            <tr>
+              <td>27</td>
+              <td>Do you smoke or chew tobacco? </td>
+              <td>
+                <mat-radio-group formControlName="tobacco">
+                  <mat-radio-button class="new-scaled-margin" [value]="1">Yes</mat-radio-button>
+                  <mat-radio-button class="new-scaled-margin" [value]="2">No</mat-radio-button>
+                </mat-radio-group>
+              </td>
+            </tr>
+            <tr>
+              <td>28</td>
+              <td>Do you have HIV or Hepatitis C? </td>
+              <td>
+                <mat-radio-group formControlName="hepatitis">
+                  <mat-radio-button class="new-scaled-margin" [value]="1">Yes</mat-radio-button>
+                  <mat-radio-button class="new-scaled-margin" [value]="2">No</mat-radio-button>
+                </mat-radio-group>
+              </td>
+            </tr>
+            <tr>
+              <td>29</td>
+              <td>Do you have any blood clots or embolus?</td>
+              <td>
+                <mat-radio-group formControlName="bloodClots">
+                  <mat-radio-button class="new-scaled-margin" [value]="1">Yes</mat-radio-button>
+                  <mat-radio-button class="new-scaled-margin" [value]="2">No</mat-radio-button>
+                </mat-radio-group>
+              </td>
+            </tr>
+            
+            
+            
+          </tbody>
+        </table>
+      </div>
+    </form>
+  </div>
+</div>

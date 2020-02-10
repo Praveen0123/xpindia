@@ -1,0 +1,79 @@
+<div class="row" style="margin-bottom:14px;">
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-0">
+    <div class="w-100 flex-p">
+      
+    </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <div class="w-100 flex-p">
+      <button mat-raised-button class="pull-right add-hover btn-success">
+        <mat-icon>print</mat-icon> Print
+      </button>
+    </div>
+  </div>
+</div>
+<div class="table-responsive">
+  <table id="example2" class="table table-bordered table-hover">
+    <thead class="tbl-head">
+      <tr class="tr-grid-header">
+        <th class="appointmentDateMinWidth">Visit Date</th>
+        <th class="appointmentCodeMinWidth">Internal Physician</th>
+        <th class="recommendationTypeMinWidth">Recommendation Type</th>
+        <th class="actualRecommendationType">Actual Recommendation Value</th>
+        <th>Prescription</th>
+        <th>Docs</th>
+        <!-- <th>Notes</th>
+          <th class="statusMinWidth">Status</th> -->
+          <th>Manage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of tableList">
+          <td>{{item.appointmentDate}}</td>
+          <td>{{item.internalPhysician}}</td>
+          <td>
+            <mat-select color="primary" placeholder="--Select Recommendation Type--" class="form-control" [(value)]="item.selected">
+              <mat-option [value]="0">Chiropractic Treatment</mat-option>
+              <mat-option [value]="1">Medical records</mat-option>
+              <mat-option [value]="2">Imaging</mat-option>
+              <mat-option [value]="3">Procedure</mat-option>
+              <mat-option [value]="4">Pain Management</mat-option>
+              <mat-option [value]="5">Orthopedic Evaluation</mat-option>
+              <mat-option [value]="6">Specialists</mat-option>
+              <mat-option [value]="7">Follow-up</mat-option>
+              <mat-option [value]="8">General notes</mat-option>
+              <mat-option [value]="9">Medications</mat-option>
+            </mat-select>
+          </td>
+          <td *ngIf="item.selected != 0">{{item.actualRecommendationValue}}</td>
+          <td *ngIf="item.selected === 0">
+            {{item.actualRecommendationValue}}<br>
+            Length of treatment {{item.lengthOfTreatment}}
+          </td>
+          <td><a href="../../../../../assets/img/vendor/leaflet/LOP.pdf" target="_blank" style="cursor: pointer!important;font-size:16px!important" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a></td>
+          <td><a style="color:#007ad9!important;cursor: pointer!important;" (click)="openDocsDialog(item)">{{item.docs}}</a></td>
+          <!-- <td *ngIf="item.notes === 'View'" style="background-color: #66c2ff;cursor: pointer" (click)="openRemarksModal(item)">{{item.notes}}</td>
+            <td *ngIf="item.notes === 'Add'" style="background-color: black;color: white;cursor: pointer" (click)="openRemarksModal(null)">{{item.notes}}</td>
+            <td>
+              <mat-select color="primary" placeholder="--Select Status--" class="form-control">
+                <mat-option [value]="0">Referred</mat-option>
+                <mat-option [value]="1">Treating</mat-option>
+                <mat-option [value]="2">Completed</mat-option>
+              </mat-select>
+            </td> -->
+            
+            <td>
+              <a mwlConfirmationPopover
+              [popoverTitle]="popoverTitle"
+              [popoverMessage]="popoverMessage"
+              placement="left"
+              (confirm)="deleteVisit()"
+              (cancel)="cancelClicked = true" [appendToBody]="true">
+              <i style="cursor: pointer;font-size:16px!important;" matTooltip="Delete Visit" class="fa fa-trash red"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

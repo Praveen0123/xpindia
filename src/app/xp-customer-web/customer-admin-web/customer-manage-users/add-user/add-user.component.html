@@ -1,0 +1,79 @@
+<div class="NewHeader">
+  <h1 mat-dialog-title><span *ngIf="!user">Add</span><span *ngIf="user">Edit</span> Customer</h1>
+</div>
+<div mat-dialog-content>
+  <form class="form-horizontal" novalidate [formGroup]="addCustomerForm">
+    <div class="form-group">
+      <label class="control-label col-sm-4 add-member-label">User Name: </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <input type="email" class="form-control" maxlength="100" (keypress)="omit_special_char($event)" formControlName="customerName" placeholder="Enter User Name" required>
+        <div *ngIf="!customerName.valid && (customerName.dirty || customerName.touched)" class="error-text">
+          <div *ngIf="customerName.errors.required">
+            User name is required
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="form-group">
+      <label class="control-label col-sm-4 add-member-label">Last Name: </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <input type="email" class="form-control" maxlength="100" (keypress)="omit_special_char($event)" formControlName="customerlastName" placeholder="Enter Last Name" required>
+        <div *ngIf="!customerlastName.valid && (customerlastName.dirty || customerlastName.touched)" class="error-text">
+          <div *ngIf="customerlastName.errors.required">
+            Customer last name is required
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label">Email ID: </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <input type="text" email maxlength="100" formControlName="email" onDrag="return false" onDrop="return false" class="form-control" id="email" placeholder="Enter Email ID" required>
+        <div *ngIf="!email.valid && (email.dirty || email.touched)" class="error-text">
+          <div *ngIf="email.errors.required">
+            Customer email is required.
+          </div>
+          <div *ngIf="email.errors.email">
+            Enter a valid email
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Contact Number: </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <input type="text" formControlName="phone" maxlength="15" (keypress)="omit_all_char($event)" minlength="10" onDrag="return false" onDrop="return false" class="form-control" placeholder="Enter Contact Number" required>
+        <div *ngIf="!phone.valid && (phone.dirty || phone.touched)" class="error-text">
+          <div *ngIf="phone.errors.required">
+            Contact number is required
+          </div>
+          <div *ngIf="phone.errors.minlength">
+            Contact number should contain at least 10 numbers.
+          </div>
+        </div>
+      </div>
+    </div> 
+    
+    <!-- <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Status: </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <mat-select formControlName="status" placeholder="-- Select Status --" class="form-control" required>
+          <mat-option [value]=1>Active</mat-option>
+          <mat-option [value]=2>Inactive</mat-option>
+        </mat-select>
+        <div *ngIf="!status.valid && (status.dirty || status.touched)" class="error-text">
+          <div *ngIf="status.errors.required">
+            Status is required
+          </div>
+        </div>
+      </div>
+    </div> -->
+    
+  </form>
+</div>
+<mat-dialog-actions align="end">
+  <button mat-raised-button [disabled]="!addCustomerForm.valid" style="cursor:pointer;" [ngClass]="!addCustomerForm.valid ? '' : 'btn-primary'" (click)="saveCustomer()" [mat-dialog-close]="'test'"><mat-icon *ngIf="user">update</mat-icon><mat-icon *ngIf="!user">save</mat-icon><span *ngIf="!user"> Save</span><span
+    *ngIf="user"> Update</span></button>
+    <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+  </mat-dialog-actions> 

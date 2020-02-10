@@ -1,0 +1,245 @@
+<div fxLayout="row wrap" #resizedDiv>
+    <div class="flex-p w-100">
+
+        <div class="row ">
+            <div class="row col-lg-12 col-md-12">
+                <div class=" maginlft1">
+                    <a class="tab2" style="margin-left: 10px;" mat-raised-button>Onboarded FFVs (20)</a>
+                </div>
+                <div class=" maginlft1">
+                    <a class="tab2" mat-raised-button>New FFVs (5)</a>
+                </div>
+                <div class="maginlft1">
+                    <a class="tab2" mat-raised-button>Service Level (92%)</a>
+                </div>
+                <div class="maginlft1">
+                    <a class="tab2" mat-raised-button>Active (12)</a>
+                </div>
+                <div class=" maginlft1">
+                    <a class="tab2" mat-raised-button>Inactive (8)</a>
+                </div>
+                <div class="maginlft1">
+                    <a class="tab2" mat-raised-button>Trips Done (53)</a>
+                </div>
+                <div class=" maginlft1">
+                    <a class="tab2" mat-raised-button>Freight (2.5 Cr)</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row" style="margin-bottom:10px">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="w-100 flex-p">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="w-100 flex-p">
+
+                    <button mat-raised-button class="pull-right add-hover btn-success" (click)="openVendorDialog(null)">
+                        <mat-icon>person_add</mat-icon> Add FFV
+                    </button>
+                    <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hover margin-right-10" (click)="filterToggle = !filterToggle">
+                        <mat-icon>filter_list</mat-icon> Filter
+                    </button>
+                    <button mat-raised-button class="pull-right add-hover btn-secondary sharebuttonsStyle margin-right-10" style="margin-left: 10px;">
+                        <mat-icon>screen_share</mat-icon> Share
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row wrap">
+            <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100" *ngIf="filterToggle">
+                <mat-card class="filter">
+                    <mat-card-content>
+                        <div class="row col-lg-12">
+                            <div class="col-sm-3 ">
+                                <div class="col-sm-4 newMarginClass ">
+                                    FFV:
+                                </div>
+                                <div class="col-sm-8 ">
+                                    <input type="text " class="form-control " placeholder="--Search by FFV-- ">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="col-sm-2 newMarginClass">
+                                    from:
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="input-icon right" mat-menu-item>
+                                        <i class="fa fa-calendar" [owlDateTimeTrigger]="dt1"></i>
+                                        <input class="form-control" placeholder="Select Date" class="form-control" id="db" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" name="dt1" required>
+                                        <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="col-sm-2 newMarginClass">
+                                    To:
+                                </div>
+                                <div class="col-sm-8">
+                                    <!-- <input type="text" class="form-control" placeholder="--Enter Registration--"> -->
+                                    <div class="input-icon right" mat-menu-item>
+                                        <i class="fa fa-calendar" [owlDateTimeTrigger]="dt2"></i>
+                                        <input class="form-control" placeholder="Select Date" class="form-control" id="db" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" name="dt2" required>
+                                        <owl-date-time [pickerType]="'calendar'" #dt2></owl-date-time>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-1">
+                                <button type="button" class="add-hover btn btn-success pull-right">Search</button>
+                            </div>
+                            <div class="col-lg-1">
+                                <button type="button" class="btn filter-hover" style="background-color:#37474f; color:#fff !important">Clear</button>
+                            </div>
+                        </div>
+
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+        <div class="row ">
+
+
+        </div>
+
+        <div fxLayout="row wrap">
+            <div fxFlex="100" fxFlex.gt-sm="33.33" class="flex-p w-100">
+                <app-service-type></app-service-type>
+            </div>
+            <div fxFlex="100" fxFlex.gt-sm="33.33" class="flex-p">
+                <app-zone-chart></app-zone-chart>
+            </div>
+            <div fxFlex="100" fxFlex.gt-sm="33.33" class="flex-p">
+                <app-gateways-chart></app-gateways-chart>
+            </div>
+        </div>
+
+        <div fxLayout="row wrap">
+            <div class="table-responsive">
+                <table id="example2" class="table table-bordered table-hover">
+                    <thead class="tbl-head">
+                        <tr class="tr-grid-header">
+                            <!-- <th rowspan="2" class="vendorMinWidth">FFV Name (Click to see dashboard)</th> -->
+                            <!-- <th rowspan="2" class="contactMinWidth">Contact Person</th>
+                          <th rowspan="2" class="emailMinWidth">Email ID</th>
+                          <th rowspan="2" class="phoneMinWidth">Phone Number</th> -->
+                            <!-- <th rowspan="2" class="countryMinWidth">Country</th>
+                            <th rowspan="2">State</th> -->
+                            <!-- <th rowspan="2">Zones</th>
+                          <th rowspan="2">Gateways</th>
+                          <th rowspan="2">Lanes</th> -->
+                            <!-- <th rowspan="2" class="cityMinWidth">City</th>
+                            <th rowspan="2" class="addressMinWidth">Address</th>
+                            <th rowspan="2" class="postalMinWidth">Postal Code</th> -->
+                            <!-- <th rowspan="2">Vehicles</th>
+                          <th rowspan="2" class="nemberMinWidth">Drivers</th> -->
+                            <!-- <th colspan="4" class="VIApadding">Service Type</th> -->
+                            <!-- <th rowspan="2" class="fclratesWidth">Rates</th> -->
+                            <!-- <th colspan="3" class="localrates">Local Rates</th> -->
+
+
+                            <th rowspan="2">S.No.</th>
+                            <th rowspan="2">Name</th>
+                            <th rowspan="2">Home Gateways</th>
+                            <th rowspan="2">Lane Applicable</th>
+                            <th rowspan="2">Vehical Type Registered</th>
+                            <th rowspan="2">No. of Vehical Registered</th>
+                            <th rowspan="2">MTD Trips</th>
+                            <th rowspan="2">MTD Freight</th>
+                            <th class="text-center" colspan="3">Performance</th>
+                            <th rowspan="2">Open Trips</th>
+                            <th rowspan="2">Upcoming Trips</th>
+                            <th rowspan="2" class="text-center">Status</th>
+                            <th rowspan="2" class="text-center actionsMinWidth">Actions</th>
+                        </tr>
+
+                        <tr class="tr-grid-header">
+                            <th>Booking</th>
+                            <th>Delivery</th>
+                            <th class="longhaulWidth">Long Haul</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="showEmpty">
+                            <td colspan="6">No records found</td>
+                        </tr>
+                        <tr *ngFor="let item of tableLists">
+
+                            <td>{{item.sno}}</td>
+                            <td><a target="_blank" [routerLink]="['/instanttransport/user/ratesdashboard']" style="color:#007bff;cursor: pointer">{{item.vendorName}}</a></td>
+                            <td>{{item.homegateway}}</td>
+                            <td><a target="_blank" [routerLink]="['/instanttransport/user/ratesdashboard/lanesindashboard']" style="color:#007bff;cursor: pointer">{{item.lanes}}</a></td>
+                            <td><a target="_blank" [routerLink]="['/instanttransport/user/ratesdashboard/vehiclesindashboard']" style="color:#007bff;cursor: pointer">{{item.vehTypeReg}}</a></td>
+                            <td><a target="_blank" [routerLink]="['/instanttransport/user/ratesdashboard/vehiclesindashboard']" style="color:#007bff;cursor: pointer">{{item.noVehRef}}</a></td>
+                            <td>
+                                <a target="_blank" [routerLink]="['/instanttransport/user/ratesdashboard']" style="color:#007bff;cursor: pointer"></a>{{item.mtdTrips}}</td>
+                            <td>
+                                <a target="_blank" [routerLink]="['/instanttransport/user/ratesdashboard']" style="color:#007bff;cursor: pointer"></a>{{item.mtdFreight}}</td>
+                            <td class="text-center">{{item.mtdservicelavel}}</td>
+                            <td class="text-center">{{item.mtdservicelavel}}</td>
+                            <td class="text-center">{{item.mtdservicelavel}}</td>
+                            <td>
+                                <a target="_blank" [routerLink]="['/instanttransport/user/ratesdashboard']" style="color:#007bff;cursor: pointer"></a>{{item.openTrips}}</td>
+                            <td>
+                                <a target="_blank" [routerLink]="['/instanttransport/user/ratesdashboard']" style="color:#007bff;cursor: pointer"></a>{{item.upcommingTrips}}</td>
+
+                            <!-- <td><a target="_blank" [routerLink]="['/instanttransport/user/ratesdashboard']" style="color:#007bff;cursor: pointer">{{item.vendorName}}</a></td> -->
+                            <!-- <td>{{item.name}}</td>
+                          <td>{{item.email}}
+                              <i *ngIf="item.is_verified" title="User verified" class="fa fa-check Green" aria-hidden="true"></i>
+                              <i *ngIf="!item.is_verified" title="User not verified" class="fa fa-times Red" aria-hidden="true"></i>
+                          </td>
+                          <td>{{item.phone}}</td> -->
+
+                            <!-- <td><a target="_blank" style="color:#007ad9!important;cursor: pointer!important;" [routerLink]="['/instanttransport/user/vendorZones']">{{item.zone}}</a></td> -->
+                            <!-- <td><a (click)="openZoneModal(item)" style="color:#007bff;cursor: pointer">{{item.zone}}</a></td> -->
+                            <!-- <td><a target="_blank" style="color:#007ad9!important;cursor: pointer!important;" [routerLink]="['/instanttransport/user/zone']">{{item.zone}}</a></td> -->
+                            <!-- <td><a target="_blank" style="color:#007ad9!important;cursor: pointer!important;" [routerLink]="['/instanttransport/user/gateway']">{{item.gateway}}</a></td>
+                          <td><a target="_blank" style="color:#007ad9!important;cursor: pointer!important;" [routerLink]="['/instanttransport/user/lane']">{{item.lanes}}</a></td> -->
+                            <!-- <td>{{item.zone}}</td>
+                          <td>{{item.gateway}}</td>
+                          <td>{{item.lanes}}</td> -->
+
+                            <!-- <td><a target="_blank" routerLink="vehicles" style="color:#007bff;cursor: pointer">{{item.drivers}}</a></td> -->
+                            <!-- <td><a (click)="openVehiclesModal(item)" style="color:#007bff;cursor: pointer">{{item.numberofvehicles}}</a></td> -->
+                            <!-- <td><a routerLink="rolepermissions">{{item.permissions}}</a></td> -->
+                            <!-- <td><a target="_blank" routerLink="drivers" style="color:#007bff;cursor: pointer">{{item.drivers}}</a></td> -->
+                            <!-- <td class="style"><input type="checkbox" checked disabled></td>
+                            <td class="style"><input type="checkbox" checked disabled></td>
+                            <td class="style"><input type="checkbox" checked disabled></td>
+                            <td class="style"><input type="checkbox" checked disabled></td> -->
+                            <!-- <td>{{item.lanes}}</td> -->
+                            <!-- <td>View</a></td> -->
+                            <!-- <td><a (click)="openlocalratesDailyModal(item)" style="color:#007bff;cursor: pointer">{{item.numberofvehicles}}</a></td>
+                          <td><a (click)="openlocalratesMonthlyModal(item)" style="color:#007bff;cursor: pointer">{{item.monthly}}</a></td>
+                          <td><a (click)="openlocalratesspotModal(item)" style="color:#007bff;cursor: pointer">{{item.lanes}}</a></td> -->
+                            <!-- <td>{{item.numberofvehicles}}</td> -->
+                            <td class="pad-left inner-screen text-center">
+                                <a mwlConfirmationPopover [popoverTitle]="popoverStatusTitle" [popoverMessage]="popoverStatusMessage" placement="left" (confirm)="item.status = ! item.status" (cancel)="cancelClicked = true" [appendToBody]="true">
+                                    <span *ngIf="!item.status" style="color:red">Inactive</span>
+                                    <span *ngIf="item.status">Active</span>
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <a matTooltip="Edit Customer Details" style="margin-right: 10px; cursor: pointer;font-size:16px!important;color:#0987e8d1" (click)="openVendorDialog(item)">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+                                <a mwlConfirmationPopover [popoverTitle]="popoverTitle" [popoverMessage]="popoverMessage" placement="left" (confirm)="deleteVendor()" (cancel)="cancelClicked = true" [appendToBody]="true">
+                                    <i style="cursor: pointer;font-size:16px!important;" matTooltip="Delete Customer" class="fa fa-trash red"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons>
+                </mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!tableList" fxLayout="column" fxLayoutAlign="center center" class="campaign-spinner">
+    <mat-spinner color="primary"></mat-spinner>
+</div>

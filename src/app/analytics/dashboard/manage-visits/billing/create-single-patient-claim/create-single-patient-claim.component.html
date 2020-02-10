@@ -1,0 +1,347 @@
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+    <div fxLayout="row wrap">
+      <div class="table-responsive">
+        <table id="example2" class="table table-bordered table-hover">
+          <thead class="tbl-head">
+            <tr class="tr-grid-header">
+              <th>CPT Code</th>
+              <!-- <th>CPT Description</th> -->
+              <th style="min-width:115px;">Modifiers</th>
+              <!-- <th>Assign</th> -->
+              <th>Modifier Description</th>
+              <!-- <th>Units</th> -->
+              <th style="min-width:800px;">Diagnostic Pointers</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of tableList">
+              <td>{{item.cpt}}</td>
+              <!-- <td>{{item.cptDesc}}</td> -->
+              <td>
+                <mat-select color="primary" placeholder="--Select--" class="form-control" style="margin-bottom:5px;">
+                  <mat-option [value]="0">59</mat-option>
+                  <mat-option [value]="1">51</mat-option>
+                  <mat-option [value]="2">LT</mat-option>
+                  <mat-option [value]="3">RT</mat-option>
+                  <mat-option [value]="4">26</mat-option>
+                  <mat-option [value]="5">TC</mat-option>
+                  <mat-option [value]="6">53</mat-option>
+                  <mat-option [value]="7">76</mat-option>
+                  <mat-option [value]="8">XU</mat-option>
+                  <mat-option [value]="9">NU</mat-option>
+                  <mat-option [value]="10">25</mat-option>
+                  <mat-option [value]="11">81</mat-option>
+                  <mat-option [value]="12">80</mat-option>
+                  <mat-option [value]="13">AS</mat-option>
+                  <mat-option [value]="14">KH</mat-option>
+                  <mat-option [value]="15">RR</mat-option>
+                </mat-select><br>
+                <mat-select color="primary" placeholder="--Select--" class="form-control">
+                  <mat-option [value]="0">59</mat-option>
+                  <mat-option [value]="1">51</mat-option>
+                  <mat-option [value]="2">LT</mat-option>
+                  <mat-option [value]="3">RT</mat-option>
+                  <mat-option [value]="4">26</mat-option>
+                  <mat-option [value]="5">TC</mat-option>
+                  <mat-option [value]="6">53</mat-option>
+                  <mat-option [value]="7">76</mat-option>
+                  <mat-option [value]="8">XU</mat-option>
+                  <mat-option [value]="9">NU</mat-option>
+                  <mat-option [value]="10">25</mat-option>
+                  <mat-option [value]="11">81</mat-option>
+                  <mat-option [value]="12">80</mat-option>
+                  <mat-option [value]="13">AS</mat-option>
+                  <mat-option [value]="14">KH</mat-option>
+                  <mat-option [value]="15">RR</mat-option>
+                </mat-select>
+                
+              </td>
+              <td>{{item.modDesc}}</td>
+              <!-- <td>{{item.units}}</td> -->
+              <td>
+                <div class="col-sm-1" style="margin-top:5px;">
+                  <mat-checkbox (change)="item.Aselected = !item.Aselected">
+                    <span style="font-weight:400">A</span>
+                  </mat-checkbox>
+                </div>
+                <div class="col-sm-2">
+                  <mat-select color="primary" placeholder="--Select--" class="form-control" style="margin-bottom:5px;" [disabled]="!item.Aselected">
+                    <mat-option [value]="0">N319</mat-option>
+                    <mat-option [value]="1">N3281</mat-option>
+                    <mat-option [value]="2">N3289</mat-option>
+                    <mat-option [value]="3">N329</mat-option>
+                    <mat-option [value]="4">N3641</mat-option>
+                    <mat-option [value]="5">N3642</mat-option>
+                    <mat-option [value]="6">N369</mat-option>
+                    <mat-option [value]="7">N393</mat-option>
+                    <mat-option [value]="8">N3941</mat-option>
+                    <mat-option [value]="9">N3946</mat-option>
+                    <mat-option [value]="10">R32</mat-option>
+                    <mat-option [value]="11">R350</mat-option>
+                    <mat-option [value]="12">R359</mat-option>
+                    <mat-option [value]="13">R3914</mat-option>
+                    <mat-option [value]="14">R3915</mat-option>
+                  </mat-select>
+                </div>
+                <div class="col-sm-1" style="margin-top:5px;">
+                  <mat-checkbox (change)="item.Bselected = !item.Bselected">
+                    <span style="font-weight:400">B</span>
+                  </mat-checkbox>
+                </div>
+                <div class="col-sm-2">
+                  <mat-select color="primary" placeholder="--Select--" class="form-control" style="margin-bottom:5px;" [disabled]="!item.Bselected">
+                    <mat-option [value]="0">N319</mat-option>
+                    <mat-option [value]="1">N3281</mat-option>
+                    <mat-option [value]="2">N3289</mat-option>
+                    <mat-option [value]="3">N329</mat-option>
+                    <mat-option [value]="4">N3641</mat-option>
+                    <mat-option [value]="5">N3642</mat-option>
+                    <mat-option [value]="6">N369</mat-option>
+                    <mat-option [value]="7">N393</mat-option>
+                    <mat-option [value]="8">N3941</mat-option>
+                    <mat-option [value]="9">N3946</mat-option>
+                    <mat-option [value]="10">R32</mat-option>
+                    <mat-option [value]="11">R350</mat-option>
+                    <mat-option [value]="12">R359</mat-option>
+                    <mat-option [value]="13">R3914</mat-option>
+                    <mat-option [value]="14">R3915</mat-option>
+                  </mat-select>
+                </div>
+                <div class="col-sm-1" style="margin-top:5px;">
+                  <mat-checkbox (change)="item.Cselected = !item.Cselected">
+                    <span style="font-weight:400">C</span>
+                  </mat-checkbox>
+                </div>
+                <div class="col-sm-2">
+                  <mat-select color="primary" placeholder="--Select--" class="form-control" style="margin-bottom:5px;" [disabled]="!item.Cselected">
+                    <mat-option [value]="0">N319</mat-option>
+                    <mat-option [value]="1">N3281</mat-option>
+                    <mat-option [value]="2">N3289</mat-option>
+                    <mat-option [value]="3">N329</mat-option>
+                    <mat-option [value]="4">N3641</mat-option>
+                    <mat-option [value]="5">N3642</mat-option>
+                    <mat-option [value]="6">N369</mat-option>
+                    <mat-option [value]="7">N393</mat-option>
+                    <mat-option [value]="8">N3941</mat-option>
+                    <mat-option [value]="9">N3946</mat-option>
+                    <mat-option [value]="10">R32</mat-option>
+                    <mat-option [value]="11">R350</mat-option>
+                    <mat-option [value]="12">R359</mat-option>
+                    <mat-option [value]="13">R3914</mat-option>
+                    <mat-option [value]="14">R3915</mat-option>
+                  </mat-select>
+                </div>
+                <div class="col-sm-1" style="margin-top:5px;">
+                  <mat-checkbox (change)="item.Dselected = !item.Dselected">
+                    <span style="font-weight:400">D</span>
+                  </mat-checkbox>
+                </div>
+                <div class="col-sm-2">
+                  <mat-select color="primary" placeholder="--Select--" class="form-control" style="margin-bottom:5px;" [disabled]="!item.Dselected">
+                    <mat-option [value]="0">N319</mat-option>
+                    <mat-option [value]="1">N3281</mat-option>
+                    <mat-option [value]="2">N3289</mat-option>
+                    <mat-option [value]="3">N329</mat-option>
+                    <mat-option [value]="4">N3641</mat-option>
+                    <mat-option [value]="5">N3642</mat-option>
+                    <mat-option [value]="6">N369</mat-option>
+                    <mat-option [value]="7">N393</mat-option>
+                    <mat-option [value]="8">N3941</mat-option>
+                    <mat-option [value]="9">N3946</mat-option>
+                    <mat-option [value]="10">R32</mat-option>
+                    <mat-option [value]="11">R350</mat-option>
+                    <mat-option [value]="12">R359</mat-option>
+                    <mat-option [value]="13">R3914</mat-option>
+                    <mat-option [value]="14">R3915</mat-option>
+                  </mat-select></div><br>
+                  <div class="col-sm-1" style="margin-top:5px;">
+                    <mat-checkbox (change)="item.Eselected = !item.Eselected"><span style="font-weight:400">E</span></mat-checkbox>
+                  </div>
+                  <div class="col-sm-2">
+                    <mat-select color="primary" placeholder="--Select--" class="form-control" style="margin-bottom:5px;" [disabled]="!item.Eselected">
+                      <mat-option [value]="0">N319</mat-option>
+                      <mat-option [value]="1">N3281</mat-option>
+                      <mat-option [value]="2">N3289</mat-option>
+                      <mat-option [value]="3">N329</mat-option>
+                      <mat-option [value]="4">N3641</mat-option>
+                      <mat-option [value]="5">N3642</mat-option>
+                      <mat-option [value]="6">N369</mat-option>
+                      <mat-option [value]="7">N393</mat-option>
+                      <mat-option [value]="8">N3941</mat-option>
+                      <mat-option [value]="9">N3946</mat-option>
+                      <mat-option [value]="10">R32</mat-option>
+                      <mat-option [value]="11">R350</mat-option>
+                      <mat-option [value]="12">R359</mat-option>
+                      <mat-option [value]="13">R3914</mat-option>
+                      <mat-option [value]="14">R3915</mat-option>
+                    </mat-select>
+                  </div>
+                  <div class="col-sm-1" style="margin-top:5px;">
+                    <mat-checkbox (change)="item.Fselected = !item.Fselected"><span style="font-weight:400">F</span></mat-checkbox>
+                  </div>
+                  <div class="col-sm-2">
+                    <mat-select color="primary" placeholder="--Select--" class="form-control" style="margin-bottom:5px;" [disabled]="!item.Fselected">
+                      <mat-option [value]="0">N319</mat-option>
+                      <mat-option [value]="1">N3281</mat-option>
+                      <mat-option [value]="2">N3289</mat-option>
+                      <mat-option [value]="3">N329</mat-option>
+                      <mat-option [value]="4">N3641</mat-option>
+                      <mat-option [value]="5">N3642</mat-option>
+                      <mat-option [value]="6">N369</mat-option>
+                      <mat-option [value]="7">N393</mat-option>
+                      <mat-option [value]="8">N3941</mat-option>
+                      <mat-option [value]="9">N3946</mat-option>
+                      <mat-option [value]="10">R32</mat-option>
+                      <mat-option [value]="11">R350</mat-option>
+                      <mat-option [value]="12">R359</mat-option>
+                      <mat-option [value]="13">R3914</mat-option>
+                      <mat-option [value]="14">R3915</mat-option>
+                    </mat-select>
+                  </div>
+                  <div class="col-sm-1" style="margin-top:5px;">
+                    <mat-checkbox (change)="item.Gselected = !item.Gselected"><span style="font-weight:400">G</span></mat-checkbox>
+                  </div>
+                  <div class="col-sm-2">
+                    <mat-select color="primary" placeholder="--Select--" class="form-control" style="margin-bottom:5px;" [disabled]="!item.Gselected">
+                      <mat-option [value]="0">N319</mat-option>
+                      <mat-option [value]="1">N3281</mat-option>
+                      <mat-option [value]="2">N3289</mat-option>
+                      <mat-option [value]="3">N329</mat-option>
+                      <mat-option [value]="4">N3641</mat-option>
+                      <mat-option [value]="5">N3642</mat-option>
+                      <mat-option [value]="6">N369</mat-option>
+                      <mat-option [value]="7">N393</mat-option>
+                      <mat-option [value]="8">N3941</mat-option>
+                      <mat-option [value]="9">N3946</mat-option>
+                      <mat-option [value]="10">R32</mat-option>
+                      <mat-option [value]="11">R350</mat-option>
+                      <mat-option [value]="12">R359</mat-option>
+                      <mat-option [value]="13">R3914</mat-option>
+                      <mat-option [value]="14">R3915</mat-option>
+                    </mat-select>
+                  </div>
+                  <div class="col-sm-1" style="margin-top:5px;">
+                    <mat-checkbox (change)="item.Hselected = !item.Hselected"><span style="font-weight:400">H</span></mat-checkbox>
+                  </div>
+                  <div class="col-sm-2">
+                    <mat-select color="primary" placeholder="--Select--" class="form-control" style="margin-bottom:5px;" [disabled]="!item.Hselected">
+                      <mat-option [value]="0">N319</mat-option>
+                      <mat-option [value]="1">N3281</mat-option>
+                      <mat-option [value]="2">N3289</mat-option>
+                      <mat-option [value]="3">N329</mat-option>
+                      <mat-option [value]="4">N3641</mat-option>
+                      <mat-option [value]="5">N3642</mat-option>
+                      <mat-option [value]="6">N369</mat-option>
+                      <mat-option [value]="7">N393</mat-option>
+                      <mat-option [value]="8">N3941</mat-option>
+                      <mat-option [value]="9">N3946</mat-option>
+                      <mat-option [value]="10">R32</mat-option>
+                      <mat-option [value]="11">R350</mat-option>
+                      <mat-option [value]="12">R359</mat-option>
+                      <mat-option [value]="13">R3914</mat-option>
+                      <mat-option [value]="14">R3915</mat-option>
+                    </mat-select></div><br>
+                    <div class="col-sm-1" style="margin-top:5px;">
+                      <mat-checkbox (change)="item.Iselected = !item.Iselected"><span style="font-weight:400">I</span></mat-checkbox>
+                    </div>
+                    <div class="col-sm-2">
+                      <mat-select color="primary" placeholder="--Select--" class="form-control" style="margin-bottom:5px;" [disabled]="!item.Iselected">
+                        <mat-option [value]="0">N319</mat-option>
+                        <mat-option [value]="1">N3281</mat-option>
+                        <mat-option [value]="2">N3289</mat-option>
+                        <mat-option [value]="3">N329</mat-option>
+                        <mat-option [value]="4">N3641</mat-option>
+                        <mat-option [value]="5">N3642</mat-option>
+                        <mat-option [value]="6">N369</mat-option>
+                        <mat-option [value]="7">N393</mat-option>
+                        <mat-option [value]="8">N3941</mat-option>
+                        <mat-option [value]="9">N3946</mat-option>
+                        <mat-option [value]="10">R32</mat-option>
+                        <mat-option [value]="11">R350</mat-option>
+                        <mat-option [value]="12">R359</mat-option>
+                        <mat-option [value]="13">R3914</mat-option>
+                        <mat-option [value]="14">R3915</mat-option>
+                      </mat-select>
+                    </div>
+                    <div class="col-sm-1" style="margin-top:5px;">
+                      <mat-checkbox (change)="item.Jselected = !item.Jselected"><span style="font-weight:400">J</span></mat-checkbox>
+                    </div>
+                    <div class="col-sm-2">
+                      <mat-select color="primary" placeholder="--Select--" class="form-control" style="margin-bottom:5px;" [disabled]="!item.Jselected">
+                        <mat-option [value]="0">N319</mat-option>
+                        <mat-option [value]="1">N3281</mat-option>
+                        <mat-option [value]="2">N3289</mat-option>
+                        <mat-option [value]="3">N329</mat-option>
+                        <mat-option [value]="4">N3641</mat-option>
+                        <mat-option [value]="5">N3642</mat-option>
+                        <mat-option [value]="6">N369</mat-option>
+                        <mat-option [value]="7">N393</mat-option>
+                        <mat-option [value]="8">N3941</mat-option>
+                        <mat-option [value]="9">N3946</mat-option>
+                        <mat-option [value]="10">R32</mat-option>
+                        <mat-option [value]="11">R350</mat-option>
+                        <mat-option [value]="12">R359</mat-option>
+                        <mat-option [value]="13">R3914</mat-option>
+                        <mat-option [value]="14">R3915</mat-option>
+                      </mat-select>
+                    </div>
+                    <div class="col-sm-1" style="margin-top:5px;">
+                      <mat-checkbox (change)="item.Kselected = !item.Kselected"><span style="font-weight:400">K</span></mat-checkbox>
+                    </div>
+                    <div class="col-sm-2">
+                      <mat-select color="primary" placeholder="--Select--" class="form-control" style="margin-bottom:5px;" [disabled]="!item.Kselected">
+                        <mat-option [value]="0">N319</mat-option>
+                        <mat-option [value]="1">N3281</mat-option>
+                        <mat-option [value]="2">N3289</mat-option>
+                        <mat-option [value]="3">N329</mat-option>
+                        <mat-option [value]="4">N3641</mat-option>
+                        <mat-option [value]="5">N3642</mat-option>
+                        <mat-option [value]="6">N369</mat-option>
+                        <mat-option [value]="7">N393</mat-option>
+                        <mat-option [value]="8">N3941</mat-option>
+                        <mat-option [value]="9">N3946</mat-option>
+                        <mat-option [value]="10">R32</mat-option>
+                        <mat-option [value]="11">R350</mat-option>
+                        <mat-option [value]="12">R359</mat-option>
+                        <mat-option [value]="13">R3914</mat-option>
+                        <mat-option [value]="14">R3915</mat-option>
+                      </mat-select>
+                    </div>
+                    <div class="col-sm-1" style="margin-top:5px;">
+                      <mat-checkbox (change)="item.Lselected = !item.Lselected"><span style="font-weight:400">L</span></mat-checkbox>
+                    </div>
+                    <div class="col-sm-2">
+                      <mat-select color="primary" placeholder="--Select--" class="form-control" style="margin-bottom:5px;" [disabled]="!item.Lselected">
+                        <mat-option [value]="0">N319</mat-option>
+                        <mat-option [value]="1">N3281</mat-option>
+                        <mat-option [value]="2">N3289</mat-option>
+                        <mat-option [value]="3">N329</mat-option>
+                        <mat-option [value]="4">N3641</mat-option>
+                        <mat-option [value]="5">N3642</mat-option>
+                        <mat-option [value]="6">N369</mat-option>
+                        <mat-option [value]="7">N393</mat-option>
+                        <mat-option [value]="8">N3941</mat-option>
+                        <mat-option [value]="9">N3946</mat-option>
+                        <mat-option [value]="10">R32</mat-option>
+                        <mat-option [value]="11">R350</mat-option>
+                        <mat-option [value]="12">R359</mat-option>
+                        <mat-option [value]="13">R3914</mat-option>
+                        <mat-option [value]="14">R3915</mat-option>
+                      </mat-select></div><br>
+                     
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-sm-12">
+              <div class="col-sm-9"></div>
+              <div class="col-sm-3">
+            <button mat-raised-button class="add-hover pull-right" class="btn-success marginClass" (click)="saveOrder()">Submit Claim</button>
+            <button mat-raised-button class="add-hover pull-right" class="btn-default" (click)="back()">Cancel</button>
+          </div>
+          </div>
+          </div>
+        </div>
+      </div>

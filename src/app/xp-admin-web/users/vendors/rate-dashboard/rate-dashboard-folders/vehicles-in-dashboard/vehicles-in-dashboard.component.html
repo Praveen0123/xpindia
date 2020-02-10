@@ -1,0 +1,135 @@
+<div fxLayout="row wrap" #resizedDiv>
+    <div class="flex-p w-100">
+      <div class="row" style="margin-bottom:14px;">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+          <div class="w-100 flex-p">
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+          <div class="w-100 flex-p">
+            <button mat-raised-button class="pull-right add-hover btn-success" (click)="openAssetDialog('add')">
+              <mat-icon>add</mat-icon> Add Vehicle
+            </button>
+            <button mat-raised-button color="primary" class="pull-right  margin-right-10" (click)="filterToggle = !filterToggle">
+              <mat-icon>filter_list </mat-icon> Filter
+            </button>
+            <button mat-raised-button class="pull-right add-hover btn-success margin-right-10">
+              <mat-icon> cloud_upload </mat-icon> Export
+            </button>
+            <div class="file btn btn-lg btn-success pull-right upload"   style="margin-left: 10px;">
+              <mat-icon class="upload-icon">cloud_download</mat-icon> Import  
+              <input title="select file" style="cursor: pointer !important" class="file" type="file" name="file"  accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div fxLayout="row wrap">
+        <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100" *ngIf="filterToggle">
+          <mat-card class="filter">
+            <mat-card-content>
+              <div class="row">
+                <div class="col-lg-2">
+                  <input type="text" class="form-control" placeholder=" Search.. ">
+                </div>
+                <!-- <div class="col-lg-2">
+                  <mat-select placeholder="--Fleet Type--" class="form-control">
+                    <mat-option [value]="0">All</mat-option>
+                    <mat-option [value]="1">Box Trucks</mat-option>
+                    <mat-option [value]="2">Refrigerator Trucks</mat-option>
+                    <mat-option [value]="2">Dump Trucks</mat-option>
+                    <mat-option [value]="2">Tank Trucks</mat-option>
+                  </mat-select>
+                </div> -->
+                <div class="col-lg-2">
+                  <mat-select placeholder="--Fleet Name--" class="form-control">
+                    <mat-option [value]="0">All</mat-option>
+                    <mat-option [value]="1">Level 1</mat-option>
+                    <mat-option [value]="2">Level 2</mat-option>
+                    <mat-option [value]="2">Level 3</mat-option>
+                  </mat-select>
+                </div>
+                <div class="col-lg-2">
+                  <mat-select placeholder="--Year--" class="form-control">
+                    <mat-option [value]="0">All</mat-option>
+                    <mat-option [value]="1">2020</mat-option>
+                    <mat-option [value]="2">2019</mat-option>
+                    <mat-option [value]="2">2018</mat-option>
+                    <mat-option [value]="2">2017</mat-option>
+                  </mat-select>
+                </div>
+                <div class="col-lg-1">
+                  <button type="button" class="add-hover btn btn-success  pull-right">Search</button>
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="margin-left: -18px;">
+                  <button class="btn filter-hover" style="background-color:#37474f; color:#fff !important">Clear</button>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+      <div class="table-responsive my-5">
+        <table class="table table-bordered" style="width: 100%;background: #fff;">
+          <thead class="tbl-head">
+            <tr>
+              <th>Vehicle ID</th>
+              <th>Fleet</th>
+              <th>Vehicle Type</th>
+              <th>Year</th>
+              <th>Make</th>
+              <th>Model</th>
+              <th>CBM</th>
+              <th>Payload (MT)</th>
+              <!-- <th class="text-center">VIN #</th>
+              <th class="text-center">Registered Gross Vehicle Weight </th> -->
+              <th class="text-center">Units</th>
+              <th class="text-center"># of Axles</th>
+              <th class="text-center">Status</th>
+              <th class="text-center">Documents</th>
+              <th class="text-center">Actions</th>
+            </tr>
+          </thead>
+          <tr *ngFor="let asset of tableLists">
+            <td>{{asset.truckid}}</td>
+            <td>{{asset.fleetLevel}}</td>
+            <td>{{asset.vehicle_type}}</td>
+            <td>{{asset.year}}</td>
+            <td>{{asset.make}}</td>
+            <td>{{asset.model}}</td>
+            <!-- <td class="text-center">
+              {{asset.vin}}
+            </td>
+            <td class="text-center">
+              {{asset.gross_vehicle_weight}}
+            </td> -->
+            <td>{{asset.cbm}}</td>
+            <td>{{asset.payload}}</td>
+            <td class="text-center">{{asset.units}}</td>
+            <td class="text-center">{{asset.no_of_vehicles}}</td>
+            <td class="pad-left inner-screen" style="cursor:pointer">
+                <a (click)="asset.status = ! asset.status">
+                    <span *ngIf="!asset.status" style="color:red">Inactive</span>
+                    <span *ngIf="asset.status" style="color:#1c4f86;">Active</span>
+                </a>
+            </td>
+            <td><a style="color:#007bff;cursor: pointer" (click)="openDocsDialog(asset)">3</a></td>
+            <!-- <td class="text-center">
+              <a target="_blank" href="http://www.africau.edu/images/default/sample.pdf"><i class="fa fa-file-text add" style="cursor: pointer;" title="View Document"></i></a>
+            </td> -->
+            
+            <td class="text-center">
+              <a style="cursor: pointer;" title="Edit Asset" (click)="openAssetDialog('update')">
+                <i class="fa fa-edit"></i>
+              </a>
+              <a><i class="fa fa-trash red" style="cursor: pointer;"(click)="openDeleteDialog()" title="Delete Asset"></i></a>
+            </td>
+          </tr>
+        </table>
+        <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator>
+      </div>
+    </div>
+  
+    <div *ngIf="!tableLists" fxLayout="column" fxLayoutAlign="center center" class="campaign-spinner">
+        <mat-spinner color="primary"></mat-spinner>
+    </div>

@@ -1,0 +1,164 @@
+<div fxLayout="row wrap">
+  <div class="col-sm-12">
+    <form novalidate [formGroup]="planGroupForm">
+      <table id="example2" class="table table-bordered table-hover">
+        <thead class="tbl-head">
+          <tr class="tr-grid-header">
+            <th colspan="2">Recommendations for the patient are captured here</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-sm-6 col-xs-6" colspan="2">
+              Chiropractor Treatment<br>
+              <mat-slide-toggle formControlName="chiropractorToggle"></mat-slide-toggle>
+            </td>
+          </tr>
+          <tr>
+            <td class="col-sm-6 col-xs-6">
+              Body Part<br>
+              <mat-select placeholder="--Select Options--" formControlName="chiroBodyParts" multiple class="form-control">
+                <mat-option *ngFor="let option of labOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Diagnosis<br>
+              <textarea class="form-control txtarea" formControlName="chiroDiagnosis" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-6 col-xs-6">
+              Notes<br>
+              <textarea class="form-control txtarea" formControlName="chiroNotes" placeholder="Enter notes" rows="2"></textarea>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Length of Treatment<br>
+              <textarea class="form-control txtarea" formControlName="chiroComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-6 col-xs-6" colspan="2">
+              Orthopedic Treatment<br>
+              <mat-slide-toggle formControlName="orthopedicToggle"></mat-slide-toggle>
+            </td>
+          </tr>
+          <tr>
+            <td class="col-sm-6 col-xs-6">
+              Body Part<br>
+              <mat-select placeholder="--Select Options--" formControlName="orthoBodyParts" class="form-control">
+                <mat-option *ngFor="let option of ptOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Diagnosis<br>
+              <textarea class="form-control txtarea" formControlName="orthoDiagnosis" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-6 col-xs-6">
+              Notes<br>
+              <textarea class="form-control txtarea" formControlName="orthoNotes" placeholder="Enter notes" rows="2"></textarea>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+            </td>
+            
+          </tr>
+          <tr>
+            <td class="col-sm-6 col-xs-6" colspan="2">
+              Pain Management<br>
+              <mat-slide-toggle formControlName="painManagementToggle"></mat-slide-toggle>
+            </td>
+            
+          </tr>
+          <tr>
+            <td class="col-sm-6 col-xs-6">
+              Body Part<br>
+              <mat-select placeholder="--Select Options--" formControlName="painBodyParts" class="form-control">
+                <mat-option *ngFor="let option of ptOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Diagnosis<br>
+              <textarea class="form-control txtarea" formControlName="painDiagnosis" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-6 col-xs-6">
+              Notes<br>
+              <textarea class="form-control txtarea" formControlName="painNotes" placeholder="Enter comments" rows="2"></textarea>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-6 col-xs-6">
+              Medical Records<br>
+              <mat-slide-toggle formControlName="medicalRecordsToggle"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-6 col-xs-6" colspan="2">
+              Comments<br>
+              <textarea class="form-control txtarea" formControlName="medicalRecordsComments" placeholder="Enter comments" rows="2"></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td class="col-sm-6 col-xs-6" colspan="2">
+              Imaging<br>
+              <mat-slide-toggle formControlName="imagingToggle"></mat-slide-toggle>
+            </td>
+          </tr>
+          <tr>
+            <td class="col-sm-6 col-xs-6">
+              Imaging Type<br>
+              <mat-select placeholder="--Select Options--" formControlName="imagingDropdown" class="form-control">
+                <mat-option *ngFor="let option of ptOptions" [value]="option.id">{{option.value}}</mat-option>
+              </mat-select>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Comments<br>
+              <textarea class="form-control txtarea" formControlName="imagingComments" placeholder="Enter comments" rows="2"></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td class="col-sm-6 col-xs-6">
+              Procedure<br>
+              <mat-slide-toggle formControlName="procedureToggle"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Comments<br>
+              <textarea class="form-control txtarea" formControlName="procedureComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-6 col-xs-6">
+              Specialists<br>
+              <mat-slide-toggle formControlName="specialistsToggle"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Comments<br>
+              <textarea class="form-control txtarea" formControlName="specialistComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td class="col-sm-6 col-xs-6">
+              Follow-up<br>
+              <mat-slide-toggle formControlName="followupToggle"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Comments<br>
+              <textarea class="form-control txtarea" formControlName="followupComments" placeholder="Enter comments" rows="2"></textarea>
+            </td> 
+          </tr>
+          <tr>
+            <td colspan="2">
+              Notes<br>
+              <textarea class="form-control txtarea" formControlName="notes" placeholder="Enter comments" rows="5"></textarea>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <mat-dialog-actions align="end">
+        <button mat-raised-button style="cursor:pointer;" class="btn-success" (click)="saveForm()"><mat-icon>save</mat-icon>&nbsp;Save</button>
+      </mat-dialog-actions>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,129 @@
+<div fxLayout="row wrap" #resizedDiv>
+    <div class="flex-p w-100">
+
+
+        <div fxLayout="row wrap">
+            <div fxFlex="100" fxFlex.gt-sm="50" class="flex-p w-100">
+                <app-piee></app-piee>
+
+            </div>
+            <div fxFlex="100" fxFlex.gt-sm="50" class="flex-p">
+
+                <app-piee2></app-piee2>
+
+            </div>
+        </div>
+        <div fxLayout="row wrap my-10">
+            <div fxFlex="100" class="flex-p w-100">
+                <label>Upcoming Receviables</label>
+            </div>
+        </div>
+        <div fxLayout="row wrap">
+            <div class="table-responsive">
+                <table id="example2" class="table table-bordered table-hover">
+                    <thead class="tbl-head">
+                        <tr class="tr-grid-header">
+                            <th>Customer Name</th>
+                            <th>Phone Number</th>
+                            <th>Email Id</th>
+                            <th>Due Date</th>
+                            <th>Total Amount</th>
+                            <th>Due Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="showEmpty">
+                            <td colspan="6">No records found</td>
+                        </tr>
+                        <tr *ngFor="let item of tableList">
+                            <td>{{item.vendorName}}</td>
+                            <td>{{item.phoneNumber}}</td>
+                            <td>{{item.email}}</td>
+                            <td>{{item.paymentDate}}</td>
+                            <td>{{item.totalAmount}}</td>
+                            <td>{{item.dueAmount}}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator> -->
+            </div>
+        </div>
+        <div fxLayout="row wrap my-5">
+            <div fxFlex="100" class="flex-p w-100">
+                <label>Overdue Receviables</label>
+            </div>
+        </div>
+        <div fxLayout="row wrap">
+            <div class="table-responsive">
+                <table id="example2" class="table table-bordered table-hover">
+                    <thead class="tbl-head">
+                        <tr class="tr-grid-header">
+                            <th>Customer Name</th>
+                            <th>Phone Number</th>
+                            <th>Email Id</th>
+                            <th>Due Date</th>
+                            <th>Total Amount</th>
+                            <th>Due Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="showEmpty">
+                            <td colspan="6">No records found</td>
+                        </tr>
+                        <tr *ngFor="let item of tableLists">
+                            <td>{{item.vendorName}}</td>
+                            <td>{{item.phoneNumber}}</td>
+                            <td>{{item.email}}</td>
+                            <td>{{item.paymentDate}}</td>
+                            <td>{{item.totalAmount}}</td>
+                            <td>{{item.dueAmount}}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator> -->
+            </div>
+        </div>
+        <div fxLayout="row wrap my-5">
+            <div fxFlex="100" class="flex-p w-100">
+                <label>Ageing Analysis</label>
+            </div>
+        </div>
+        <div fxLayout="row wrap">
+            <div class="table-responsive">
+                <table id="example2" class="table table-bordered table-hover">
+                    <thead class="tbl-head">
+                        <tr class="tr-grid-header">
+                            <th>Customer Name</th>
+                            <th>Current</th>
+                            <th>1-7 Days</th>
+                            <th>8-14 Days</th>
+                            <th>15-21 Days</th>
+                            <th>22-28 Days</th>
+                            <th>More Than 28 Days</th>
+                            <th>Total Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="showEmpty">
+                            <td colspan="8">No records found</td>
+                        </tr>
+                        <tr *ngFor="let item of tableLists3">
+                            <td>{{item.vendorName}}</td>
+                            <td>{{item.Current}}</td>
+                            <td>{{item.days1}}</td>
+                            <td>{{item.days2}}</td>
+                            <td>{{item.days3}}</td>
+                            <td>{{item.days4}}</td>
+                            <td>{{item.morethan28}}</td>
+                            <td>{{item.totalAmount}}</td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator> -->
+            </div>
+        </div>
+    </div>
+</div>

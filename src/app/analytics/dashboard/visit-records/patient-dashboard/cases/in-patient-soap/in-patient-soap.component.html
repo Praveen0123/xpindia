@@ -1,0 +1,158 @@
+<div fxLayout="row wrap">
+  <div class="col-sm-12">
+    <form novalidate [formGroup]="reasonForVisitForm">
+      <table id="example2" class="table table-bordered table-hover">
+        <thead class="tbl-head">
+          <tr class="tr-grid-header">
+            <th colspan="3">Each item should be toggled to render the information</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="heightProperty">
+            <td class="col-sm-6 col-xs-6">
+              Allergies<br>
+              <mat-slide-toggle formControlName="allergies"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Annual Physical Exam<br>
+              <mat-slide-toggle formControlName="annualPhysicalExam"></mat-slide-toggle>
+            </td>
+          </tr>
+          <tr class="heightProperty">
+            <td class="col-sm-6 col-xs-6">
+              Anxious<br>
+              <mat-slide-toggle formControlName="anxious"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Asthma<br>
+              <mat-slide-toggle formControlName="asthma"></mat-slide-toggle>
+            </td>
+          </tr>
+          <tr class="heightProperty">
+            <td class="col-sm-6 col-xs-6">
+              Attention Problems<br>
+              <mat-slide-toggle formControlName="attentionProblems"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Back Problems<br>
+              <mat-slide-toggle formControlName="backProblems"></mat-slide-toggle>
+            </td>
+          </tr>
+          <tr class="heightProperty">
+            <td class="col-sm-6 col-xs-6">
+              Broken/ Fractured Bones<br>
+              <mat-slide-toggle formControlName="brokenBones"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Cold<br>
+              <mat-slide-toggle formControlName="cold"></mat-slide-toggle>
+            </td>
+          </tr>
+          <tr class="heightProperty">
+            <td class="col-sm-6 col-xs-6">
+              Cough<br>
+              <mat-slide-toggle formControlName="cough"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Depression<br>
+              <mat-slide-toggle formControlName="depression"></mat-slide-toggle>
+            </td>
+          </tr>
+          <tr class="heightProperty">
+            <td class="col-sm-6 col-xs-6">
+              Dizzy<br>
+              <mat-slide-toggle formControlName="dizzy"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Earache<br>
+              <mat-slide-toggle formControlName="earache"></mat-slide-toggle>
+            </td>
+          </tr>
+          <tr class="heightProperty">
+            <td class="col-sm-6 col-xs-6">
+              Diabetes<br>
+              <mat-slide-toggle formControlName="diabetes"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Diarrhea<br>
+              <mat-slide-toggle formControlName="diarrhea"></mat-slide-toggle>
+            </td>
+          </tr>
+          <tr class="heightProperty">
+            <td class="col-sm-6 col-xs-6">
+              Facial Questions<br>
+              <mat-slide-toggle formControlName="facialQuestions"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Heartburn<br>
+              <mat-slide-toggle formControlName="heartBurn"></mat-slide-toggle>
+            </td>
+          </tr>
+          <tr class="heightProperty">
+            <td class="col-sm-6 col-xs-6">
+              Headache<br>
+              <mat-slide-toggle formControlName="headAche"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Weekly Recur Exam<br>
+              <mat-slide-toggle formControlName="WeaklyExam"></mat-slide-toggle>
+            </td>
+          </tr>
+          <tr class="heightProperty">
+            <td class="col-sm-6 col-xs-6">
+              Shoulder Pain<br>
+              <mat-slide-toggle formControlName="shoulderPain"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Difficulty Breathing<br>
+              <mat-slide-toggle formControlName="difficultyBreathing"></mat-slide-toggle>
+            </td>
+          </tr>
+          <tr class="heightProperty">
+            <td class="col-sm-6 col-xs-6">
+              Neck Pain<br>
+              <mat-slide-toggle formControlName="neckPain"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Difficulty Swallowing<br>
+              <mat-slide-toggle formControlName="difficultySwallowing"></mat-slide-toggle>
+            </td>
+          </tr>
+          <tr class="heightProperty">
+            <td class="col-sm-6 col-xs-6">
+              Wrist Pain<br>
+              <mat-slide-toggle formControlName="wristPain"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Difficulty Urinating<br>
+              <mat-slide-toggle formControlName="difficultyUrinating"></mat-slide-toggle>
+            </td>
+          </tr>
+          <tr class="heightProperty">
+            <td class="col-sm-6 col-xs-6">
+              Eye Drainage<br>
+              <mat-slide-toggle formControlName="eyeDrainage"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              Facial Pain<br>
+              <mat-slide-toggle formControlName="facialPain"></mat-slide-toggle>
+            </td>
+          </tr>
+          <tr class="heightProperty">
+            <td class="col-sm-6 col-xs-6">
+              Fever<br>
+              <mat-slide-toggle formControlName="fever"></mat-slide-toggle>
+            </td>
+            <td class="col-sm-6 col-xs-6">
+              High Blood<br>
+              <mat-slide-toggle formControlName="highBlood"></mat-slide-toggle>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+    <mat-dialog-actions align="end">
+      <button mat-raised-button style="cursor:pointer;" class="btn-success" (click)="saveForm()"><mat-icon>save</mat-icon>&nbsp;Save</button>
+    </mat-dialog-actions>
+  </div>
+</div>

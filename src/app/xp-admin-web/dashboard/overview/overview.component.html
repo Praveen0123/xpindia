@@ -1,0 +1,208 @@
+<div fxLayout="row wrap" #resizedDiv>
+    <div class="flex-p w-100">
+        <app-master></app-master>
+    </div>
+    <!-- <div class="w-100 flex-p">
+    <div class="row wrap">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div class="w-100 flex-p"></div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div class="w-100 flex-p">
+                <button mat-raised-button color="primary" class="pull-right filter-hover" (click)="toggleFilter()">
+                    <mat-icon>filter_list</mat-icon> Filter
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p" *ngIf="filterToggle">
+    <mat-card class="filter">
+        <mat-card-content>
+            <div class="row col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 newMarginClass">
+                    From:
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <mat-select color="primary" placeholder="--Select Year--" class="form-control">
+                        <mat-option [value]="0">2016</mat-option>
+                        <mat-option [value]="1">2017</mat-option>
+                        <mat-option [value]="2">2018</mat-option>
+                        <mat-option [value]="3">2019</mat-option>
+                    </mat-select>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <mat-select color="primary" placeholder="--Select Month--" class="form-control">
+                        <mat-option [value]="0">January</mat-option>
+                        <mat-option [value]="1">February</mat-option>
+                        <mat-option [value]="2">March</mat-option>
+                        <mat-option [value]="3">April</mat-option>
+                        <mat-option [value]="4">May</mat-option>
+                        <mat-option [value]="5">June</mat-option>
+                        <mat-option [value]="6">July</mat-option>
+                        <mat-option [value]="7">August</mat-option>
+                        <mat-option [value]="8">September</mat-option>
+                        <mat-option [value]="9">October</mat-option>
+                        <mat-option [value]="10">November</mat-option>
+                        <mat-option [value]="11">December</mat-option>
+                    </mat-select>
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 newMarginClass">
+                    To:
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <mat-select color="primary" placeholder="--Select Year--" class="form-control">
+                        <mat-option [value]="0">2016</mat-option>
+                        <mat-option [value]="1">2017</mat-option>
+                        <mat-option [value]="2">2018</mat-option>
+                        <mat-option [value]="3">2019</mat-option>
+                    </mat-select>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <mat-select color="primary" placeholder="--Select Month--" class="form-control">
+                        <mat-option [value]="0">January</mat-option>
+                        <mat-option [value]="1">February</mat-option>
+                        <mat-option [value]="2">March</mat-option>
+                        <mat-option [value]="3">April</mat-option>
+                        <mat-option [value]="4">May</mat-option>
+                        <mat-option [value]="5">June</mat-option>
+                        <mat-option [value]="6">July</mat-option>
+                        <mat-option [value]="7">August</mat-option>
+                        <mat-option [value]="8">September</mat-option>
+                        <mat-option [value]="9">October</mat-option>
+                        <mat-option [value]="10">November</mat-option>
+                        <mat-option [value]="11">December</mat-option>
+                    </mat-select>
+                </div>
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                    <button class="add-hover btn btn-success">Go</button>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div> -->
+    <div class="flex-p w-100">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 flex-p" style="margin-top: -10px;">
+            <div fxLayout="column">
+                <!-- <div class="flex-p">  -->
+                <mat-card>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 flex-p">
+                            <a target="_blank" href="/instanttransport/orders/orms">
+                                <mat-card style="background-color:#4bcc4bb0;height: 188px;box-shadow: 10px 8px 15px #968c8c;">
+                                    <h3>ORDERS</h3>
+                                    <label style="font-weight: 400;">FCL (174)</label><br>
+                                    <label style="font-weight: 400;">Express (124)</label><br>
+                                    <label style="font-weight: 400;">Bespoke (35)</label><br>
+                                    <!-- <label style="font-weight: 400;">Delivery: 19</label><br>
+                                    <label style="font-weight: 400;">KPI: 79% (4/5)</label> -->
+                                </mat-card>
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 flex-p">
+                            <a target="_blank" href="/instanttransport/capacity/capacity">
+                                <mat-card style="background-color:#4bcc4bb0;height: 188px;box-shadow: 10px 8px 15px #968c8c;">
+                                    <h3>CAPACITY (Vehicles)</h3>
+                                    <label style="font-weight: 400;">Lanes: 371</label><br>
+                                    <label style="font-weight: 400;">FCL Capacity: 122</label><br>
+                                    <label style="font-weight: 400;">Utiliztion: 70%</label><br>
+                                    <label style="font-weight: 400;">Active FFV: 55%</label><br>
+                                </mat-card>
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 flex-p">
+                            <a target="_blank" href="/instanttransport/user/customers">
+                                <mat-card style="background-color:#ff353585;height: 188px;box-shadow: 10px 8px 15px #968c8c;">
+                                    <h3>CUSTOMERS</h3>
+                                    <label style="font-weight: 400;">FCL: 32</label><br>
+                                    <label style="font-weight: 400;">Express: 22</label><br>
+                                    <label style="font-weight: 400;">Bespoke: 15</label><br>
+                                    <label style="font-weight: 400;">Inactive Customers: 15</label><br>
+                                    <label style="font-weight: 400;">KPI: 80% (4/5)</label><br>
+                                </mat-card>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 flex-p">
+                            <a target="_blank" href="/instanttransport/user/vendors">
+                                <mat-card style="background-color:#70b1ddb0;height: 188px;box-shadow: 10px 8px 15px #968c8c;">
+                                    <h3>FFV</h3>
+                                    <label style="font-weight: 400;">Booking Vendors: 77</label><br>
+                                    <label style="font-weight: 400;">Delivery Vendors: 68</label><br>
+                                    <label style="font-weight: 400;">Long Haul: 89</label><br>
+                                    <label style="font-weight: 400;">KPI: 88% (22/24)</label><br>
+                                </mat-card>
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 flex-p">
+                            <a target="_blank" href="/instanttransport/operation">
+                                <mat-card style="background-color:#ff353585;height: 188px;box-shadow: 10px 8px 15px #968c8c;">
+                                    <h3>OPERATIONS</h3>
+                                    <label style="font-weight: 400;">Totsl Trips: 2200</label><br>
+                                    <label style="font-weight: 400;">Lanes: 452</label><br>
+                                    <label style="font-weight: 400;">Gateways: 522</label><br>
+                                    <label style="font-weight: 400;">Hubs: 225</label><br>
+                                    <label style="font-weight: 400;">KPI: 75% (9/7)</label>
+                                </mat-card>
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 flex-p">
+                            <a target="_blank" href="http://sales.optionmatrix.org/">
+                                <mat-card style="background-color:#70b1ddb0;height: 188px;box-shadow: 10px 8px 15px #968c8c;">
+                                    <h3>Sales</h3>
+                                    <label style="font-weight: 400;">Prospects: 12</label><br>
+                                    <label style="font-weight: 400;">Leads: 7</label><br>
+                                    <label style="font-weight: 400;">Acquired clients: 35</label><br>
+                                    <label style="font-weight: 400;">KPI: 50% (6/12)</label>
+                                </mat-card>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 flex-p">
+                            <a target="_blank" href="/instanttransport/finance">
+                                <mat-card style="background-color:#ff353585;height: 188px;box-shadow: 10px 8px 15px #968c8c;">
+                                    <h3>FINANCE</h3>
+                                    <label style="font-weight: 400;">Payables: 44,22,000</label><br>
+                                    <label style="font-weight: 400;">Receivables: 50,00,000</label><br>
+                                    <label style="font-weight: 400;">Bad Debt: 50,000</label><br>
+                                    <label style="font-weight: 400;">KPI: 85% (6/7)</label>
+                                </mat-card>
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 flex-p">
+                            <a target="_blank" href="/instanttransport/admin/contracts">
+                                <mat-card style="background-color:#70b1ddb0;height: 188px;box-shadow: 10px 8px 15px #968c8c;">
+                                    <h3>CONTRACTS</h3>
+                                    <label style="font-weight: 400;">FFV: 75</label><br>
+                                    <label style="font-weight: 400;">Partner: 32</label><br>
+                                    <label style="font-weight: 400;">Customer: 52</label><br>
+                                    <label style="font-weight: 400;">Expiring: 12</label><br>
+                                    <label style="font-weight: 400;">Expired: 2</label>
+                                </mat-card>
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 flex-p">
+                            <a target="_blank" href="/instanttransport/admin/servicelevels">
+                                <mat-card style="background-color:#70b1ddb0;height: 188px;box-shadow: 10px 8px 15px #968c8c;">
+                                    <h3>SERVICE LEVELS</h3>
+                                    <label style="font-weight: 400;">Gateway: 96% (16/17)</label><br>
+                                    <label style="font-weight: 400;">Hub: 85% (7/8)</label><br>
+                                    <label style="font-weight: 400;">Booking: 70% (14/19)</label><br>
+                                    <label style="font-weight: 400;">Delivery: 85% (15/17)</label><br>
+                                </mat-card>
+                            </a>
+                        </div>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+
+        <!-- <div fxFlex="100" fxFlex.gt-sm="100" class="flex-p">
+      <app-trend-chart></app-trend-chart>
+    </div> -->
+
+    </div>
+</div>

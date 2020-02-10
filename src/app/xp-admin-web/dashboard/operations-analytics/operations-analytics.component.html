@@ -1,0 +1,55 @@
+<div fxLayout="row wrap">
+    <div class="w-100 flex-p">
+        <div class="row wrap">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="col-sm-6 width1">
+                        <a class="tabs" mat-raised-button>Orders</a>
+                    </div>
+                    <div class="col-sm-6 width2">
+                        <a class="tabs" mat-raised-button>Trips</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p" *ngIf="filterToggle">
+        <mat-card class="filter">
+            <mat-card-content>
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="col-sm-2 newMarginClass">
+                            Trend:
+                        </div>
+                        <div class="col-sm-8">
+                            <mat-select color="primary" placeholder="--Select Trend--" class="form-control" [(ngModel)]="status_filter">
+                                <mat-option *ngFor="let option of trends" [value]="option.id">{{option.value}}</mat-option>
+                            </mat-select>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-1">
+                        <button type="button" class="add-hover btn btn-success  pull-right" (click)="trendSearch()">Search</button>
+                    </div>
+                    <div class="col-lg-1">
+                        <button type="button" class="btn filter-hover" style="background-color:#37474f; color:#fff !important" (click)="clearFilters()">Clear</button>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+<mat-card>
+    <mat-card-header fxLayoutAlign="center">
+        <mat-card-subtitle>
+            <h2> {{text}}</h2>
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="w-100 h-300p" #resizedDiv>
+            <ngx-charts-line-chart [scheme]="colorScheme" [results]="analytics" [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel"
+                [autoScale]="autoScale" [roundDomains]="roundDomains" (select)="onSelect($event)">
+            </ngx-charts-line-chart>
+        </div>
+    </mat-card-content>
+</mat-card>

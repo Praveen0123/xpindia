@@ -1,0 +1,107 @@
+<div class="NewHeader">
+  <h1 mat-dialog-title>Add Trip</h1>
+</div>
+<div mat-dialog-content>
+  
+  <form class="form-horizontal" novalidate [formGroup]="addTripForm">
+    <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Origin: </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <mat-select name="" id="" formControlName="source" placeholder="-- Select Origin --" class="form-control" required>
+          <mat-option [value]=1>Delhi</mat-option>
+          <mat-option [value]=2>Chennai</mat-option>
+          <mat-option [value]=3>Coimbatore</mat-option>
+          <mat-option [value]=4>Jaipur</mat-option>
+          <mat-option [value]=5>Udaipur</mat-option>
+        </mat-select>
+        <div *ngIf="!source.valid && (source.dirty || source.touched)" class="error-text">
+          <div *ngIf="source.errors.required">
+            Source is required
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Destination: </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <mat-select formControlName="destination" placeholder="-- Select Destination --" class="form-control" required>
+          <mat-option [value]=1>Hyderabad</mat-option>
+          <mat-option [value]=2>Lucknow</mat-option>
+          <mat-option [value]=3>West Bengal</mat-option>
+          <mat-option [value]=4>Mumbai</mat-option>
+          <mat-option [value]=5>Bangalore</mat-option>
+        </mat-select>
+        <div *ngIf="!destination.valid && (destination.dirty || destination.touched)" class="error-text">
+          <div *ngIf="destination.errors.required">
+            Destination is required
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4 add-member-label" for="pwd">Type: </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <mat-select formControlName="type" placeholder="-- Select Type --" class="form-control" required>
+          <mat-option [value]=1>First Mile</mat-option>
+          <mat-option [value]=2>Intra Regional Mile</mat-option>
+          <mat-option [value]=3>Line Haul</mat-option>
+          <mat-option [value]=4>Last Mile</mat-option>
+        </mat-select>
+        <div *ngIf="!type.valid && (type.dirty || type.touched)" class="error-text">
+          <div *ngIf="type.errors.required">
+            Type is required
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4">Start Date: </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <div class="input-icon right">
+          <i class="fa fa-calendar" [owlDateTimeTrigger]="dt1"></i>
+          <input class="form-control" [min]="minDate" formControlName="startDate" placeholder="MM/DD/YYYY" class="form-control" id="db1" [owlDateTimeTrigger]="dt1" [owlDateTime]="dt1" name="dt1" (ngModelChange)="setStartDate(addTripForm.value.startDate)">
+          <owl-date-time #dt1></owl-date-time>
+        </div>
+        <!-- <div *ngIf="!startDate.valid && (startDate.dirty || startDate.touched)" class="error-text">
+          <div *ngIf="startDate.errors.required">
+            Start Date is required
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4">Finish Date: </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <div class="input-icon right">
+          <i class="fa fa-calendar" [owlDateTimeTrigger]="dt2"></i>
+          <input class="form-control" [min]="finishDateToSet" formControlName="finishDate" placeholder="MM/DD/YYYY" class="form-control" id="db2" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" name="dt2">
+          <owl-date-time #dt2></owl-date-time>
+        </div>
+        <!-- <div *ngIf="!startDate.valid && (startDate.dirty || startDate.touched)" class="error-text">
+          <div *ngIf="startDate.errors.required">
+            Start Date is required
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4" for="pwd">Vendor : </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <input type="text" class="form-control" maxlength="150" formControlName="vendor" placeholder="Enter Vendor Name">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-lg-4 col-md-4 col-sm-4 col-xs-4" for="pwd">Vehicle Number : </label>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+        <input type="text" class="form-control" maxlength="20" formControlName="vehicleNumber" placeholder="Enter Vehicle Number">
+      </div>
+    </div>
+    
+    
+  </form>
+</div>
+<mat-dialog-actions align="end">
+  <button mat-raised-button [disabled]="!addTripForm.valid" style="cursor:pointer;" [ngClass]="!addTripForm.valid ? '' : 'btn-primary'" (click)="saveUser()" [mat-dialog-close]="'test'"><mat-icon *ngIf="user">update</mat-icon><mat-icon *ngIf="!user">save</mat-icon><span *ngIf="!user"> Save</span><span
+    *ngIf="user"> Update</span></button>
+    <button mat-raised-button class="CancelClass" (click)="close()"><mat-icon>cancel</mat-icon>&nbsp;Cancel</button>
+  </mat-dialog-actions> 

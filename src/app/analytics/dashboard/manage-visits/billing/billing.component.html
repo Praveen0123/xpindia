@@ -1,0 +1,89 @@
+<div fxLayout="row wrap" #resizedDiv>
+    <div class="flex-p w-100">
+      
+      <app-shared-in-manage-visits></app-shared-in-manage-visits>
+  
+      <div class="row wrap" style="margin-bottom:7px;">
+        <div class="col-sm-6">
+        </div>
+        <div class="col-sm-6">
+          <div class="w-100 flex-p">
+            <!-- <button mat-raised-button class="pull-right add-hover btn-success" (click)="openVisitDialog(null)">
+              <mat-icon>add</mat-icon> Add Visit
+            </button> -->
+            <!-- <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hover margin-right-10" (click)="filterToggle = !filterToggle">
+              <mat-icon>filter_list</mat-icon> Filter
+            </button> -->
+          </div>
+        </div>
+      </div>
+  
+  
+  
+      <div fxLayout="row wrap">
+        <div class="table-responsive">
+            <table id="example2" class="table table-bordered table-hover">
+                <thead class="tbl-head">
+                    <tr class="tr-grid-header">
+                        <th class="patientMinWidth">Patient</th>
+                        <th class="caseNumberMinWidth">Case Number</th>
+                        <th class="appointmentCodeMinWidth">Appointment Code</th>
+                        <th class="appointmentDateMinWidth">Appointment Date</th>
+                        <th class="timeMinWidth">Time</th>
+                        <th class="physicianMinWidth">Internal Physician</th>
+                        <!-- <th class="clinicalMinWidth">Clinical Observations</th> -->
+                        <th>Report</th>
+                        <!-- <th>Claims</th> -->
+                        <th>Docs</th>
+                        <th class="WorklistMinWidthClass">Worklist Status</th>
+                        <th>Notes</th>
+                        <th>Manage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of tableList">
+                        <td><a [routerLink]="['/sapphire/patients/patientdashboard/patientchart']" target="_blank" style="color:#007ad9!important;cursor: pointer!important;">{{item.patient}}</a></td>
+                        <td>{{item.caseNumber}}</td>
+                        <td>{{item.appointmentCode}}</td>
+                        <td>{{item.appointmentDate}}</td>
+                        <td>{{item.time}}</td>
+                        <td>{{item.internalPhysician}}</td>
+                        <!-- <td><a [routerLink]="['/sapphire/patients/patientdashboard/cases/clinicalObservations']" target="_blank" style="cursor: pointer!important;"><i class="fa fa-sticky-note-o" aria-hidden="true"></i></a></td> -->
+                        <td><a href="../../../../../assets/img/vendor/leaflet/LOP.pdf" target="_blank" style="cursor: pointer!important;font-size:16px!important" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a></td>
+                        <!-- <td><a [routerLink]="['/sapphire/patients/managevisits/billing/createClaims']">{{item.claims}}</a></td> -->
+                        <td><a style="color:#007ad9!important;cursor: pointer!important;" (click)="openDocsDialog(item)">{{item.docs}}</a></td>
+                        <td>
+                          <mat-select color="primary" [(value)]="item.selecte" placeholder="--Select Status--" class="form-control">
+                            <!-- <mat-option [value]="0">Scheduling</mat-option> -->
+                            <mat-option [value]="1">Front Desk</mat-option>
+                            <mat-option [value]="2">Prescreening</mat-option>
+                            <mat-option [value]="3">Diagnosis</mat-option>
+                            <mat-option [value]="4">Billing</mat-option>
+                          </mat-select>
+                        </td>
+                        <td *ngIf="item.notes === 'View'" style="background-color: #66c2ff;cursor: pointer" (click)="openRemarksModal(item)">{{item.notes}}</td>
+                        <td *ngIf="item.notes === 'Add'" style="background-color: black;color: white;cursor: pointer" (click)="openRemarksModal(null)">{{item.notes}}</td>
+                        <!-- <td>{{item.type}}</td> -->
+                        
+                        <td>
+                          <!-- <a title="Edit Visit" style="margin-right: 10px; cursor: pointer;" (click)="openVisitDialog(item)">
+                            <i class="fa fa-edit"></i>
+                          </a> -->
+                          <a mwlConfirmationPopover
+                          [popoverTitle]="popoverTitle"
+                          [popoverMessage]="popoverMessage"
+                          placement="left"
+                          (confirm)="deleteVisit()"
+                          (cancel)="cancelClicked = true" [appendToBody]="true">
+                              <i style="cursor: pointer;font-size:16px!important;" matTooltip="Delete Visit" class="fa fa-trash red"></i>
+                          </a>
+                          </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+  
+  
+    </div>
+  </div>

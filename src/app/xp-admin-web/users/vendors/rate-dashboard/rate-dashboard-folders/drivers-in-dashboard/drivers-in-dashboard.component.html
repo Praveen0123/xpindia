@@ -1,0 +1,121 @@
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+    <div class="row" style="margin-bottom:14px;">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <div class="w-100 flex-p">
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+        <div class="w-100 flex-p">
+          <button mat-raised-button class="pull-right add-hover btn-success" (click)="openDriverDialog('add')">
+            <mat-icon>add</mat-icon> Add Driver
+          </button>
+          <button mat-raised-button color="primary" style="color: white !important;" class="pull-right filter-hover margin-right-10" (click)="filterToggle = !filterToggle">
+            <mat-icon>filter_list</mat-icon> Filter
+          </button>
+          <button mat-raised-button class="pull-right add-hover btn-success margin-right-10">
+            <mat-icon>cloud_upload</mat-icon>   Export
+          </button>
+          <button mat-raised-button class="pull-right add-hover btn-success margin-right-10">
+            <mat-icon>cloud_download</mat-icon>   Import
+          </button>
+          <!-- <label class="btn btn-success margin-right-10 pull-right" style="color: white;padding-top: 8px !important;padding-bottom: 10px !important;;margin-right: 10px;">
+            <mat-icon>cloud_download</mat-icon>Import    <input type="file" style="display: none;"  name="image"> 
+          </label> -->
+        </div>
+      </div>
+    </div>
+    
+    <div fxLayout="row wrap">
+      <div fxFlex="100" fxFlex.gt-sm fxFlex.sm class="flex-p w-100" *ngIf="filterToggle">
+        <mat-card class="filter">
+          <mat-card-content>
+            <div class="row">
+              <div class="col-lg-2">
+                <input type="text" class="form-control" placeholder=" Search by Driver First Name ">
+              </div>
+              <div class="col-lg-2">
+                <input type="text" class="form-control" placeholder=" Search by Driver Last Name ">
+              </div>
+              <div class="col-lg-2">
+                <input type="text" class="form-control" placeholder=" Search by D.L. Number">
+              </div>
+              <div class="col-lg-2">
+                <mat-select color="primary" placeholder="--Search by D.L.Class --" multiple [formControl]="dlClass" class="form-control">
+                  <mat-option [value]="0" (click)="selectAll(ec, 'class')" #ec >All</mat-option>
+                  <mat-option *ngFor="let lead of class" (click)="selectOne(ec, 'class')" [value]="lead.class_id">{{lead.class_name}}</mat-option>
+                </mat-select>
+              </div>
+              <div class="col-lg-2">
+                <mat-select color="primary" placeholder="--Search by Status --" multiple [formControl]="statu" class="form-control">
+                  <mat-option [value]="0" (click)="selectAll(es, 'status')" #es >All</mat-option>
+                  <mat-option *ngFor="let lead of status" (click)="selectOne(es, 'status')" [value]="lead.status_id">{{lead.status_name}}</mat-option>
+                </mat-select>
+              </div>
+              <div class="col-lg-1">
+                <button type="button" class="add-hover btn btn-success  pull-right">Search</button>
+              </div>
+              <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="margin-left: -18px;">
+                <button class="btn filter-hover" style="background-color:#37474f; color:#fff !important" (click)="clearFilters()">Clear</button>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <div class="table-responsive my-5">
+      <table class="table table-bordered" style="width: 100%;background: #fff;">
+        <thead class="tbl-head">
+          <tr>
+            <th class="commonMinWidth">Driver First Name</th>
+            <th class="commonMinWidth">Driver Last Name</th>
+            <!-- <th>Home</th> -->
+            <th class="commonMinWidth">Cell Phone</th>
+            <th>Email Address</th>
+            <th>D.L. Number </th>
+            <th class="minWidthProperty">D.L. Class</th>
+            <th class="addressMinWidthProperty">Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Country</th>
+            <th class="text-center">Documents</th>
+            <th class="text-center">Status</th>
+            <th class="text-center">Actions</th>
+          </tr>
+        </thead>
+        <tr *ngFor="let driver of tableLists">
+          <td>{{driver.name}}</td>
+          <td>{{driver.last}}</td>
+          <td>{{driver.phone}}</td>
+          <td>{{driver.email}}</td>
+          <td>{{driver.dlnumber}}</td>
+          <td>{{driver.type}}</td>
+          <td>{{driver.address1}}</td>
+          <td>{{driver.city}}</td>
+          <td>{{driver.state}}</td>
+          <td>{{driver.country}}</td>
+          <td class="text-center">
+            <a target="_blank" href="http://www.africau.edu/images/default/sample.pdf"><i class="fa fa-file-text add" style="cursor: pointer;color: grey" title="View Document"></i></a>
+          </td>
+          <!-- <td class="text-center"><a style="cursor: pointer;" [style.color]="(driver.status) == 1 ? 'green' : 'red'">{{(driver.status) == 1 ? 'Active' : 'Inactive'}}</a></td> -->
+          <td class="pad-left inner-screen" style="cursor:pointer">
+            <a (click)="driver.status = ! driver.status">
+              <span *ngIf="!driver.status" style="color:red">Inactive</span>
+              <span *ngIf="driver.status" style="color:#1c4f86;">Active</span>
+            </a>
+          </td>
+          <td class="text-center">
+            <a style="cursor: pointer;" title="Edit Driver" (click)="openDriverDialog('update')">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a><i class="fa fa-trash red" style="cursor: pointer;"(click)="openDeleteDialog()" title="Delete Driver"></i></a>
+          </td>
+        </tr>
+      </table>
+      <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
+  
+  <div *ngIf="!tableLists" fxLayout="column" fxLayoutAlign="center center" class="campaign-spinner">
+    <mat-spinner color="primary"></mat-spinner>
+  </div>

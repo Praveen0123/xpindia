@@ -1,0 +1,46 @@
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+    
+    <div fxLayout="row wrap">
+      <div class="table-responsive">
+        <table id="example2" class="table table-bordered table-hover">
+          <thead class="tbl-head">
+            <tr class="tr-grid-header">
+              <th>Allergy Type</th>
+              <th>Severity</th>
+              <th>Description</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of tableList">
+              <td>{{item.allergyType}}</td>
+              <td>{{item.severity}}</td>
+              <td>{{item.description}}</td>
+              <td class="pad-left inner-screen" style="cursor:pointer">
+                <a (click)="item.status = ! item.status" >
+                  <span *ngIf="!item.status" style="color:red">Inactive</span>
+                  <span *ngIf="item.status" style="color:#1c4f86;">Active</span>
+                </a>
+              </td>
+              <td>
+                <a matTooltip="Edit Allergy" style="margin-right: 10px; cursor: pointer;font-size:16px!important;color:#0987e8d1" (click)="openMedicationDialog(item)">
+                  <i class="fa fa-edit"></i>
+                </a>
+                <a mwlConfirmationPopover
+                [popoverTitle]="popoverTitle"
+                [popoverMessage]="popoverMessage"
+                placement="left"
+                (confirm)="deleteMedication()"
+                (cancel)="cancelClicked = true" [appendToBody]="true">
+                <i style="cursor: pointer;font-size:16px!important;" matTooltip="Delete Allergy" class="fa fa-trash red"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
